@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.5" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane1" alignment="0" pref="373" max="32767" attributes="1"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="author" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="author" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="209" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/hadeslee/yoyoplayer/pic/logo.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/com/hadeslee/yoyoplayer/pic/name.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.author" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.copyRight" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.version" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.completeDate" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="&#x7b80;&#x4ecb;">
+              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.brief" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="    YOYOPlayer&#x662f;&#x4e00;&#x4e2a;&#x7528;JAVA&#x7f16;&#x5199;&#x7684;,&#x8de8;&#x5e73;&#x53f0;&#x7684;&#x97f3;&#x4e50;&#x64ad;&#x653e;&#x8f6f;&#x4ef6;.&#x662f;&#x4e00;&#x4e2a;&#x96c6;&#x64ad;&#x653e;,&#x6b4c;&#x8bcd;&#x663e;&#x793a;&#x4e8e;&#x4e00;&#x4f53;&#x7684;&#x97f3;&#x9891;&#x64ad;&#x653e;&#x8f6f;&#x4ef6;.&#xa;    &#x7531;&#x4e8e;JAVA&#x7684;&#x8de8;&#x5e73;&#x53f0;&#x6027;,&#x60a8;&#x53ef;&#x4ee5;&#x5728;&#x51e0;&#x4e4e;&#x4efb;&#x4f55;&#x5e73;&#x53f0;&#x4e0b;&#x4f7f;&#x7528;&#x6b64;&#x8f6f;&#x4ef6;,&#x8fd9;&#x6837;&#x53ef;&#x4ee5;&#x514d;&#x53bb;&#x60a8;&#x6bcf;&#x4e2a;&#x5e73;&#x53f0;&#x88c5;&#x4e00;&#x79cd;&#x7279;&#x5b9a;&#x64ad;&#x653e;&#x8f6f;&#x4ef6;&#x7684;&#x70e6;&#x607c;.&#xa;    YOYOPlayer&#x7684;&#x4e3b;&#x8981;&#x5b9a;&#x4f4d;&#x662f;Linux&#x4e0b;&#x7684;&#x7528;&#x6237;,&#x56e0;&#x4e3a;Linux&#x4e0b;&#x51e0;&#x4e4e;&#x6ca1;&#x6709;&#x4e00;&#x6b3e;&#x96c6;&#x6210;&#x6027;&#x9ad8;&#x7684;&#x97f3;&#x9891;&#x64ad;&#x653e;&#x8f6f;&#x4ef6;,&#x5e76;&#x4e14;&#x8bfb;&#x53d6;&#x4e2d;&#x6587;&#x6807;&#x7b7e;&#x7ecf;&#x5e38;&#x4f1a;&#x51fa;&#x73b0;&#x4e71;&#x7801;,&#x7531;&#x4e8e;YOYOPlayer&#x662f;&#x56fd;&#x4eba;&#x5f00;&#x53d1;&#x7684;,&#x6240;&#x4ee5;&#x5bf9;&#x4e2d;&#x6587;&#x7684;&#x652f;&#x6301;&#x7edd;&#x5bf9;&#x53ef;&#x4ee5;&#x653e;&#x5fc3;,&#x5e76;&#x4e14;&#x53ef;&#x4ee5;&#x81ea;&#x5b9a;&#x4e49;&#x6807;&#x7b7e;&#x7684;&#x8bfb;&#x53d6;&#x548c;&#x5199;&#x5165;&#x7f16;&#x7801;.&#xa;    &#x652f;&#x6301;snd,aifc,aif,wav,au,mp1,mp2,mp3,ogg,spx,flac,ape,mac&#x7b49;&#x97f3;&#x9891;&#x683c;&#x5f0f;&#x97f3;&#x4e50;&#x3002;&#x652f;&#x6301;10&#x6ce2;&#x6bb5;&#x5747;&#x8861;&#x5668;.&#xa;    &#x652f;&#x6301;ID3v1/v2&#x3001;APE&#x548c;Vorbis&#x6807;&#x7b7e;&#x7684;&#x8bfb;&#x53d6;&#x548c;&#x5199;&#x5165;&#xff0c;&#x652f;&#x6301;&#x8bbe;&#x7f6e;&#x6807;&#x7b7e;&#x7f16;&#x7801;,&#x652f;&#x6301;&#x4ee5;&#x6807;&#x7b7e;&#x91cd;&#x547d;&#x540d;&#x6587;&#x4ef6;&#x3002;&#xa;    &#x652f;&#x6301;&#x540c;&#x6b65;&#x6b4c;&#x8bcd;&#x6eda;&#x52a8;&#x663e;&#x793a;&#x548c;&#x62d6;&#x52a8;&#x5b9a;&#x4f4d;&#x64ad;&#x653e;&#xff0c;&#x5e76;&#x4e14;&#x652f;&#x6301;&#x5728;&#x7ebf;&#x6b4c;&#x8bcd;&#x641c;&#x7d22;&#x529f;&#x80fd;&#x3002;&#xa;    &#x652f;&#x6301;&#x591a;&#x64ad;&#x653e;&#x5217;&#x8868;&#xff0c;&#x652f;&#x6301;&#x591a;&#x79cd;&#x89c6;&#x89c9;&#x6548;&#x679c;.&#xa;    &#x771f;&#x6b63;&#x6c38;&#x4e45;&#x514d;&#x8d39;&#x5e76;&#x4e14;&#x5f00;&#x653e;&#x6e90;&#x4ee3;&#x7801;&#xff0c;&#x4e5f;&#x4e0d;&#x5b58;&#x5728;&#x4efb;&#x4f55;&#x529f;&#x80fd;&#x6216;&#x65f6;&#x95f4;&#x9650;&#x5236;&#x3002;&#x5728;&#x4f7f;&#x7528;&#x8fc7;&#x7a0b;&#x4e2d;,&#x6709;&#x4efb;&#x4f55;&#x95ee;&#x9898;,&#x6b22;&#x8fce;&#x5230;&#xa;    http://code.google.com/p/yoyoplayer&#x4e0a;&#x7559;&#x8a00;."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="author">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.authorName" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="authorMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="authorMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="authorMouseExited"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

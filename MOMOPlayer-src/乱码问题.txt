@@ -1,0 +1,18 @@
+1,在ubuntu8.04下面整个界面都是乱码,这不是程序的问题,而是由于在ubuntu 8.04里uming.ttf变成了uming.ttc，而ubuntu里java默认的中文字体就是uming.ttf，所以只要获得它就可以了，可以运行如下命令:
+
+sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \
+/usr/share/fonts/truetype/arphic/uming.ttf
+
+运行成功以后,就可以正常显示JAVA的字体了.
+
+2,歌词乱码或者歌曲信息乱码问题.
+
+目前歌词全部是从baidu上面搜索的,统一使用了GBK的编码方式.歌曲信息是用ID3v1,ID3V2,APEv2的格式来读取的,可以设置这三种标签的读取顺序.并且可以设置ID3v1的编码,默认我用的是GBK,在linux下面,可能要改成UTF-8.标准的APEv2都是UTF-8编码来存储歌曲信息的,所以不会出现乱码问题,推荐使用APEv2标签来保存歌曲信息.
+
+有任何其它的问题,欢迎联系作者:
+QQ:24325142
+
+邮件:hadeslee@vip.qq.com
+
+BLOG:http://www.blogjava.net/hadeslee
+

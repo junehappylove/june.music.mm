@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MOMOPlayer.jnlp">
+  <information>
+    <title>MOMOPlayer</title>
+    <vendor>Admin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="MOMOPlayer.jar" size="1462076" download="eager" />
+    <jar href="lib/commons-beanutils.jar" size="113422" download="eager" />
+    <jar href="lib/commons-codec-1.3.jar" size="46725" download="eager" />
+    <jar href="lib/commons-collections-3.1.whu1.jar" size="559366" download="eager" />
+    <jar href="lib/commons-httpclient-3.1.jar" size="305001" download="eager" />
+    <jar href="lib/commons-lang.jar" size="63980" download="eager" />
+    <jar href="lib/commons-logging-1.1.jar" size="52915" download="eager" />
+    <jar href="lib/commons-logging-api.jar" size="26202" download="eager" />
+    <jar href="lib/dom4j-1.6.1.jar" size="313898" download="eager" />
+    <jar href="lib/examples.jar" size="266881" download="eager" />
+    <jar href="lib/ezmorph-1.0.5.jar" size="86463" download="eager" />
+    <jar href="lib/gson-1.4.jar" size="166372" download="eager" />
+    <jar href="lib/jflac-1.2.jar" size="103640" download="eager" />
+    <jar href="lib/jl1.0.jar" size="105446" download="eager" />
+    <jar href="lib/jmactritonusspi1.74.jar" size="138975" download="eager" />
+    <jar href="lib/jna.jar" size="288699" download="eager" />
+    <jar href="lib/jogg-0.0.7.jar" size="6839" download="eager" />
+    <jar href="lib/jorbis-0.0.15.jar" size="58917" download="eager" />
+    <jar href="lib/json-lib-0.9.jar" size="62246" download="eager" />
+    <jar href="lib/jspeex0.9.7.jar" size="99833" download="eager" />
+    <jar href="lib/junit-4.4.jar" size="161477" download="eager" />
+    <jar href="lib/kj_dsp1.1.jar" size="12578" download="eager" />
+    <jar href="lib/mp3spi1.9.4.jar" size="24538" download="eager" />
+    <jar href="lib/tritonus_share.jar" size="102723" download="eager" />
+    <jar href="lib/vorbisspi1.0.2.jar" size="13776" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="MOMOPlayer" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="MOMOPlayerFX"  name="MOMOPlayer" />
+  <update check="always"/>
+</jnlp>
