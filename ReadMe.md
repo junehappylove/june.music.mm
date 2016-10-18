@@ -15,7 +15,7 @@
 1. 更改了精品网页的歌词搜索部分,因为精品网页的内容发生了改变,如果不更改对应的搜索方式的话将不能从精品网页上查询到歌词,无论怎么样,都对精品网页表示感谢,它的网址是:http://www.jpwy.net/gc
 2. 修正了程序在某些LINUX版本上的系统上打开会抛出异常而影响程序使用的BUG.
 3. 在歌词秀窗口去掉了作者的名字:),此前的不便,望各位用户原谅.
-4. 在使用过程中,有任何的建议,可以加作者的QQ:24325142,注明MOMOPlayer,或者到http://blog.csdn.net/junehappylove/article/details/52850828上留言,此博客为作者的博客,再此感谢大家对MOMOPlayer的支持.
+4. 在使用过程中,有任何的建议,可以加作者的QQ:24325142,注明MOMOPlayer,或者到http://blog.csdn.net/junehappylove/article/details/52850828 上留言,此博客为作者的博客,再此感谢大家对MOMOPlayer的支持.
 
 ## MOMOPlayer1.0版推出之后,得到了一些朋友的认可和反馈,经过这段时间的修改,现在推出MOMOPlayer1.1版.相对于1.0版,改进的地方如下:
 
