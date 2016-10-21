@@ -18,15 +18,14 @@
  */
 package com.judy.audiotag.audio.ogg;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.util.logging.Logger;
+
+import com.judy.audiotag.audio.ogg.util.VorbisHeader;
+import com.judy.audiotag.audio.ogg.util.VorbisPacketType;
 import com.judy.audiotag.tag.Tag;
 import com.judy.audiotag.tag.vorbiscomment.VorbisCommentCreator;
-import com.judy.audiotag.tag.vorbiscomment.VorbisCommentReader;
-import com.judy.audiotag.audio.ogg.util.VorbisPacketType;
-import com.judy.audiotag.audio.ogg.util.VorbisHeader;
-
-import java.io.UnsupportedEncodingException;
-import java.nio.*;
-import java.util.logging.Logger;
 
 /**
  * Creates an OggVorbis Comment Tag from a VorbisComment for use within an OggVorbis Container
@@ -37,7 +36,7 @@ import java.util.logging.Logger;
 public class OggVorbisCommentTagCreator
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
     public static final int FIELD_FRAMING_BIT_LENGTH        = 1;
     public static final byte FRAMING_BIT_VALID_VALUE         = (byte)0x01;

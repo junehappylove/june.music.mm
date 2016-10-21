@@ -61,9 +61,9 @@ public class FlacTag implements Tag
      * <p>It is not recommended to use this method for normal use of the
      * audiolibrary. The developer will circumvent the underlying
      * implementation. For example, if one adds a field with the field id
-     * &quot;TALB&quot; for an mp3 file, and the given {@link com.hadeslee.jaudiotagger.tag.TagField}
+     * &quot;TALB&quot; for an mp3 file, and the given {@link com.judy.jaudiotagger.tag.TagField}
      * implementation does not return a text field compliant data with
-     * {@link com.hadeslee.jaudiotagger.tag.TagField#getRawContent()} other software and the audio library
+     * {@link com.judy.jaudiotagger.tag.TagField#getRawContent()} other software and the audio library
      * won't read the file correctly, if they do read it at all. <br>
      * So for short:<br>
      * <uil>

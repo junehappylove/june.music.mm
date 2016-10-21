@@ -229,7 +229,8 @@ public class MP3File extends AudioFile {
      * @param loadOptions
      * @throws IOException
      */
-    private void readLyrics3Tag(File file, RandomAccessFile newFile, int loadOptions) throws IOException {
+    @SuppressWarnings("unused")
+	private void readLyrics3Tag(File file, RandomAccessFile newFile, int loadOptions) throws IOException {
     /*if ((loadOptions & LOAD_LYRICS3) != 0)
     {
     try
@@ -697,14 +698,14 @@ public class MP3File extends AudioFile {
      */
     public String displayStructureAsXML() {
         createXMLStructureFormatter();
-        this.tagFormatter.openHeadingElement("file", this.getFile().getAbsolutePath());
+        MP3File.tagFormatter.openHeadingElement("file", this.getFile().getAbsolutePath());
         if (this.getID3v1Tag() != null) {
             this.getID3v1Tag().createStructure();
         }
         if (this.getID3v2Tag() != null) {
             this.getID3v2Tag().createStructure();
         }
-        this.tagFormatter.closeHeadingElement("file");
+        MP3File.tagFormatter.closeHeadingElement("file");
         return tagFormatter.toString();
     }
 
@@ -713,14 +714,14 @@ public class MP3File extends AudioFile {
      */
     public String displayStructureAsPlainText() {
         createPlainTextStructureFormatter();
-        this.tagFormatter.openHeadingElement("file", this.getFile().getAbsolutePath());
+        MP3File.tagFormatter.openHeadingElement("file", this.getFile().getAbsolutePath());
         if (this.getID3v1Tag() != null) {
             this.getID3v1Tag().createStructure();
         }
         if (this.getID3v2Tag() != null) {
             this.getID3v2Tag().createStructure();
         }
-        this.tagFormatter.closeHeadingElement("file");
+        MP3File.tagFormatter.closeHeadingElement("file");
         return tagFormatter.toString();
     }
 

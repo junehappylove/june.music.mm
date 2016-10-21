@@ -4,6 +4,16 @@
  */
 package com.judy.momoplayer.util;
 
+import static com.judy.momoplayer.util.Config.BOTTOM;
+import static com.judy.momoplayer.util.Config.LEFT;
+import static com.judy.momoplayer.util.Config.LEFT_BOTTOM;
+import static com.judy.momoplayer.util.Config.LEFT_TOP;
+import static com.judy.momoplayer.util.Config.MOVE;
+import static com.judy.momoplayer.util.Config.RIGHT;
+import static com.judy.momoplayer.util.Config.RIGHT_BOTTOM;
+import static com.judy.momoplayer.util.Config.RIGHT_TOP;
+import static com.judy.momoplayer.util.Config.TOP;
+
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -15,18 +25,16 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.border.AbstractBorder;
-import static com.judy.momoplayer.util.Config.*;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class MultiImageBorder extends AbstractBorder implements MouseListener, MouseMotionListener {
 
-    private Logger log = Logger.getLogger(MultiImageBorder.class.getName());
+    //private Logger log = Logger.getLogger(MultiImageBorder.class.getName());
     private static final long serialVersionUID = 20071214L;
     private Image corner1,  corner2,  corner3,  corner4;//四个角的图片
     private Image top,  bottom,  left,  right;//四条边的图片
@@ -283,7 +291,6 @@ public class MultiImageBorder extends AbstractBorder implements MouseListener, M
                 if (dir != -1) {
                     SnapObject obj = new SnapObject(dir, c1);
                     changeLocation(obj);
-//                    return obj;
                 } else {
                     config.getComponentMap().remove(config.getComponentName(me));
                 }
@@ -301,7 +308,6 @@ public class MultiImageBorder extends AbstractBorder implements MouseListener, M
                 if (dir != -1) {
                     SnapObject obj = new SnapObject(dir, c1);
                     changeLocation(obj);
-//                    return obj;
                 } else {
                     config.getComponentMap().remove(config.getComponentName(me));
                 }
@@ -319,7 +325,6 @@ public class MultiImageBorder extends AbstractBorder implements MouseListener, M
                 if (dir != -1) {
                     SnapObject obj = new SnapObject(dir, c1);
                     changeLocation(obj);
-//                    return obj;
                 } else {
                     config.getComponentMap().remove(config.getComponentName(me));
                 }
@@ -337,7 +342,6 @@ public class MultiImageBorder extends AbstractBorder implements MouseListener, M
                 if (dir != -1) {
                     SnapObject obj = new SnapObject(dir, c1);
                     changeLocation(obj);
-//                    return obj;
                 } else {
                     config.getComponentMap().remove(config.getComponentName(me));
                 }
@@ -345,8 +349,6 @@ public class MultiImageBorder extends AbstractBorder implements MouseListener, M
                 config.getComponentMap().remove(config.getComponentName(me));
             }
         }
-//        return null;
-
     }
 
     public void mouseReleased(MouseEvent e) {

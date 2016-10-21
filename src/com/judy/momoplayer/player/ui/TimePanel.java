@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class TimePanel extends JPanel implements MouseListener {
 

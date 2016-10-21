@@ -5,23 +5,24 @@
  */
 package com.june.lrc.gcm;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import com.june.lrc.ILrcDownload;
 import com.june.lrc.bean.Lyric;
 import com.june.lrc.bean.Lyrics;
-import com.june.lrc.comm.LRCConstants;
 import com.june.lrc.comm.LRCUtil;
-import java.io.UnsupportedEncodingException;
-import java.text.MessageFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author HappyLove
  */
 public class GeCiMiLRC implements ILrcDownload {
+	
+    private static final Logger log = Logger.getLogger(GeCiMiLRC.class.getName());
 
     public boolean download(String title, String artist) {
+        log.log(Level.OFF, "Not supported yet.");
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -30,7 +31,7 @@ public class GeCiMiLRC implements ILrcDownload {
         String url = null;
         try {
             //url = MessageFormat.format(LRCConstants.GCM_URL_, LRCUtil.$(title), LRCUtil.$(artist));
-            System.out.println("title:"+title+",artist:"+artist);
+            log.log(Level.INFO, "title:{0},artist:{1}", new String[]{title,artist});
             Lyrics lyrics = getLyrics(title, artist);
             if (!"0".equals(lyrics.getCount())) {
                 Lyric lrc = lyrics.getResult() == null ? null : lyrics.getResult().get(0);

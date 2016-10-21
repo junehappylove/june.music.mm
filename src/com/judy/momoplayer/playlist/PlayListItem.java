@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 /**
  * This class implements item for playlist.
@@ -295,7 +295,7 @@ public class PlayListItem implements Serializable {
         if (comment != null) {
             return comment;
         } else if ((taginfo = getTagInfo()) != null) {
-            Vector v = taginfo.getComment();
+            Vector<String> v = taginfo.getComment();
             if (v != null) {
                 comment = String.valueOf(v.get(0));
                 return comment;
@@ -565,7 +565,8 @@ public class PlayListItem implements Serializable {
 
     @Override
     public String toString() {
-        TagInfo tag = getTagInfo();
+        @SuppressWarnings("unused")
+		TagInfo tag = getTagInfo();
         return displayName;
     }
 }

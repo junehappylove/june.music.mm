@@ -16,7 +16,7 @@ import com.judy.momoplayer.util.Config;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class AboutPanel extends javax.swing.JPanel {
 
@@ -50,9 +50,9 @@ public class AboutPanel extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         author = new javax.swing.JLabel();
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hadeslee/momoplayer/pic/logo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/judy/momoplayer/pic/logo.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/hadeslee/momoplayer/pic/name.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/judy/momoplayer/pic/name.png"))); // NOI18N
 
         jLabel3.setText(Config.getResource("AboutPanel.author")); // NOI18N
 

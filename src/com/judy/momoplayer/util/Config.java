@@ -47,15 +47,11 @@ public class Config implements Serializable {
     private static final long serialVersionUID = 20071127L;
     private static final Logger log = Logger.getLogger(Config.class.getName());
     public int voteOpenCount, voteOneHourCount;
-    /**
-     * ****************************************************************
-     */
-    /**
+    //////////////////////////////////////////////////////////
+    /*
      * ***********常量定义区********************************************
      */
-    /**
-     * ****************************************************************
-     */
+    //////////////////////////////////////////////////////////
     public static final String NAME = "MOMOPlayer";//MOMOPlayer
     public static final String EXTS = "snd,aifc,aif,wav,au,mp1,mp2,mp3,ogg,spx,flac,ape,mac";
     public static final File HOME = new File(System.getProperty("user.home") + File.separator + ".MOMOPlayer");//MOMOPlayer的目录文件
@@ -160,7 +156,7 @@ public class Config implements Serializable {
     /**
      * 载入资源配置文件
      */
-    private static final ResourceBundle rb = ResourceBundle.getBundle("com/hadeslee/momoplayer/util/UIInfo");
+    private static final ResourceBundle rb = ResourceBundle.getBundle("com/judy/momoplayer/util/UIInfo");
     private boolean showLrc = true;//是否显示歌词秀窗口
     private boolean showPlayList = true;//是否显示播放列表
     private boolean showEq = true;//是否显示调音台

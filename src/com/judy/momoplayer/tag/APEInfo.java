@@ -134,13 +134,14 @@ public class APEInfo implements TagInfo {
      *
      * @param aff
      */
-    protected void loadInfo(AudioFileFormat aff) throws UnsupportedAudioFileException {
+    @SuppressWarnings("unchecked")
+	protected void loadInfo(AudioFileFormat aff) throws UnsupportedAudioFileException {
         String ty = aff.getType().toString();
         if (!ty.equalsIgnoreCase("Monkey's Audio (ape)") && !ty.equalsIgnoreCase("Monkey's Audio (mac)")) {
             throw new UnsupportedAudioFileException("Not APE audio format");
         }
         if (aff instanceof TAudioFileFormat) {
-            Map props = ((TAudioFileFormat) aff).properties();
+			Map<String, Object> props = ((TAudioFileFormat) aff).properties();
             if (props.containsKey("duration")) {
                 duration = ((Long) props.get("duration")).longValue();
             }
@@ -316,9 +317,9 @@ public class APEInfo implements TagInfo {
         return album;
     }
 
-    public Vector getComment() {
+    public Vector<String> getComment() {
         if (comment != null) {
-            Vector c = new Vector();
+            Vector<String> c = new Vector<String>();
             c.add(comment);
             return c;
         }
@@ -331,10 +332,11 @@ public class APEInfo implements TagInfo {
     public String getType(){
         return type;
     }
+    
     public static void main(String[] args) throws Exception {
         APEInfo info = new APEInfo();
         info.load(new File("D:\\有没有人告诉你.mp3"));
-        Class c = info.getClass();
+        Class<? extends APEInfo> c = info.getClass();
         Method[] ms = c.getMethods();
         for (Method m : ms) {
             if (m.getName().startsWith("get")) {
@@ -342,6 +344,5 @@ public class APEInfo implements TagInfo {
                 System.out.println(m.getName() + ":" + obj);
             }
         }
-
     }
 }

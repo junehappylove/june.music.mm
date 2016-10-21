@@ -37,7 +37,7 @@ import java.util.logging.Logger;
 public class FlacTagReader
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.flac");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
 
     private VorbisCommentReader vorbisCommentReader = new VorbisCommentReader();
 

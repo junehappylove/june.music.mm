@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * 内部私有类,它代表了一个APE标签的内容
- * @author hadeslee
+ * @author judy
  */
 public class TagBody {
 

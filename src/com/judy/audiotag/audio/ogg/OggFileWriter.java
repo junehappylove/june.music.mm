@@ -34,7 +34,7 @@ import java.util.logging.Logger;
 public class OggFileWriter extends AudioFileWriter
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
     private OggVorbisTagWriter vtw = new OggVorbisTagWriter();
 

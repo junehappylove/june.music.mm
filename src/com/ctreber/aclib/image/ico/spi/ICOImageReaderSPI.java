@@ -15,7 +15,8 @@ public class ICOImageReaderSPI extends ImageReaderSpi {
     /**
      * Define the capabilities of this provider service.
      */
-    public ICOImageReaderSPI() {
+    @SuppressWarnings("deprecation")
+	public ICOImageReaderSPI() {
         super("Christian Treber, www.ctreber.com, ct@ctreber.com",
                 "1.0 December 2003", new String[] { "ico", "ICO" },
                 new String[] { "ico", "ICO" }, new String[] { "image/x-ico" },

@@ -14,11 +14,15 @@ import javax.swing.JColorChooser;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class PlayListPanel extends javax.swing.JPanel implements Initable {
 
-    private Color titleColor,  hilightColor,  indexColor,  lengthColor,  selectedColor,  bg1Color,  bg2Color;
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 7446619816796383394L;
+	private Color titleColor,  hilightColor,  indexColor,  lengthColor,  selectedColor,  bg1Color,  bg2Color;
     private Color selectedBGColor;
     private Font font;
     public static final int width = 15;
@@ -75,7 +79,7 @@ public class PlayListPanel extends javax.swing.JPanel implements Initable {
         ignoreBadFile = new javax.swing.JCheckBox();
         showTip = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        readTagStrategy = new javax.swing.JComboBox();
+        readTagStrategy = new javax.swing.JComboBox<Object>();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -107,7 +111,7 @@ public class PlayListPanel extends javax.swing.JPanel implements Initable {
 
         jLabel1.setText(Config.getResource("PlayListPanel.when")); // NOI18N
 
-        readTagStrategy.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "添加", "显示", "播放" }));
+        readTagStrategy.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "添加", "显示", "播放" }));
 
         jLabel2.setText(Config.getResource("PlayListPanel.readTag")); // NOI18N
 
@@ -463,7 +467,7 @@ public class PlayListPanel extends javax.swing.JPanel implements Initable {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton length;
-    private javax.swing.JComboBox readTagStrategy;
+    private javax.swing.JComboBox<Object> readTagStrategy;
     private javax.swing.JButton selectBG;
     private javax.swing.JButton selected;
     private javax.swing.JCheckBox showTip;

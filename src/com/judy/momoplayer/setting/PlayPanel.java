@@ -10,11 +10,15 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class PlayPanel extends javax.swing.JPanel implements Initable {
 
-    /** Creates new form PlayPanel */
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 909318357918312231L;
+	/** Creates new form PlayPanel */
     public PlayPanel() {
         initComponents();
         init();

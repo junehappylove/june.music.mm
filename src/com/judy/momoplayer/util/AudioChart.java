@@ -4,22 +4,19 @@
  */
 package com.judy.momoplayer.util;
 
-/**
- *
- * @author hadeslee
- */
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.JPanel;
+
 import kj.dsp.KJDigitalSignalProcessingAudioDataConsumer;
 import kj.dsp.KJDigitalSignalProcessor;
 import kj.dsp.KJFFT;
@@ -63,7 +60,7 @@ public class AudioChart extends JPanel implements KJDigitalSignalProcessor {
     private int[] peaksDelay = new int[DEFAULT_SPECTRUM_ANALYSER_BAND_COUNT];
     private int peakDelay = DEFAULT_SPECTRUM_ANALYSER_PEAK_DELAY;
     private boolean peaksEnabled = true;
-    private final List visColors = null;
+    //private final List visColors = null;
     private final int barOffset;// barOffset=1
     private int width;
     private int height;
@@ -76,7 +73,7 @@ public class AudioChart extends JPanel implements KJDigitalSignalProcessor {
     private float saColorScale;
     private float saMultiplier;
     private float saDecay = DEFAULT_SPECTRUM_ANALYSER_DECAY;
-    private float sad;
+    //private float sad;
     private SourceDataLine m_line = null;
     // -- VU Meter
     private float oldLeft;

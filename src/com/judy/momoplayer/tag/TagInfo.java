@@ -99,7 +99,7 @@ public interface TagInfo extends Serializable {
      *
      * @return the comments
      */
-    public Vector getComment();
+    public Vector<String> getComment();
 
     /**
      * 得到某种音乐的格式,比如MP3,FLAC,等等 

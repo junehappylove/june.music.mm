@@ -10,15 +10,14 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.logging.Logger;
 
 /**
  * 一个鼠标拖动的适配器
- * @author hadeslee
+ * @author judy
  */
 public class DragMoveAdapter implements MouseListener, MouseMotionListener {
 
-    private static Logger log = Logger.getLogger(DragMoveAdapter.class.getName());
+    //private static Logger log = Logger.getLogger(DragMoveAdapter.class.getName());
     //以下四项表示吸附的时候，对方所处的方位
     public static final int LEFT = 1;
     public static final int RIGHT = 2;

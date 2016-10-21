@@ -36,7 +36,7 @@ import java.util.logging.Logger;
 public class OggFileReader extends AudioFileReader
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
     private OggInfoReader ir = new OggInfoReader();
     private OggVorbisTagReader vtr = new OggVorbisTagReader();

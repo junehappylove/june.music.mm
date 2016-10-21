@@ -62,8 +62,8 @@ public class ICOReader extends ImageReader {
         return new ICOMetaData(getICOEntry(pImageIndex));
     }
 
-    public Iterator getImageTypes(final int pImageIndex) {
-        final List lTypes = new ArrayList();
+    public Iterator<ImageTypeSpecifier> getImageTypes(final int pImageIndex) {
+        final List<ImageTypeSpecifier> lTypes = new ArrayList<ImageTypeSpecifier>();
         for (int lImageNo = 0; lImageNo < getNumImages(false); lImageNo++) {
             // BitmapDescriptor lEntry = getICOEntry(i);
             // FIXME Get that right, and understand what the spec says.
@@ -181,8 +181,7 @@ public class ICOReader extends ImageReader {
      * @return ImageReader supporting ICO files.
      */
     private static ImageReader getICOReader() {
-        final Iterator lImageReaderIt = ImageIO
-                .getImageReadersByFormatName("ico");
+        final Iterator<ImageReader> lImageReaderIt = ImageIO.getImageReadersByFormatName("ico");
         if (lImageReaderIt == null || !lImageReaderIt.hasNext()) {
             System.err.println("No reader for format 'ICO' found");
             System.exit(1);
@@ -224,7 +223,7 @@ public class ICOReader extends ImageReader {
         final String[] lFormats = ImageIO.getReaderFormatNames();
         for (int lFormatNo = 0; lFormatNo < lFormats.length; lFormatNo++) {
             final String lFormat = lFormats[lFormatNo];
-            final Iterator lItReader = ImageIO.getImageReadersBySuffix(lFormat);
+            final Iterator<ImageReader> lItReader = ImageIO.getImageReadersBySuffix(lFormat);
             while (lItReader.hasNext()) {
                 final ImageReader lReader = (ImageReader) lItReader.next();
                 final ImageReaderSpi lProvider = lReader

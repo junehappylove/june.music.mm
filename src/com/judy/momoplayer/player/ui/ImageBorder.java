@@ -12,7 +12,7 @@ import javax.swing.border.Border;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class ImageBorder implements Border {
 

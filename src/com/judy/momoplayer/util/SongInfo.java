@@ -12,7 +12,7 @@ import com.judy.momoplayer.playlist.PlayListItem;
  * 窗口上面,并且还是滚动显示,因为一次只能显示一个项目
  * 所以会起一个定时器去定时滚动要显示的内容或者接受
  * 鼠标事件,点击它的时候,它也会主动更新一项显示的内容
- * @author hadeslee
+ * @author judy
  */
 public class SongInfo {
     private PlayListItem item;

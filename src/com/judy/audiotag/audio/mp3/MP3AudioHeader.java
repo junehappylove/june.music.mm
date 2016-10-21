@@ -77,7 +77,7 @@ public final class MP3AudioHeader implements AudioHeader
     private static final int              CONVERTS_BYTE_TO_BITS = 8;
 
      //Logger
-     public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.mp3");
+     public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.mp3");
 
     /** After testing the average location of the first MP3Header bit was at 5000 bytes so this is
      *  why chosen as a default.

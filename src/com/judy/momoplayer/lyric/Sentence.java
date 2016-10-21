@@ -14,7 +14,7 @@ import java.io.Serializable;
  * 一个用来表示每一句歌词的类
  * 它封装了歌词的内容以及这句歌词的起始时间
  * 和结束时间，还有一些实用的方法
- * @author hadeslee
+ * @author judy
  */
 public class Sentence implements Serializable {
 

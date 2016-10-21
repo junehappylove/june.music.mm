@@ -40,7 +40,7 @@ import java.util.logging.Logger;
 public class OggVorbisTagReader
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
     private VorbisCommentReader vorbisCommentReader = new VorbisCommentReader();
 

@@ -84,7 +84,7 @@ public class AudioFileIO
 {
 
     //Logger
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio");
 
     // !! Do not forget to also add new supported extensions to AudioFileFilter
     // !!
@@ -223,7 +223,7 @@ public class AudioFileIO
         writers.put(SupportedFileFormat.MP3.getFilesuffix(), new MP3FileWriter());
 
         // Register modificationHandler
-        Iterator it = writers.values().iterator();
+        Iterator<AudioFileWriter> it = writers.values().iterator();
         while (it.hasNext())
         {
             AudioFileWriter curr = (AudioFileWriter) it.next();

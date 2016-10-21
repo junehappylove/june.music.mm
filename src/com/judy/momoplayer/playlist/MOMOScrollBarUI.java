@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  * 此类包内友好。只用于滚动条的UI实现
  * 可能的话，可能把它升级为公共类。以供别
  * 的包所使用
- * @author hadeslee
+ * @author judy
  */
 class MOMOScrollBarUI extends BasicScrollBarUI {
 

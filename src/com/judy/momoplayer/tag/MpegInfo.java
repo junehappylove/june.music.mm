@@ -4,17 +4,6 @@
  */
 package com.judy.momoplayer.tag;
 
-import com.judy.audiotag.audio.exceptions.InvalidAudioFrameException;
-import com.judy.audiotag.audio.exceptions.ReadOnlyFileException;
-import com.judy.audiotag.audio.mp3.MP3AudioHeader;
-import com.judy.audiotag.audio.mp3.MP3File;
-import com.judy.audiotag.tag.Tag;
-import com.judy.audiotag.tag.TagException;
-import com.judy.audiotag.tag.ape.APEv2Tag;
-import com.judy.audiotag.tag.id3.ID3v23Tag;
-import com.judy.audiotag.tag.id3.ID3v24Tag;
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Util;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,14 +14,26 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
+
 import org.tritonus.share.sampled.file.TAudioFileFormat;
+
+import com.judy.audiotag.audio.exceptions.InvalidAudioFrameException;
+import com.judy.audiotag.audio.exceptions.ReadOnlyFileException;
+import com.judy.audiotag.audio.mp3.MP3AudioHeader;
+import com.judy.audiotag.audio.mp3.MP3File;
+import com.judy.audiotag.tag.Tag;
+import com.judy.audiotag.tag.TagException;
+import com.judy.audiotag.tag.ape.APEv2Tag;
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.Util;
 
 /**
  * Mpeg格式的音频文件的信息读取类
- * @author hadeslee
+ * @author judy
  */
 @SuppressWarnings("unchecked")
 public class MpegInfo implements TagInfo {
@@ -61,7 +62,7 @@ public class MpegInfo implements TagInfo {
     protected String title = null;
     protected String artist = null;
     protected String album = null;
-    protected Vector comments = null;
+    protected Vector<String> comments = null;
     private final String type = "mp3";
     protected transient MP3AudioHeader header;//音频文件头
     protected transient Tag tag;
@@ -221,7 +222,7 @@ public class MpegInfo implements TagInfo {
             this.genre = tag.getFirstGenre();
             this.track = tag.getFirstTrack();
             if (comments == null) {
-                comments = new Vector();
+                comments = new Vector<String>();
             }
             comments.add(tag.getFirstComment());
             this.title = tag.getFirstTitle();
@@ -233,7 +234,7 @@ public class MpegInfo implements TagInfo {
             this.genre = getChineseString(tag.getFirstGenre());
             this.track = getChineseString(tag.getFirstTrack());
             if (comments == null) {
-                comments = new Vector();
+                comments = new Vector<String>();
             }
             comments.add(getChineseString(tag.getFirstComment()));
             this.title = getChineseString(tag.getFirstTitle());
@@ -287,7 +288,7 @@ public class MpegInfo implements TagInfo {
             throw new UnsupportedAudioFileException("Not MP3 audio format");
         }
         if (aff instanceof TAudioFileFormat) {
-            Map props = ((TAudioFileFormat) aff).properties();
+            Map<?, ?> props = ((TAudioFileFormat) aff).properties();
             if (props.containsKey("mp3.channels")) {
                 channels = ((Integer) props.get("mp3.channels")).intValue();
             }
@@ -404,10 +405,10 @@ public class MpegInfo implements TagInfo {
             throw new UnsupportedAudioFileException("Not MP3 audio format");
         }
         if (aff instanceof TAudioFileFormat) {
-            Map props = ((TAudioFileFormat) aff).properties();
+            Map<String, ?> props = ((TAudioFileFormat) aff).properties();
             // Try shoutcast meta data (if any).
-            Iterator it = props.keySet().iterator();
-            comments = new Vector();
+            Iterator<String> it = props.keySet().iterator();
+            comments = new Vector<String>();
             while (it.hasNext()) {
                 String key = (String) it.next();
                 if (key.startsWith("mp3.shoutcast.metadata.")) {
@@ -498,7 +499,7 @@ public class MpegInfo implements TagInfo {
         return genre;
     }
 
-    public Vector getComment() {
+    public Vector<String> getComment() {
         return comments;
     }
 
@@ -523,7 +524,7 @@ public class MpegInfo implements TagInfo {
         MpegInfo info = new MpegInfo();
 //        info.load(new File("D:\\有没有人告诉你.mp3"));
         info.load(new URL("http://zhengfu.dx.comenic.com/mzju-gov-b/admingly/movie/2007103014045.mp3"));
-        Class c = info.getClass();
+        Class<? extends MpegInfo> c = info.getClass();
         Method[] ms = c.getMethods();
         for (Method m : ms) {
             if (m.getName().startsWith("get")) {

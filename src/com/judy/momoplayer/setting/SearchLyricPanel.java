@@ -16,10 +16,15 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class SearchLyricPanel extends javax.swing.JPanel implements Initable{
-    private static Logger log=Logger.getLogger(SearchLyricPanel.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -256260304080377393L;
+	@SuppressWarnings("unused")
+	private static Logger log=Logger.getLogger(SearchLyricPanel.class.getName());
     private Vector<File> files;
     private File lyricDir;
 
@@ -39,7 +44,7 @@ public class SearchLyricPanel extends javax.swing.JPanel implements Initable{
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        list = new javax.swing.JList();
+        list = new javax.swing.JList<Object>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -59,8 +64,12 @@ public class SearchLyricPanel extends javax.swing.JPanel implements Initable{
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(Config.getResource("SearchLyricPanel.localSearch"))); // NOI18N
 
-        list.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "USER.HOME", "MOMO.HOME" };
+        list.setModel(new javax.swing.AbstractListModel<Object>() {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+			String[] strings = { "USER.HOME", "MOMO.HOME" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -349,7 +358,7 @@ public class SearchLyricPanel extends javax.swing.JPanel implements Initable{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList list;
+    private javax.swing.JList<Object> list;
     private javax.swing.JCheckBox relativeWithFile;
     private javax.swing.JCheckBox saveAsTheFileName;
     private javax.swing.JTextField saveLyricDir;

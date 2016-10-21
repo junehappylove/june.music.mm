@@ -4,13 +4,13 @@
  */
 package com.judy.momoplayer.player.ui;
 
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Util;
-import com.judy.momoplayer.util.Version;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.Util;
 
 /**
  * 检测软件更新类
@@ -39,34 +39,34 @@ class CheckThread extends Thread {
                     && now.get(Calendar.DAY_OF_MONTH) == last.get(Calendar.DAY_OF_MONTH)) {
                 //如果年月日都相等,则不要比较了,今天已经比过了
             } else {
-                Version ver = null;//Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
+//                Version ver = null;//TODO Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
                 log.log(Level.INFO, "每天检查版本信息");
-                if (ver != null) {
-                    Config.getConfig().setLastCheckUpdate(new Date());
-                    Util.checkUpdate(ver, true);
-                }
+//                if (ver != null) {
+//                    Config.getConfig().setLastCheckUpdate(new Date());
+//                    Util.checkUpdate(ver, true);
+//                }
             }
         } else if (s.equals(Config.CHECK_MONTH)) {
             Calendar now = Calendar.getInstance();
             now.add(Calendar.MONTH, 1);
             if (now.before(last)) {
-                Version ver = null;//Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
+//                Version ver = null;//TODO Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
                 log.log(Level.INFO, "每月检查版本信息");
-                if (ver != null) {
-                    Config.getConfig().setLastCheckUpdate(new Date());
-                    Util.checkUpdate(ver, true);
-                }
+//                if (ver != null) {
+//                    Config.getConfig().setLastCheckUpdate(new Date());
+//                    Util.checkUpdate(ver, true);
+//                }
             }
         } else if (s.equals(Config.CHECK_WEEK)) {
             Calendar now = Calendar.getInstance();
             now.add(Calendar.WEEK_OF_YEAR, 1);
             if (now.before(last)) {
-                Version ver = null;//Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
+ //               Version ver = null;//TODO Util.getRemoteVersion();//获取远程版本信息，这里已经不维护了
                 log.log(Level.INFO, "每周检查版本信息");
-                if (ver != null) {
-                    Config.getConfig().setLastCheckUpdate(new Date());
-                    Util.checkUpdate(ver, true);
-                }
+//                if (ver != null) {
+//                    Config.getConfig().setLastCheckUpdate(new Date());
+//                    Util.checkUpdate(ver, true);
+//                }
             }
         } else if (s.equals(Config.CHECK_NONE)) {
             //什么都不做

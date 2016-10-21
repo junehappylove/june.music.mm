@@ -61,7 +61,7 @@ public class LRCUtil {
         return GAEUtil.getSearchResult(singer, title);
     }
 
-    private static String readURL(String url) {
+    static String readURL(String url) {
         try {
             HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));

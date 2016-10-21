@@ -13,11 +13,15 @@ import javax.swing.JColorChooser;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class AudioChartPanel extends javax.swing.JPanel implements Initable {
 
-    private Color topColor,  centerColor,  bottomColor,  color;
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 4780164874069207260L;
+	private Color topColor,  centerColor,  bottomColor,  color;
     private Color lineColor;
     public static final int width = 15;
     public static final int height = 15;
@@ -38,7 +42,7 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        displayMode = new javax.swing.JComboBox();
+        displayMode = new javax.swing.JComboBox<Object>();
         jLabel2 = new javax.swing.JLabel();
         fps = new javax.swing.JSlider();
         info = new javax.swing.JLabel();
@@ -52,7 +56,7 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        speed = new javax.swing.JComboBox();
+        speed = new javax.swing.JComboBox<Object>();
         jPanel4 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -63,7 +67,7 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
 
         jLabel1.setText(Config.getResource("AudioChartPanel.analyzing")); // NOI18N
 
-        displayMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "频谱分析", "示波显示", "不显示" }));
+        displayMode.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "频谱分析", "示波显示", "不显示" }));
 
         jLabel2.setText(Config.getResource("AudioChartPanel.speed")); // NOI18N
 
@@ -191,7 +195,7 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
 
         jLabel6.setText(Config.getResource("AudioChartPanel.disappearSpeed")); // NOI18N
 
-        speed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "较快", "普通", "较慢" }));
+        speed.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "较快", "普通", "较慢" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -431,7 +435,7 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSlider band;
-    private javax.swing.JComboBox displayMode;
+    private javax.swing.JComboBox<Object> displayMode;
     private javax.swing.JSlider fps;
     private javax.swing.JLabel info;
     private javax.swing.JButton jButton1;
@@ -451,6 +455,6 @@ public class AudioChartPanel extends javax.swing.JPanel implements Initable {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JComboBox speed;
+    private javax.swing.JComboBox<Object> speed;
     // End of variables declaration//GEN-END:variables
 }

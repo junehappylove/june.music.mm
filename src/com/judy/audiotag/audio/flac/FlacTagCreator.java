@@ -38,7 +38,7 @@ import java.util.ListIterator;
 public class FlacTagCreator extends AbstractTagCreator
 {
       // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.flac");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
 
     public static final int DEFAULT_PADDING = 4000;
     private static final VorbisCommentCreator creator = new VorbisCommentCreator();

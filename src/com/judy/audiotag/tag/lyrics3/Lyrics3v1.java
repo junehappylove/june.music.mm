@@ -187,7 +187,7 @@ public class Lyrics3v1 extends AbstractLyrics3
     public Iterator iterator()
     {
         /**
-         * @todo Implement this com.hadeslee.jaudiotagger.tag.AbstractMP3Tag abstract method
+         * @todo Implement this com.judy.jaudiotagger.tag.AbstractMP3Tag abstract method
          */
         throw new java.lang.UnsupportedOperationException("Method iterator() not yet implemented.");
     }

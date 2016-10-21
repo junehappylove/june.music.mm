@@ -5,26 +5,32 @@
  */
 package com.judy.momoplayer.setting;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.util.logging.Logger;
+
+import javax.swing.JColorChooser;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 import com.judy.momoplayer.lyric.LyricPanel;
 import com.judy.momoplayer.util.Config;
 import com.judy.momoplayer.util.FontChooser;
 import com.judy.momoplayer.util.Util;
 import com.sun.jna.examples.WindowUtils;
-import java.awt.Color;
-import java.awt.Font;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JColorChooser;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class LyricSettingPanel extends javax.swing.JPanel implements Initable {
 
-    private static Logger log = Logger.getLogger(LyricSettingPanel.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -3666068943710626291L;
+	@SuppressWarnings("unused")
+	private static Logger log = Logger.getLogger(LyricSettingPanel.class.getName());
     private Color foregroundColor,  backgroundColor,  hilightColor;
     private Font font;
     public static final int width = 15;
@@ -47,9 +53,9 @@ public class LyricSettingPanel extends javax.swing.JPanel implements Initable {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        scrollMode = new javax.swing.JComboBox();
+        scrollMode = new javax.swing.JComboBox<Object>();
         jLabel2 = new javax.swing.JLabel();
-        alignMode = new javax.swing.JComboBox();
+        alignMode = new javax.swing.JComboBox<Object>();
         jLabel3 = new javax.swing.JLabel();
         hSpace = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
@@ -100,11 +106,11 @@ public class LyricSettingPanel extends javax.swing.JPanel implements Initable {
 
         jLabel1.setText(Config.getResource("LyricSettingPanel.scrollMode")); // NOI18N
 
-        scrollMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "水平模式", "垂直模式" }));
+        scrollMode.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "水平模式", "垂直模式" }));
 
         jLabel2.setText(Config.getResource("LyricSettingPanel.alignMode")); // NOI18N
 
-        alignMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "左对齐", "中间对齐", "右对齐" }));
+        alignMode.setModel(new javax.swing.DefaultComboBoxModel<Object>(new String[] { "左对齐", "中间对齐", "右对齐" }));
 
         jLabel3.setText(Config.getResource("LyricSettingPanel.HDistance")); // NOI18N
 
@@ -567,7 +573,7 @@ public class LyricSettingPanel extends javax.swing.JPanel implements Initable {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox alignMode;
+    private javax.swing.JComboBox<Object> alignMode;
     private javax.swing.JCheckBox anti;
     private javax.swing.JCheckBox autoHide;
     private javax.swing.JCheckBox autoLoadLyric;
@@ -601,7 +607,7 @@ public class LyricSettingPanel extends javax.swing.JPanel implements Initable {
     private javax.swing.JSpinner refreshInterval;
     private javax.swing.JCheckBox resizeV;
     private javax.swing.JCheckBox scrollAdjust;
-    private javax.swing.JComboBox scrollMode;
+    private javax.swing.JComboBox<Object> scrollMode;
     private javax.swing.JCheckBox topShow;
     private javax.swing.JCheckBox trans;
     private javax.swing.JSpinner vSpace;

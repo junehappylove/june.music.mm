@@ -36,7 +36,7 @@ import java.util.logging.Logger;
 public abstract class AbstractID3Tag extends AbstractTag
 {
     //Logger
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.tag.id3");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.tag.id3");
 
     public AbstractID3Tag()
     {

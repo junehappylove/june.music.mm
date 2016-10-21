@@ -10,7 +10,7 @@ package com.judy.momoplayer.util;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 import javax.swing.*;
 import java.awt.event.*;
@@ -21,8 +21,8 @@ import javax.swing.event.*;
 public class FontChooser extends JPanel implements ActionListener, ListSelectionListener {
      private static final long serialVersionUID=20071214L;
     private JDialog jd;//用于显示模态的窗体
-    private JComboBox families;//用于选择字体的下拉框
-    private JList style,  size;//用于选择字形和字号的列表
+    private JComboBox<Object> families;//用于选择字体的下拉框
+    private JList<String> style,  size;//用于选择字形和字号的列表
     private JTextField sizeJT;//用于显示选中的字形和字号
     private JButton ok,  cancel;//表示选中和取消的按钮
     private Font current;//表示当然选中的字体
@@ -48,7 +48,7 @@ public class FontChooser extends JPanel implements ActionListener, ListSelection
         sizeJT.setBounds(260, 40, 50, 20);
         ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String[] family = ge.getAvailableFontFamilyNames();
-        families = new JComboBox(family);
+        families = new JComboBox<Object>(family);
         families.setEditable(false);
         families.setMaximumRowCount(5);
         demo = new JLabel(Config.getResource("FontChooser.demo"), JLabel.CENTER);
@@ -68,8 +68,8 @@ public class FontChooser extends JPanel implements ActionListener, ListSelection
         fontName=current.getFamily();
         fontStyle=current.getStyle();
         fontSize=current.getSize();
-        style = new JList(styleString);
-        size = new JList(sizeString);
+        style = new JList<String>(styleString);
+        size = new JList<String>(sizeString);
         style.setSelectedIndex(current.getStyle());
         int index=0;
         for(int i=0;i<sizeValue.length;i++){

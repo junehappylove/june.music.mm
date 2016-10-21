@@ -77,42 +77,42 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/hadeslee/yoyoplayer/pic/logo.png"/>
+          <Image iconType="3" name="/com/judy/yoyoplayer/pic/logo.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/hadeslee/yoyoplayer/pic/name.png"/>
+          <Image iconType="3" name="/com/judy/yoyoplayer/pic/name.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.author" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.author" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.copyRight" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.copyRight" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.version" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.version" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.completeDate" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.completeDate" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -121,7 +121,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x7b80;&#x4ecb;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.brief" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.brief" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -149,7 +149,7 @@
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AboutPanel.authorName" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AboutPanel.authorName" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>

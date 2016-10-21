@@ -21,7 +21,7 @@ import java.util.Vector;
 
 /**
  * 一个播放列表的基本实现
- * @author hadeslee
+ * @author judy
  */
 public class BasicPlayList implements PlayList {
 
@@ -33,7 +33,8 @@ public class BasicPlayList implements PlayList {
     protected String PLSHome;//PLS格式列表的位置
     private String name;//表示此播放列表的名字
     private Config config;//全局的配置对象
-    private PlayListItem playing;//正在播放的项
+    @SuppressWarnings("unused")
+	private PlayListItem playing;//正在播放的项
     public BasicPlayList(Config config) {
         this.config = config;
         playList = new Vector<PlayListItem>();

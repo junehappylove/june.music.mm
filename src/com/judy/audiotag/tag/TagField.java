@@ -24,7 +24,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Implementing classes represent a tag field for the entagged audio library.<br>
  * Very basic functionality is defined for use with
- * {@link com.hadeslee.jaudiotagger.tag.Tag}.
+ * {@link com.judy.jaudiotagger.tag.Tag}.
  * 
  * @author Rapha�l Slinckx
  */
@@ -41,7 +41,7 @@ public interface TagField extends Serializable {
     /**
      * Returns the Id of the represented tag field.<br>
      * This value should uniquely identify a kind of tag data, like title.
-     * {@link com.hadeslee.jaudiotagger.audio.generic.AbstractTag} will use the &quot;id&quot; to summarize multiple
+     * {@link com.judy.jaudiotagger.audio.generic.AbstractTag} will use the &quot;id&quot; to summarize multiple
      * fields.
      * 
      * @return Unique identifier for the fields type. (title, artist...)

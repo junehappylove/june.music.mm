@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
 
 /**
  * 表示一首歌的歌词对象,它可以以某种方式来画自己
- * @author hadeslee
+ * @author judy
  */
 public class Lyric implements Serializable {
 

@@ -55,7 +55,7 @@ import javax.swing.JPanel;
  * </p>
  * @author &copy; Christian Treber, ct@ctreber.com
  */
-public class ICOFile implements Comparable {
+public class ICOFile implements Comparable<Object> {
 
     /** Source file name. */
     private String _fileName;
@@ -68,7 +68,7 @@ public class ICOFile implements Comparable {
     /** Number of contained images. */
     private int _imageCount;
 
-    private final List _descriptors = new ArrayList();
+    private final List<BitmapDescriptor> _descriptors = new ArrayList<BitmapDescriptor>();
 
     /**
      * Create ICOFile object from an ICO file. Use {@link #getDescriptors()}to
@@ -296,10 +296,10 @@ public class ICOFile implements Comparable {
      * Get all contained images (comfort method).
      * @return Images (type Image).
      */
-    public List getImages() {
-        final List lImages = new ArrayList();
+    public List<BufferedImage> getImages() {
+        final List<BufferedImage> lImages = new ArrayList<BufferedImage>();
 
-        final Iterator lItDesc = getDescriptors().iterator();
+        final Iterator<BitmapDescriptor> lItDesc = getDescriptors().iterator();
         while (lItDesc.hasNext()) {
             final BitmapDescriptor lDesc = (BitmapDescriptor) lItDesc.next();
             lImages.add(lDesc.getBitmap().createImageRGB());
@@ -313,7 +313,7 @@ public class ICOFile implements Comparable {
      * @return List of {@link BitmapDescriptor}in same order as in the ICO file
      *         (use methods on ICOEntry to get the actual images).
      */
-    public List getDescriptors() {
+    public List<BitmapDescriptor> getDescriptors() {
         return _descriptors;
     }
 
@@ -363,7 +363,12 @@ public class ICOFile implements Comparable {
         System.out.println(bi.getWidth());
         System.out.println(bi.getHeight());
         JOptionPane.showMessageDialog(null, new JPanel(){
-            public void paintComponent(Graphics g){
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public void paintComponent(Graphics g){
                 g.drawImage(bi, 0, 0, this);
             }
 

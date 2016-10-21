@@ -4,18 +4,23 @@
  */
 package com.judy.momoplayer.setting;
 
+import java.awt.Component;
+
+import javax.swing.JDialog;
+
 /**
  *
  * @author Administrator
  */
 import com.judy.momoplayer.util.Config;
-import java.awt.Component;
-import java.util.logging.Logger;
-import javax.swing.JDialog;
 
 public class OptionDialog extends JDialog {
 
-    private static Logger log = Logger.getLogger(OptionDialog.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 1280039567021795255L;
+	//private static Logger log = Logger.getLogger(OptionDialog.class.getName());
     private ListBar bar;
 
     /** Creates new form OptionDialog */

@@ -65,7 +65,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x663e;&#x793a;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.view" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.view" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -189,7 +189,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.scrollMode" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.scrollMode" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -206,7 +206,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.alignMode" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.alignMode" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -224,7 +224,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.HDistance" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.HDistance" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -233,14 +233,14 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.pix" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.pix" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.VDistance" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.VDistance" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -249,28 +249,28 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.pix" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.pix" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="lyricShadow">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.shadowLyric" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.shadowLyric" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="karaoke">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.karaoke" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.karaoke" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="trans">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.transBG" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.transBG" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -280,21 +280,21 @@
         <Component class="javax.swing.JCheckBox" name="borderTrans">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.borderTrans" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.borderTrans" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.color" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.color" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="foreground">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.normal" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.normal" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -304,7 +304,7 @@
         <Component class="javax.swing.JButton" name="hilight">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.hilight" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.hilight" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -314,7 +314,7 @@
         <Component class="javax.swing.JButton" name="background">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.bg" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.bg" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -324,14 +324,14 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.font" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.font" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.changeFont" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.changeFont" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -345,7 +345,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x9009;&#x9879;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.option" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.option" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -418,63 +418,63 @@
         <Component class="javax.swing.JCheckBox" name="autoLoadLyric">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoLoadLyric" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoLoadLyric" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cutBlankChars">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.cutBlankChars" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.cutBlankChars" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="autoHide">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoHide" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoHide" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="autoResize">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoResize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.autoResize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="resizeV">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.onlyResizeWhenV" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.onlyResizeWhenV" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="mouseDragEnable">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.canDragToLocation" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.canDragToLocation" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="anti">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.textAnti" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.textAnti" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="scrollAdjust">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.mouseWheelToAdjust" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.mouseWheelToAdjust" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.refreshTime" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.refreshTime" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -488,14 +488,14 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.ms" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.ms" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="topShow">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.showOnTop" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="LyricSettingPanel.showOnTop" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -508,7 +508,7 @@
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -518,7 +518,7 @@
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>

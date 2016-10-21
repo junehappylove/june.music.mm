@@ -43,7 +43,7 @@ import java.util.logging.Logger;
 public class FlacTagWriter
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.flac");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
 
     private List<MetadataBlock>  metadataBlockPadding        = new ArrayList<MetadataBlock>(1);
     private List<MetadataBlock>  metadataBlockApplication    = new ArrayList<MetadataBlock>(1);

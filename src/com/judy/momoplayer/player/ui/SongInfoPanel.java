@@ -23,13 +23,16 @@ import javax.swing.JPanel;
 public class SongInfoPanel extends JPanel implements MouseListener, Runnable {
 
     private static final long serialVersionUID = 20071214L;
-    private static final Logger log = Logger.getLogger(SongInfoPanel.class.getName());
+    @SuppressWarnings("unused")
+	private static final Logger log = Logger.getLogger(SongInfoPanel.class.getName());
     private SongInfo info;
     private long lastShow;//上一次显示一个项目的时间
     private String show = "MOMOPlayer";//要显示的字符串
     private String preShow = "MOMOPlayer";//以前显示的字符串，用来做动画用的
-    private boolean isMoved;//是否已经移动了
-    private int length;//正在显示的字符串的长度
+    @SuppressWarnings("unused")
+	private boolean isMoved;//是否已经移动了
+    @SuppressWarnings("unused")
+	private int length;//正在显示的字符串的长度
     private static final long TIME = 5000L;//等待的时间
     private int x1, y1, x2, y2;//两个座标给两个字符串用的
     private long sleepTime = TIME;//要睡的时间

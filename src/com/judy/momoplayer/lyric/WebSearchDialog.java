@@ -5,12 +5,6 @@
  */
 package com.judy.momoplayer.lyric;
 
-import com.judy.momoplayer.playlist.PlayListItem;
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Util;
-import com.june.lrc.ILrcDownload;
-import com.june.lrc.bean.Lyrics;
-import com.june.lrc.gcm.GeCiMiLRC;
 import java.io.File;
 import java.io.IOException;
 import java.text.Collator;
@@ -18,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Logger;
+
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -28,13 +23,24 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import com.judy.momoplayer.playlist.PlayListItem;
+import com.judy.momoplayer.util.Config;
+import com.june.lrc.ILrcDownload;
+import com.june.lrc.bean.Lyrics;
+import com.june.lrc.gcm.GeCiMiLRC;
+
 /**
  *
  * @author  Admin
  */
 public class WebSearchDialog extends javax.swing.JDialog {
 
-    private static final Logger log = Logger.getLogger(WebSearchDialog.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -2266444070907512036L;
+	@SuppressWarnings("unused")
+	private static final Logger log = Logger.getLogger(WebSearchDialog.class.getName());
     private PlayListItem item;//用来初始化的播放项
     private List<SearchResult> list = new ArrayList<SearchResult>();//搜到的结果列表
     private TableRowSorter<TableModel> sorter;
@@ -82,7 +88,12 @@ public class WebSearchDialog extends javax.swing.JDialog {
 
     private class MyTableModel extends AbstractTableModel {
 
-        public int getRowCount() {
+        /**
+		 * long serialVersionUID
+		 */
+		private static final long serialVersionUID = -8079198800766456932L;
+
+		public int getRowCount() {
             return list.size();
         }
 

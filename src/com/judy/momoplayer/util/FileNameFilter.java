@@ -29,10 +29,9 @@ import java.util.StringTokenizer;
 /**
  * FileName filter that works for both javax.swing.filechooser and java.io.
  */
-@SuppressWarnings("unchecked")
 public class FileNameFilter extends javax.swing.filechooser.FileFilter implements java.io.FileFilter {
 
-    protected java.util.List extensions = new ArrayList();
+    protected ArrayList<String> extensions = new ArrayList<String>();
     protected String default_extension = null;
     protected String description;
     protected boolean allowDir = true;

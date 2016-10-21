@@ -19,7 +19,7 @@ import javax.swing.border.AbstractBorder;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class PlayListBorder extends AbstractBorder implements MouseListener, MouseMotionListener {
     private static final long serialVersionUID=20071214L;

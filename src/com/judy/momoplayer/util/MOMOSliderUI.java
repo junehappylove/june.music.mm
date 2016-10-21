@@ -12,12 +12,13 @@ import javax.swing.plaf.basic.BasicSliderUI;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class MOMOSliderUI extends BasicSliderUI {
 
     private Image thumbImage = null;//普通按的图片
-    private Image thumbOverImage;//鼠标在上面的图片
+    @SuppressWarnings("unused")
+	private Image thumbOverImage;//鼠标在上面的图片
     private Image thumbPressedImage = null;//按下面的图片
     private Image backgroundImage = null;//普通背景图片
     private Image activeBackImage;//激活的背景图片

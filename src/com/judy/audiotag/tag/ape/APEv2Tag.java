@@ -25,7 +25,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class APEv2Tag implements Tag {
 

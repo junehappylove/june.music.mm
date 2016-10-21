@@ -6,7 +6,6 @@
 package com.june.lrc;
 
 import com.june.lrc.bean.Lyrics;
-import java.util.List;
 
 /**
  * download lrc interface

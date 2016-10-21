@@ -10,7 +10,7 @@ package com.judy.momoplayer.setting;
  * 状态下给各个子面板用的，以便
  * 它们能够重新读取在别的地方改变了
  * 的设置 
- * @author hadeslee
+ * @author judy
  */
 public interface Initable {
     public void init();

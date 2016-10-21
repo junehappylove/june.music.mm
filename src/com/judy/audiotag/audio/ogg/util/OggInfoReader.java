@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 public class OggInfoReader
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg.atom");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg.atom");
 
     public GenericAudioHeader read(RandomAccessFile raf) throws CannotReadException, IOException
     {

@@ -11,7 +11,7 @@ public final class TypeCompression {
     /**
      * Maps type values to TypeCompression objects.
      */
-    private static final Map TYPES;
+    private static final Map<Long, TypeCompression> TYPES;
 
     /**
      * Uncompressed (any BPP).
@@ -38,7 +38,7 @@ public final class TypeCompression {
             "BI_BITFIELDS", 3, "Uncompressed (16 & 32 BPP only)");
 
     static {
-        TYPES = new HashMap();
+        TYPES = new HashMap<Long, TypeCompression>();
         register(BI_RGB);
         register(BI_RLE8);
         register(BI_RLE4);

@@ -39,7 +39,7 @@ import java.util.logging.Logger;
 public class OggVorbisTagWriter
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
     private OggVorbisCommentTagCreator tc = new OggVorbisCommentTagCreator();
     private OggVorbisTagReader reader = new OggVorbisTagReader();
@@ -559,7 +559,8 @@ public class OggVorbisTagWriter
 
             //Now find the setupheader which is on a different page
             raf.seek(originalHeaderSizes.getSetupHeaderStartPosition());
-            OggPageHeader setupPageHeader;
+            @SuppressWarnings("unused")
+			OggPageHeader setupPageHeader;
 
 
 

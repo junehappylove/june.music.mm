@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 /**
  * 本类是一个线程,一个永远在分派事件的线程
  * 它里面维护着一个链表
- * @author hadeslee
+ * @author judy
  */
 public class BasicPlayerEventLauncher extends Thread {
 

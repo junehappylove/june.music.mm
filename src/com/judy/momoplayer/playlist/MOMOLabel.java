@@ -9,7 +9,7 @@ import javax.swing.plaf.LabelUI;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class MOMOLabel extends JLabel {
 

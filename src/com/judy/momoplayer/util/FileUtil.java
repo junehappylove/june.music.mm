@@ -31,10 +31,9 @@ import java.util.StringTokenizer;
 /**
  * @author Scott Pennell
  */
-@SuppressWarnings("unchecked")
 public class FileUtil {
 
-    private static List supportedExtensions = null;
+    private static List<String> supportedExtensions = null;
 
     public static File[] findFilesRecursively(File directory) {
         if (directory.isFile()) {
@@ -42,12 +41,12 @@ public class FileUtil {
             f[0] = directory;
             return f;
         }
-        List list = new ArrayList();
+        List<File> list = new ArrayList<File>();
         addSongsRecursive(list, directory);
         return ((File[]) list.toArray(new File[list.size()]));
     }
 
-    private static void addSongsRecursive(List found, File rootDir) {
+    private static void addSongsRecursive(List<File> found, File rootDir) {
         if (rootDir == null) {
             return;
         } // we do not want waste time
@@ -68,7 +67,7 @@ public class FileUtil {
     }
 
     public static boolean isMusicFile(File f) {
-        List exts = getSupportedExtensions();
+        List<String> exts = getSupportedExtensions();
         int sz = exts.size();
         String ext;
         String name = f.getName();
@@ -84,11 +83,11 @@ public class FileUtil {
         return false;
     }
 
-    public static List getSupportedExtensions() {
+    public static List<String> getSupportedExtensions() {
         if (supportedExtensions == null) {
             String ext = Config.getConfig().getExtensions();
             StringTokenizer st = new StringTokenizer(ext, ",");
-            supportedExtensions = new ArrayList();
+            supportedExtensions = new ArrayList<String>();
             while (st.hasMoreTokens()) {
                 supportedExtensions.add("." + st.nextElement());
             }
@@ -97,7 +96,7 @@ public class FileUtil {
     }
 
     public static String getSupprtedExtensions() {
-        List exts = getSupportedExtensions();
+        List<String> exts = getSupportedExtensions();
         StringBuffer s = new StringBuffer();
         int sz = exts.size();
         String ext;

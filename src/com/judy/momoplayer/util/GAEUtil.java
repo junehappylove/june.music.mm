@@ -85,7 +85,7 @@ public final class GAEUtil {
         return list;
     }
 
-    private static String getSingleResult(String artistParam, String titleParam) throws Exception {
+    static String getSingleResult(String artistParam, String titleParam) throws Exception {
         String urlContent = MessageFormat.format(getSingleResultURL, $(artistParam), $(titleParam));
         ObjectInputStream ois = getObjectInputStream(urlContent);
         int back = ois.readInt();

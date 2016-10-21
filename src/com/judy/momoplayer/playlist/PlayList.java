@@ -9,7 +9,7 @@ import java.util.Vector;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 /**
  * 一个播放列表的接口,实现者必须所有方法的实现

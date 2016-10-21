@@ -65,8 +65,6 @@ public class LRCUtil {
      * @return
      */
     private static File downloadNet(String urlPath) {
-        // 下载网络文件
-        int bytesum = 0;
         int byteread = 0;
 
         try {
@@ -77,14 +75,11 @@ public class LRCUtil {
             FileOutputStream fs = new FileOutputStream("c:/abc.lrc");
 
             byte[] buffer = new byte[1204];
-            int length;
             while ((byteread = inStream.read(buffer)) != -1) {
-                bytesum += byteread;
                 fs.write(buffer, 0, byteread);
             }
             fs.flush();
             fs.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -181,7 +176,7 @@ public class LRCUtil {
 
     private static void put(Element rootElt, Lrc lrc, List<Lrc> list, String node) {
         String encode, decode, type, lrcid, flag;
-        Iterator iter = rootElt.elementIterator(node); // 获取根节点下的子节点head
+        Iterator<?> iter = rootElt.elementIterator(node); // 获取根节点下的子节点head
         // 遍历head节点
         while (iter.hasNext()) {
             Element recordEle = (Element) iter.next();
@@ -237,7 +232,8 @@ public class LRCUtil {
         get.addRequestHeader("Keep-Alive", "300");
         get.addRequestHeader("Referer", "http://www.baidu.com/");
         get.addRequestHeader("Connection", "keep-alive");
-        int i = http.executeMethod(get);
+        int code = http.executeMethod(get);
+        if(code==0){}
         String temp = Util.getString(get.getResponseBodyAsStream());
         get.releaseConnection();
         return temp;
@@ -323,7 +319,7 @@ public class LRCUtil {
     public static List<SearchResult> getSearchResults(Lyrics lyrics) {
         List<SearchResult> list = new ArrayList<SearchResult>();
         List<Lyric> lrcs = lyrics.getResult();//检索结果
-        int count = Integer.parseInt(lyrics.getCount());//检索到的数量
+        //int count = Integer.parseInt(lyrics.getCount());//检索到的数量
         //String downUrl = "";
         String id, lrcid = null, lrcCode = null, artist, title;
         artist = lyrics.getArtist();//歌手  --- 可能为空
@@ -363,7 +359,8 @@ public class LRCUtil {
      * @see #getContentFormWeb(java.lang.String)
      * @return
      */
-    public static String getContentFormWeb(String url, String code) {
+    @SuppressWarnings("deprecation")
+	public static String getContentFormWeb(String url, String code) {
         HttpURLConnection conn = null;
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();

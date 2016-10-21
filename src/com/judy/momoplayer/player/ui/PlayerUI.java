@@ -4,26 +4,6 @@
  */
 package com.judy.momoplayer.player.ui;
 
-import com.judy.momoplayer.equalizer.EqualizerUI;
-import com.judy.momoplayer.playlist.PlayListUI;
-import com.judy.momoplayer.lyric.Lyric;
-import com.judy.momoplayer.lyric.LyricUI;
-import com.judy.momoplayer.player.BasicController;
-import com.judy.momoplayer.player.BasicPlayerEvent;
-import com.judy.momoplayer.player.BasicPlayerException;
-import com.judy.momoplayer.player.BasicPlayerListener;
-import com.judy.momoplayer.util.AudioChart;
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Loader;
-import com.judy.momoplayer.playlist.PlayList;
-import com.judy.momoplayer.playlist.PlayListItem;
-import com.judy.momoplayer.setting.OptionDialog;
-import com.judy.momoplayer.tag.SongInfoDialog;
-import com.judy.momoplayer.util.FileNameFilter;
-import com.judy.momoplayer.util.Playerable;
-import com.judy.momoplayer.util.SongInfo;
-import com.judy.momoplayer.util.Util;
-import com.judy.momoplayer.util.MOMOSlider;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -43,6 +23,7 @@ import java.text.MessageFormat;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.sound.sampled.SourceDataLine;
 import javax.swing.AbstractAction;
 import javax.swing.AbstractButton;
@@ -65,9 +46,30 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import com.judy.momoplayer.equalizer.EqualizerUI;
+import com.judy.momoplayer.lyric.Lyric;
+import com.judy.momoplayer.lyric.LyricUI;
+import com.judy.momoplayer.player.BasicController;
+import com.judy.momoplayer.player.BasicPlayerEvent;
+import com.judy.momoplayer.player.BasicPlayerException;
+import com.judy.momoplayer.player.BasicPlayerListener;
+import com.judy.momoplayer.playlist.PlayList;
+import com.judy.momoplayer.playlist.PlayListItem;
+import com.judy.momoplayer.playlist.PlayListUI;
+import com.judy.momoplayer.setting.OptionDialog;
+import com.judy.momoplayer.tag.SongInfoDialog;
+import com.judy.momoplayer.util.AudioChart;
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.FileNameFilter;
+import com.judy.momoplayer.util.Loader;
+import com.judy.momoplayer.util.MOMOSlider;
+import com.judy.momoplayer.util.Playerable;
+import com.judy.momoplayer.util.SongInfo;
+import com.judy.momoplayer.util.Util;
+
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class PlayerUI extends JPanel implements Playerable, ActionListener, ChangeListener, BasicPlayerListener {
 
@@ -88,10 +90,11 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
     private AudioChart audioChart;//示波器
     private Lyric lyric;//一个歌词对象
     private BasicController player;//基本的播放器对象
-    private Map audioInfo;//里面存的是所有有关的音频信息
+    private Map<?, ?> audioInfo;//里面存的是所有有关的音频信息
     private int playerState;//播放器的当前状态
     private Config config;//一个配置对象
-    private long lastScrollTime;//上一次的滚动歌曲信息的时候
+    @SuppressWarnings("unused")
+	private long lastScrollTime;//上一次的滚动歌曲信息的时候
     private boolean posValueJump;//表示现在位置条是否在拖动中
     private PlayListItem currentItem;//当前正在播放的列表项
     private long secondsAmount;//总共用去的秒数
@@ -1094,7 +1097,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         }
     }
 
-    public long getTimeLengthEstimation(Map properties) {
+    public long getTimeLengthEstimation(Map<?, ?> properties) {
         long milliseconds = -1;
         int byteslength = -1;
         if (properties != null) {
@@ -1137,7 +1140,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         return milliseconds;
     }
 
-    public void processProgress(int bytesread, long microseconds, byte[] pcmdata, Map properties) {
+    public void processProgress(int bytesread, long microseconds, byte[] pcmdata, Map<?, ?> properties) {
         int byteslength = -1;
         long total = -1;
         // Try to get time from playlist item.
@@ -1234,8 +1237,8 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         } else {
             pos.setValue(0);
         }
-        long ctime = System.currentTimeMillis();
-        long lctime = lastScrollTime;
+        //long ctime = System.currentTimeMillis();
+        //long lctime = lastScrollTime;
         // Scroll title ?//这里可能是显示歌曲信息如果显示不下时的换行做法
 //        if ((titleScrollLabel != null) && (titleScrollLabel.length > 0)) {
 //            if (ctime - lctime > SCROLL_PERIOD) {
@@ -1734,9 +1737,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
 
     public void processActionEvent(ActionEvent e) {
         String cmd = e.getActionCommand();
-        // Preferences.
-        if (false) {
-        } else if (cmd.equalsIgnoreCase(Config.EQ_ON)) {
+        if (cmd.equalsIgnoreCase(Config.EQ_ON)) {
             loader.toggleEqualizer(true);
             eq.setActionCommand(Config.EQ_OFF);
         } else if (cmd.equalsIgnoreCase(Config.EQ_OFF)) {
@@ -1881,9 +1882,9 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
                     player.setGain(value);
                 }
             } catch (BasicPlayerException ex) {
-                System.out.println("====================");
+                //System.out.println("====================");
                 ex.printStackTrace();
-                System.out.println("====================");
+                //System.out.println("====================");
             }
         } // Balance
         else if (src == pan) {
@@ -1959,7 +1960,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         }
     }
 
-    public void opened(Object stream, Map properties) {
+    public void opened(Object stream, Map<?, ?> properties) {
         audioInfo = properties;
         //在这里既然有了playListItem，那么歌曲的信息就
         //没有必要又从文件里面再读一遍了，并且不一定播放的就是
@@ -1973,7 +1974,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
 //        log.log(Level.SEVERE, properties.toString());
     }
 
-    public void progress(int bytesread, long microseconds, byte[] pcmdata, Map properties) {
+    public void progress(int bytesread, long microseconds, byte[] pcmdata, Map<?, ?> properties) {
         processProgress(bytesread, microseconds, pcmdata, properties);
     }
 

@@ -13,7 +13,7 @@ import java.io.OutputStreamWriter;
 
 /**
  * 搜索到的结果的对象表示法
- * @author hadeslee
+ * @author judy
  */
 public class SearchResult {
 

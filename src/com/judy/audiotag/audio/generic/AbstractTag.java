@@ -29,7 +29,7 @@ import java.util.List;
 
 /**
  * This class is the default implementation for
- * {@link com.hadeslee.jaudiotagger.tag.Tag} and introduces some more useful
+ * {@link com.judy.jaudiotagger.tag.Tag} and introduces some more useful
  * functionality to be implemented.<br>
  *
  * @author Rapha�l Slinckx
@@ -53,7 +53,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add field
      *
-     * @see com.hadeslee.jaudiotagger.tagcom.hadeslee.jaudiotaggerdiotagger.tag.TagField)
+     * @see com.judy.jaudiotagger.tagcom.judy.jaudiotaggerdiotagger.tag.TagField)
      *      <p/>
      *      Changed so add empty fields
      */
@@ -87,7 +87,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) album
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addAlbum(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addAlbum(java.lang.String)
      */
     public void addAlbum(String s)
     {
@@ -97,7 +97,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) artist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addArtist(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addArtist(java.lang.String)
      */
     public void addArtist(String s)
     {
@@ -107,7 +107,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) comment
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addComment(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addComment(java.lang.String)
      */
     public void addComment(String s)
     {
@@ -117,7 +117,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) genre
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addGenre(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addGenre(java.lang.String)
      */
     public void addGenre(String s)
     {
@@ -127,7 +127,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) title
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addTitle(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addTitle(java.lang.String)
      */
     public void addTitle(String s)
     {
@@ -137,7 +137,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Add (another) track
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addTrack(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addTrack(java.lang.String)
      */
     public void addTrack(String s)   throws FieldDataInvalidException
     {
@@ -147,7 +147,7 @@ public abstract class AbstractTag implements Tag
     /**
      * (Add (another) year
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#addYear(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#addYear(java.lang.String)
      */
     public void addYear(String s)
     {
@@ -157,7 +157,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get list of fields within this tag with the specified id
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#get(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#get(java.lang.String)
      */
     public List<TagField> get(String id)
     {       
@@ -209,7 +209,7 @@ public abstract class AbstractTag implements Tag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getAlbum()
+     * @see com.judy.jaudiotagger.tag.Tag#getAlbum()
      */
     public List getAlbum()
     {
@@ -227,7 +227,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get Artist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getArtist()
+     * @see com.judy.jaudiotagger.tag.Tag#getArtist()
      */
     public List getArtist()
     {
@@ -245,7 +245,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get Comment
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getComment()
+     * @see com.judy.jaudiotagger.tag.Tag#getComment()
      */
     public List getComment()
     {
@@ -261,7 +261,7 @@ public abstract class AbstractTag implements Tag
     protected abstract String getCommentId();
 
     /**
-     * @see com.hadeslee.jaudiotaggerdiotagger.tag.Tag#getFields()
+     * @see com.judy.jaudiotaggerdiotagger.tag.Tag#getFields()
      */
     public Iterator getFields()
     {
@@ -330,7 +330,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first album or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstAlbum()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstAlbum()
      */
     public String getFirstAlbum()
     {
@@ -341,7 +341,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first artist or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstArtist()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstArtist()
      */
     public String getFirstArtist()
     {
@@ -352,7 +352,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first comment or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstComment()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstComment()
      */
     public String getFirstComment()
     {
@@ -363,7 +363,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first genre or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstGenre()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstGenre()
      */
     public String getFirstGenre()
     {           
@@ -374,7 +374,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first title or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstTitle()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstTitle()
      */
     public String getFirstTitle()
     {
@@ -385,7 +385,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first track or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstTrack()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstTrack()
      */
     public String getFirstTrack()
     {
@@ -396,7 +396,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the first year or empty string if doesnt exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getFirstYear()
+     * @see com.judy.jaudiotagger.tag.Tag#getFirstYear()
      */
     public String getFirstYear()
     {
@@ -407,7 +407,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the genres or empty list if none exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getGenre()
+     * @see com.judy.jaudiotagger.tag.Tag#getGenre()
      */
     public List getGenre()
     {
@@ -425,7 +425,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the titles or empty list if none exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getTitle()
+     * @see com.judy.jaudiotagger.tag.Tag#getTitle()
      */
     public List getTitle()
     {
@@ -443,7 +443,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the tracks or empty list if none exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getTrack()
+     * @see com.judy.jaudiotagger.tag.Tag#getTrack()
      */
     public List getTrack()
     {
@@ -461,7 +461,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Get the  years or empty list if none exist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#getYear()
+     * @see com.judy.jaudiotagger.tag.Tag#getYear()
      */
     public List getYear()
     {
@@ -479,7 +479,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Does this tag contain any comon fields
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#hasCommonFields()
+     * @see com.judy.jaudiotagger.tag.Tag#hasCommonFields()
      */
     public boolean hasCommonFields()
     {
@@ -489,7 +489,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Does this tag contain a field with the specified id
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#hasField(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#hasField(java.lang.String)
      */
     public boolean hasField(String id)
     {
@@ -508,7 +508,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Is this tag empty
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#isEmpty()
+     * @see com.judy.jaudiotagger.tag.Tag#isEmpty()
      */
     public boolean isEmpty()
     {
@@ -521,7 +521,7 @@ public abstract class AbstractTag implements Tag
      * Changed:Just because field is empty it doesnt mean it should be deleted. That should be the choice
      * of the developer. (Or does this break things)
      *
-     * @see com.hadeslee.jaudiotagger.tagcom.hadeslee.jaudiotaggerdiotagger.tag.TagField)
+     * @see com.judy.jaudiotagger.tagcom.judy.jaudiotaggerdiotagger.tag.TagField)
      */
     public void set(TagField field)
     {
@@ -552,7 +552,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add album
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setAlbum(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setAlbum(java.lang.String)
      */
     public void setAlbum(String s)
     {
@@ -562,7 +562,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add artist
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setArtist(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setArtist(java.lang.String)
      */
     public void setArtist(String s)
     {
@@ -572,7 +572,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add comment
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setComment(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setComment(java.lang.String)
      */
     public void setComment(String s)
     {
@@ -582,7 +582,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add encoding
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setEncoding(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setEncoding(java.lang.String)
      */
     public boolean setEncoding(String enc)
     {
@@ -607,7 +607,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add genre
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setGenre(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setGenre(java.lang.String)
      */
     public void setGenre(String s)
     {
@@ -617,7 +617,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add title
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setTitle(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setTitle(java.lang.String)
      */
     public void setTitle(String s)
     {
@@ -627,7 +627,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add track
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setTrack(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setTrack(java.lang.String)
      */
     public void setTrack(String s)
               throws FieldDataInvalidException
@@ -638,7 +638,7 @@ public abstract class AbstractTag implements Tag
     /**
      * Set or add year
      *
-     * @see com.hadeslee.jaudiotagger.tag.Tag#setYear(java.lang.String)
+     * @see com.judy.jaudiotagger.tag.Tag#setYear(java.lang.String)
      */
     public void setYear(String s)
     {

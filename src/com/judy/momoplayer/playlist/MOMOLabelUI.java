@@ -4,18 +4,19 @@
  */
 package com.judy.momoplayer.playlist;
 
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Util;
-import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicLabelUI;
 
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.Util;
+
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class MOMOLabelUI extends BasicLabelUI {
 

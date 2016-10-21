@@ -62,7 +62,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x9009;&#x9879;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.option" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.option" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -113,7 +113,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.analyzing" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.analyzing" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -131,7 +131,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.speed" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.speed" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -153,7 +153,7 @@
         <Component class="javax.swing.JLabel" name="info">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.fps" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.fps" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -164,7 +164,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x9891;&#x8c31;&#x5206;&#x6790;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.line" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.line" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -208,14 +208,14 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.colorMethod" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.colorMethod" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.peak" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.peak" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -225,7 +225,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.top" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.top" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -235,7 +235,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.center" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.center" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -245,7 +245,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.bottom" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.bottom" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -259,7 +259,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x793a;&#x6ce2;&#x663e;&#x793a;">
-              <ResourceString PropertyName="titleX" bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="asdf" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="asdf" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -305,14 +305,14 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.colorMethod" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.colorMethod" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.theLine" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.theLine" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -322,7 +322,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.disappearSpeed" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.disappearSpeed" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -346,7 +346,7 @@
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -356,7 +356,7 @@
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -368,7 +368,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/hadeslee/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.numOfBars" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="AudioChartPanel.numOfBars" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>

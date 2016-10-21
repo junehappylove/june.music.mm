@@ -22,10 +22,6 @@
  */
 package com.judy.momoplayer.tag;
 
-import org.tritonus.share.sampled.file.TAudioFileFormat;
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,10 +29,15 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import org.tritonus.share.sampled.file.TAudioFileFormat;
+
 /**
  * This class gives information (audio format and comments) about Ogg Vorbis file or URL.
  */
-@SuppressWarnings("unchecked")
 public class OggVorbisInfo implements TagInfo {
 
     private static final long serialVersionUID = 20071213L;
@@ -59,7 +60,7 @@ public class OggVorbisInfo implements TagInfo {
     protected String artist = null;
     protected String album = null;
     private final String type = "ogg";
-    protected Vector comments = new Vector();
+    protected Vector<String> comments = new Vector<String>();
 
     /**
      * Constructor.
@@ -152,7 +153,7 @@ public class OggVorbisInfo implements TagInfo {
             throw new UnsupportedAudioFileException("Not Ogg Vorbis audio format");
         }
         if (aff instanceof TAudioFileFormat) {
-            Map props = ((TAudioFileFormat) aff).properties();
+            Map<?, ?> props = ((TAudioFileFormat) aff).properties();
             if (props.containsKey("ogg.channels")) {
                 channels = ((Integer) props.get("ogg.channels")).intValue();
             }
@@ -304,7 +305,7 @@ public class OggVorbisInfo implements TagInfo {
         return genre;
     }
 
-    public Vector getComment() {
+    public Vector<String> getComment() {
         return comments;
     }
 

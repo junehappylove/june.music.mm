@@ -6,7 +6,7 @@ package com.judy.audiotag.tag.ape;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public enum APEv2FieldKey {
 

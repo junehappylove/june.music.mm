@@ -5,7 +5,6 @@
  */
 package com.judy.momoplayer.setting;
 
-import com.judy.momoplayer.util.Util;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -22,10 +21,8 @@ import java.util.Map;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.imageio.ImageIO;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
@@ -34,13 +31,19 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.basic.BasicListUI;
 
+import com.judy.momoplayer.util.Util;
+
 /**
  *
  * @author  Administrator
  */
 public class ListBar extends javax.swing.JPanel implements MouseListener, MouseMotionListener {
 
-    private Vector<String> names;//存放列表里面的名字
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 2584921721196432830L;
+	private Vector<String> names;//存放列表里面的名字
     private Map<String, Component> map;//用于存放名字对应的内容面板的映射
     private int onIndex = -1;//鼠标所在的对应列表的下标
     /** Creates new form ListBar */
@@ -140,7 +143,7 @@ public class ListBar extends javax.swing.JPanel implements MouseListener, MouseM
         }
 
         @Override
-        protected void paintCell(Graphics g, int row, Rectangle rowBounds, ListCellRenderer cellRenderer, ListModel dataModel, ListSelectionModel selModel, int leadIndex) {
+        protected void paintCell(Graphics g, int row, Rectangle rowBounds, @SuppressWarnings("rawtypes") ListCellRenderer cellRenderer, @SuppressWarnings("rawtypes") ListModel dataModel, ListSelectionModel selModel, int leadIndex) {
             int width = rowBounds.width;
             int height = rowBounds.height;
             int x = rowBounds.x;
@@ -210,13 +213,17 @@ public class ListBar extends javax.swing.JPanel implements MouseListener, MouseM
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        list = new javax.swing.JList();
+        list = new javax.swing.JList<Object>();
         content = new javax.swing.JPanel();
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        list.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        list.setModel(new javax.swing.AbstractListModel<Object>() {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -5283379821348508309L;
+			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -249,6 +256,6 @@ public class ListBar extends javax.swing.JPanel implements MouseListener, MouseM
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList list;
+    private javax.swing.JList<Object> list;
     // End of variables declaration//GEN-END:variables
 }

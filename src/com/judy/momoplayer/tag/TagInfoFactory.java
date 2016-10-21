@@ -41,18 +41,18 @@ public class TagInfoFactory {
 
     private static Logger log = Logger.getLogger(TagInfoFactory.class.getName());
     private static TagInfoFactory instance = null;
-    private Class MpegTagInfoClass = null;
-    private Class VorbisTagInfoClass = null;
-    private Class APETagInfoClass = null;
-    private Class FlacTagInfoClass = null;
+    private Class<?> MpegTagInfoClass = null;
+    private Class<?> VorbisTagInfoClass = null;
+    private Class<?> APETagInfoClass = null;
+    private Class<?> FlacTagInfoClass = null;
 
     private TagInfoFactory() {
         super();
         log.setLevel(Level.OFF);
-        MpegTagInfoClass = getTagInfoImpl("com.hadeslee.momoplayer.tag.MpegInfo");
-        VorbisTagInfoClass = getTagInfoImpl("com.hadeslee.momoplayer.tag.OggVorbisInfo");
-        APETagInfoClass = getTagInfoImpl("com.hadeslee.momoplayer.tag.APEInfo");
-        FlacTagInfoClass = getTagInfoImpl("com.hadeslee.momoplayer.tag.FlacInfo");
+        MpegTagInfoClass = getTagInfoImpl("com.judy.momoplayer.tag.MpegInfo");
+        VorbisTagInfoClass = getTagInfoImpl("com.judy.momoplayer.tag.OggVorbisInfo");
+        APETagInfoClass = getTagInfoImpl("com.judy.momoplayer.tag.APEInfo");
+        FlacTagInfoClass = getTagInfoImpl("com.judy.momoplayer.tag.FlacInfo");
     }
 
     public static synchronized TagInfoFactory getInstance() {
@@ -208,18 +208,18 @@ public class TagInfoFactory {
      * @param classname
      * @return TagInfo implementation for given class name
      */
-    public Class getTagInfoImpl(String classname) {
-        Class aClass = null;
+    public Class<?> getTagInfoImpl(String classname) {
+        Class<?> aClass = null;
         boolean interfaceFound = false;
         if (classname != null) {
             try {
                 aClass = Class.forName(classname);
-                Class superClass = aClass;
+                Class<?> superClass = aClass;
                 // Looking for TagInfo interface implementation.
                 while (superClass != null) {
-                    Class[] interfaces = superClass.getInterfaces();
+                    Class<?>[] interfaces = superClass.getInterfaces();
                     for (int i = 0; i < interfaces.length; i++) {
-                        if ((interfaces[i].getName()).equals("com.hadeslee.momoplayer.tag.TagInfo")) {
+                        if ((interfaces[i].getName()).equals("com.judy.momoplayer.tag.TagInfo")) {
                             interfaceFound = true;
                             break;
                         }
@@ -247,12 +247,12 @@ public class TagInfoFactory {
      * @param aClass
      * @return TagInfo for given class
      */
-    public TagInfo getTagInfoImplInstance(Class aClass) {
+    public TagInfo getTagInfoImplInstance(Class<?> aClass) {
         TagInfo instance = null;
         if (aClass != null) {
             try {
-                Class[] argsClass = new Class[]{};
-                Constructor c = aClass.getConstructor(argsClass);
+                Class<?>[] argsClass = new Class[]{};
+                Constructor<?> c = aClass.getConstructor(argsClass);
                 instance = (TagInfo) (c.newInstance(new Object[]{}));
             } catch (Exception e) {
                 log.severe("Cannot Instanciate : " + aClass.getName() + " : " + e.getMessage());

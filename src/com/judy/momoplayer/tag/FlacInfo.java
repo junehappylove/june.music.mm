@@ -18,11 +18,6 @@
  */
 package com.judy.momoplayer.tag;
 
-import com.judy.audiotag.audio.exceptions.CannotReadException;
-import com.judy.audiotag.audio.flac.FlacInfoReader;
-import com.judy.audiotag.audio.flac.FlacTagReader;
-import com.judy.audiotag.audio.generic.GenericAudioHeader;
-import com.judy.audiotag.tag.flac.FlacTag;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,15 +26,21 @@ import java.net.URL;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import com.judy.audiotag.audio.exceptions.CannotReadException;
+import com.judy.audiotag.audio.flac.FlacInfoReader;
+import com.judy.audiotag.audio.flac.FlacTagReader;
+import com.judy.audiotag.audio.generic.GenericAudioHeader;
+import com.judy.audiotag.tag.flac.FlacTag;
+
 /**
  * This class gives information (audio format and comments) about Flac file or URL.
  */
-@SuppressWarnings("unchecked")
 public class FlacInfo implements TagInfo {
 
     private static final long serialVersionUID = 20071213L;
@@ -162,6 +163,7 @@ public class FlacInfo implements TagInfo {
     protected void loadInfo(AudioFileFormat aff) throws UnsupportedAudioFileException {
         String ty = aff.getType().toString();
         if (!ty.equalsIgnoreCase("flac")) {
+        	log.log(Level.OFF, "Not Flac audio format");
             throw new UnsupportedAudioFileException("Not Flac audio format");
         }
         AudioFormat af = aff.getFormat();
@@ -202,8 +204,8 @@ public class FlacInfo implements TagInfo {
         return bitspersample;
     }
 
-    public Vector getComment() {
-        Vector v = new Vector();
+    public Vector<String> getComment() {
+        Vector<String> v = new Vector<String>();
         v.add(comment);
         return v;
     }

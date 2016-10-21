@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 
 /**
  * 所有播放器都应该实现的接口
- * @author hadeslee
+ * @author judy
  */
 public interface Playerable {
     public void setLyric(Lyric ly);

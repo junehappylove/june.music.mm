@@ -40,7 +40,7 @@ import java.util.logging.Logger;
 public class OggPageHeader
 {
     // Logger Object
-       public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.ogg.atom");
+       public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg.atom");
 
     //Capture pattern at start of header
     public static final byte[] CAPTURE_PATTERN = {'O', 'g', 'g','S'};
@@ -140,7 +140,8 @@ public class OggPageHeader
             streamSerialNumber = Utils.getNumberLittleEndian(b,FIELD_STREAM_SERIAL_NO_POS,17);
             pageSequenceNumber = Utils.getNumberLittleEndian(b,FIELD_PAGE_SEQUENCE_NO_POS,21);
             checksum =Utils.getNumberLittleEndian(b,FIELD_PAGE_CHECKSUM_POS,25);
-            int pageSegments = u( b[FIELD_PAGE_SEGMENTS_POS  ] );
+            @SuppressWarnings("unused")
+			int pageSegments = u( b[FIELD_PAGE_SEGMENTS_POS  ] );
 
             this.segmentTable = new byte[b.length - OGG_PAGE_HEADER_FIXED_LENGTH];
             int packetLength        = 0;

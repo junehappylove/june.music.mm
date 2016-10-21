@@ -9,7 +9,7 @@ import javax.swing.JDialog;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public interface Loader {
 

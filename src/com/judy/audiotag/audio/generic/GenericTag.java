@@ -65,7 +65,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#copcom.hadeslee.jaudiotaggerdiotagger.tag.TagField)
+         * @see com.judy.jaudiotagger.tag.TagField#copcom.judy.jaudiotaggerdiotagger.tag.TagField)
          */
         public void copyContent(TagField field)
         {
@@ -78,7 +78,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagTextField#getContent()
+         * @see com.judy.jaudiotagger.tag.TagTextField#getContent()
          */
         public String getContent()
         {
@@ -88,7 +88,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagTextField#getEncoding()
+         * @see com.judy.jaudiotagger.tag.TagTextField#getEncoding()
          */
         public String getEncoding()
         {
@@ -98,7 +98,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#getId()
+         * @see com.judy.jaudiotagger.tag.TagField#getId()
          */
         public String getId()
         {
@@ -108,7 +108,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#getRawContent()
+         * @see com.judy.jaudiotagger.tag.TagField#getRawContent()
          */
         public byte[] getRawContent()
         {
@@ -118,7 +118,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#isBinary()
+         * @see com.judy.jaudiotagger.tag.TagField#isBinary()
          */
         public boolean isBinary()
         {
@@ -128,7 +128,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#isBinary(boolean)
+         * @see com.judy.jaudiotagger.tag.TagField#isBinary(boolean)
          */
         public void isBinary(boolean b)
         {
@@ -138,7 +138,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#isCommon()
+         * @see com.judy.jaudiotagger.tag.TagField#isCommon()
          */
         public boolean isCommon()
         {
@@ -148,7 +148,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagField#isEmpty()
+         * @see com.judy.jaudiotagger.tag.TagField#isEmpty()
          */
         public boolean isEmpty()
         {
@@ -158,7 +158,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagTextField#setContent(java.lang.String)
+         * @see com.judy.jaudiotagger.tag.TagTextField#setContent(java.lang.String)
          */
         public void setContent(String s)
         {
@@ -168,7 +168,7 @@ public class GenericTag extends AbstractTag
         /**
          * (overridden)
          *
-         * @see com.hadeslee.jaudiotagger.tag.TagTextField#setEncoding(java.lang.String)
+         * @see com.judy.jaudiotagger.tag.TagTextField#setEncoding(java.lang.String)
          */
         public void setEncoding(String s)
         {
@@ -319,7 +319,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#getCommentId()
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getCommentId()
      */
     protected String getCommentId()
     {
@@ -329,7 +329,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#getGenreId()
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getGenreId()
      */
     protected String getGenreId()
     {
@@ -339,7 +339,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#getTitleId()
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTitleId()
      */
     protected String getTitleId()
     {
@@ -349,7 +349,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#getTrackId()
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTrackId()
      */
     protected String getTrackId()
     {
@@ -359,7 +359,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#getYearId()
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getYearId()
      */
     protected String getYearId()
     {
@@ -369,7 +369,7 @@ public class GenericTag extends AbstractTag
     /**
      * (overridden)
      *
-     * @see com.hadeslee.jaudiotagger.audio.generic.AbstractTag#isAllowedEncoding(java.lang.String)
+     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#isAllowedEncoding(java.lang.String)
      */
     protected boolean isAllowedEncoding(String enc)
     {

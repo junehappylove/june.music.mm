@@ -103,7 +103,7 @@ public class ID3v22Frame extends AbstractID3v2Frame
         // to keep things up to date.
         try
         {
-            Class c = Class.forName("com.hadeslee.audiotag.tag.id3.framebody.FrameBody" + bodyIdentifier);
+            Class c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + bodyIdentifier);
             frameBody = (AbstractID3v2FrameBody) c.newInstance();
         }
         catch (ClassNotFoundException cnfe)

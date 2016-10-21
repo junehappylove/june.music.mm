@@ -4,9 +4,6 @@
  */
 package com.judy.momoplayer.lyric;
 
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Playerable;
-import com.judy.momoplayer.util.Util;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -34,20 +31,26 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.Playerable;
+import com.judy.momoplayer.util.Util;
+
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class LyricPanel extends JPanel implements Runnable, DropTargetListener,
         MouseListener, MouseWheelListener, MouseMotionListener {
 
     private static final long serialVersionUID = 20071214L;
     private static Logger log = Logger.getLogger(LyricPanel.class.getName());
-    private DropTarget dt;//一个拖放的目标
+	@SuppressWarnings("unused")
+	private DropTarget dt;//一个拖放的目标
     private Playerable player;//播放器
     private Lyric ly;//表示此歌词面板对应的歌词对象
     public static final int V = 0;//表示纵向显示
@@ -74,7 +77,7 @@ public class LyricPanel extends JPanel implements Runnable, DropTargetListener,
 
     public LyricPanel() {
         config = Config.getConfig();
-        dt = new DropTarget(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
+        this.dt = new DropTarget(this, DnDConstants.ACTION_COPY_OR_MOVE, this);
         state = config.getLpState();
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
@@ -367,7 +370,7 @@ public class LyricPanel extends JPanel implements Runnable, DropTargetListener,
         if (e.getButton() == MouseEvent.BUTTON1) {
             if (area != null && area.contains(e.getPoint())) {
                 try {
-                    Desktop.getDesktop().browse(new URI("http://www.blogjava.net/hadeslee"));
+                    Desktop.getDesktop().browse(new URI("http://www.blogjava.net/judy"));
                 } catch (URISyntaxException ex) {
                     Logger.getLogger(LyricPanel.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {

@@ -4,18 +4,6 @@
  */
 package com.judy.momoplayer.util;
 
-import com.judy.momoplayer.lyric.LRCUtil;
-import com.judy.momoplayer.lyric.Lyric;
-import com.judy.momoplayer.lyric.LyricPanel;
-import com.judy.momoplayer.lyric.SearchResult;
-import com.judy.momoplayer.lyric.WebSearchDialog;
-import com.judy.momoplayer.playlist.PlayListItem;
-import com.judy.momoplayer.setting.OptionDialog;
-import com.judy.momoplayer.setting.SettingPanel;
-import com.june.lrc.baidu.BaiDuLRC;
-import com.june.lrc.ILrcDownload;
-import com.june.lrc.gcm.GeCiMiLRC;
-import com.sun.jna.examples.WindowUtils;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -42,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 import javax.swing.ButtonGroup;
@@ -57,6 +46,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JToggleButton;
 import javax.swing.event.ChangeListener;
+
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.URI;
@@ -64,10 +54,22 @@ import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.GetMethod;
 
+import com.judy.momoplayer.lyric.LRCUtil;
+import com.judy.momoplayer.lyric.Lyric;
+import com.judy.momoplayer.lyric.LyricPanel;
+import com.judy.momoplayer.lyric.SearchResult;
+import com.judy.momoplayer.lyric.WebSearchDialog;
+import com.judy.momoplayer.playlist.PlayListItem;
+import com.judy.momoplayer.setting.OptionDialog;
+import com.judy.momoplayer.setting.SettingPanel;
+import com.june.lrc.ILrcDownload;
+import com.june.lrc.gcm.GeCiMiLRC;
+import com.sun.jna.examples.WindowUtils;
+
 /**
  * 一个工具类，主要负责分析歌词 并找到歌词下载下来，然后保存成标准格式的文件 还有一些常用的方法
  *
- * @author hadeslee
+ * @author judy
  */
 public final class Util {
 
@@ -843,7 +845,7 @@ public final class Util {
         MediaTracker mt = new MediaTracker(panel);
         Toolkit tk = Toolkit.getDefaultToolkit();
         for (int i = 1; i <= count; i++) {
-            URL url = Util.class.getResource("/com/hadeslee/momoplayer/pic/" + who + i + ".png");
+            URL url = Util.class.getResource("/com/judy/momoplayer/pic/" + who + i + ".png");
             imgs[i - 1] = tk.createImage(url);
             mt.addImage(imgs[i - 1], i);
         }
@@ -863,7 +865,7 @@ public final class Util {
      * @return 图片
      */
     public static Image getImage(String name) {
-        URL url = Util.class.getResource("/com/hadeslee/momoplayer/pic/" + name);
+        URL url = Util.class.getResource("/com/judy/momoplayer/pic/" + name);
         Image im = Toolkit.getDefaultToolkit().createImage(url);
         try {
             MediaTracker mt = new MediaTracker(panel);
@@ -1023,8 +1025,7 @@ public final class Util {
      */
     public static String getLyric(PlayListItem info) throws IOException {
         log.log(Level.INFO, "进来找歌词了");
-        //String ly = getLyricTTPlayer(info);//千千静听的已经被废了
-        String ly = null;
+        String ly = getLyricTTPlayer(info);//TODO 千千静听的已经被废了
         if (ly != null) {
             log.log(Level.INFO, "TT上搜索到了...");
         } else {
@@ -1102,7 +1103,7 @@ public final class Util {
      * @return 内容,可能是NULL
      * @throws java.lang.Exception
      */
-    private static String getURLContent(String url) throws IOException {
+    static String getURLContent(String url) throws IOException {
         HttpClient http = new HttpClient();
         Config config = Config.getConfig();
         if (config.isUseProxy()) {
@@ -1203,7 +1204,7 @@ public final class Util {
         return str;
     }
 
-    private static String htmlTrim2(String str1) {
+    static String htmlTrim2(String str1) {
         String str = str1;
         //剔出了<html>的标签
         str = str.replaceAll("<BR>", "\n");
@@ -1219,33 +1220,28 @@ public final class Util {
      * @return 歌词内容，可能为NULL
      */
     private static String getLyricBaidu(PlayListItem info) {
-        try {
             //先全部匹配
             String song = info.getTitle();
             String name = info.getFormattedName();
             String artits = info.getArtist();
-            //log.log(Level.INFO, "来到这里了...检索词：song-{0}",song);
-            //log.log(Level.INFO, "来到这里了...检索词：name-{0}}",name);
-            //log.log(Level.INFO, "来到这里了...检索词：artist-{0}",artits);
+            log.log(Level.INFO, "来到这里了...检索词：song-{0}",song);
+            log.log(Level.INFO, "来到这里了...检索词：name-{0}}",name);
+            log.log(Level.INFO, "来到这里了...检索词：artist-{0}",artits);
             String s = null;//getBaidu_Lyric(name);
-            if (s == null) {
-                s = getBaidu_Lyric(song,artits);
-                return s;
-            } else {
-                return s;
-            }
-        } catch (Exception ex) {
-            return null;
-        }
+            try {
+				s = getBaidu_Lyric(song,artits);
+			} catch (Exception e) {
+				s = null;
+				e.printStackTrace();
+			}
+			return s;
     }
 
     static enum Test {
-
         Album, TITLE;
     }
 
-    public static void main(String[] args) throws Exception {
+   // public static void main(String[] args) throws Exception {
         //System.out.println("测试搜索内容:"+htmlTrim2(Util.getBaidu_Lyric("许巍 那一年")));
-
-    }
+    //}
 }

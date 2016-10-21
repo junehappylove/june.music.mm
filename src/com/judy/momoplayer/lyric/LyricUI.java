@@ -4,24 +4,26 @@
  */
 package com.judy.momoplayer.lyric;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
 import com.judy.momoplayer.util.Config;
 import com.judy.momoplayer.util.MultiImageBorder;
 import com.judy.momoplayer.util.Playerable;
 import com.judy.momoplayer.util.Util;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Insets;
-import javax.swing.JPanel;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class LyricUI extends JPanel {
 
     private static final long serialVersionUID = 20071214L;
-    private Config config;
+    @SuppressWarnings("unused")
+	private Config config;
     private LyricPanel lp;//一个实际显示歌词的面板
     private Playerable player;
     private MultiImageBorder border;//即是边界,又是监听器

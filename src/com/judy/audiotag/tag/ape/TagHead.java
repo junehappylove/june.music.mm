@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  * 内部的私有类,它代表了一个APE标签的头部
- * @author hadeslee
+ * @author judy
  */
 public class TagHead {
 

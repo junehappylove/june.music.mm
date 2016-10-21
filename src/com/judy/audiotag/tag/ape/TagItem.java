@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author hadeslee
+ * @author judy
  */
 public class TagItem implements TagTextField {
 

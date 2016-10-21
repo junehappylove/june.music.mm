@@ -53,7 +53,7 @@ import java.util.logging.Logger;
 public class VorbisCommentReader
 {
       // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.tag.vorbiscomment.VorbisCommentReader");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.tag.vorbiscomment.VorbisCommentReader");
 
     public static final int FIELD_VENDOR_LENGTH_POS = 0;
     public static final int FIELD_VENDOR_STRING_POS = 4;

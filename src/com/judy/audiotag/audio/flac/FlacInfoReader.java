@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 public class FlacInfoReader
 {
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.flac");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
 
     private static final int NO_OF_BITS_IN_BYTE = 8;
     private static final int KILOBYTES_TO_BYTES_MULTIPLIER = 1000;

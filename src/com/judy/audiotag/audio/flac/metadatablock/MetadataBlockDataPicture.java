@@ -54,7 +54,7 @@ public class MetadataBlockDataPicture implements MetadataBlockData, TagField
     private byte[]  imageData;
 
     // Logger Object
-    public static Logger logger = Logger.getLogger("com.hadeslee.jaudiotagger.audio.flac.MetadataBlockDataPicture");
+    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac.MetadataBlockDataPicture");
 
     /**
      * Construct picture block by reading from file
@@ -267,7 +267,7 @@ public class MetadataBlockDataPicture implements MetadataBlockData, TagField
     /**
 	 * Returns the Id of the represented tag field.<br>
 	 * This value should uniquely identify a kind of tag data, like title.
-	 * {@link com.hadeslee.jaudiotagger.audio.generic.AbstractTag} will use the &quot;id&quot; to summarize multiple
+	 * {@link com.judy.jaudiotagger.audio.generic.AbstractTag} will use the &quot;id&quot; to summarize multiple
 	 * fields.
 	 *
 	 * @return Unique identifier for the fields type. (title, artist...)

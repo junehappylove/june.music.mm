@@ -5,19 +5,18 @@
  */
 package com.judy.momoplayer.setting;
 
-import com.judy.momoplayer.util.Config;
-import com.judy.momoplayer.util.Util;
-import com.judy.momoplayer.util.Version;
-
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.judy.momoplayer.util.Config;
+import com.judy.momoplayer.util.Util;
+import com.judy.momoplayer.util.Version;
+
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class SettingPanel extends javax.swing.JPanel implements Initable {
 

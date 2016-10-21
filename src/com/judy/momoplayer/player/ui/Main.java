@@ -84,7 +84,7 @@ public class Main extends JFrame implements Loader {
     public static void main(String[] args) {
         try {
             LogManager lm = LogManager.getLogManager();
-            lm.readConfiguration(Main.class.getResourceAsStream("/com/hadeslee/momoplayer/util/Log.properties"));
+            lm.readConfiguration(Main.class.getResourceAsStream("/com/judy/momoplayer/util/Log.properties"));
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SecurityException ex) {
@@ -117,13 +117,13 @@ public class Main extends JFrame implements Loader {
 
     public void loadJS() {
         BasicPlayer bplayer = new BasicPlayer();
-        List mixers = bplayer.getMixers();
+        List<String> mixers = bplayer.getMixers();
         config.setMixers(mixers);
         for (Object obj : mixers) {
             log.log(Level.INFO, "\u53ef\u7528\u7684MIXER\uff1a{0}", obj);
         }
         if (mixers != null) {
-            Iterator it = mixers.iterator();
+            Iterator<String> it = mixers.iterator();
             String mixer = config.getAudioDevice();
             log.log(Level.INFO, "Config.Mixer={0}", mixer);
             boolean mixerFound = false;
@@ -163,7 +163,7 @@ public class Main extends JFrame implements Loader {
         config.setTopParent(this);
         setTitle(Config.TITLETEXT);
         ClassLoader cl = this.getClass().getClassLoader();
-        URL iconURL = cl.getResource("com/hadeslee/momoplayer/pic/player/icon.png");
+        URL iconURL = cl.getResource("com/judy/momoplayer/pic/player/icon.png");
         if (iconURL != null) {
             ImageIcon jlguiIcon = new ImageIcon(iconURL);
             setIconImage(jlguiIcon.getImage());
@@ -270,7 +270,8 @@ public class Main extends JFrame implements Loader {
         }
     }
 
-    private void addWindowStateListener() {
+    @SuppressWarnings("unused")
+	private void addWindowStateListener() {
 
         this.addWindowStateListener(new WindowStateListener() {
 
@@ -324,7 +325,12 @@ public class Main extends JFrame implements Loader {
         String lrcID = "LRC";
         Action nextAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent e) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -4769807287278716970L;
+
+			public void actionPerformed(ActionEvent e) {
                 if (mp != null) {
                     mp.processNext(e.getModifiers());
                 }
@@ -332,7 +338,12 @@ public class Main extends JFrame implements Loader {
         };
         Action pauseAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent e) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -1303557045104652931L;
+
+			public void actionPerformed(ActionEvent e) {
                 if (mp != null) {
                     mp.processPause(e.getModifiers());
                 }
@@ -340,7 +351,12 @@ public class Main extends JFrame implements Loader {
         };
         Action playAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent e) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -8209228166451743145L;
+
+			public void actionPerformed(ActionEvent e) {
                 if (mp != null) {
                     mp.processPlay(e.getModifiers());
                 }
@@ -348,7 +364,12 @@ public class Main extends JFrame implements Loader {
         };
         Action stopAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent e) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = 5631495123140708028L;
+
+			public void actionPerformed(ActionEvent e) {
                 if (mp != null) {
                     mp.processStop(e.getModifiers());
                 }
@@ -356,21 +377,36 @@ public class Main extends JFrame implements Loader {
         };
         Action lrcAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent ae) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = 5031380540886115707L;
+
+			public void actionPerformed(ActionEvent ae) {
 //                toggleLyricWindow(!lrcWin.isShowing());
                 mp.lrc.doClick();
             }
         };
         Action eqAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent ae) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -3637801860767592191L;
+
+			public void actionPerformed(ActionEvent ae) {
 //                toggleEqualizer(!eqWin.isShowing());
                 mp.eq.doClick();
             }
         };
         Action plAction = new AbstractAction() {
 
-            public void actionPerformed(ActionEvent ae) {
+            /**
+			 * long serialVersionUID
+			 */
+			private static final long serialVersionUID = -8644884186267678921L;
+
+			public void actionPerformed(ActionEvent ae) {
 //                togglePlaylist(!plWin.isShowing());
                 mp.pl.doClick();
             }

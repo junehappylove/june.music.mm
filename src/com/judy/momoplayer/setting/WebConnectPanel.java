@@ -5,16 +5,21 @@
  */
 package com.judy.momoplayer.setting;
 
-import com.judy.momoplayer.util.Config;
 import javax.swing.JOptionPane;
+
+import com.judy.momoplayer.util.Config;
 
 /**
  *
- * @author  hadeslee
+ * @author  judy
  */
 public class WebConnectPanel extends javax.swing.JPanel implements Initable {
 
-    /** Creates new form WebConnectPanel */
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 8340424654555375353L;
+	/** Creates new form WebConnectPanel */
     public WebConnectPanel() {
         initComponents();
         init();
@@ -198,7 +203,8 @@ public class WebConnectPanel extends javax.swing.JPanel implements Initable {
 
     private void doSave() {
         Config config = Config.getConfig();
-        int portNumber = -1;
+        @SuppressWarnings("unused")
+		int portNumber = -1;
         try {
             if (useProxy.isSelected()) {
                 portNumber = Integer.parseInt(port.getText().trim());
