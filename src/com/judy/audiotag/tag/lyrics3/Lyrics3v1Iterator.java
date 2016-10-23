@@ -25,7 +25,7 @@ package com.judy.audiotag.tag.lyrics3;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class Lyrics3v1Iterator implements Iterator
+public class Lyrics3v1Iterator implements Iterator<Object>
 {
     /**
      * 

@@ -42,7 +42,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
     /**
      * 
      */
-    private ArrayList lines = new ArrayList();
+    private ArrayList<Lyrics3Line> lines = new ArrayList<Lyrics3Line>();
 
     /**
      * Creates a new FieldBodyLYR datatype.
@@ -171,7 +171,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
             return false;
         }
 
-        ArrayList superset = ((FieldFrameBodyLYR) obj).lines;
+        ArrayList<?> superset = ((FieldFrameBodyLYR) obj).lines;
 
         for (Object line : lines)
         {
@@ -196,7 +196,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
         Lyrics3Line newLine;
         ID3v2LyricLine currentLine;
         Lyrics3TimeStamp timeStamp;
-        HashMap lineMap = new HashMap();
+        HashMap<String, Lyrics3Line> lineMap = new HashMap<String, Lyrics3Line>();
 
         while (iterator.hasNext())
         {
@@ -284,7 +284,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
      *
      * @return 
      */
-    public Iterator iterator()
+    public Iterator<Lyrics3Line> iterator()
     {
         return lines.iterator();
     }
@@ -393,7 +393,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
         String token = "";
         int offset = 0;
         int delim = lineString.indexOf(Lyrics3v2Fields.CRLF);
-        lines = new ArrayList();
+        lines = new ArrayList<Lyrics3Line>();
 
         Lyrics3Line line;
 

@@ -16,13 +16,19 @@ import java.util.logging.Logger;
  */
 public class TagItem implements TagTextField {
 
-    private static Logger log = Logger.getLogger(TagItem.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -7437447795538678443L;
+	@SuppressWarnings("unused")
+	private static Logger log = Logger.getLogger(TagItem.class.getName());
     private boolean common;
     private String id;
     private String content;
     private boolean valid;//是否合法
     private int length;//该项的内容的长度
-    private int flag;//该项的标志,表明内容是什么,可能是UTF-8字符串也可能是二进制数据
+    @SuppressWarnings("unused")
+	private int flag;//该项的标志,表明内容是什么,可能是UTF-8字符串也可能是二进制数据
     private int size;//这个项用了多少个字节
     private byte[] raw;
 

@@ -29,6 +29,11 @@ package com.judy.audiotag.tag;
 public class EmptyFrameException extends InvalidFrameException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -3830439162327200522L;
+
+	/**
      * Creates a new EmptyFrameException datatype.
      */
     public EmptyFrameException()

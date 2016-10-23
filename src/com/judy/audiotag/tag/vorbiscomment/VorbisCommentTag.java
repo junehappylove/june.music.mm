@@ -18,19 +18,24 @@
  */
 package com.judy.audiotag.tag.vorbiscomment;
 
-import com.judy.audiotag.audio.generic.AbstractTag;
-import com.judy.audiotag.audio.ogg.util.VorbisHeader;
-import com.judy.audiotag.tag.TagField;
-import com.judy.audiotag.tag.vorbiscomment.VorbisCommentTagField;
-import com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey;
-import com.judy.audiotag.tag.vorbiscomment.util.Base64Coder;
-import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.*;
-import com.judy.audiotag.tag.TagFieldKey;
-import com.judy.audiotag.tag.KeyNotFoundException;
-import com.judy.audiotag.tag.FieldDataInvalidException;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.ALBUM;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.ARTIST;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.COMMENT;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.DATE;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.GENRE;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.TITLE;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.TRACKNUMBER;
+import static com.judy.audiotag.tag.vorbiscomment.VorbisCommentFieldKey.VENDOR;
 
 import java.util.EnumMap;
 import java.util.List;
+
+import com.judy.audiotag.audio.generic.AbstractTag;
+import com.judy.audiotag.audio.ogg.util.VorbisHeader;
+import com.judy.audiotag.tag.KeyNotFoundException;
+import com.judy.audiotag.tag.TagField;
+import com.judy.audiotag.tag.TagFieldKey;
+import com.judy.audiotag.tag.vorbiscomment.util.Base64Coder;
 
 /**
  * This is the logical representation of  Vorbis Comment Data 
@@ -39,7 +44,11 @@ import java.util.List;
 public class VorbisCommentTag extends AbstractTag
 {
 
-    static EnumMap<TagFieldKey, VorbisCommentFieldKey> tagFieldToOggField = new EnumMap<TagFieldKey, VorbisCommentFieldKey>(TagFieldKey.class);
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -7474442763344474274L;
+	static EnumMap<TagFieldKey, VorbisCommentFieldKey> tagFieldToOggField = new EnumMap<TagFieldKey, VorbisCommentFieldKey>(TagFieldKey.class);
 
     static
     {

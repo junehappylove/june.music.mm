@@ -31,6 +31,11 @@ package com.judy.audiotag.tag;
 public class TagException extends Exception
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -4366459741343530449L;
+
+	/**
      * Creates a new TagException datatype.
      */
     public TagException()

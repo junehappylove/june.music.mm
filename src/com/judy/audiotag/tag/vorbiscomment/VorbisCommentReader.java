@@ -19,15 +19,12 @@
  */
 package com.judy.audiotag.tag.vorbiscomment;
 
-import com.judy.audiotag.audio.generic.Utils;
-import com.judy.audiotag.audio.exceptions.CannotReadException;
-import com.judy.audiotag.audio.ogg.util.VorbisHeader;
-import com.judy.audiotag.audio.ogg.util.VorbisPacketType;
-import com.judy.audiotag.tag.vorbiscomment.VorbisCommentTagField;
-
-import java.io.*;
-import java.nio.IntBuffer;
+import java.io.IOException;
 import java.util.logging.Logger;
+
+import com.judy.audiotag.audio.exceptions.CannotReadException;
+import com.judy.audiotag.audio.generic.Utils;
+import com.judy.audiotag.audio.ogg.util.VorbisHeader;
 
 /**
  * Create the VorbisCommentTag by reading from the raw packet data

@@ -41,7 +41,11 @@ public abstract class AbstractID3v2Frame
     extends AbstractTagFrame implements TagField
 {
 
-    protected static final String TYPE_FRAME = "frame";
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -724816556929766810L;
+	protected static final String TYPE_FRAME = "frame";
     protected static final String TYPE_FRAME_SIZE = "frameSize";
     protected static final String UNSUPPORTED_ID = "Unsupported";
 

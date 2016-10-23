@@ -37,7 +37,7 @@ public class FieldFrameBodyIMG extends AbstractLyrics3v2FieldFrameBody
     /**
      * 
      */
-    private ArrayList images = new ArrayList();
+    private ArrayList<Lyrics3Image> images = new ArrayList<Lyrics3Image>();
 
     /**
      * Creates a new FieldBodyIMG datatype.
@@ -132,7 +132,7 @@ public class FieldFrameBodyIMG extends AbstractLyrics3v2FieldFrameBody
             return false;
         }
 
-        ArrayList superset = ((FieldFrameBodyIMG) obj).images;
+        ArrayList<?> superset = ((FieldFrameBodyIMG) obj).images;
 
         for (Object image : images)
         {
@@ -203,7 +203,7 @@ public class FieldFrameBodyIMG extends AbstractLyrics3v2FieldFrameBody
      *
      * @return 
      */
-    public Iterator iterator()
+    public Iterator<Lyrics3Image> iterator()
     {
         return images.iterator();
     }
@@ -310,7 +310,7 @@ public class FieldFrameBodyIMG extends AbstractLyrics3v2FieldFrameBody
         String token = "";
         int offset = 0;
         int delim = imageString.indexOf(Lyrics3v2Fields.CRLF);
-        images = new ArrayList();
+        images = new ArrayList<Lyrics3Image>();
 
         while (delim >= 0)
         {

@@ -361,7 +361,7 @@ public interface Tag extends Serializable {
      *
      * @return iterator over whole list
      */
-    public Iterator getFields();
+    public Iterator<?> getFields();
 
     /**
      * Return the number of fields

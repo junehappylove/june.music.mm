@@ -29,7 +29,11 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class APEv2Tag implements Tag {
 
-    private static Logger log = Logger.getLogger(APEv2Tag.class.getName());
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 8816269667826600599L;
+	private static Logger log = Logger.getLogger(APEv2Tag.class.getName());
     private File input;
     private TagHead head;
     private TagBody body;
@@ -40,7 +44,8 @@ public class APEv2Tag implements Tag {
     private String comment = "";
     private String track = "";
     private String genre = "";
-    private int fieldCount;
+    @SuppressWarnings("unused")
+	private int fieldCount;
     private Map<String, String> map;
 
     public APEv2Tag(File file) throws IOException, UnsupportedAudioFileException {
@@ -419,6 +424,8 @@ public class APEv2Tag implements Tag {
             case COMMENT:
                 setComment(field.toString());
                 break;
+		default:
+			break;
         }
     }
 
@@ -477,7 +484,7 @@ public class APEv2Tag implements Tag {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public Iterator getFields() {
+    public Iterator<?> getFields() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

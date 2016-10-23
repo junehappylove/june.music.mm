@@ -356,6 +356,7 @@ public class ICOFile implements Comparable<Object> {
     public int getReserved() {
         return _reserved;
     }
+    
     public static void main(String[] args)throws Exception {
         ICOFile file=new ICOFile("E:/build/client.ico");
         System.out.println(file.getImageCount());

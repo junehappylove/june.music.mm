@@ -37,6 +37,11 @@ public class VorbisCommentTagField implements TagTextField
 {
 
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 8851743049576073060L;
+
+	/**
      * If <code>true</code>, the id of the current encapsulated tag field is
      * specified as a common field. <br>
      * Example is "ARTIST" which should be interpreted by any application as the

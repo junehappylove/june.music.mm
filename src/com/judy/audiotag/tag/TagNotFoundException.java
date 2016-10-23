@@ -35,6 +35,11 @@ package com.judy.audiotag.tag;
 public class TagNotFoundException extends TagException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Creates a new TagNotFoundException datatype.
      */
     public TagNotFoundException()

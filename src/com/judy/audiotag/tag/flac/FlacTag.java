@@ -28,7 +28,11 @@ import java.io.IOException;
  */
 public class FlacTag implements Tag
 {
-    VorbisCommentTag tag = null;
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 2902369227890609774L;
+	VorbisCommentTag tag = null;
     List<MetadataBlockDataPicture> images = new ArrayList<MetadataBlockDataPicture>();
 
     public FlacTag(VorbisCommentTag tag,List<MetadataBlockDataPicture> images)

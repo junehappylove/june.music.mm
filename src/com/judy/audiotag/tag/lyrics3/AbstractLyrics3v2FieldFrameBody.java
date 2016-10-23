@@ -125,7 +125,7 @@ public abstract class AbstractLyrics3v2FieldFrameBody extends AbstractTagFrameBo
         //Go through the ObjectList of the Frame reading the data into the
         //correct datatype.
         AbstractDataType object;
-        Iterator iterator = objectList.listIterator();
+        Iterator<?> iterator = objectList.listIterator();
         while (iterator.hasNext())
         {
             //The read has extended further than the defined frame size
@@ -155,7 +155,7 @@ public abstract class AbstractLyrics3v2FieldFrameBody extends AbstractTagFrameBo
         //Write the various fields to file in order
         byte[] buffer;
         AbstractDataType object;
-        Iterator iterator = objectList.listIterator();
+        Iterator<?> iterator = objectList.listIterator();
         while (iterator.hasNext())
         {
             object = (AbstractDataType) iterator.next();

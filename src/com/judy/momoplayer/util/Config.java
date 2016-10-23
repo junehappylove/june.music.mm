@@ -189,7 +189,8 @@ public class Config implements Serializable {
     private int[] lastEqualizer;//最后调音器的配置,以便下次导入
     private Point eqLocation, lrcLocation, plLocation;//三个窗口的位置
     private Point disLrc, disEq, disPl;//三个面板和主面板的距离
-//    private File lyricDir = new File(System.getProperty("user.home"));//歌词的搜索目录,并不是写入的目录,写入还是固定在user.home里面
+	@SuppressWarnings("unused")
+	private File lyricDir = new File(System.getProperty("user.home"));//歌词的搜索目录,并不是写入的目录,写入还是固定在user.home里面
     private Dimension lrcSize, plSize;//歌词秀和播放列表的大小
     private final Vector<PlayList> playlists;//所有的播放列表
     private final Map<String, Set<String>> componentMap;//一个窗口关系的变量

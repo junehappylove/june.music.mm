@@ -178,7 +178,8 @@ public class Lyrics3v2Field
     {
         byte[] buffer = new byte[6];
         // lets scan for a non-zero byte;
-        long filePointer;
+        @SuppressWarnings("unused")
+		long filePointer;
         byte b;
         do
         {

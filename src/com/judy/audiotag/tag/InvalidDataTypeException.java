@@ -23,6 +23,11 @@ package com.judy.audiotag.tag;
 public class InvalidDataTypeException  extends InvalidTagException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -6461589095652051364L;
+
+	/**
      * Creates a new InvalidDataTypeException datatype.
      */
     public InvalidDataTypeException()

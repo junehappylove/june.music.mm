@@ -61,7 +61,7 @@ public class VorbisCommentCreator extends AbstractTagCreator
             baos.write(Utils.getSizeLittleEndian(listLength));
 
             //Add metadata raw content
-            Iterator it = tag.getFields();
+            Iterator<?> it = tag.getFields();
             while (it.hasNext())
             {
                 TagField frame = (TagField) it.next();

@@ -58,7 +58,12 @@ import java.util.regex.Pattern;
  */
 public class ID3v24Frame extends AbstractID3v2Frame
 {
-    Pattern validFrameIdentifier = Pattern.compile("[A-Z][0-9A-Z]{3}");
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 5702445553618374641L;
+
+	Pattern validFrameIdentifier = Pattern.compile("[A-Z][0-9A-Z]{3}");
 
     protected static final int FRAME_DATA_LENGTH_SIZE =4;
 

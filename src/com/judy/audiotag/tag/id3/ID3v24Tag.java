@@ -43,6 +43,7 @@ import com.judy.audiotag.tag.lyrics3.Lyrics3v2Field;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
@@ -58,7 +59,11 @@ import java.util.logging.Level;
  */
 public class ID3v24Tag extends AbstractID3v2Tag
 {
-    protected static final String TYPE_FOOTER = "footer";
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 6831632892667080404L;
+	protected static final String TYPE_FOOTER = "footer";
     protected static final String TYPE_IMAGEENCODINGRESTRICTION = "imageEncodingRestriction";
     protected static final String TYPE_IMAGESIZERESTRICTION = "imageSizeRestriction";
     protected static final String TYPE_TAGRESTRICTION = "tagRestriction";
@@ -291,7 +296,7 @@ public class ID3v24Tag extends AbstractID3v2Tag
      */
     public ID3v24Tag()
     {
-        frameMap = new LinkedHashMap();
+        frameMap = new LinkedHashMap<String, Serializable>();
     }
 
     /**
@@ -323,9 +328,9 @@ public class ID3v24Tag extends AbstractID3v2Tag
     protected void copyFrames(AbstractID3v2Tag copyObject)
     {
         logger.info("Copying Frames,there are:" + copyObject.frameMap.keySet().size() + " different types");
-        frameMap = new LinkedHashMap();
+        frameMap = new LinkedHashMap<String, Serializable>();
         //Copy Frames that are a valid 2.4 type
-        Iterator iterator = copyObject.frameMap.keySet().iterator();
+        Iterator<String> iterator = copyObject.frameMap.keySet().iterator();
         AbstractID3v2Frame frame;
         ID3v24Frame newFrame = null;
         while (iterator.hasNext())
@@ -350,8 +355,8 @@ public class ID3v24Tag extends AbstractID3v2Tag
             //MultiFrames
             else if (o instanceof ArrayList)
             {
-                ArrayList multiFrame = new ArrayList();
-                for (ListIterator li = ((ArrayList) o).listIterator(); li.hasNext();)
+                ArrayList<ID3v24Frame> multiFrame = new ArrayList<ID3v24Frame>();
+                for (ListIterator<?> li = ((ArrayList<?>) o).listIterator(); li.hasNext();)
                 {
                     frame = (AbstractID3v2Frame) li.next();
                     try
@@ -391,7 +396,7 @@ public class ID3v24Tag extends AbstractID3v2Tag
     public ID3v24Tag(AbstractTag mp3tag)
     {
         logger.info("Creating tag from a tag of a different version");
-        frameMap = new LinkedHashMap();
+        frameMap = new LinkedHashMap<String, Serializable>();
         if (mp3tag != null)
         {
             //Should use simpler copy constructor
@@ -485,7 +490,7 @@ public class ID3v24Tag extends AbstractID3v2Tag
                 {
                     lyric = new Lyrics3v2(mp3tag);
                 }
-                Iterator iterator = lyric.iterator();
+                Iterator<?> iterator = lyric.iterator();
                 Lyrics3v2Field field;
                 ID3v24Frame newFrame;
                 while (iterator.hasNext())
@@ -514,7 +519,7 @@ public class ID3v24Tag extends AbstractID3v2Tag
      */
     public ID3v24Tag(ByteBuffer buffer, String loggingFilename) throws TagException
     {
-        frameMap = new LinkedHashMap();
+        frameMap = new LinkedHashMap<String, Serializable>();
         setLoggingFilename(loggingFilename);
         this.read(buffer);
     }
@@ -551,18 +556,18 @@ public class ID3v24Tag extends AbstractID3v2Tag
         int size = TAG_HEADER_LENGTH;
         if (extended)
         {
-            size += this.TAG_EXT_HEADER_LENGTH;
+            size += ID3v24Tag.TAG_EXT_HEADER_LENGTH;
             if (updateTag)
             {
-                size += this.TAG_EXT_HEADER_UPDATE_LENGTH;
+                size += ID3v24Tag.TAG_EXT_HEADER_UPDATE_LENGTH;
             }
             if (crcDataFlag)
             {
-                size += this.TAG_EXT_HEADER_CRC_LENGTH;
+                size += ID3v24Tag.TAG_EXT_HEADER_CRC_LENGTH;
             }
             if (tagRestriction)
             {
-                size += this.TAG_EXT_HEADER_RESTRICTION_LENGTH;
+                size += ID3v24Tag.TAG_EXT_HEADER_RESTRICTION_LENGTH;
             }
         }
         size += super.getSize();
@@ -725,7 +730,7 @@ public class ID3v24Tag extends AbstractID3v2Tag
         logger.finest(getLoggingFilename() + ":" + "Start of frame body at" + byteBuffer.position());
         //Now start looking for frames
         ID3v24Frame next;
-        frameMap = new LinkedHashMap();
+        frameMap = new LinkedHashMap<String, Serializable>();
         //Read the size from the Tag Header
         this.fileReadSize = size;
         // Read the frames until got to upto the size as specified in header
@@ -825,18 +830,18 @@ public class ID3v24Tag extends AbstractID3v2Tag
         int additionalHeaderSize = 0;
         if (extended)
         {
-            additionalHeaderSize += this.TAG_EXT_HEADER_LENGTH;
+            additionalHeaderSize += ID3v24Tag.TAG_EXT_HEADER_LENGTH;
             if (updateTag)
             {
-                additionalHeaderSize += this.TAG_EXT_HEADER_UPDATE_LENGTH;
+                additionalHeaderSize += ID3v24Tag.TAG_EXT_HEADER_UPDATE_LENGTH;
             }
             if (crcDataFlag)
             {
-                additionalHeaderSize += this.TAG_EXT_HEADER_CRC_LENGTH;
+                additionalHeaderSize += ID3v24Tag.TAG_EXT_HEADER_CRC_LENGTH;
             }
             if (tagRestriction)
             {
-                additionalHeaderSize += this.TAG_EXT_HEADER_RESTRICTION_LENGTH;
+                additionalHeaderSize += ID3v24Tag.TAG_EXT_HEADER_RESTRICTION_LENGTH;
             }
         }
 

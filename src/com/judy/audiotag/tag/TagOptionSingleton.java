@@ -24,6 +24,10 @@
  */
 package com.judy.audiotag.tag;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import com.judy.audiotag.tag.id3.framebody.AbstractID3v2FrameBody;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyCOMM;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyTIPL;
@@ -32,16 +36,12 @@ import com.judy.audiotag.tag.id3.valuepair.Languages;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
 import com.judy.audiotag.tag.lyrics3.Lyrics3v2Fields;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-
 public class TagOptionSingleton
 {
     /**
      * 
      */
-    private static HashMap tagOptionTable = new HashMap();
+    private static HashMap<Object, TagOptionSingleton> tagOptionTable = new HashMap<Object, TagOptionSingleton>();
 
     /**
      * 
@@ -56,23 +56,23 @@ public class TagOptionSingleton
     /**
      * 
      */
-    private HashMap keywordMap = new HashMap();
+    private HashMap<Class<?>, LinkedList<String>> keywordMap = new HashMap<Class<?>, LinkedList<String>>();
 
     /**
      * Map of lyric ID's to Boolean objects if we should or should not save the
      * specific Kyrics3 field. Defaults to true.
      */
-    private HashMap lyrics3SaveFieldMap = new HashMap();
+    private HashMap<String, Boolean> lyrics3SaveFieldMap = new HashMap<String, Boolean>();
 
     /**
      * parenthesis map stuff
      */
-    private HashMap parenthesisMap = new HashMap();
+    private HashMap<String, String> parenthesisMap = new HashMap<String, String>();
 
     /**
      * <code>HashMap</code> listing words to be replaced if found
      */
-    private HashMap replaceWordMap = new HashMap();
+    private HashMap<String, String> replaceWordMap = new HashMap<String, String>();
 
 
     /**
@@ -544,7 +544,7 @@ public class TagOptionSingleton
      *
      * @return 
      */
-    public Iterator getKeywordIterator()
+    public Iterator<Class<?>> getKeywordIterator()
     {
         return keywordMap.keySet().iterator();
     }
@@ -555,9 +555,9 @@ public class TagOptionSingleton
      * @param id3v2_4FrameBody 
      * @return 
      */
-    public Iterator getKeywordListIterator(Class id3v2_4FrameBody)
+    public Iterator<?> getKeywordListIterator(Class<?> id3v2_4FrameBody)
     {
-        return ((LinkedList) keywordMap.get(id3v2_4FrameBody)).iterator();
+        return ((LinkedList<?>) keywordMap.get(id3v2_4FrameBody)).iterator();
     }
 
     /**
@@ -673,7 +673,7 @@ public class TagOptionSingleton
      *
      * @return 
      */
-    public HashMap getLyrics3SaveFieldMap()
+    public HashMap<String, Boolean> getLyrics3SaveFieldMap()
     {
         return lyrics3SaveFieldMap;
     }
@@ -720,7 +720,7 @@ public class TagOptionSingleton
      *
      * @return 
      */
-    public Iterator getOldReplaceWordIterator()
+    public Iterator<String> getOldReplaceWordIterator()
     {
         return replaceWordMap.keySet().iterator();
     }
@@ -741,7 +741,7 @@ public class TagOptionSingleton
      *
      * @return 
      */
-    public Iterator getOpenParenthesisIterator()
+    public Iterator<String> getOpenParenthesisIterator()
     {
         return parenthesisMap.keySet().iterator();
     }
@@ -808,7 +808,7 @@ public class TagOptionSingleton
      */
     public void setToDefault()
     {
-        keywordMap = new HashMap();
+        keywordMap = new HashMap<Class<?>, LinkedList<String>>();
         filenameTagSave = false;
         id3v1Save = true;
         id3v1SaveAlbum = true;
@@ -825,10 +825,10 @@ public class TagOptionSingleton
         lyrics3KeepEmptyFieldIfRead = false;
         lyrics3Save = true;
         lyrics3SaveEmptyField = false;
-        lyrics3SaveFieldMap = new HashMap();
+        lyrics3SaveFieldMap = new HashMap<String, Boolean>();
         numberMP3SyncFrame = 3;
-        parenthesisMap = new HashMap();
-        replaceWordMap = new HashMap();
+        parenthesisMap = new HashMap<String, String>();
+        replaceWordMap = new HashMap<String, String>();
         timeStampFormat = 2;
         unsyncTags = false;
         removeTrailingTerminatorOnWrite = true;
@@ -839,7 +839,7 @@ public class TagOptionSingleton
 
         //default all lyrics3 fields to save. id3v1 fields are individual
         // settings. id3v2 fields are always looked at to save.
-        Iterator iterator = Lyrics3v2Fields.getInstanceOf().getIdToValueMap().keySet().iterator();
+        Iterator<?> iterator = Lyrics3v2Fields.getInstanceOf().getIdToValueMap().keySet().iterator();
         String fieldId;
 
         while (iterator.hasNext())
@@ -935,7 +935,7 @@ public class TagOptionSingleton
      * @param keyword             
      * @throws TagException 
      */
-    public void addKeyword(Class id3v2FrameBodyClass, String keyword)
+    public void addKeyword(Class<?> id3v2FrameBodyClass, String keyword)
         throws TagException
     {
         if (AbstractID3v2FrameBody.class.isAssignableFrom(id3v2FrameBodyClass) == false)
@@ -945,16 +945,16 @@ public class TagOptionSingleton
 
         if ((keyword != null) && (keyword.length() > 0))
         {
-            LinkedList keywordList;
+            LinkedList<String> keywordList;
 
             if (keywordMap.containsKey(id3v2FrameBodyClass) == false)
             {
-                keywordList = new LinkedList();
+                keywordList = new LinkedList<String>();
                 keywordMap.put(id3v2FrameBodyClass, keywordList);
             }
             else
             {
-                keywordList = (LinkedList) keywordMap.get(id3v2FrameBodyClass);
+                keywordList = (LinkedList<String>) keywordMap.get(id3v2FrameBodyClass);
             }
 
             keywordList.add(keyword);

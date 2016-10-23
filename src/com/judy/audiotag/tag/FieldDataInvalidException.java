@@ -9,6 +9,11 @@ package com.judy.audiotag.tag;
 public class FieldDataInvalidException extends TagException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 1654125202072786350L;
+
+	/**
      * Creates a new KeyNotFoundException datatype.
      */
     public FieldDataInvalidException()

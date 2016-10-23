@@ -30,6 +30,11 @@ package com.judy.audiotag.tag;
 public class InvalidFrameIdentifierException extends InvalidFrameException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -3809822042277587766L;
+
+	/**
      * Creates a new InvalidFrameIdentifierException datatype.
      */
     public InvalidFrameIdentifierException()

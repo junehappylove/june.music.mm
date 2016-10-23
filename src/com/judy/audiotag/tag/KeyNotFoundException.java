@@ -8,6 +8,11 @@ package com.judy.audiotag.tag;
 public class KeyNotFoundException extends RuntimeException
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -7009346494263662256L;
+
+	/**
      * Creates a new KeyNotFoundException datatype.
      */
     public KeyNotFoundException()

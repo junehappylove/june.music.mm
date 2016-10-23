@@ -4,13 +4,15 @@
  */
 package com.judy.momoplayer.util;
 
+import java.util.logging.Logger;
+
 /**
  * 一个抽象版本的对象
  * @author judy
  */
 public class Version {
 
-    //private static Logger log = Logger.getLogger(Version.class.getName());
+    private static Logger log = Logger.getLogger(Version.class.getName());
     private String version;
     private String url;
     private String description;
