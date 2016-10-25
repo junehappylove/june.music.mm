@@ -51,7 +51,11 @@ import java.util.*;
  */
 public abstract class AbstractID3v2Tag extends AbstractID3Tag implements Tag
 {
-    protected static final String TYPE_HEADER = "header";
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -8653536399216452218L;
+	protected static final String TYPE_HEADER = "header";
     protected static final String TYPE_BODY = "body";
 
     //Tag ID as held in file

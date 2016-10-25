@@ -13,7 +13,12 @@ package com.judy.audiotag.audio.exceptions;
  */
 public class InvalidAudioFrameException extends Exception
 {
-    public InvalidAudioFrameException(String message)
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -8451864588420295250L;
+
+	public InvalidAudioFrameException(String message)
     {
         super(message);
     }

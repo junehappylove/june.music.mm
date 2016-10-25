@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
@@ -78,12 +79,18 @@ public class Main extends JFrame implements Loader {
 	private static final Config config = Config.getConfig();// 配置信息
 	@SuppressWarnings("unused")
 	private RoundRectangle2D.Float rectPl, rectLrc;
+	private int system = 0;// 操作系统类型【0:windows 9:其他】
+	private Properties prop = System.getProperties();
+	private String os = prop.getProperty("os.name");
 
 	public Main() {
 		// 必须使用下面这一行代码，实现窗口透明效果
 		System.setProperty("sun.java2d.noddraw", "true");
+
 		Logger main = Logger.getLogger("com");
 		main.setLevel(Level.INFO);
+		
+		system = os.toLowerCase().contains("win") ? 0 : 9;
 	}
 
 	public static void main(String[] args) {
@@ -97,12 +104,12 @@ public class Main extends JFrame implements Loader {
 		}
 		// TODO 单独启动一个线程去检查软件更新情况
 		// 不需要检测了
-//		CheckThread th = new CheckThread();// 检查软件更新类
-//		th.setDaemon(true);
-//		th.start();
-		final Main player = new Main();
+		CheckThread th = new CheckThread();// 检查软件更新类
+		th.setDaemon(true);
+		th.start();
+		final Main player = new Main();// 启动音乐主进程程
 		SwingUtilities.invokeLater(new Runnable() {
-
+			// 稍后启动如下几个线程
 			public void run() {
 				player.loadUI();
 				player.loadJS();
@@ -124,11 +131,9 @@ public class Main extends JFrame implements Loader {
 
 	public void loadJS() {
 		BasicPlayer bplayer = new BasicPlayer();
-		List<String> mixers = bplayer.getMixers();
+		List<String> mixers = bplayer.getMixers(system);
+		log.log(Level.INFO, "可用的MIXER:{0}", mixers);
 		config.setMixers(mixers);
-		for (Object obj : mixers) {
-			log.log(Level.INFO, "\u53ef\u7528\u7684MIXER\uff1a{0}", obj);
-		}
 		if (mixers != null) {
 			Iterator<String> it = mixers.iterator();
 			String mixer = config.getAudioDevice();
@@ -218,6 +223,8 @@ public class Main extends JFrame implements Loader {
 				mp.closePlayer();
 			}
 		});
+		// TODO hidden
+		addWindowStateListener();
 		addMouseMoveListener();
 		// Keyboard shortcut
 		setKeyBoardShortcut();
@@ -277,7 +284,6 @@ public class Main extends JFrame implements Loader {
 		}
 	}
 
-	@SuppressWarnings("unused")
 	private void addWindowStateListener() {
 
 		this.addWindowStateListener(new WindowStateListener() {
@@ -332,10 +338,7 @@ public class Main extends JFrame implements Loader {
 		String lrcID = "LRC";
 		Action nextAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = -4769807287278716970L;
+			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -345,10 +348,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action pauseAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = -1303557045104652931L;
+			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -358,10 +358,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action playAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = -8209228166451743145L;
+			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -371,10 +368,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action stopAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = 5631495123140708028L;
+			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -384,37 +378,34 @@ public class Main extends JFrame implements Loader {
 		};
 		Action lrcAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = 5031380540886115707L;
+			private static final long serialVersionUID = 1L;
 
+			// 歌词
 			public void actionPerformed(ActionEvent ae) {
-				// toggleLyricWindow(!lrcWin.isShowing());
+				// TODO hidden
+				toggleLyricWindow(!lrcWin.isShowing());
 				mp.lrc.doClick();
 			}
 		};
 		Action eqAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = -3637801860767592191L;
+			private static final long serialVersionUID = 1L;
 
+			// 均衡器
 			public void actionPerformed(ActionEvent ae) {
-				// toggleEqualizer(!eqWin.isShowing());
+				// TODO hidden
+				toggleEqualizer(!eqWin.isShowing());
 				mp.eq.doClick();
 			}
 		};
 		Action plAction = new AbstractAction() {
 
-			/**
-			 * long serialVersionUID
-			 */
-			private static final long serialVersionUID = -8644884186267678921L;
+			private static final long serialVersionUID = 1L;
 
+			// 播放列表
 			public void actionPerformed(ActionEvent ae) {
-				// togglePlaylist(!plWin.isShowing());
+				// TODO hidden
+				togglePlaylist(!plWin.isShowing());
 				mp.pl.doClick();
 			}
 		};

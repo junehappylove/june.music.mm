@@ -25,6 +25,7 @@ package com.judy.momoplayer.player;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -925,15 +926,44 @@ public class BasicPlayer implements BasicController, Runnable {
         }
     }
 
+     static int SYS_WIN = 0;
+     static int SYS_LINUX = 1;
+     static int SYS_MAC = 2;
+     static int SYS_OTHER = 9;
+    public List<String> getMixers(int system){
+		List<String> list = getMixers();
+    	if(system == SYS_WIN){
+			try {
+				List<String> temp = new ArrayList<String>();
+	    		for(String name :list){
+					name = new String(name.getBytes("iso-8859-1"),"gb2312");
+					temp.add(name);
+	    		}
+	    		return temp;
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+    	}
+    	return list;
+    }
+    
+    /**
+     * 获取系统混音器设备信息
+     * @return
+     * @date 2016年10月23日 下午6:55:01
+     * @writer iscas
+     */
     public List<String> getMixers() {
         ArrayList<String> mixers = new ArrayList<String>();
         Mixer.Info[] mInfos = AudioSystem.getMixerInfo();
+        String audio ="";
         if (mInfos != null) {
             for (Mixer.Info mInfo : mInfos) {
                 Line.Info lineInfo = new Line.Info(SourceDataLine.class);
                 Mixer mixer = AudioSystem.getMixer(mInfo);
                 if (mixer.isLineSupported(lineInfo)) {
-                    mixers.add(mInfo.getName());
+                	audio = mInfo.getName();
+                    mixers.add(audio);
                 }
             }
         }

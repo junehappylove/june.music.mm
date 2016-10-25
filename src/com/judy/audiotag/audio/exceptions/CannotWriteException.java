@@ -25,6 +25,11 @@ package com.judy.audiotag.audio.exceptions;
  */
 public class CannotWriteException extends Exception {
 	/**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 5360022103743220361L;
+
+	/**
 	 * (overridden)
 	 * 
 	 * @see Exception#Exception()

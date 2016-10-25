@@ -22,16 +22,15 @@
  */
 package com.judy.audiotag.tag.id3.framebody;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+
 import com.judy.audiotag.tag.InvalidTagException;
 import com.judy.audiotag.tag.datatype.DataTypes;
 import com.judy.audiotag.tag.datatype.NumberHashMap;
 import com.judy.audiotag.tag.datatype.TextEncodedStringSizeTerminated;
 import com.judy.audiotag.tag.id3.ID3TextEncodingConversion;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
 
 /** Abstract representation of a Text Frame
 *

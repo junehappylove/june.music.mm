@@ -51,7 +51,8 @@ public class FlacTagWriter
     private List<MetadataBlock>  metadataBlockCueSheet       = new ArrayList<MetadataBlock>(1);
 
     private FlacTagCreator tc = new FlacTagCreator();
-    private FlacTagReader reader = new FlacTagReader();
+    @SuppressWarnings("unused")
+	private FlacTagReader reader = new FlacTagReader();
 
     /**
      * Delete Tag from file

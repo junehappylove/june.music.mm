@@ -33,6 +33,11 @@ import java.io.File;
 public class ModifyVetoException extends Exception {
 
 	/**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -494570542598340928L;
+
+	/**
 	 * (overridden)
 	 */
 	public ModifyVetoException() {

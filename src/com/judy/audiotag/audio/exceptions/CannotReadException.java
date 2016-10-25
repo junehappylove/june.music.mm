@@ -26,6 +26,11 @@ package com.judy.audiotag.audio.exceptions;
  */
 public class CannotReadException extends Exception {
 	/**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -5140903053808412876L;
+
+	/**
 	 * Creates an instance.
 	 * 
 	 */

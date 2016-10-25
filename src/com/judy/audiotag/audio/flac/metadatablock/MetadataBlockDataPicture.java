@@ -42,7 +42,12 @@ import java.util.logging.Logger;
  */
 public class MetadataBlockDataPicture implements MetadataBlockData, TagField
 {
-    public static final String IMAGE_IS_URL = "-->";
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static final String IMAGE_IS_URL = "-->";
 
     private int     pictureType;
     private String  mimeType;

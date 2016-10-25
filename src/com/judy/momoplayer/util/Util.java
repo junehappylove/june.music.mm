@@ -122,6 +122,12 @@ public final class Util {
         return VERSION.compareTo(version) < 0;
     }
 
+    /**
+     * 投票
+     * @return
+     * @date 2016年10月23日 下午5:51:26
+     * @writer iscas
+     */
     public static boolean voteOpen() {
         //return GAEUtil.vote("voteOpen");
         return false;
@@ -165,13 +171,13 @@ public final class Util {
         float addR = (c2.getRed() - c1.getRed()) * 1.0f / half;
         float addG = (c2.getGreen() - c1.getGreen()) * 1.0f / half;
         float addB = (c2.getBlue() - c1.getBlue()) * 1.0f / half;
-//        log.log(Level.INFO, "addR="+addR+",addG="+addG+",addB="+addB);
+        log.log(Level.INFO, "addR="+addR+",addG="+addG+",addB="+addB);
         int r = c1.getRed();
         int g = c1.getGreen();
         int b = c1.getBlue();
         for (int i = 0; i < half; i++) {
             cs[i] = new Color((int) (r + i * addR), (int) (g + i * addG), (int) (b + i * addB));
-//            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
+            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
         }
         addR = (c3.getRed() - c2.getRed()) * 1.0f / half;
         addG = (c3.getGreen() - c2.getGreen()) * 1.0f / half;
@@ -181,7 +187,7 @@ public final class Util {
         b = c2.getBlue();
         for (int i = half; i < count; i++) {
             cs[i] = new Color((int) (r + (i - half) * addR), (int) (g + (i - half) * addG), (int) (b + (i - half) * addB));
-//            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
+            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
         }
         return cs;
     }

@@ -37,7 +37,7 @@ public class ModificationHandler implements AudioFileModificationListener
     /**
      * The listeners to wich events are broadcasted are stored here.
      */
-    private Vector listeners = new Vector();
+    private Vector<AudioFileModificationListener> listeners = new Vector<AudioFileModificationListener>();
 
     /**
      * This method adds an {@link AudioFileModificationListener}
@@ -60,7 +60,7 @@ public class ModificationHandler implements AudioFileModificationListener
      */
     public void fileModified(AudioFile original, File temporary) throws ModifyVetoException
     {
-        Enumeration enumer = this.listeners.elements();
+        Enumeration<AudioFileModificationListener> enumer = this.listeners.elements();
         while (enumer.hasMoreElements())
         {
             AudioFileModificationListener current = (AudioFileModificationListener) enumer
@@ -84,7 +84,7 @@ public class ModificationHandler implements AudioFileModificationListener
      */
     public void fileOperationFinished(File result)
     {
-        Enumeration enumer = this.listeners.elements();
+        Enumeration<AudioFileModificationListener> enumer = this.listeners.elements();
         while (enumer.hasMoreElements())
         {
             AudioFileModificationListener current = (AudioFileModificationListener) enumer
@@ -101,7 +101,7 @@ public class ModificationHandler implements AudioFileModificationListener
      */
     public void fileWillBeModified(AudioFile file, boolean delete) throws ModifyVetoException
     {
-        Enumeration enumer = this.listeners.elements();
+        Enumeration<AudioFileModificationListener> enumer = this.listeners.elements();
         while (enumer.hasMoreElements())
         {
             AudioFileModificationListener current = (AudioFileModificationListener) enumer
@@ -140,7 +140,7 @@ public class ModificationHandler implements AudioFileModificationListener
      */
     public void vetoThrown(AudioFileModificationListener cause, AudioFile original, ModifyVetoException veto)
     {
-        Enumeration enumer = this.listeners.elements();
+        Enumeration<AudioFileModificationListener> enumer = this.listeners.elements();
         while (enumer.hasMoreElements())
         {
             AudioFileModificationListener current = (AudioFileModificationListener) enumer

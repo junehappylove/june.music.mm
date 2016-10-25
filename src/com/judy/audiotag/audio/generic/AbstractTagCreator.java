@@ -20,12 +20,8 @@ package com.judy.audiotag.audio.generic;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 import com.judy.audiotag.tag.Tag;
-import com.judy.audiotag.tag.TagField;
 
 /**
  * Abstract class for creating the raw content that represents the tag so it can be written

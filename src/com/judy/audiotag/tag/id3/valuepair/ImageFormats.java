@@ -24,7 +24,6 @@
 package com.judy.audiotag.tag.id3.valuepair;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /** Represents the image formats support by ID3, provides a mapping between the format field supported in ID3v22 and the

@@ -192,7 +192,7 @@ public class FieldFrameBodyLYR extends AbstractLyrics3v2FieldFrameBody
     public void addLyric(FrameBodySYLT sync)
     {
         // SYLT frames are made of individual lines
-        Iterator iterator = sync.iterator();
+        Iterator<?> iterator = sync.iterator();
         Lyrics3Line newLine;
         ID3v2LyricLine currentLine;
         Lyrics3TimeStamp timeStamp;

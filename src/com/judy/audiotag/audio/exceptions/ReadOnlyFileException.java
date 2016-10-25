@@ -27,6 +27,11 @@ package com.judy.audiotag.audio.exceptions;
 public class ReadOnlyFileException extends Exception
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -7236304028223631933L;
+
+	/**
      * Creates a new ReadOnlyException datatype.
      */
     public ReadOnlyFileException()

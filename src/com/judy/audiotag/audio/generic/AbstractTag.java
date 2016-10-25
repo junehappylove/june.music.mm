@@ -17,14 +17,18 @@
  */
 package com.judy.audiotag.audio.generic;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.judy.audiotag.tag.FieldDataInvalidException;
 import com.judy.audiotag.tag.KeyNotFoundException;
 import com.judy.audiotag.tag.Tag;
 import com.judy.audiotag.tag.TagField;
 import com.judy.audiotag.tag.TagFieldKey;
 import com.judy.audiotag.tag.TagTextField;
-import java.util.*;
-import java.util.List;
 
 
 /**
@@ -37,6 +41,11 @@ import java.util.List;
 public abstract class AbstractTag implements Tag
 {
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -309769378195601171L;
+
+	/**
      * Stores the amount of {@link TagField} with {@link TagField#isCommon()}
      * <code>true</code>.
      */
@@ -64,12 +73,12 @@ public abstract class AbstractTag implements Tag
             return;
         }
 
-        List list = fields.get(field.getId());
+        List<TagField> list = fields.get(field.getId());
 
         // There was no previous item
         if (list == null)
         {
-            list = new ArrayList();
+            list = new ArrayList<TagField>();
             list.add(field);
             fields.put(field.getId(), list);
             if (field.isCommon())
@@ -196,7 +205,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirst(String id)
     {
-        List l = get(id);       
+        List<TagField> l = get(id);       
         return (l.size() != 0) ? l.get(0).toString():"";   
     }
 
@@ -211,7 +220,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getAlbum()
      */
-    public List getAlbum()
+    public List<TagField> getAlbum()
     {
         return get(getAlbumId());
     }
@@ -229,7 +238,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getArtist()
      */
-    public List getArtist()
+    public List<TagField> getArtist()
     {
         return get(getArtistId());
     }
@@ -247,7 +256,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getComment()
      */
-    public List getComment()
+    public List<TagField> getComment()
     {
         return get(getCommentId());
     }
@@ -263,12 +272,12 @@ public abstract class AbstractTag implements Tag
     /**
      * @see com.judy.jaudiotaggerdiotagger.tag.Tag#getFields()
      */
-    public Iterator getFields()
+    public Iterator<?> getFields()
     {
         final Iterator<Map.Entry<String,List<TagField>>> it = this.fields.entrySet().iterator();
-        return new Iterator()
+        return new Iterator<Object>()
         {
-            private Iterator fieldsIt;
+            private Iterator<TagField> fieldsIt;
 
             private void changeIt()
             {
@@ -317,7 +326,7 @@ public abstract class AbstractTag implements Tag
      */
     public int getFieldCount()
     {
-        Iterator it = getFields();
+        Iterator<?> it = getFields();
         int count = 0;
         while(it.hasNext())
         {
@@ -334,7 +343,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstAlbum()
     {
-        List l = getAlbum();
+        List<TagField> l = getAlbum();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -345,7 +354,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstArtist()
     {
-        List l = getArtist();
+        List<TagField> l = getArtist();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -356,7 +365,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstComment()
     {
-        List l = getComment();
+        List<TagField> l = getComment();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -367,7 +376,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstGenre()
     {           
-        List l = getGenre();
+        List<TagField> l = getGenre();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -378,7 +387,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstTitle()
     {
-        List l = getTitle();
+        List<TagField> l = getTitle();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -389,7 +398,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstTrack()
     {
-        List l = getTrack();
+        List<TagField> l = getTrack();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -400,7 +409,7 @@ public abstract class AbstractTag implements Tag
      */
     public String getFirstYear()
     {
-        List l = getYear();
+        List<TagField> l = getYear();
         return (l.size() != 0) ? ((TagTextField) l.get(0)).getContent() : "";
     }
 
@@ -409,7 +418,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getGenre()
      */
-    public List getGenre()
+    public List<TagField> getGenre()
     {
         return get(getGenreId());
     }
@@ -427,7 +436,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getTitle()
      */
-    public List getTitle()
+    public List<TagField> getTitle()
     {
         return get(getTitleId());
     }
@@ -445,7 +454,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getTrack()
      */
-    public List getTrack()
+    public List<TagField> getTrack()
     {
         return get(getTrackId());
     }
@@ -463,7 +472,7 @@ public abstract class AbstractTag implements Tag
      *
      * @see com.judy.jaudiotagger.tag.Tag#getYear()
      */
-    public List getYear()
+    public List<TagField> getYear()
     {
         return get(getYearId());
     }
@@ -591,7 +600,7 @@ public abstract class AbstractTag implements Tag
             return false;
         }
 
-        Iterator it = getFields();
+        Iterator<?> it = getFields();
         while (it.hasNext())
         {
             TagField field = (TagField) it.next();
@@ -654,7 +663,7 @@ public abstract class AbstractTag implements Tag
     {
         StringBuffer out = new StringBuffer();
         out.append("Tag content:\n");
-        Iterator it = getFields();
+        Iterator<?> it = getFields();
         while (it.hasNext())
         {
             TagField field = (TagField) it.next();
@@ -701,7 +710,8 @@ public abstract class AbstractTag implements Tag
      */
     protected void deleteField(String key)
     {
-        Object removed = fields.remove(key);
+        @SuppressWarnings("unused")
+		Object removed = fields.remove(key);
         //if (removed != null && field.isCommon())
         //    commonNumber--;
         return;

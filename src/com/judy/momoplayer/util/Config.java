@@ -118,8 +118,8 @@ public class Config implements Serializable {
         "https:", "ftps:", "jar:"};//协议
     public static final int ORDER_PLAY = 1;//表示顺序播放
     public static final int RANDOM_PLAY = 0;//表示随机播放
-//    public static final String TAGINFO_POLICY_FILE = "file";
-//    public static final String TAGINFO_POLICY_ALL = "all";
+	public static final String TAGINFO_POLICY_FILE = "file";
+	public static final String TAGINFO_POLICY_ALL = "all";
     public static final int APEv2_ID3v2_ID3v1 = 1;//读取的顺序,有四种组合
     public static final int ID3v2_APEv2_ID3v1 = 2;
     public static final int ID3v1_APEv2_ID3v2 = 3;
@@ -172,7 +172,8 @@ public class Config implements Serializable {
     private String playListFileName;//播放列表的文件名,放在程序同目录下
     private String currentFileOrUrl;//最后也就是当前正在播放的文件或者URL
     private String lastDir;//最后所使用的目录
-//    private String tagInfoPolicy = TAGINFO_POLICY_ALL;//标签的读取策略，是只读文件还是都读。
+	@SuppressWarnings("unused")
+	private String tagInfoPolicy = TAGINFO_POLICY_ALL;//标签的读取策略，是只读文件还是都读。
     private String encoding = "UTF-8";//读取和写入标签的编码 update by june private String encoding = "GBK"
     private String proxyHost, proxyPort;//代理服务器的主机和端口号
     private String proxyUserName, proxyPwd;//代理服务器的用户名和密码

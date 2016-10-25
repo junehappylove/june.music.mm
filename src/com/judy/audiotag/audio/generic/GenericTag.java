@@ -32,6 +32,11 @@ public class GenericTag extends AbstractTag
 {
 
     /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -7674967973421142675L;
+
+	/**
      * Implementations of {@link TagTextField} for use with
      * &quot;ISO-8859-1&quot; strings.
      *
@@ -41,6 +46,11 @@ public class GenericTag extends AbstractTag
     {
 
         /**
+		 * long serialVersionUID
+		 */
+		private static final long serialVersionUID = -1340412472589443229L;
+
+		/**
          * Stores the string.
          */
         private String content;

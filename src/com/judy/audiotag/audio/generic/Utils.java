@@ -21,7 +21,6 @@ package com.judy.audiotag.audio.generic;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 
 /**
  * Contains various frequently used static functions in the different tag

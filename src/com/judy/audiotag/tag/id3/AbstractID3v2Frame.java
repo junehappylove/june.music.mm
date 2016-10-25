@@ -15,6 +15,12 @@
  */
 package com.judy.audiotag.tag.id3;
 
+import java.io.ByteArrayOutputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.ByteBuffer;
+import java.util.logging.Level;
+
 import com.judy.audiotag.audio.mp3.MP3File;
 import com.judy.audiotag.tag.InvalidFrameException;
 import com.judy.audiotag.tag.InvalidTagException;
@@ -22,13 +28,6 @@ import com.judy.audiotag.tag.TagField;
 import com.judy.audiotag.tag.TagOptionSingleton;
 import com.judy.audiotag.tag.id3.framebody.AbstractID3v2FrameBody;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyUnsupported;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.nio.ByteBuffer;
-import java.util.logging.Level;
 
 /**
  * This abstract class is each frame header inside a ID3v2 tag.
@@ -109,7 +108,7 @@ public abstract class AbstractID3v2Frame
         // to keep things up to date.
         try
         {
-            Class c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
+            Class<?> c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
             frameBody = (AbstractID3v2FrameBody) c.newInstance();
         }
         catch (ClassNotFoundException cnfe)
@@ -210,14 +209,14 @@ public abstract class AbstractID3v2Frame
         AbstractID3v2FrameBody frameBody;
         try
         {
-            Class c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
-            Class[] constructorParameterTypes =
-                {((Class) Class.forName("java.nio.ByteBuffer")), Integer.TYPE
+            Class<?> c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
+            Class<?>[] constructorParameterTypes =
+                {((Class<?>) Class.forName("java.nio.ByteBuffer")), Integer.TYPE
                 };
             Object[] constructorParameterValues =
                 {byteBuffer, frameSize
                 };
-            Constructor construct = c.getConstructor(constructorParameterTypes);
+            Constructor<?> construct = c.getConstructor(constructorParameterTypes);
             frameBody = (AbstractID3v2FrameBody) (construct.newInstance(constructorParameterValues));
         }
         //No class defined for this frame type,use FrameUnsupported
@@ -306,10 +305,10 @@ public abstract class AbstractID3v2Frame
         AbstractID3v2FrameBody frameBody;
         try
         {
-            Class c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
-            Class[] constructorParameterTypes = {body.getClass()};
+            Class<?> c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + identifier);
+            Class<?>[] constructorParameterTypes = {body.getClass()};
             Object[] constructorParameterValues = {body};
-            Constructor construct = c.getConstructor(constructorParameterTypes);
+            Constructor<?> construct = c.getConstructor(constructorParameterTypes);
             frameBody = (AbstractID3v2FrameBody) (construct.newInstance(constructorParameterValues));
         }
         catch (ClassNotFoundException cex)

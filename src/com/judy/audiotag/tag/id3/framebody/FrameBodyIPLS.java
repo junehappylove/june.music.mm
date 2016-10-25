@@ -15,17 +15,16 @@
  */
 package com.judy.audiotag.tag.id3.framebody;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.util.StringTokenizer;
+
 import com.judy.audiotag.tag.InvalidTagException;
 import com.judy.audiotag.tag.datatype.DataTypes;
 import com.judy.audiotag.tag.datatype.NumberHashMap;
 import com.judy.audiotag.tag.datatype.PairedTextEncodedStringNullTerminated;
 import com.judy.audiotag.tag.id3.ID3v23Frames;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.StringTokenizer;
 
 /**
  * Involved People List ID3v23 Only

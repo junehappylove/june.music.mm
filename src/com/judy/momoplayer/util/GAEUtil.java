@@ -29,7 +29,7 @@ public final class GAEUtil {
     private static final String getLyricContentURL = "http://yoyolrc.appspot.com/YOYO?cmd=getLyricContent&id={0}&lrcId={1}&lrcCode={2}&artist={3}&title={4}";
     private static final String getResultListURL = "http://yoyolrc.appspot.com/YOYO?cmd=getResultList&artist={0}&title={1}";
     private static final String voteURL = "http://yoyolrc.appspot.com/YOYO?cmd={0}&yoyoVersion={1}";
-    private static final String versionURL = "https://github.com/junehappylove/MoMoPlayer/blob/dist/version.txt";
+    private static final String versionURL = "https://code.csdn.net/junehappylove/noname/tree/master/version.txt";
     private static final Logger log = Logger.getLogger(GAEUtil.class.getName());
 
     public static Version getRemoteVersion() throws IOException {

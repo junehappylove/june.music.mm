@@ -84,7 +84,7 @@ class CheckThread extends Thread {
 		}
 		while (true) {
 			try {
-				Thread.sleep(600000); // 线程睡眠10min
+				Thread.sleep(6000); // 线程睡眠10min=600000
 				if (Config.getConfig().voteOpenCount > 0 && Util.voteOpen()) {
 					int count = Config.getConfig().voteOpenCount--;
 					System.out.println("voteOpentCount11：" + count);

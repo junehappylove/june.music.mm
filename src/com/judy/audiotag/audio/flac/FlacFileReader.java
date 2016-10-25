@@ -18,16 +18,13 @@
  */
 package com.judy.audiotag.audio.flac;
 
-import com.judy.audiotag.audio.exceptions.CannotReadException;
-import com.judy.audiotag.audio.flac.metadatablock.MetadataBlockDataPicture;
-import java.io.*;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 
+import com.judy.audiotag.audio.exceptions.CannotReadException;
 import com.judy.audiotag.audio.generic.AudioFileReader;
 import com.judy.audiotag.audio.generic.GenericAudioHeader;
 import com.judy.audiotag.tag.Tag;
-import com.judy.audiotag.tag.flac.FlacTag;
-import com.judy.audiotag.tag.vorbiscomment.VorbisCommentTag;
-import java.util.ArrayList;
   
 /**
  * Read encoding and tag info for Flac file (opensource lossless encoding)
@@ -48,11 +45,11 @@ public class FlacFileReader extends AudioFileReader
         return tr.read(raf);
     }
      public static void main(String[] args)throws Exception {
-        RandomAccessFile rf=new RandomAccessFile("D:\\执着.flac", "rw");
-        RandomAccessFile temp=new RandomAccessFile("D:\\temp.tmp","rw");
-        FlacTagReader reader=new FlacTagReader();
-        String s=reader.read(rf).getFirstTitle();
-        System.out.println(s);
+//        RandomAccessFile rf=new RandomAccessFile("D:\\执着.flac", "rw");
+//		RandomAccessFile temp=new RandomAccessFile("D:\\temp.tmp","rw");
+//        FlacTagReader reader=new FlacTagReader();
+//        String s=reader.read(rf).getFirstTitle();
+//        System.out.println(s);
 //        FlacTagWriter w=new FlacTagWriter();
 //        VorbisCommentTag vt=new VorbisCommentTag();
 //        vt.addAlbum("专辑名");

@@ -18,12 +18,10 @@
  */
 package com.judy.audiotag.audio.generic;
 
-import com.judy.audiotag.audio.AudioHeader;
-
-import java.util.Enumeration;
-import java.util.Hashtable;
 import java.util.HashMap;
 import java.util.Set;
+
+import com.judy.audiotag.audio.AudioHeader;
 
 /**
  * This class represents a structure for storing and retrieving information
@@ -91,14 +89,14 @@ public class GenericAudioHeader implements AudioHeader
     /**
      * This table containts the parameters.<br>
      */
-    protected HashMap content;
+    protected HashMap<String, Object> content;
 
     /**
      * Creates an instance with emtpy values.<br>
      */
     public GenericAudioHeader()
     {
-        content = new HashMap(6);
+        content = new HashMap<String, Object>(6);
         content.put(FIELD_BITRATE, new Integer(-1));
         content.put(FIELD_CHANNEL, new Integer(-1));
         content.put(FIELD_TYPE, "");
@@ -326,7 +324,7 @@ public class GenericAudioHeader implements AudioHeader
     {
         StringBuffer out = new StringBuffer(50);
         out.append("Encoding infos content:\n");
-        Set set = content.keySet();
+        Set<String> set = content.keySet();
         for(Object key: set)
         {
             Object val = content.get(key);

@@ -23,338 +23,295 @@
 
 package com.judy.audiotag.tag.lyrics3;
 
-import com.judy.audiotag.tag.id3.AbstractTag;
-import com.judy.audiotag.tag.TagException;
-import com.judy.audiotag.tag.TagNotFoundException;
-import com.judy.audiotag.tag.id3.ID3Tags;
-import com.judy.audiotag.tag.id3.ID3v1Tag;
-
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.util.Iterator;
 
-public class Lyrics3v1 extends AbstractLyrics3
-{
-    /**
-     * 
-     */
-    private String lyric = "";
+import com.judy.audiotag.tag.TagException;
+import com.judy.audiotag.tag.TagNotFoundException;
+import com.judy.audiotag.tag.id3.AbstractTag;
+import com.judy.audiotag.tag.id3.ID3Tags;
+import com.judy.audiotag.tag.id3.ID3v1Tag;
 
-    /**
-     * Creates a new Lyrics3v1 datatype.
-     */
-    public Lyrics3v1()
-    {
-    }
+public class Lyrics3v1 extends AbstractLyrics3 {
+	/**
+	 * 
+	 */
+	private String lyric = "";
 
-    public Lyrics3v1(Lyrics3v1 copyObject)
-    {
-        super(copyObject);
-        this.lyric = new String(copyObject.lyric);
-    }
+	/**
+	 * Creates a new Lyrics3v1 datatype.
+	 */
+	public Lyrics3v1() {
+	}
 
-    public Lyrics3v1(AbstractTag mp3Tag)
-    {
-        if (mp3Tag != null)
-        {
-            Lyrics3v2 lyricTag;
+	public Lyrics3v1(Lyrics3v1 copyObject) {
+		super(copyObject);
+		this.lyric = new String(copyObject.lyric);
+	}
 
-            if (mp3Tag instanceof Lyrics3v1)
-            {
-                throw new UnsupportedOperationException("Copy Constructor not called. Please type cast the argument");
-            }
-            else if (mp3Tag instanceof Lyrics3v2)
-            {
-                lyricTag = (Lyrics3v2) mp3Tag;
-            }
-            else
-            {
-                lyricTag = new Lyrics3v2(mp3Tag);
-            }
+	public Lyrics3v1(AbstractTag mp3Tag) {
+		if (mp3Tag != null) {
+			Lyrics3v2 lyricTag;
 
-            FieldFrameBodyLYR lyricField;
-            lyricField = (FieldFrameBodyLYR) lyricTag.getField("LYR").getBody();
-            this.lyric = new String(lyricField.getLyric());
-        }
-    }
+			if (mp3Tag instanceof Lyrics3v1) {
+				throw new UnsupportedOperationException("Copy Constructor not called. Please type cast the argument");
+			} else if (mp3Tag instanceof Lyrics3v2) {
+				lyricTag = (Lyrics3v2) mp3Tag;
+			} else {
+				lyricTag = new Lyrics3v2(mp3Tag);
+			}
 
-    /**
-     * Creates a new Lyrics3v1 datatype.
-     *
-     * @param file 
-     * @throws TagNotFoundException 
-     * @throws java.io.IOException  
-     */
-    public Lyrics3v1(ByteBuffer byteBuffer)
-        throws TagNotFoundException, java.io.IOException
-    {
-        try {
-            this.read(byteBuffer);
-        }
-        catch (TagException e)
-        {
-            e.printStackTrace();
-        }
-    }
+			FieldFrameBodyLYR lyricField;
+			lyricField = (FieldFrameBodyLYR) lyricTag.getField("LYR").getBody();
+			this.lyric = new String(lyricField.getLyric());
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getIdentifier()
-    {
-        return "Lyrics3v1.00";
-    }
+	/**
+	 * Creates a new Lyrics3v1 datatype.
+	 *
+	 * @param file
+	 * @throws TagNotFoundException
+	 * @throws java.io.IOException
+	 */
+	public Lyrics3v1(ByteBuffer byteBuffer) throws TagNotFoundException, java.io.IOException {
+		try {
+			this.read(byteBuffer);
+		} catch (TagException e) {
+			e.printStackTrace();
+		}
+	}
 
-    /**
-     * 
-     *
-     * @param lyric 
-     */
-    public void setLyric(String lyric)
-    {
-        this.lyric = ID3Tags.truncate(lyric, 5100);
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getIdentifier() {
+		return "Lyrics3v1.00";
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getLyric()
-    {
-        return lyric;
-    }
+	/**
+	 * 
+	 *
+	 * @param lyric
+	 */
+	public void setLyric(String lyric) {
+		this.lyric = ID3Tags.truncate(lyric, 5100);
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public int getSize()
-    {
-        return "LYRICSBEGIN".length() + lyric.length() + "LYRICSEND".length();
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getLyric() {
+		return lyric;
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     * @return 
-     */
-    public boolean isSubsetOf(Object obj)
-    {
-        if ((obj instanceof Lyrics3v1) == false)
-        {
-            return false;
-        }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public int getSize() {
+		return "LYRICSBEGIN".length() + lyric.length() + "LYRICSEND".length();
+	}
 
-        return (((Lyrics3v1) obj).lyric.contains(this.lyric));
-    }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return
+	 */
+	public boolean isSubsetOf(Object obj) {
+		if ((obj instanceof Lyrics3v1) == false) {
+			return false;
+		}
 
-    /**
-     * 
-     *
-     * @param obj 
-     * @return 
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof Lyrics3v1) == false)
-        {
-            return false;
-        }
+		return (((Lyrics3v1) obj).lyric.contains(this.lyric));
+	}
 
-        Lyrics3v1 object = (Lyrics3v1) obj;
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof Lyrics3v1) == false) {
+			return false;
+		}
 
-        if (this.lyric.equals(object.lyric) == false)
-        {
-            return false;
-        }
+		Lyrics3v1 object = (Lyrics3v1) obj;
 
-        return super.equals(obj);
-    }
+		if (this.lyric.equals(object.lyric) == false) {
+			return false;
+		}
 
-    /**
-     * 
-     *
-     * @return 
-     * @throws java.lang.UnsupportedOperationException
-     *          
-     */
-    public Iterator<?> iterator()
-    {
-        /**
-         * @todo Implement this com.judy.jaudiotagger.tag.AbstractMP3Tag abstract method
-         */
-        throw new java.lang.UnsupportedOperationException("Method iterator() not yet implemented.");
-    }
+		return super.equals(obj);
+	}
 
-    /**
-     * TODO implement
-     *
-     * @param byteBuffer
-     * @return
-     * @throws IOException
-     */
-    public boolean seek(ByteBuffer byteBuffer)
-    {
-        return false;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 * @throws java.lang.UnsupportedOperationException
+	 * 
+	 */
+	public Iterator<?> iterator() {
+		/**
+		 * @todo Implement this com.judy.jaudiotagger.tag.AbstractMP3Tag
+		 *       abstract method
+		 */
+		throw new java.lang.UnsupportedOperationException("Method iterator() not yet implemented.");
+	}
 
-    /**
-     * 
-     *
-     * @param byteBuffer 
-     * @throws TagNotFoundException 
-     * @throws IOException          
-     */
-    public void read(ByteBuffer byteBuffer)
-        throws TagException
-    {
-        byte[] buffer = new byte[5100 + 9 + 11];
-        String lyricBuffer;
+	/**
+	 * TODO implement
+	 *
+	 * @param byteBuffer
+	 * @return
+	 * @throws IOException
+	 */
+	public boolean seek(ByteBuffer byteBuffer) {
+		return false;
+	}
 
-        if (seek(byteBuffer) == false)
-        {
-            throw new TagNotFoundException("ID3v1 tag not found");
-        }
+	/**
+	 * 
+	 *
+	 * @param byteBuffer
+	 * @throws TagNotFoundException
+	 * @throws IOException
+	 */
+	public void read(ByteBuffer byteBuffer) throws TagException {
+		byte[] buffer = new byte[5100 + 9 + 11];
+		String lyricBuffer;
 
-        byteBuffer.get(buffer);
-        lyricBuffer = new String(buffer);
+		if (seek(byteBuffer) == false) {
+			throw new TagNotFoundException("ID3v1 tag not found");
+		}
 
-        lyric = lyricBuffer.substring(0, lyricBuffer.indexOf("LYRICSEND"));
-    }
+		byteBuffer.get(buffer);
+		lyricBuffer = new String(buffer);
 
-    /**
-     * 
-     *
-     * @param file 
-     * @return 
-     * @throws IOException 
-     */
-    public boolean seek(RandomAccessFile file)
-        throws IOException
-    {
-        byte[] buffer = new byte[5100 + 9 + 11];
-        String lyricsEnd = "";
-        String lyricsStart = "";
-        long offset = 0;
+		lyric = lyricBuffer.substring(0, lyricBuffer.indexOf("LYRICSEND"));
+	}
 
-        // check right before the ID3 1.0 tag for the lyrics tag
-        file.seek(file.length() - 128 - 9);
-        file.read(buffer, 0, 9);
-        lyricsEnd = new String(buffer, 0, 9);
+	/**
+	 * 
+	 *
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
+	public boolean seek(RandomAccessFile file) throws IOException {
+		byte[] buffer = new byte[5100 + 9 + 11];
+		String lyricsEnd = "";
+		String lyricsStart = "";
+		long offset = 0;
 
-        if (lyricsEnd.equals("LYRICSEND"))
-        {
-            offset = file.getFilePointer();
-        }
-        else
-        {
-            // check the end of the file for a lyrics tag incase an ID3
-            // tag wasn't placed after it.
-            file.seek(file.length() - 9);
-            file.read(buffer, 0, 9);
-            lyricsEnd = new String(buffer, 0, 9);
+		// check right before the ID3 1.0 tag for the lyrics tag
+		file.seek(file.length() - 128 - 9);
+		file.read(buffer, 0, 9);
+		lyricsEnd = new String(buffer, 0, 9);
 
-            if (lyricsEnd.equals("LYRICSEND"))
-            {
-                offset = file.getFilePointer();
-            }
-            else
-            {
-                return false;
-            }
-        }
+		if (lyricsEnd.equals("LYRICSEND")) {
+			offset = file.getFilePointer();
+		} else {
+			// check the end of the file for a lyrics tag incase an ID3
+			// tag wasn't placed after it.
+			file.seek(file.length() - 9);
+			file.read(buffer, 0, 9);
+			lyricsEnd = new String(buffer, 0, 9);
 
-        // the tag can at most only be 5100 bytes
-        offset -= (5100 + 9 + 11);
-        file.seek(offset);
-        file.read(buffer);
-        lyricsStart = new String(buffer);
+			if (lyricsEnd.equals("LYRICSEND")) {
+				offset = file.getFilePointer();
+			} else {
+				return false;
+			}
+		}
 
-        // search for the tag
-        int i = lyricsStart.indexOf("LYRICSBEGIN");
+		// the tag can at most only be 5100 bytes
+		offset -= (5100 + 9 + 11);
+		file.seek(offset);
+		file.read(buffer);
+		lyricsStart = new String(buffer);
 
-        if (i == -1)
-        {
-            return false;
-        }
+		// search for the tag
+		int i = lyricsStart.indexOf("LYRICSBEGIN");
 
-        file.seek(offset + i + 11);
+		if (i == -1) {
+			return false;
+		}
 
-        return true;
-    }
+		file.seek(offset + i + 11);
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String toString()
-    {
-        String str = getIdentifier() + " " + this.getSize() + "\n";
+		return true;
+	}
 
-        return str + lyric;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String toString() {
+		String str = getIdentifier() + " " + this.getSize() + "\n";
 
-    /**
-     * 
-     *
-     * @param file 
-     * @throws IOException 
-     */
-    public void write(RandomAccessFile file)
-        throws IOException
-    {
-        String str = "";
-        int offset = 0;
-        byte[] buffer;
-        ID3v1Tag id3v1tag = null;
+		return str + lyric;
+	}
 
-        id3v1tag = null;
+	/**
+	 * 
+	 *
+	 * @param file
+	 * @throws IOException
+	 */
+	public void write(RandomAccessFile file) throws IOException {
+		String str = "";
+		int offset = 0;
+		byte[] buffer;
+		ID3v1Tag id3v1tag = null;
 
-        delete(file);
-        file.seek(file.length());
+		id3v1tag = null;
 
-        buffer = new byte[lyric.length() + 11 + 9];
+		delete(file);
+		file.seek(file.length());
 
-        str = "LYRICSBEGIN";
+		buffer = new byte[lyric.length() + 11 + 9];
 
-        for (int i = 0; i < str.length(); i++)
-        {
-            buffer[i] = (byte) str.charAt(i);
-        }
+		str = "LYRICSBEGIN";
 
-        offset = str.length();
+		for (int i = 0; i < str.length(); i++) {
+			buffer[i] = (byte) str.charAt(i);
+		}
 
-        str = ID3Tags.truncate(lyric, 5100);
+		offset = str.length();
 
-        for (int i = 0; i < str.length(); i++)
-        {
-            buffer[i + offset] = (byte) str.charAt(i);
-        }
+		str = ID3Tags.truncate(lyric, 5100);
 
-        offset += str.length();
+		for (int i = 0; i < str.length(); i++) {
+			buffer[i + offset] = (byte) str.charAt(i);
+		}
 
-        str = "LYRICSEND";
+		offset += str.length();
 
-        for (int i = 0; i < str.length(); i++)
-        {
-            buffer[i + offset] = (byte) str.charAt(i);
-        }
+		str = "LYRICSEND";
 
-        offset += str.length();
+		for (int i = 0; i < str.length(); i++) {
+			buffer[i + offset] = (byte) str.charAt(i);
+		}
 
-        file.write(buffer, 0, offset);
+		offset += str.length();
 
-        if (id3v1tag != null)
-        {
-            id3v1tag.write(file);
-        }
-    }
+		file.write(buffer, 0, offset);
+
+		if (id3v1tag != null) {
+			id3v1tag.write(file);
+		}
+	}
 
 }
