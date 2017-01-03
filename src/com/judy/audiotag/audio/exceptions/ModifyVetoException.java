@@ -26,7 +26,8 @@ import java.io.File;
  * prevent the &quote;entagged audio library&quote; from actually finishing its
  * operation.<br>
  * This exception can be used in all methods but
- * {@link entagged.audioformats.generic.AudioFileModificationListener#fileOperationFinished(File)}.
+ * {@link entagged.audioformats.generic.AudioFileModificationListener#fileOperationFinished(File)}
+ * .
  * 
  * @author Christian Laireiter
  */

@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Publishers official webpage URL link frames.
- * <p>The 'Publishers official webpage' frame is a URL pointing at the official wepage for the publisher.
+ * <p>
+ * The 'Publishers official webpage' frame is a URL pointing at the official
+ * wepage for the publisher.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,49 +36,42 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyWPUB.java,v 1.9 2006/08/25 15:35:29 paultaylor Exp $
  */
-public class FrameBodyWPUB extends AbstractFrameBodyUrlLink   implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyWPUB datatype.
-     */
-    public FrameBodyWPUB()
-    {
-    }
+public class FrameBodyWPUB extends AbstractFrameBodyUrlLink implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyWPUB datatype.
+	 */
+	public FrameBodyWPUB() {
+	}
 
-    /**
-     * Creates a new FrameBodyWPUB datatype.
-     *
-     * @param urlLink 
-     */
-    public FrameBodyWPUB(String urlLink)
-    {
-        super(urlLink);
-    }
+	/**
+	 * Creates a new FrameBodyWPUB datatype.
+	 *
+	 * @param urlLink
+	 */
+	public FrameBodyWPUB(String urlLink) {
+		super(urlLink);
+	}
 
-    public FrameBodyWPUB(FrameBodyWPUB body)
-    {
-        super(body);
-    }
+	public FrameBodyWPUB(FrameBodyWPUB body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyWPUB datatype.
-     *
-     * @throws java.io.IOException 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyWPUB(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyWPUB datatype.
+	 *
+	 * @throws java.io.IOException
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyWPUB(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_URL_PUBLISHERS;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_URL_PUBLISHERS;
+	}
 }

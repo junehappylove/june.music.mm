@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Official audio source webpage URL link frames.
- * <p>The 'Official audio source webpage' frame is a URL pointing at the official webpage for the source of the audio file, e.g. a movie.
+ * <p>
+ * The 'Official audio source webpage' frame is a URL pointing at the official
+ * webpage for the source of the audio file, e.g. a movie.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,48 +36,41 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyWOAS.java,v 1.11 2007/06/27 11:49:23 paultaylor Exp $
  */
-public class FrameBodyWOAS extends AbstractFrameBodyUrlLink  implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyWOAS datatype.
-     */
-    public FrameBodyWOAS()
-    {
-    }
+public class FrameBodyWOAS extends AbstractFrameBodyUrlLink implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyWOAS datatype.
+	 */
+	public FrameBodyWOAS() {
+	}
 
-    /**
-     * Creates a new FrameBodyWOAS datatype.
-     *
-     * @param urlLink 
-     */
-    public FrameBodyWOAS(String urlLink)
-    {
-        super(urlLink);
-    }
+	/**
+	 * Creates a new FrameBodyWOAS datatype.
+	 *
+	 * @param urlLink
+	 */
+	public FrameBodyWOAS(String urlLink) {
+		super(urlLink);
+	}
 
-    public FrameBodyWOAS(FrameBodyWOAS body)
-    {
-        super(body);
-    }
+	public FrameBodyWOAS(FrameBodyWOAS body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyWOAS datatype.
-     * 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyWOAS(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyWOAS datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyWOAS(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-   /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_URL_SOURCE_WEB;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_URL_SOURCE_WEB;
+	}
 }

@@ -30,93 +30,84 @@ import java.util.logging.Logger;
 /**
  * Read info from Flac file
  */
-public class FlacInfoReader
-{
-    // Logger Object
-    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
+public class FlacInfoReader {
+	// Logger Object
+	public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.flac");
 
-    private static final int NO_OF_BITS_IN_BYTE = 8;
-    private static final int KILOBYTES_TO_BYTES_MULTIPLIER = 1000;
+	private static final int NO_OF_BITS_IN_BYTE = 8;
+	private static final int KILOBYTES_TO_BYTES_MULTIPLIER = 1000;
 
-    public GenericAudioHeader read(RandomAccessFile raf) throws CannotReadException, IOException
-    {
-        FlacStream.findStream(raf);
+	public GenericAudioHeader read(RandomAccessFile raf) throws CannotReadException, IOException {
+		FlacStream.findStream(raf);
 
-        MetadataBlockDataStreamInfo mbdsi = null;
-        boolean isLastBlock = false;
+		MetadataBlockDataStreamInfo mbdsi = null;
+		boolean isLastBlock = false;
 
-        //Search for StreamInfo Block, but even after we found it we still have to continue thorugh all
-        //the metadata blocks so that we can find the start of the audio frames which we need to calculate
-        //the bitrate
-        while (!isLastBlock)
-        {
-            MetadataBlockHeader mbh = MetadataBlockHeader.readHeader(raf);
-            if (mbh.getBlockType() == BlockType.STREAMINFO)
-            {
-                mbdsi = new MetadataBlockDataStreamInfo(mbh,raf);
-                if (!mbdsi.isValid())
-                {
-                    throw new CannotReadException("FLAC StreamInfo not valid");
-                }               
-            }
-            else
-            {
-                raf.seek(raf.getFilePointer() + mbh.getDataLength());
-            }
+		// Search for StreamInfo Block, but even after we found it we still have
+		// to continue thorugh all
+		// the metadata blocks so that we can find the start of the audio frames
+		// which we need to calculate
+		// the bitrate
+		while (!isLastBlock) {
+			MetadataBlockHeader mbh = MetadataBlockHeader.readHeader(raf);
+			if (mbh.getBlockType() == BlockType.STREAMINFO) {
+				mbdsi = new MetadataBlockDataStreamInfo(mbh, raf);
+				if (!mbdsi.isValid()) {
+					throw new CannotReadException("FLAC StreamInfo not valid");
+				}
+			} else {
+				raf.seek(raf.getFilePointer() + mbh.getDataLength());
+			}
 
-            isLastBlock = mbh.isLastBlock();
-            mbh = null; //Free memory
-        }
+			isLastBlock = mbh.isLastBlock();
+			mbh = null; // Free memory
+		}
 
-        if (mbdsi==null)
-        {
-            throw new CannotReadException("Unable to find Flac StreamInfo");
-        }
+		if (mbdsi == null) {
+			throw new CannotReadException("Unable to find Flac StreamInfo");
+		}
 
-        GenericAudioHeader info = new GenericAudioHeader();
+		GenericAudioHeader info = new GenericAudioHeader();
 		info.setLength(mbdsi.getLength());
-        info.setPreciseLength(mbdsi.getPreciseLength());
-        info.setChannelNumber(mbdsi.getChannelNumber());
-        info.setSamplingRate(mbdsi.getSamplingRatePerChannel());
-        info.setEncodingType(mbdsi.getEncodingType());
-        info.setExtraEncodingInfos("");
-        info.setBitrate(computeBitrate(mbdsi.getPreciseLength(), raf.length() -raf.getFilePointer()));
+		info.setPreciseLength(mbdsi.getPreciseLength());
+		info.setChannelNumber(mbdsi.getChannelNumber());
+		info.setSamplingRate(mbdsi.getSamplingRatePerChannel());
+		info.setEncodingType(mbdsi.getEncodingType());
+		info.setExtraEncodingInfos("");
+		info.setBitrate(computeBitrate(mbdsi.getPreciseLength(), raf.length() - raf.getFilePointer()));
 
-        return info;
-    }
+		return info;
+	}
 
-    private int computeBitrate(float length, long size)
-    {         
-        return (int) ((size / KILOBYTES_TO_BYTES_MULTIPLIER) * NO_OF_BITS_IN_BYTE / length);
-    }
+	private int computeBitrate(float length, long size) {
+		return (int) ((size / KILOBYTES_TO_BYTES_MULTIPLIER) * NO_OF_BITS_IN_BYTE / length);
+	}
 
-    /**
-     * Count the number of metadatablocks, useful for debugging
-     *
-     * @param f
-     * @return
-     * @throws CannotReadException
-     * @throws IOException
-     */
-    public int countMetaBlocks(File f)throws CannotReadException, IOException
-    {
-        RandomAccessFile raf = new RandomAccessFile(f,"r");
+	/**
+	 * Count the number of metadatablocks, useful for debugging
+	 *
+	 * @param f
+	 * @return
+	 * @throws CannotReadException
+	 * @throws IOException
+	 */
+	public int countMetaBlocks(File f) throws CannotReadException, IOException {
+		RandomAccessFile raf = new RandomAccessFile(f, "r");
 
-        FlacStream.findStream(raf);
+		FlacStream.findStream(raf);
 
-        boolean isLastBlock = false;
-              
-        int count = 0;
-        while (!isLastBlock)
-        {
-            MetadataBlockHeader mbh = MetadataBlockHeader.readHeader(raf);
-            logger.info("Found block:"+mbh.getBlockType());
-            raf.seek(raf.getFilePointer() + mbh.getDataLength());
-            isLastBlock = mbh.isLastBlock();
-            mbh = null; //Free memory
-            count ++;
-        }
-        raf.close();
-        return count;
-    }
+		boolean isLastBlock = false;
+
+		int count = 0;
+		while (!isLastBlock) {
+			MetadataBlockHeader mbh = MetadataBlockHeader.readHeader(raf);
+			logger.info("Found block:" + mbh.getBlockType());
+			raf.seek(raf.getFilePointer() + mbh.getDataLength());
+			isLastBlock = mbh.isLastBlock();
+			mbh = null; // Free memory
+			count++;
+		}
+		raf.close();
+		return count;
+	}
 }

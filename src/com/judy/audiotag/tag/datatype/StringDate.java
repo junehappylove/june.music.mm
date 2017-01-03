@@ -29,60 +29,49 @@ import com.judy.audiotag.tag.id3.ID3Tags;
 /**
  * Represents a timestamp field
  */
-public class StringDate extends StringFixedLength
-{
-    /**
-     * Creates a new ObjectStringDate datatype.
-     *
-     * @param identifier
-     */
-    public StringDate(String identifier, AbstractTagFrameBody frameBody)
-    {
-        super(identifier, frameBody, 8);
-    }
+public class StringDate extends StringFixedLength {
+	/**
+	 * Creates a new ObjectStringDate datatype.
+	 *
+	 * @param identifier
+	 */
+	public StringDate(String identifier, AbstractTagFrameBody frameBody) {
+		super(identifier, frameBody, 8);
+	}
 
-    public StringDate(StringDate object)
-    {
-        super(object);
-    }
+	public StringDate(StringDate object) {
+		super(object);
+	}
 
-    /**
-     * 
-     *
-     * @param value
-     */
-    public void setValue(Object value)
-    {
-        if (value != null)
-        {
-            this.value = ID3Tags.stripChar(value.toString(), '-');
-        }
-    }
+	/**
+	 * 
+	 *
+	 * @param value
+	 */
+	public void setValue(Object value) {
+		if (value != null) {
+			this.value = ID3Tags.stripChar(value.toString(), '-');
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return
-     */
-    public Object getValue()
-    {
-        if (value != null)
-        {
-            return ID3Tags.stripChar(value.toString(), '-');
-        }
-        else
-        {
-            return null;
-        }
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public Object getValue() {
+		if (value != null) {
+			return ID3Tags.stripChar(value.toString(), '-');
+		} else {
+			return null;
+		}
+	}
 
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof StringDate == false)
-        {
-            return false;
-        }
+	public boolean equals(Object obj) {
+		if (obj instanceof StringDate == false) {
+			return false;
+		}
 
-        return super.equals(obj);
-    }
+		return super.equals(obj);
+	}
 }

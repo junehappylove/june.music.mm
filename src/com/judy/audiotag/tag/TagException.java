@@ -28,48 +28,47 @@ package com.judy.audiotag.tag;
  * @author Eric Farng
  * @version $Revision: 1.3 $
  */
-public class TagException extends Exception
-{
-    /**
+public class TagException extends Exception {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -4366459741343530449L;
 
 	/**
-     * Creates a new TagException datatype.
-     */
-    public TagException()
-    {
-    }
+	 * Creates a new TagException datatype.
+	 */
+	public TagException() {
+	}
 
-    /**
-     * Creates a new TagException datatype.
-     *
-     * @param ex the cause.
-     */
-    public TagException(Throwable ex)
-    {
-        super(ex);
-    }
+	/**
+	 * Creates a new TagException datatype.
+	 *
+	 * @param ex
+	 *            the cause.
+	 */
+	public TagException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
-     * Creates a new TagException datatype.
-     *
-     * @param msg the detail message.
-     */
-    public TagException(String msg)
-    {
-        super(msg);
-    }
+	/**
+	 * Creates a new TagException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 */
+	public TagException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Creates a new TagException datatype.
-     *
-     * @param msg the detail message.
-     * @param ex the cause.
-     */
-    public TagException(String msg, Throwable ex)
-    {
-        super(msg, ex);
-    }
+	/**
+	 * Creates a new TagException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 * @param ex
+	 *            the cause.
+	 */
+	public TagException(String msg, Throwable ex) {
+		super(msg, ex);
+	}
 }

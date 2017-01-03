@@ -24,23 +24,19 @@ import com.judy.audiotag.tag.Tag;
 
 import java.io.*;
 
-
 /**
  * Write/delete tag info for Flac file (opensource lossless encoding)
  */
-public class FlacFileWriter extends AudioFileWriter
-{
+public class FlacFileWriter extends AudioFileWriter {
 
-    private FlacTagWriter tw = new FlacTagWriter();
+	private FlacTagWriter tw = new FlacTagWriter();
 
-    protected void writeTag(Tag tag, RandomAccessFile raf, RandomAccessFile rafTemp) throws CannotWriteException, IOException
-    {
-        tw.write(tag, raf, rafTemp);
-    }
+	protected void writeTag(Tag tag, RandomAccessFile raf, RandomAccessFile rafTemp)
+			throws CannotWriteException, IOException {
+		tw.write(tag, raf, rafTemp);
+	}
 
-    protected void deleteTag(RandomAccessFile raf, RandomAccessFile tempRaf) throws CannotWriteException, IOException
-    {
-        tw.delete(raf, tempRaf);
-    }
+	protected void deleteTag(RandomAccessFile raf, RandomAccessFile tempRaf) throws CannotWriteException, IOException {
+		tw.delete(raf, tempRaf);
+	}
 }
-

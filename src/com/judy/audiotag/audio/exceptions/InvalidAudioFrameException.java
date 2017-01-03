@@ -11,15 +11,13 @@ package com.judy.audiotag.audio.exceptions;
 /**
  * Thrown if portion of file thought to be an AudioFrame is found to not be.
  */
-public class InvalidAudioFrameException extends Exception
-{
-    /**
+public class InvalidAudioFrameException extends Exception {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -8451864588420295250L;
 
-	public InvalidAudioFrameException(String message)
-    {
-        super(message);
-    }
+	public InvalidAudioFrameException(String message) {
+		super(message);
+	}
 }

@@ -22,64 +22,64 @@ import java.nio.ByteBuffer;
 
 /**
  * Language(s) Text information frame.
- * <p>The 'Language(s)' frame should contain the languages of the text or lyrics spoken or sung in the audio. The language is represented with three characters according to ISO-639-2. If more than one language is used in the text their language codes should follow according to their usage.
+ * <p>
+ * The 'Language(s)' frame should contain the languages of the text or lyrics
+ * spoken or sung in the audio. The language is represented with three
+ * characters according to ISO-639-2. If more than one language is used in the
+ * text their language codes should follow according to their usage.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
  *
- * TODO:Although rare TLAN can actually return multiple language codes, at the moment they are all returned as a single
- * string via getText(), any additional parsrsing has to be done externally. 
+ * TODO:Although rare TLAN can actually return multiple language codes, at the
+ * moment they are all returned as a single string via getText(), any additional
+ * parsrsing has to be done externally.
+ * 
  * @author : Paul Taylor
  * @author : Eric Farng
  * @version $Id: FrameBodyTLAN.java,v 1.13 2007/08/06 16:04:34 paultaylor Exp $
  */
-public class FrameBodyTLAN extends AbstractFrameBodyTextInfo implements ID3v24FrameBody,ID3v23FrameBody
-{
+public class FrameBodyTLAN extends AbstractFrameBodyTextInfo implements ID3v24FrameBody, ID3v23FrameBody {
 
-    /**
-     * Creates a new FrameBodyTLAN datatype.
-     */
-    public FrameBodyTLAN()
-    {
-        super();
-    }
+	/**
+	 * Creates a new FrameBodyTLAN datatype.
+	 */
+	public FrameBodyTLAN() {
+		super();
+	}
 
-    public FrameBodyTLAN(FrameBodyTLAN body)
-    {
-        super(body);
-    }
+	public FrameBodyTLAN(FrameBodyTLAN body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTLAN datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTLAN(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTLAN datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTLAN(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTLAN datatype.
-     *                                       
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTLAN(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTLAN datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTLAN(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-      /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_LANGUAGE;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_LANGUAGE;
+	}
 }

@@ -22,9 +22,13 @@ import java.nio.ByteBuffer;
 
 /**
  * Interpreted, remixed, or otherwise modified by Text information frame.
- * <p>The 'Interpreted, remixed, or otherwise modified by' frame contains more information about the people behind a remix and similar interpretations of another existing piece.
+ * <p>
+ * The 'Interpreted, remixed, or otherwise modified by' frame contains more
+ * information about the people behind a remix and similar interpretations of
+ * another existing piece.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,50 +37,43 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTPE4.java,v 1.9 2006/08/25 15:35:26 paultaylor Exp $
  */
-public class FrameBodyTPE4 extends AbstractFrameBodyTextInfo implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTPE4 datatype.
-     */
-    public FrameBodyTPE4()
-    {
-    }
+public class FrameBodyTPE4 extends AbstractFrameBodyTextInfo implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTPE4 datatype.
+	 */
+	public FrameBodyTPE4() {
+	}
 
-    public FrameBodyTPE4(FrameBodyTPE4 body)
-    {
-        super(body);
-    }
+	public FrameBodyTPE4(FrameBodyTPE4 body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTPE4 datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTPE4(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTPE4 datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTPE4(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTPE4 datatype.
-     *
-     * @throws java.io.IOException 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTPE4(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTPE4 datatype.
+	 *
+	 * @throws java.io.IOException
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTPE4(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-     /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_REMIXED;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_REMIXED;
+	}
 }

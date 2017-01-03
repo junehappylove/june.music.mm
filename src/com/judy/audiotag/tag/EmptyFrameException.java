@@ -26,48 +26,47 @@ package com.judy.audiotag.tag;
  * 
  * @version $Revision: 1.3 $
  */
-public class EmptyFrameException extends InvalidFrameException
-{
-    /**
+public class EmptyFrameException extends InvalidFrameException {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -3830439162327200522L;
 
 	/**
-     * Creates a new EmptyFrameException datatype.
-     */
-    public EmptyFrameException()
-    {
-    }
+	 * Creates a new EmptyFrameException datatype.
+	 */
+	public EmptyFrameException() {
+	}
 
-    /**
-     * Creates a new EmptyFrameException datatype.
-     * 
-     * @param ex the cause.
-     */
-    public EmptyFrameException(Throwable ex)
-    {
-        super(ex);
-    }
+	/**
+	 * Creates a new EmptyFrameException datatype.
+	 * 
+	 * @param ex
+	 *            the cause.
+	 */
+	public EmptyFrameException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
-     * Creates a new EmptyFrameException datatype.
-     *
-     * @param msg the detail message.
-     */
-    public EmptyFrameException(String msg)
-    {
-        super(msg);
-    }
+	/**
+	 * Creates a new EmptyFrameException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 */
+	public EmptyFrameException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Creates a new EmptyFrameException datatype.
-     * 
-     * @param msg the detail message.
-     * @param ex the cause.
-     */
-    public EmptyFrameException(String msg, Throwable ex)
-    {
-        super(msg, ex);
-    }
+	/**
+	 * Creates a new EmptyFrameException datatype.
+	 * 
+	 * @param msg
+	 *            the detail message.
+	 * @param ex
+	 *            the cause.
+	 */
+	public EmptyFrameException(String msg, Throwable ex) {
+		super(msg, ex);
+	}
 }

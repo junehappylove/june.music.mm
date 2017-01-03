@@ -27,80 +27,69 @@ import com.judy.audiotag.tag.datatype.StringSizeTerminated;
 
 import java.nio.ByteBuffer;
 
+public class FieldFrameBodyEAR extends AbstractLyrics3v2FieldFrameBody {
+	/**
+	 * Creates a new FieldBodyEAR datatype.
+	 */
+	public FieldFrameBodyEAR() {
+		// this.setObject("Artist", "");
+	}
 
-public class FieldFrameBodyEAR extends AbstractLyrics3v2FieldFrameBody
-{
-    /**
-     * Creates a new FieldBodyEAR datatype.
-     */
-    public FieldFrameBodyEAR()
-    {
-        //        this.setObject("Artist", "");
-    }
+	public FieldFrameBodyEAR(FieldFrameBodyEAR body) {
+		super(body);
+	}
 
-    public FieldFrameBodyEAR(FieldFrameBodyEAR body)
-    {
-        super(body);
-    }
+	/**
+	 * Creates a new FieldBodyEAR datatype.
+	 *
+	 * @param artist
+	 */
+	public FieldFrameBodyEAR(String artist) {
+		this.setObjectValue("Artist", artist);
+	}
 
-    /**
-     * Creates a new FieldBodyEAR datatype.
-     *
-     * @param artist 
-     */
-    public FieldFrameBodyEAR(String artist)
-    {
-        this.setObjectValue("Artist", artist);
-    }
+	/**
+	 * Creates a new FieldBodyEAR datatype.
+	 *
+	 * @throws InvalidTagException
+	 */
+	public FieldFrameBodyEAR(ByteBuffer byteBuffer) throws InvalidTagException {
 
-    /**
-     * Creates a new FieldBodyEAR datatype.
-     *
-     * @throws InvalidTagException 
-     */
-    public FieldFrameBodyEAR(ByteBuffer byteBuffer)
-        throws InvalidTagException
-    {
+		this.read(byteBuffer);
 
-            this.read(byteBuffer);
-        
-    }
+	}
 
-    /**
-     * 
-     *
-     * @param artist 
-     */
-    public void setArtist(String artist)
-    {
-        setObjectValue("Artist", artist);
-    }
+	/**
+	 * 
+	 *
+	 * @param artist
+	 */
+	public void setArtist(String artist) {
+		setObjectValue("Artist", artist);
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getArtist()
-    {
-        return (String) getObjectValue("Artist");
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getArtist() {
+		return (String) getObjectValue("Artist");
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getIdentifier()
-    {
-        return "EAR";
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getIdentifier() {
+		return "EAR";
+	}
 
-    /**
-     * 
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new StringSizeTerminated("Artist", this));
-    }
+	/**
+	 * 
+	 */
+	protected void setupObjectList() {
+		objectList.add(new StringSizeTerminated("Artist", this));
+	}
 }

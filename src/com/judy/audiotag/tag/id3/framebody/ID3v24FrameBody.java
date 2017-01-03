@@ -21,7 +21,6 @@ package com.judy.audiotag.tag.id3.framebody;
  * @author Paul Taylor
  * @version $Id: ID3v24FrameBody.java,v 1.3 2007/03/06 12:24:39 paultaylor Exp $
  */
-public interface ID3v24FrameBody
-{
-    
+public interface ID3v24FrameBody {
+
 }

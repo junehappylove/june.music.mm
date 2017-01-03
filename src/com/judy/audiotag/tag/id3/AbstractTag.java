@@ -93,7 +93,7 @@ public abstract class AbstractTag extends AbstractTagItem
      *
      * @return 
      */
-    abstract public Iterator iterator();
+    abstract public Iterator<?> iterator();
 }
 
 

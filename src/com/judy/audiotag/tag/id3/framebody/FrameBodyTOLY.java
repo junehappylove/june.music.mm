@@ -22,9 +22,14 @@ import java.nio.ByteBuffer;
 
 /**
  * Original lyricist(s)/text writer(s) Text information frame.
- * <p>The 'Original lyricist(s)/text writer(s)' frame is intended for the text writer(s) of the original recording, if for example the music in the file should be a cover of a previously released song. The text writers are seperated with the "/" character.
+ * <p>
+ * The 'Original lyricist(s)/text writer(s)' frame is intended for the text
+ * writer(s) of the original recording, if for example the music in the file
+ * should be a cover of a previously released song. The text writers are
+ * seperated with the "/" character.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,49 +38,42 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTOLY.java,v 1.9 2007/06/27 11:49:23 paultaylor Exp $
  */
-public class FrameBodyTOLY extends AbstractFrameBodyTextInfo implements ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTOLY datatype.
-     */
-    public FrameBodyTOLY()
-    {
-    }
+public class FrameBodyTOLY extends AbstractFrameBodyTextInfo implements ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTOLY datatype.
+	 */
+	public FrameBodyTOLY() {
+	}
 
-    public FrameBodyTOLY(FrameBodyTOLY body)
-    {
-        super(body);
-    }
+	public FrameBodyTOLY(FrameBodyTOLY body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTOLY datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTOLY(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTOLY datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTOLY(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTOLY datatype.
-     *    
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTOLY(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTOLY datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTOLY(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-     /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return  ID3v24Frames.FRAME_ID_ORIG_LYRICIST ;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_ORIG_LYRICIST;
+	}
 }

@@ -22,19 +22,20 @@
  */
 package com.judy.audiotag.tag.lyrics3;
 
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Iterator;
+
 import com.judy.audiotag.tag.InvalidTagException;
 import com.judy.audiotag.tag.TagException;
 import com.judy.audiotag.tag.TagNotFoundException;
 import com.judy.audiotag.tag.TagOptionSingleton;
 import com.judy.audiotag.tag.id3.AbstractID3v2Frame;
 import com.judy.audiotag.tag.id3.AbstractTag;
-import com.judy.audiotag.tag.id3.ID3v1Tag;
+//import com.judy.audiotag.tag.id3.ID3v1Tag;
 import com.judy.audiotag.tag.id3.ID3v24Tag;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class Lyrics3v2 extends AbstractLyrics3 {
 	/**
@@ -370,9 +371,8 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 		String str;
 		Lyrics3v2Field field;
 		Iterator<Lyrics3v2Field> iterator;
-		ID3v1Tag id3v1tag = new ID3v1Tag();
-
-		id3v1tag = null;
+//		ID3v1Tag id3v1tag = new ID3v1Tag();
+//		id3v1tag = null;
 
 		delete(file);
 		file.seek(file.length());
@@ -437,9 +437,9 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 
 		file.write(buffer, 0, offset);
 
-		if (id3v1tag != null) {
-			id3v1tag.write(file);
-		}
+//		if (id3v1tag != null) {
+//			id3v1tag.write(file);
+//		}
 	}
 
 	/**

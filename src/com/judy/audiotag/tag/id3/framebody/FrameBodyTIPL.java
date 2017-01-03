@@ -31,74 +31,66 @@ import com.judy.audiotag.tag.id3.ID3v24Frames;
 
 import java.nio.ByteBuffer;
 
-
 /**
- * The 'Involved people list' is intended as a mapping between functions like producer and names. Every odd field is a
- * function and every even is an name or a comma delimited list of names.
+ * The 'Involved people list' is intended as a mapping between functions like
+ * producer and names. Every odd field is a function and every even is an name
+ * or a comma delimited list of names.
  *
- *  TODO currently just reads the first String when directly from file, this will be fixed when we add support for
- *  multiple Strings for all ID3v24Frames
+ * TODO currently just reads the first String when directly from file, this will
+ * be fixed when we add support for multiple Strings for all ID3v24Frames
  *
- *  TODO currently just reads all the values when converted from the corresponding ID3v23 Frame IPLS as a single value
- *  (the individual fields from the IPLS frame will be seperated by commas)
+ * TODO currently just reads all the values when converted from the
+ * corresponding ID3v23 Frame IPLS as a single value (the individual fields from
+ * the IPLS frame will be seperated by commas)
  *
  */
-public class FrameBodyTIPL
-    extends AbstractFrameBodyTextInfo implements ID3v24FrameBody
-{
-    /**
-     * Creates a new FrameBodyTIPL datatype.
-     */
-    public FrameBodyTIPL()
-    {
-    }
+public class FrameBodyTIPL extends AbstractFrameBodyTextInfo implements ID3v24FrameBody {
+	/**
+	 * Creates a new FrameBodyTIPL datatype.
+	 */
+	public FrameBodyTIPL() {
+	}
 
-    public FrameBodyTIPL(FrameBodyTIPL body)
-    {
-        super(body);
-    }
+	public FrameBodyTIPL(FrameBodyTIPL body) {
+		super(body);
+	}
 
-    /**
-     * Convert from V3 to V4 Frame
-     */
-    public FrameBodyTIPL(FrameBodyIPLS body)
-    {
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, body.getTextEncoding());
+	/**
+	 * Convert from V3 to V4 Frame
+	 */
+	public FrameBodyTIPL(FrameBodyIPLS body) {
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, body.getTextEncoding());
 
-        PairedTextEncodedStringNullTerminated.ValuePairs  value
-            = (PairedTextEncodedStringNullTerminated.ValuePairs)body.getObjectValue(DataTypes.OBJ_TEXT);
-        setObjectValue(DataTypes.OBJ_TEXT, value.toString());
-    }
+		PairedTextEncodedStringNullTerminated.ValuePairs value = (PairedTextEncodedStringNullTerminated.ValuePairs) body
+				.getObjectValue(DataTypes.OBJ_TEXT);
+		setObjectValue(DataTypes.OBJ_TEXT, value.toString());
+	}
 
-    /**
-     * Creates a new FrameBodyTIPL datatype.
-     *
-     * @param textEncoding
-     * @param text
-     */
-    public FrameBodyTIPL(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTIPL datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTIPL(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTIPL datatype.
-     *
-     * @throws InvalidTagException
-     */
-    public FrameBodyTIPL(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTIPL datatype.
+	 *
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTIPL(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-       /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_INVOLVED_PEOPLE;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_INVOLVED_PEOPLE;
+	}
 }

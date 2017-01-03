@@ -32,7 +32,7 @@ import com.judy.audiotag.tag.TagException;
 import com.judy.audiotag.tag.TagNotFoundException;
 import com.judy.audiotag.tag.id3.AbstractTag;
 import com.judy.audiotag.tag.id3.ID3Tags;
-import com.judy.audiotag.tag.id3.ID3v1Tag;
+//import com.judy.audiotag.tag.id3.ID3v1Tag;
 
 public class Lyrics3v1 extends AbstractLyrics3 {
 	/**
@@ -274,9 +274,8 @@ public class Lyrics3v1 extends AbstractLyrics3 {
 		String str = "";
 		int offset = 0;
 		byte[] buffer;
-		ID3v1Tag id3v1tag = null;
-
-		id3v1tag = null;
+		// ID3v1Tag id3v1tag = null;
+		// id3v1tag = null;
 
 		delete(file);
 		file.seek(file.length());
@@ -309,9 +308,9 @@ public class Lyrics3v1 extends AbstractLyrics3 {
 
 		file.write(buffer, 0, offset);
 
-		if (id3v1tag != null) {
-			id3v1tag.write(file);
-		}
+		// if (id3v1tag != null) {
+		// id3v1tag.write(file);
+		// }
 	}
 
 }

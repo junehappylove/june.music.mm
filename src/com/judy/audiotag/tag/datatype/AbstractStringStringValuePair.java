@@ -23,43 +23,37 @@ package com.judy.audiotag.tag.datatype;
 
 import java.util.Collections;
 
-public class AbstractStringStringValuePair extends AbstractValuePair
-{
-    protected String lkey = null;
+public class AbstractStringStringValuePair extends AbstractValuePair<String> {
+	protected String lkey = null;
 
-    /**
-     * Get Id for Value
-     */
-    public String getIdForValue(String value)
-    {
-        return (String) valueToId.get(value);
-    }
+	/**
+	 * Get Id for Value
+	 */
+	public String getIdForValue(String value) {
+		return (String) valueToId.get(value);
+	}
 
-    /**
-     * Get value for Id
-     */
-    public String getValueForId(String id)
-    {
-        return (String) idToValue.get(id);
-    }
+	/**
+	 * Get value for Id
+	 */
+	public String getValueForId(String id) {
+		return (String) idToValue.get(id);
+	}
 
-    protected void createMaps()
-    {
-        iterator = idToValue.keySet().iterator();
-        while (iterator.hasNext())
-        {
-            lkey = (String) iterator.next();
-            value = (String) idToValue.get(lkey);
-            valueToId.put(value, lkey);
-        }
+	protected void createMaps() {
+		iterator = idToValue.keySet().iterator();
+		while (iterator.hasNext()) {
+			lkey = (String) iterator.next();
+			value = (String) idToValue.get(lkey);
+			valueToId.put(value, lkey);
+		}
 
-        //Value List
-        iterator = idToValue.keySet().iterator();
-        while (iterator.hasNext())
-        {
-            valueList.add(idToValue.get((String) iterator.next()));
-        }
-        //Sort alphabetically
-        Collections.sort(valueList);
-    }
+		// Value List
+		iterator = idToValue.keySet().iterator();
+		while (iterator.hasNext()) {
+			valueList.add(idToValue.get((String) iterator.next()));
+		}
+		// Sort alphabetically
+		Collections.sort(valueList);
+	}
 }

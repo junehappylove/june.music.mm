@@ -15,23 +15,22 @@
  */
 package com.judy.audiotag.tag.id3;
 
-import com.judy.audiotag.audio.mp3.MP3File;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.util.logging.Level;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.judy.audiotag.audio.generic.Utils;
+import com.judy.audiotag.audio.mp3.MP3File;
 import com.judy.audiotag.tag.EmptyFrameException;
 import com.judy.audiotag.tag.InvalidFrameException;
 import com.judy.audiotag.tag.InvalidFrameIdentifierException;
 import com.judy.audiotag.tag.id3.framebody.AbstractID3v2FrameBody;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyDeprecated;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyUnsupported;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.util.logging.Level;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Represents an ID3v2.2 frame.
@@ -42,7 +41,12 @@ import java.util.regex.Pattern;
  */
 public class ID3v22Frame extends AbstractID3v2Frame
 {
-    Pattern validFrameIdentifier = Pattern.compile("[A-Z][0-9A-Z]{2}");
+    /**
+	 * long serialVersionUID
+	 */
+	private static final long serialVersionUID = -2122158267012253067L;
+
+	Pattern validFrameIdentifier = Pattern.compile("[A-Z][0-9A-Z]{2}");
 
     protected static final int FRAME_ID_SIZE = 3;
     protected static final int FRAME_SIZE_SIZE = 3;
@@ -103,7 +107,7 @@ public class ID3v22Frame extends AbstractID3v2Frame
         // to keep things up to date.
         try
         {
-            Class c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + bodyIdentifier);
+            Class<?> c = Class.forName("com.judy.audiotag.tag.id3.framebody.FrameBody" + bodyIdentifier);
             frameBody = (AbstractID3v2FrameBody) c.newInstance();
         }
         catch (ClassNotFoundException cnfe)

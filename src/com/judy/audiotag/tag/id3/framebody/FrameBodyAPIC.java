@@ -91,165 +91,143 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyAPIC.java,v 1.17 2007/12/03 13:28:06 paultaylor Exp $
  */
-public class FrameBodyAPIC extends AbstractID3v2FrameBody implements ID3v24FrameBody,ID3v23FrameBody
-{
-    public static final String IMAGE_IS_URL = "-->";
+public class FrameBodyAPIC extends AbstractID3v2FrameBody implements ID3v24FrameBody, ID3v23FrameBody {
+	public static final String IMAGE_IS_URL = "-->";
 
-    /**
-     * Creates a new FrameBodyAPIC datatype.
-     */
-    public FrameBodyAPIC()
-    {
-        //Initilise default text encoding
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
-    }
+	/**
+	 * Creates a new FrameBodyAPIC datatype.
+	 */
+	public FrameBodyAPIC() {
+		// Initilise default text encoding
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
+	}
 
-    public FrameBodyAPIC(FrameBodyAPIC body)
-    {
-        super(body);
-    }
+	public FrameBodyAPIC(FrameBodyAPIC body) {
+		super(body);
+	}
 
-    /**
-     * Conversion from v2 PIC to v3/v4 APIC
-     */
-    public FrameBodyAPIC(FrameBodyPIC body)
-    {
-        this.setObjectValue(DataTypes.OBJ_TEXT_ENCODING, body.getTextEncoding());          
-        this.setObjectValue(DataTypes.OBJ_MIME_TYPE, ImageFormats.getMimeTypeForFormat((String) body.getObjectValue(DataTypes.OBJ_IMAGE_FORMAT)));
-        this.setObjectValue(DataTypes.OBJ_PICTURE_TYPE, body.getObjectValue(DataTypes.OBJ_PICTURE_TYPE));
-        this.setObjectValue(DataTypes.OBJ_DESCRIPTION, body.getDescription());
-        this.setObjectValue(DataTypes.OBJ_PICTURE_DATA, body.getObjectValue(DataTypes.OBJ_PICTURE_DATA));
+	/**
+	 * Conversion from v2 PIC to v3/v4 APIC
+	 */
+	public FrameBodyAPIC(FrameBodyPIC body) {
+		this.setObjectValue(DataTypes.OBJ_TEXT_ENCODING, body.getTextEncoding());
+		this.setObjectValue(DataTypes.OBJ_MIME_TYPE,
+				ImageFormats.getMimeTypeForFormat((String) body.getObjectValue(DataTypes.OBJ_IMAGE_FORMAT)));
+		this.setObjectValue(DataTypes.OBJ_PICTURE_TYPE, body.getObjectValue(DataTypes.OBJ_PICTURE_TYPE));
+		this.setObjectValue(DataTypes.OBJ_DESCRIPTION, body.getDescription());
+		this.setObjectValue(DataTypes.OBJ_PICTURE_DATA, body.getObjectValue(DataTypes.OBJ_PICTURE_DATA));
 
-    }
+	}
 
-    /**
-     * Creates a new FrameBodyAPIC datatype.
-     *
-     * @param textEncoding 
-     * @param mimeType     
-     * @param pictureType  
-     * @param description  
-     * @param data         
-     */
-    public FrameBodyAPIC(byte textEncoding,
-                         String mimeType,
-                         byte pictureType,
-                         String description,
-                         byte[] data)
-    {
-        this.setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
-        this.setObjectValue(DataTypes.OBJ_MIME_TYPE, mimeType);
+	/**
+	 * Creates a new FrameBodyAPIC datatype.
+	 *
+	 * @param textEncoding
+	 * @param mimeType
+	 * @param pictureType
+	 * @param description
+	 * @param data
+	 */
+	public FrameBodyAPIC(byte textEncoding, String mimeType, byte pictureType, String description, byte[] data) {
+		this.setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
+		this.setObjectValue(DataTypes.OBJ_MIME_TYPE, mimeType);
 
-        this.setObjectValue(DataTypes.OBJ_PICTURE_TYPE, pictureType);
-        this.setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
-        this.setObjectValue(DataTypes.OBJ_PICTURE_DATA, data);
-    }
+		this.setObjectValue(DataTypes.OBJ_PICTURE_TYPE, pictureType);
+		this.setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
+		this.setObjectValue(DataTypes.OBJ_PICTURE_DATA, data);
+	}
 
-    /**
-     * Creates a new FrameBodyAPIC datatype.
-     *
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    public FrameBodyAPIC(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyAPIC datatype.
+	 *
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	public FrameBodyAPIC(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Set a description of the image
-     *
-     * @param description 
-     */
-    public void setDescription(String description)
-    {
-        setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
-    }
+	/**
+	 * Set a description of the image
+	 *
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
+	}
 
-    /**
-     * Get a description of the image
-     *
-     * @return a description of the image
-     */
-    public String getDescription()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_DESCRIPTION);
-    }
+	/**
+	 * Get a description of the image
+	 *
+	 * @return a description of the image
+	 */
+	public String getDescription() {
+		return (String) getObjectValue(DataTypes.OBJ_DESCRIPTION);
+	}
 
-    /**
-    * Get a description of the image
-    *
-    * @return a description of the image
-    */
-    public String getMimeType()
-    {
-       return (String) getObjectValue(DataTypes.OBJ_MIME_TYPE);
-    }
+	/**
+	 * Get a description of the image
+	 *
+	 * @return a description of the image
+	 */
+	public String getMimeType() {
+		return (String) getObjectValue(DataTypes.OBJ_MIME_TYPE);
+	}
 
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_ATTACHED_PICTURE;
+	}
 
-      /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_ATTACHED_PICTURE;
-    }
+	/**
+	 * If the description cannot be encoded using current encoder, change the
+	 * encoder
+	 */
+	public void write(ByteArrayOutputStream tagBuffer) {
+		if (((AbstractString) getObject(DataTypes.OBJ_DESCRIPTION)).canBeEncoded() == false) {
+			this.setTextEncoding(TextEncoding.UTF_16);
+		}
+		super.write(tagBuffer);
+	}
 
+	/**
+	 * 
+	 */
+	protected void setupObjectList() {
+		objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE));
+		objectList.add(new StringNullTerminated(DataTypes.OBJ_MIME_TYPE, this));
+		objectList.add(new NumberHashMap(DataTypes.OBJ_PICTURE_TYPE, this, PictureTypes.PICTURE_TYPE_FIELD_SIZE));
+		objectList.add(new TextEncodedStringNullTerminated(DataTypes.OBJ_DESCRIPTION, this));
+		objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_PICTURE_DATA, this));
+	}
 
-    /** If the description cannot be encoded using current encoder, change the encoder */
-    public void write(ByteArrayOutputStream tagBuffer)
-    {
-        if (((AbstractString) getObject(DataTypes.OBJ_DESCRIPTION)).canBeEncoded() == false)
-        {
-            this.setTextEncoding(TextEncoding.UTF_16);
-        }
-        super.write(tagBuffer);
-    }
+	/**
+	 *
+	 * @return true if imagedata is held as a url rather than actually being
+	 *         imagedata
+	 */
+	public boolean isImageUrl() {
+		if (getMimeType() == null) {
+			return false;
+		}
+		return getMimeType().equals(IMAGE_IS_URL);
+	}
 
-    /**
-     * 
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE));
-        objectList.add(new StringNullTerminated(DataTypes.OBJ_MIME_TYPE, this));
-        objectList.add(new NumberHashMap(DataTypes.OBJ_PICTURE_TYPE, this, PictureTypes.PICTURE_TYPE_FIELD_SIZE));
-        objectList.add(new TextEncodedStringNullTerminated(DataTypes.OBJ_DESCRIPTION, this));
-        objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_PICTURE_DATA, this));
-    }
-
-    /**
-        *
-        * @return true if imagedata  is held as a url rather than actually being imagedata
-        */
-       public boolean isImageUrl()
-       {
-           if(getMimeType()==null)
-           {
-               return false;
-           }
-           return getMimeType().equals(IMAGE_IS_URL);
-       }
-
-       /**
-        *
-        * @return the image url if there is otherwise return an empty String
-        */
-       public String getImageUrl()
-       {
-           if(isImageUrl())
-           {
-               return Utils.getString(((byte[])getObjectValue(DataTypes.OBJ_PICTURE_DATA)),
-                       0,
-                       ((byte[]) getObjectValue(DataTypes.OBJ_PICTURE_DATA)).length,
-                       TextEncoding.CHARSET_ISO_8859_1);
-           }
-           else
-           {
-               return "";
-           }
-       }
+	/**
+	 *
+	 * @return the image url if there is otherwise return an empty String
+	 */
+	public String getImageUrl() {
+		if (isImageUrl()) {
+			return Utils.getString(((byte[]) getObjectValue(DataTypes.OBJ_PICTURE_DATA)), 0,
+					((byte[]) getObjectValue(DataTypes.OBJ_PICTURE_DATA)).length, TextEncoding.CHARSET_ISO_8859_1);
+		} else {
+			return "";
+		}
+	}
 
 }

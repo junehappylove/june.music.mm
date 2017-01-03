@@ -31,74 +31,63 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyRVAD.java,v 1.15 2007/08/06 16:04:34 paultaylor Exp $
  */
-public class FrameBodyRVAD extends AbstractID3v2FrameBody implements ID3v23FrameBody
-{
+public class FrameBodyRVAD extends AbstractID3v2FrameBody implements ID3v23FrameBody {
 
-    /**
-     * Creates a new FrameBodyRVAD datatype.
-     */
-    public FrameBodyRVAD()
-    {
+	/**
+	 * Creates a new FrameBodyRVAD datatype.
+	 */
+	public FrameBodyRVAD() {
 
-    }
+	}
 
-    public FrameBodyRVAD(FrameBodyRVAD copyObject)
-    {
-        super(copyObject);
+	public FrameBodyRVAD(FrameBodyRVAD copyObject) {
+		super(copyObject);
 
-    }
+	}
 
+	/**
+	 * Convert from V4 to V3 Frame
+	 */
+	public FrameBodyRVAD(FrameBodyRVA2 body) {
+		setObjectValue(DataTypes.OBJ_DATA, body.getObjectValue(DataTypes.OBJ_DATA));
+	}
 
-     /**
-     * Convert from V4 to V3 Frame
-     */
-    public FrameBodyRVAD(FrameBodyRVA2 body)
-    {
-        setObjectValue(DataTypes.OBJ_DATA, body.getObjectValue(DataTypes.OBJ_DATA));
-    }
+	/**
+	 * Creates a new FrameBodyRVAD datatype.
+	 *
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	public FrameBodyRVAD(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Creates a new FrameBodyRVAD datatype.
-     *
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    public FrameBodyRVAD(ByteBuffer byteBuffer, int frameSize)
-        throws  InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v23Frames.FRAME_ID_V3_RELATIVE_VOLUME_ADJUSTMENT;
+	}
 
-        /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v23Frames.FRAME_ID_V3_RELATIVE_VOLUME_ADJUSTMENT;
-    }
+	/**
+	 * This method is not yet supported.
+	 *
+	 * @throws java.lang.UnsupportedOperationException
+	 *             This method is not yet supported
+	 *
+	 * @todo Implement this java.lang.Object method
+	 */
+	public boolean equals(Object obj) {
+		throw new java.lang.UnsupportedOperationException("Method equals() not yet implemented.");
+	}
 
-    /**
-     * This method is not yet supported.
-     *
-     * @throws java.lang.UnsupportedOperationException
-     *          This method is not yet
-     *          supported
-     *
-     * @todo Implement this java.lang.Object method
-     */
-    public boolean equals(Object obj)
-    {        
-        throw new java.lang.UnsupportedOperationException("Method equals() not yet implemented.");
-    }
-
-
-    /**
-     * Setup the Object List. A byte Array which will be read upto frame size
-     * bytes.
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_DATA, this));
-    }
+	/**
+	 * Setup the Object List. A byte Array which will be read upto frame size
+	 * bytes.
+	 */
+	protected void setupObjectList() {
+		objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_DATA, this));
+	}
 }

@@ -33,133 +33,124 @@ import com.judy.audiotag.tag.datatype.DataTypes;
 import java.nio.ByteBuffer;
 
 /**
- * Represents a framebody for a frame identifier jaudiotagger has not implemented a framebody for.
+ * Represents a framebody for a frame identifier jaudiotagger has not
+ * implemented a framebody for.
  *
- * This is likley to be because the FrameBody is not specified in the Specification but it may just be because the code
- * has yet to be written, the library uses this framebody when it cant find an alternative. This is different to the
- * ID3v2ExtensionFrameBody Interface which should be implemented by frame bodies that are non standard such as
- * iTunes compilation frame (TCMP) but are commonly used.
+ * This is likley to be because the FrameBody is not specified in the
+ * Specification but it may just be because the code has yet to be written, the
+ * library uses this framebody when it cant find an alternative. This is
+ * different to the ID3v2ExtensionFrameBody Interface which should be
+ * implemented by frame bodies that are non standard such as iTunes compilation
+ * frame (TCMP) but are commonly used.
  */
-public class FrameBodyUnsupported extends AbstractID3v2FrameBody implements ID3v24FrameBody,ID3v23FrameBody,ID3v22FrameBody
-{
-    /**
-     * Because used by any unknown frame identifier varies
-     */
-    private String identifier = "";
+public class FrameBodyUnsupported extends AbstractID3v2FrameBody
+		implements ID3v24FrameBody, ID3v23FrameBody, ID3v22FrameBody {
+	/**
+	 * Because used by any unknown frame identifier varies
+	 */
+	private String identifier = "";
 
-    /**
-     * @deprecated  because no identifier set
-     */
-    public FrameBodyUnsupported()
-    {
+	/**
+	 * @deprecated because no identifier set
+	 */
+	public FrameBodyUnsupported() {
 
-    }
+	}
 
-    /**
-     * Creates a new FrameBodyUnsupported
-     */
-    public FrameBodyUnsupported(String identifier)
-    {
-        this.identifier = identifier;
-    }
+	/**
+	 * Creates a new FrameBodyUnsupported
+	 */
+	public FrameBodyUnsupported(String identifier) {
+		this.identifier = identifier;
+	}
 
-    /**
-     * Create a new FrameBodyUnsupported
-     *
-     * @param identifier
-     * @param value
-     */
-    public FrameBodyUnsupported(String identifier,byte[] value)
-    {
-        this.identifier = identifier;
-        setObjectValue(DataTypes.OBJ_DATA, value);
-    }
+	/**
+	 * Create a new FrameBodyUnsupported
+	 *
+	 * @param identifier
+	 * @param value
+	 */
+	public FrameBodyUnsupported(String identifier, byte[] value) {
+		this.identifier = identifier;
+		setObjectValue(DataTypes.OBJ_DATA, value);
+	}
 
-    /**
-     * Creates a new FrameBodyUnsupported datatype.
-     * 
-     * @deprecated because no identifier set
-     * @param value 
-     */
-    public FrameBodyUnsupported(byte[] value)
-    {
-        setObjectValue(DataTypes.OBJ_DATA, value);
-    }
+	/**
+	 * Creates a new FrameBodyUnsupported datatype.
+	 * 
+	 * @deprecated because no identifier set
+	 * @param value
+	 */
+	public FrameBodyUnsupported(byte[] value) {
+		setObjectValue(DataTypes.OBJ_DATA, value);
+	}
 
-    /**
-     * Copy constructor
-     *
-     * @param copyObject a copy is made of this
-     */
-    public FrameBodyUnsupported(FrameBodyUnsupported copyObject)
-    {
-        super(copyObject);
-        this.identifier = new String(copyObject.identifier);
+	/**
+	 * Copy constructor
+	 *
+	 * @param copyObject
+	 *            a copy is made of this
+	 */
+	public FrameBodyUnsupported(FrameBodyUnsupported copyObject) {
+		super(copyObject);
+		this.identifier = new String(copyObject.identifier);
 
-    }
+	}
 
-    /**
-     * Creates a new FrameBodyUnsupported datatype.
-     *
-     * @throws InvalidFrameException if unable to create framebody from buffer
-     */
-    public FrameBodyUnsupported(ByteBuffer byteBuffer, int frameSize)
-    throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyUnsupported datatype.
+	 *
+	 * @throws InvalidFrameException
+	 *             if unable to create framebody from buffer
+	 */
+	public FrameBodyUnsupported(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Return the frame identifier
-     *
-     * @return the identifier
-     */
-    public String getIdentifier()
-    {
-        return identifier;
-    }
+	/**
+	 * Return the frame identifier
+	 *
+	 * @return the identifier
+	 */
+	public String getIdentifier() {
+		return identifier;
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     * @return whether obj is equivalent to this object
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof FrameBodyUnsupported) == false)
-        {
-            return false;
-        }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return whether obj is equivalent to this object
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof FrameBodyUnsupported) == false) {
+			return false;
+		}
 
-        FrameBodyUnsupported object = (FrameBodyUnsupported) obj;
-        if (this.identifier.equals(object.identifier) == false)
-        {
-            return false;
-        }
-        return super.equals(obj);
-    }
+		FrameBodyUnsupported object = (FrameBodyUnsupported) obj;
+		if (this.identifier.equals(object.identifier) == false) {
+			return false;
+		}
+		return super.equals(obj);
+	}
 
+	/**
+	 * 
+	 * Because the contents of this frame are an array of bytes and could be
+	 * large we just return the identifier.
+	 *
+	 * @return a string representation of this frame
+	 */
+	public String toString() {
+		return getIdentifier();
+	}
 
-    /**
-     * 
-     * Because the contents of this frame are an array of bytes and could be large we just
-     * return the identifier.
-     *
-     * @return  a string representation of this frame
-     */
-    public String toString()
-    {
-        return getIdentifier();
-    }
-
-    /**
-     * Setup the Object List. A byte Array which will be read upto frame size
-     * bytes.
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_DATA, this));
-    }
+	/**
+	 * Setup the Object List. A byte Array which will be read upto frame size
+	 * bytes.
+	 */
+	protected void setupObjectList() {
+		objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_DATA, this));
+	}
 
 }

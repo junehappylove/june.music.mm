@@ -21,35 +21,36 @@
  */
 package com.judy.audiotag.tag.datatype;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * A two way mapping between an id and a value
  */
-public abstract class AbstractValuePair
+public abstract class AbstractValuePair<K extends Serializable>
 {
-    protected final Map<Object, String> idToValue = new LinkedHashMap<Object, String>();
-    protected final Map valueToId = new LinkedHashMap();
-    protected final List valueList = new ArrayList();
+    protected final Map<K, String> idToValue = new LinkedHashMap<K, String>();
+    protected final Map<Object, Object> valueToId = new LinkedHashMap<Object, Object>();
+    protected final List<String> valueList = new ArrayList<String>();
 
-    protected Iterator iterator = idToValue.keySet().iterator();
+    protected Iterator<K> iterator = idToValue.keySet().iterator();
 
     protected String value;
 
     /**
      * Get list in alphabetical order
      */
-    public List getAlphabeticalValueList()
+    public List<String> getAlphabeticalValueList()
     {
         return valueList;
     }
 
-    public Map getIdToValueMap()
+    public Map<K, String> getIdToValueMap()
     {
         return idToValue;
     }
 
-    public Map getValueToIdMap()
+    public Map<Object, Object> getValueToIdMap()
     {
         return valueToId;
     }

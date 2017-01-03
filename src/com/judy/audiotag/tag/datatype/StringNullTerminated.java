@@ -27,38 +27,35 @@ import com.judy.audiotag.tag.id3.AbstractTagFrameBody;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
 
 /**
- * Represents a String whose size is determined by finding of a null character at the end of the String with fixed text encoding.
- 
- * The String will be encoded using the default encoding regardless of what encoding may be specified in the framebody
+ * Represents a String whose size is determined by finding of a null character
+ * at the end of the String with fixed text encoding.
+ * 
+ * The String will be encoded using the default encoding regardless of what
+ * encoding may be specified in the framebody
  */
-public class StringNullTerminated  extends TextEncodedStringNullTerminated
-{
-    /**
-     * Creates a new ObjectStringNullTerminated datatype.
-     *
-     * @param identifier identifies the frame type
-     */
-    public StringNullTerminated(String identifier, AbstractTagFrameBody frameBody)
-    {
-        super(identifier, frameBody);
-    }
+public class StringNullTerminated extends TextEncodedStringNullTerminated {
+	/**
+	 * Creates a new ObjectStringNullTerminated datatype.
+	 *
+	 * @param identifier
+	 *            identifies the frame type
+	 */
+	public StringNullTerminated(String identifier, AbstractTagFrameBody frameBody) {
+		super(identifier, frameBody);
+	}
 
-    public StringNullTerminated(StringNullTerminated object)
-    {
-        super(object);
-    }
+	public StringNullTerminated(StringNullTerminated object) {
+		super(object);
+	}
 
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof StringNullTerminated == false)
-        {
-            return false;
-        }
-        return super.equals(obj);
-    }
+	public boolean equals(Object obj) {
+		if (obj instanceof StringNullTerminated == false) {
+			return false;
+		}
+		return super.equals(obj);
+	}
 
-    protected String  getTextEncodingCharSet()
-    {
-        return TextEncoding.CHARSET_ISO_8859_1;
-    }
+	protected String getTextEncodingCharSet() {
+		return TextEncoding.CHARSET_ISO_8859_1;
+	}
 }

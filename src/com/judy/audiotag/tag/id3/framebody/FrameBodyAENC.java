@@ -63,93 +63,81 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyAENC.java,v 1.12 2007/08/06 16:04:33 paultaylor Exp $
  */
-public class FrameBodyAENC extends AbstractID3v2FrameBody implements ID3v24FrameBody,ID3v23FrameBody
-{
+public class FrameBodyAENC extends AbstractID3v2FrameBody implements ID3v24FrameBody, ID3v23FrameBody {
 
-    /**
-     * Creates a new FrameBodyAENC datatype.
-     */
-    public FrameBodyAENC()
-    {
-        this.setObjectValue(DataTypes.OBJ_OWNER, "");
-        this.setObjectValue(DataTypes.OBJ_PREVIEW_START, (short) 0);
-        this.setObjectValue(DataTypes.OBJ_PREVIEW_LENGTH, (short) 0);
-        this.setObjectValue(DataTypes.OBJ_ENCRYPTION_INFO, new byte[0]);
-    }
+	/**
+	 * Creates a new FrameBodyAENC datatype.
+	 */
+	public FrameBodyAENC() {
+		this.setObjectValue(DataTypes.OBJ_OWNER, "");
+		this.setObjectValue(DataTypes.OBJ_PREVIEW_START, (short) 0);
+		this.setObjectValue(DataTypes.OBJ_PREVIEW_LENGTH, (short) 0);
+		this.setObjectValue(DataTypes.OBJ_ENCRYPTION_INFO, new byte[0]);
+	}
 
-    public FrameBodyAENC(FrameBodyAENC body)
-    {
-        super(body);
-    }
+	public FrameBodyAENC(FrameBodyAENC body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyAENC datatype.
-     *
-     * @param owner         
-     * @param previewStart  
-     * @param previewLength 
-     * @param data          
-     */
-    public FrameBodyAENC(String owner,
-                         short previewStart,
-                         short previewLength,
-                         byte[] data)
-    {
-        this.setObjectValue(DataTypes.OBJ_OWNER, owner);
-        this.setObjectValue(DataTypes.OBJ_PREVIEW_START, previewStart);
-        this.setObjectValue(DataTypes.OBJ_PREVIEW_LENGTH, previewLength);
-        this.setObjectValue(DataTypes.OBJ_ENCRYPTION_INFO, data);
-    }
+	/**
+	 * Creates a new FrameBodyAENC datatype.
+	 *
+	 * @param owner
+	 * @param previewStart
+	 * @param previewLength
+	 * @param data
+	 */
+	public FrameBodyAENC(String owner, short previewStart, short previewLength, byte[] data) {
+		this.setObjectValue(DataTypes.OBJ_OWNER, owner);
+		this.setObjectValue(DataTypes.OBJ_PREVIEW_START, previewStart);
+		this.setObjectValue(DataTypes.OBJ_PREVIEW_LENGTH, previewLength);
+		this.setObjectValue(DataTypes.OBJ_ENCRYPTION_INFO, data);
+	}
 
-    /**
-     * Creates a new FrameBodyAENC datatype.
-     *
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    public FrameBodyAENC(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyAENC datatype.
+	 *
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	public FrameBodyAENC(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_AUDIO_ENCRYPTION;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_AUDIO_ENCRYPTION;
+	}
 
-    /**
-     * 
-     *
-     * @return owner
-     */
-    public String getOwner()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_OWNER);
-    }
+	/**
+	 * 
+	 *
+	 * @return owner
+	 */
+	public String getOwner() {
+		return (String) getObjectValue(DataTypes.OBJ_OWNER);
+	}
 
-    /**
-     * 
-     *
-     * @param description 
-     */
-    public void getOwner(String description)
-    {
-        setObjectValue(DataTypes.OBJ_OWNER, description);
-    }
+	/**
+	 * 
+	 *
+	 * @param description
+	 */
+	public void getOwner(String description) {
+		setObjectValue(DataTypes.OBJ_OWNER, description);
+	}
 
-    /**
-     * 
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new StringNullTerminated(DataTypes.OBJ_OWNER, this));
-        objectList.add(new NumberFixedLength(DataTypes.OBJ_PREVIEW_START, this, 2));
-        objectList.add(new NumberFixedLength(DataTypes.OBJ_PREVIEW_LENGTH, this, 2));
-        objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_ENCRYPTION_INFO, this));
-    }
+	/**
+	 * 
+	 */
+	protected void setupObjectList() {
+		objectList.add(new StringNullTerminated(DataTypes.OBJ_OWNER, this));
+		objectList.add(new NumberFixedLength(DataTypes.OBJ_PREVIEW_START, this, 2));
+		objectList.add(new NumberFixedLength(DataTypes.OBJ_PREVIEW_LENGTH, this, 2));
+		objectList.add(new ByteArraySizeTerminated(DataTypes.OBJ_ENCRYPTION_INFO, this));
+	}
 }

@@ -24,30 +24,30 @@ import java.nio.ByteBuffer;
 import com.judy.audiotag.tag.Tag;
 
 /**
- * Abstract class for creating the raw content that represents the tag so it can be written
- * to file.
+ * Abstract class for creating the raw content that represents the tag so it can
+ * be written to file.
  */
-public abstract class AbstractTagCreator
-{
-    /**
-     * Convert tagdata to rawdata ready for writing to file with no additional padding
-     *
-     * @param tag
-     * @return
-     * @throws UnsupportedEncodingException
-     */
-    public ByteBuffer convert(Tag tag) throws UnsupportedEncodingException
-    {
-        return convert(tag, 0);
-    }
+public abstract class AbstractTagCreator {
+	/**
+	 * Convert tagdata to rawdata ready for writing to file with no additional
+	 * padding
+	 *
+	 * @param tag
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public ByteBuffer convert(Tag tag) throws UnsupportedEncodingException {
+		return convert(tag, 0);
+	}
 
-    /**
-     * Convert tagdata to rawdata ready for writing to file
-     *
-     * @param tag
-     * @param padding TODO is this padding or additional padding
-     * @return
-     * @throws UnsupportedEncodingException
-     */
-    public abstract ByteBuffer convert(Tag tag, int padding) throws UnsupportedEncodingException;
+	/**
+	 * Convert tagdata to rawdata ready for writing to file
+	 *
+	 * @param tag
+	 * @param padding
+	 *            TODO is this padding or additional padding
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public abstract ByteBuffer convert(Tag tag, int padding) throws UnsupportedEncodingException;
 }

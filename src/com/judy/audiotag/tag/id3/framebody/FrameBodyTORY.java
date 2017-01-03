@@ -22,9 +22,14 @@ import java.nio.ByteBuffer;
 
 /**
  * Original release year Text information frame.
- * <p>The 'Original release year' frame is intended for the year when the original recording, if for example the music in the file should be a cover of a previously released song, was released. The field is formatted as in the "TYER" frame.
+ * <p>
+ * The 'Original release year' frame is intended for the year when the original
+ * recording, if for example the music in the file should be a cover of a
+ * previously released song, was released. The field is formatted as in the
+ * "TYER" frame.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,49 +38,42 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTORY.java,v 1.10 2007/06/25 10:38:33 paultaylor Exp $
  */
-public class FrameBodyTORY extends AbstractFrameBodyTextInfo implements ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTORY datatype.
-     */
-    public FrameBodyTORY()
-    {
-    }
+public class FrameBodyTORY extends AbstractFrameBodyTextInfo implements ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTORY datatype.
+	 */
+	public FrameBodyTORY() {
+	}
 
-    public FrameBodyTORY(FrameBodyTORY body)
-    {
-        super(body);
-    }
+	public FrameBodyTORY(FrameBodyTORY body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTORY datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTORY(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTORY datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTORY(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTORY datatype.
-     *    
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTORY(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTORY datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTORY(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-   /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v23Frames.FRAME_ID_V3_TORY;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v23Frames.FRAME_ID_V3_TORY;
+	}
 }

@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Length Text information frame.
- * <p>The 'Length' frame contains the length of the audiofile in milliseconds, represented as a numeric string.
+ * <p>
+ * The 'Length' frame contains the length of the audiofile in milliseconds,
+ * represented as a numeric string.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,49 +36,42 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTLEN.java,v 1.10 2007/06/01 09:21:55 paultaylor Exp $
  */
-public class FrameBodyTLEN extends AbstractFrameBodyTextInfo implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTLEN datatype.
-     */
-    public FrameBodyTLEN()
-    {
-    }
+public class FrameBodyTLEN extends AbstractFrameBodyTextInfo implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTLEN datatype.
+	 */
+	public FrameBodyTLEN() {
+	}
 
-    public FrameBodyTLEN(FrameBodyTLEN body)
-    {
-        super(body);
-    }
+	public FrameBodyTLEN(FrameBodyTLEN body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTLEN datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTLEN(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTLEN datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTLEN(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTLEN datatype.
-     *    
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTLEN(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTLEN datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTLEN(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-       /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_LENGTH;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_LENGTH;
+	}
 }

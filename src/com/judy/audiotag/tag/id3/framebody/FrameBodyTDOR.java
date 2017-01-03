@@ -30,60 +30,51 @@ import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
 
 import java.nio.ByteBuffer;
 
+public class FrameBodyTDOR extends AbstractFrameBodyTextInfo implements ID3v24FrameBody {
+	/**
+	 * Creates a new FrameBodyTDOR datatype.
+	 */
+	public FrameBodyTDOR() {
+	}
 
-public class FrameBodyTDOR extends AbstractFrameBodyTextInfo implements ID3v24FrameBody
-{
-    /**
-     * Creates a new FrameBodyTDOR datatype.
-     */
-    public FrameBodyTDOR()
-    {
-    }
+	public FrameBodyTDOR(FrameBodyTDOR body) {
+		super(body);
+	}
 
-    public FrameBodyTDOR(FrameBodyTDOR body)
-    {
-        super(body);
-    }
+	/**
+	 * When converting v3 TDAT to v4 TDRC frame
+	 */
+	public FrameBodyTDOR(FrameBodyTORY body) {
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
+		setObjectValue(DataTypes.OBJ_TEXT, body.getText());
+	}
 
-    /**
-     * When converting v3 TDAT to v4 TDRC frame
-     */
-    public FrameBodyTDOR(FrameBodyTORY body)
-    {
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
-        setObjectValue(DataTypes.OBJ_TEXT, body.getText());
-    }
+	/**
+	 * Creates a new FrameBodyTDOR datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTDOR(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTDOR datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTDOR(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTDOR datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTDOR(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Creates a new FrameBodyTDOR datatype.
-     *   
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTDOR(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
-
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_ORIGINAL_RELEASE_TIME;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_ORIGINAL_RELEASE_TIME;
+	}
 
 }

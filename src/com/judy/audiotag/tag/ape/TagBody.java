@@ -12,51 +12,53 @@ import java.util.List;
 
 /**
  * 内部私有类,它代表了一个APE标签的内容
+ * 
  * @author judy
  */
 public class TagBody {
 
-    private byte[] data;//标签的数据
-    private List<TagItem> items;//所有的项
-    public TagBody(byte[] data) {
-        this.data = data;
-        items = new ArrayList<TagItem>();
-        parseData();
-    }
+	private byte[] data;// 标签的数据
+	private List<TagItem> items;// 所有的项
 
-    public TagBody() {
-        items = new ArrayList<TagItem>();
-    }
+	public TagBody(byte[] data) {
+		this.data = data;
+		items = new ArrayList<TagItem>();
+		parseData();
+	}
 
-    public List<TagItem> getItems() {
-        return items;
-    }
+	public TagBody() {
+		items = new ArrayList<TagItem>();
+	}
 
-    public byte[] getBytes() throws UnsupportedEncodingException, IOException {
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        for(TagItem item:items){
-            bout.write(item.getRawContent());
-        }
-        bout.flush();
-        return bout.toByteArray();
-    }
+	public List<TagItem> getItems() {
+		return items;
+	}
 
-    public void addTagItem(TagItem item) {
-        items.add(item);
-    }
+	public byte[] getBytes() throws UnsupportedEncodingException, IOException {
+		ByteArrayOutputStream bout = new ByteArrayOutputStream();
+		for (TagItem item : items) {
+			bout.write(item.getRawContent());
+		}
+		bout.flush();
+		return bout.toByteArray();
+	}
 
-    private void parseData() {
-        int count = 0;
-        byte[] temp = new byte[data.length];
-        System.arraycopy(data, 0, temp, 0, data.length);
-        while (count < data.length) {
-            TagItem item = new TagItem(temp, count);
-            if (item.isValid()) {
-                count += item.getSize();
-                items.add(item);
-            } else {
-                return;
-            }
-        }
-    }
-    }
+	public void addTagItem(TagItem item) {
+		items.add(item);
+	}
+
+	private void parseData() {
+		int count = 0;
+		byte[] temp = new byte[data.length];
+		System.arraycopy(data, 0, temp, 0, data.length);
+		while (count < data.length) {
+			TagItem item = new TagItem(temp, count);
+			if (item.isValid()) {
+				count += item.getSize();
+				items.add(item);
+			} else {
+				return;
+			}
+		}
+	}
+}

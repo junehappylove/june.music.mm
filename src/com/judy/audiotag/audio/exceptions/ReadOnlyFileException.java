@@ -24,37 +24,33 @@ package com.judy.audiotag.audio.exceptions;
 /**
  * This is the exception when try and access a read only file
  */
-public class ReadOnlyFileException extends Exception
-{
-    /**
+public class ReadOnlyFileException extends Exception {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -7236304028223631933L;
 
 	/**
-     * Creates a new ReadOnlyException datatype.
-     */
-    public ReadOnlyFileException()
-    {
-    }
+	 * Creates a new ReadOnlyException datatype.
+	 */
+	public ReadOnlyFileException() {
+	}
 
-    public ReadOnlyFileException(Throwable ex)
-    {
-        super(ex);
-    }
+	public ReadOnlyFileException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
-     * Creates a new ReadOnlyException datatype.
-     *
-     * @param msg the detail message.
-     */
-    public ReadOnlyFileException(String msg)
-    {
-        super(msg);
-    }
+	/**
+	 * Creates a new ReadOnlyException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 */
+	public ReadOnlyFileException(String msg) {
+		super(msg);
+	}
 
-    public ReadOnlyFileException(String msg, Throwable ex)
-    {
-        super(msg, ex);
-    }
+	public ReadOnlyFileException(String msg, Throwable ex) {
+		super(msg, ex);
+	}
 }

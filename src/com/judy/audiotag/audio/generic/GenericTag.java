@@ -22,367 +22,338 @@ import com.judy.audiotag.tag.TagField;
 import com.judy.audiotag.tag.TagTextField;
 
 /**
- * This is a complete example implementation of
- * {@link AbstractTag}.<br>
+ * This is a complete example implementation of {@link AbstractTag}.<br>
  * The identifiers of commonly used fields is defined by {@link #keys}.<br>
  *
  * @author Rapha�l Slinckx
  */
-public class GenericTag extends AbstractTag
-{
+public class GenericTag extends AbstractTag {
 
-    /**
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -7674967973421142675L;
 
 	/**
-     * Implementations of {@link TagTextField} for use with
-     * &quot;ISO-8859-1&quot; strings.
-     *
-     * @author Rapha�l Slinckx
-     */
-    private class GenericTagTextField implements TagTextField
-    {
+	 * Implementations of {@link TagTextField} for use with
+	 * &quot;ISO-8859-1&quot; strings.
+	 *
+	 * @author Rapha�l Slinckx
+	 */
+	private class GenericTagTextField implements TagTextField {
 
-        /**
+		/**
 		 * long serialVersionUID
 		 */
 		private static final long serialVersionUID = -1340412472589443229L;
 
 		/**
-         * Stores the string.
-         */
-        private String content;
+		 * Stores the string.
+		 */
+		private String content;
 
-        /**
-         * Stores the identifier.
-         */
-        private final String id;
+		/**
+		 * Stores the identifier.
+		 */
+		private final String id;
 
-        /**
-         * Creates an instance.
-         *
-         * @param fieldId        The identifier.
-         * @param initialContent The string.
-         */
-        public GenericTagTextField(String fieldId, String initialContent)
-        {
-            this.id = fieldId;
-            this.content = initialContent;
-        }
+		/**
+		 * Creates an instance.
+		 *
+		 * @param fieldId
+		 *            The identifier.
+		 * @param initialContent
+		 *            The string.
+		 */
+		public GenericTagTextField(String fieldId, String initialContent) {
+			this.id = fieldId;
+			this.content = initialContent;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#copcom.judy.jaudiotaggerdiotagger.tag.TagField)
-         */
-        public void copyContent(TagField field)
-        {
-            if (field instanceof TagTextField)
-            {
-                this.content = ((TagTextField) field).getContent();
-            }
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#copcom.judy.
+		 *      jaudiotaggerdiotagger.tag.TagField)
+		 */
+		public void copyContent(TagField field) {
+			if (field instanceof TagTextField) {
+				this.content = ((TagTextField) field).getContent();
+			}
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagTextField#getContent()
-         */
-        public String getContent()
-        {
-            return this.content;
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagTextField#getContent()
+		 */
+		public String getContent() {
+			return this.content;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagTextField#getEncoding()
-         */
-        public String getEncoding()
-        {
-            return "ISO-8859-1";
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagTextField#getEncoding()
+		 */
+		public String getEncoding() {
+			return "ISO-8859-1";
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#getId()
-         */
-        public String getId()
-        {
-            return id;
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#getId()
+		 */
+		public String getId() {
+			return id;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#getRawContent()
-         */
-        public byte[] getRawContent()
-        {
-            return this.content == null ? new byte[]{} : Utils.getDefaultBytes(this.content,getEncoding());
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#getRawContent()
+		 */
+		public byte[] getRawContent() {
+			return this.content == null ? new byte[] {} : Utils.getDefaultBytes(this.content, getEncoding());
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#isBinary()
-         */
-        public boolean isBinary()
-        {
-            return false;
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#isBinary()
+		 */
+		public boolean isBinary() {
+			return false;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#isBinary(boolean)
-         */
-        public void isBinary(boolean b)
-        {
-            /* not supported */
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#isBinary(boolean)
+		 */
+		public void isBinary(boolean b) {
+			/* not supported */
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#isCommon()
-         */
-        public boolean isCommon()
-        {
-            return true;
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#isCommon()
+		 */
+		public boolean isCommon() {
+			return true;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagField#isEmpty()
-         */
-        public boolean isEmpty()
-        {
-            return this.content.equals("");
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagField#isEmpty()
+		 */
+		public boolean isEmpty() {
+			return this.content.equals("");
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagTextField#setContent(java.lang.String)
-         */
-        public void setContent(String s)
-        {
-            this.content = s;
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagTextField#setContent(java.lang.String)
+		 */
+		public void setContent(String s) {
+			this.content = s;
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see com.judy.jaudiotagger.tag.TagTextField#setEncoding(java.lang.String)
-         */
-        public void setEncoding(String s)
-        {
-            /* Not allowed */
-        }
+		/**
+		 * (overridden)
+		 *
+		 * @see com.judy.jaudiotagger.tag.TagTextField#setEncoding(java.lang.String)
+		 */
+		public void setEncoding(String s) {
+			/* Not allowed */
+		}
 
-        /**
-         * (overridden)
-         *
-         * @see java.lang.Object#toString()
-         */
-        public String toString()
-        {
-            return getId() + " : " + getContent();
-        }
-    }
+		/**
+		 * (overridden)
+		 *
+		 * @see java.lang.Object#toString()
+		 */
+		public String toString() {
+			return getId() + " : " + getContent();
+		}
+	}
 
-    /**
-     * Index for the &quot;album&quot;-identifier in {@link #keys}.
-     */
-    public static final int ALBUM = 1;
+	/**
+	 * Index for the &quot;album&quot;-identifier in {@link #keys}.
+	 */
+	public static final int ALBUM = 1;
 
-    /**
-     * Index for the &quot;artist&quot;-identifier in {@link #keys}.
-     */
-    public static final int ARTIST = 0;
+	/**
+	 * Index for the &quot;artist&quot;-identifier in {@link #keys}.
+	 */
+	public static final int ARTIST = 0;
 
-    /**
-     * Index for the &quot;comment&quot;-identifier in {@link #keys}.
-     */
-    public static final int COMMENT = 6;
+	/**
+	 * Index for the &quot;comment&quot;-identifier in {@link #keys}.
+	 */
+	public static final int COMMENT = 6;
 
-    /**
-     * Index for the &quot;genre&quot;-identifier in {@link #keys}.
-     */
-    public static final int GENRE = 5;
+	/**
+	 * Index for the &quot;genre&quot;-identifier in {@link #keys}.
+	 */
+	public static final int GENRE = 5;
 
-    /**
-     * Stores the generic identifiers of commonly used fields.
-     */
-    private final static String[] keys = {"ARTIST", "ALBUM", "TITLE", "TRACK", "YEAR", "GENRE", "COMMENT",};
+	/**
+	 * Stores the generic identifiers of commonly used fields.
+	 */
+	private final static String[] keys = { "ARTIST", "ALBUM", "TITLE", "TRACK", "YEAR", "GENRE", "COMMENT", };
 
-    /**
-     * Index for the &quot;title&quot;-identifier in {@link #keys}.
-     */
-    public static final int TITLE = 2;
+	/**
+	 * Index for the &quot;title&quot;-identifier in {@link #keys}.
+	 */
+	public static final int TITLE = 2;
 
-    /**
-     * Index for the &quot;track&quot;-identifier in {@link #keys}.
-     */
-    public static final int TRACK = 3;
+	/**
+	 * Index for the &quot;track&quot;-identifier in {@link #keys}.
+	 */
+	public static final int TRACK = 3;
 
-    /**
-     * Index for the &quot;year&quot;-identifier in {@link #keys}.
-     */
-    public static final int YEAR = 4;
+	/**
+	 * Index for the &quot;year&quot;-identifier in {@link #keys}.
+	 */
+	public static final int YEAR = 4;
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createAlbumField(java.lang.String)
-     */
-    public TagField createAlbumField(String content)
-    {
-        return new GenericTagTextField(keys[ALBUM], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createAlbumField(java.lang.String)
+	 */
+	public TagField createAlbumField(String content) {
+		return new GenericTagTextField(keys[ALBUM], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createArtistField(java.lang.String)
-     */
-    public TagField createArtistField(String content)
-    {
-        return new GenericTagTextField(keys[ARTIST], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createArtistField(java.lang.String)
+	 */
+	public TagField createArtistField(String content) {
+		return new GenericTagTextField(keys[ARTIST], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createCommentField(java.lang.String)
-     */
-    public TagField createCommentField(String content)
-    {
-        return new GenericTagTextField(keys[COMMENT], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createCommentField(java.lang.String)
+	 */
+	public TagField createCommentField(String content) {
+		return new GenericTagTextField(keys[COMMENT], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createGenreField(java.lang.String)
-     */
-    public TagField createGenreField(String content)
-    {
-        return new GenericTagTextField(keys[GENRE], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createGenreField(java.lang.String)
+	 */
+	public TagField createGenreField(String content) {
+		return new GenericTagTextField(keys[GENRE], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createTitleField(java.lang.String)
-     */
-    public TagField createTitleField(String content)
-    {
-        return new GenericTagTextField(keys[TITLE], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createTitleField(java.lang.String)
+	 */
+	public TagField createTitleField(String content) {
+		return new GenericTagTextField(keys[TITLE], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createTrackField(java.lang.String)
-     */
-    public TagField createTrackField(String content)
-    {
-        return new GenericTagTextField(keys[TRACK], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createTrackField(java.lang.String)
+	 */
+	public TagField createTrackField(String content) {
+		return new GenericTagTextField(keys[TRACK], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#createYearField(java.lang.String)
-     */
-    public TagField createYearField(String content)
-    {
-        return new GenericTagTextField(keys[YEAR], content);
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#createYearField(java.lang.String)
+	 */
+	public TagField createYearField(String content) {
+		return new GenericTagTextField(keys[YEAR], content);
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#getAlbumId()
-     */
-    protected String getAlbumId()
-    {
-        return keys[ALBUM];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#getAlbumId()
+	 */
+	protected String getAlbumId() {
+		return keys[ALBUM];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see AbstractTag#getArtistId()
-     */
-    protected String getArtistId()
-    {
-        return keys[ARTIST];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see AbstractTag#getArtistId()
+	 */
+	protected String getArtistId() {
+		return keys[ARTIST];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getCommentId()
-     */
-    protected String getCommentId()
-    {
-        return keys[COMMENT];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getCommentId()
+	 */
+	protected String getCommentId() {
+		return keys[COMMENT];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getGenreId()
-     */
-    protected String getGenreId()
-    {
-        return keys[GENRE];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getGenreId()
+	 */
+	protected String getGenreId() {
+		return keys[GENRE];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTitleId()
-     */
-    protected String getTitleId()
-    {
-        return keys[TITLE];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTitleId()
+	 */
+	protected String getTitleId() {
+		return keys[TITLE];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTrackId()
-     */
-    protected String getTrackId()
-    {
-        return keys[TRACK];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getTrackId()
+	 */
+	protected String getTrackId() {
+		return keys[TRACK];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getYearId()
-     */
-    protected String getYearId()
-    {
-        return keys[YEAR];
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#getYearId()
+	 */
+	protected String getYearId() {
+		return keys[YEAR];
+	}
 
-    /**
-     * (overridden)
-     *
-     * @see com.judy.jaudiotagger.audio.generic.AbstractTag#isAllowedEncoding(java.lang.String)
-     */
-    protected boolean isAllowedEncoding(String enc)
-    {
-        return true;
-    }
+	/**
+	 * (overridden)
+	 *
+	 * @see com.judy.jaudiotagger.audio.generic.AbstractTag#isAllowedEncoding(java.lang.String)
+	 */
+	protected boolean isAllowedEncoding(String enc) {
+		return true;
+	}
 }

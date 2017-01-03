@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Payment URL link frames.
- * <p>The 'Payment' frame is a URL pointing at a webpage that will handle the process of paying for this file.
+ * <p>
+ * The 'Payment' frame is a URL pointing at a webpage that will handle the
+ * process of paying for this file.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,48 +36,41 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyWPAY.java,v 1.11 2007/06/27 11:49:23 paultaylor Exp $
  */
-public class FrameBodyWPAY extends AbstractFrameBodyUrlLink  implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyWPAY datatype.
-     */
-    public FrameBodyWPAY()
-    {
-    }
+public class FrameBodyWPAY extends AbstractFrameBodyUrlLink implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyWPAY datatype.
+	 */
+	public FrameBodyWPAY() {
+	}
 
-    /**
-     * Creates a new FrameBodyWPAY datatype.
-     *
-     * @param urlLink 
-     */
-    public FrameBodyWPAY(String urlLink)
-    {
-        super(urlLink);
-    }
+	/**
+	 * Creates a new FrameBodyWPAY datatype.
+	 *
+	 * @param urlLink
+	 */
+	public FrameBodyWPAY(String urlLink) {
+		super(urlLink);
+	}
 
-    public FrameBodyWPAY(FrameBodyWPAY body)
-    {
-        super(body);
-    }
+	public FrameBodyWPAY(FrameBodyWPAY body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyWPAY datatype.
-     *   
-     * @throws InvalidTagException 
-     */
-    public FrameBodyWPAY(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyWPAY datatype.
+	 * 
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyWPAY(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_URL_PAYMENT;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_URL_PAYMENT;
+	}
 }

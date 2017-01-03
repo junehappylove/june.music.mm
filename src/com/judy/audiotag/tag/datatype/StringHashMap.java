@@ -23,208 +23,173 @@
  */
 package com.judy.audiotag.tag.datatype;
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeSet;
+
 import com.judy.audiotag.tag.id3.AbstractTagFrameBody;
 import com.judy.audiotag.tag.id3.valuepair.Languages;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
 
-import java.util.*;
-
-
 /**
- * Represents a String thats acts as a key into an enumeration of values. The String will be encoded
- * using the default encoding regardless of what encoding may be specified in the framebody
+ * Represents a String thats acts as a key into an enumeration of values. The
+ * String will be encoded using the default encoding regardless of what encoding
+ * may be specified in the framebody
  */
-public class StringHashMap extends StringFixedLength implements HashMapInterface
-{
+public class StringHashMap extends StringFixedLength implements HashMapInterface {
 
-    /**
-     * 
-     */
-    Map keyToValue = null;
+	/**
+	 * 
+	 */
+	Map<?, String> keyToValue = null;
 
-    /**
-     * 
-     */
-    Map valueToKey = null;
+	/**
+	 * 
+	 */
+	Map<?, ?> valueToKey = null;
 
-    /**
-     * 
-     */
-    boolean hasEmptyValue = false;
+	/**
+	 * 
+	 */
+	boolean hasEmptyValue = false;
 
-    /**
-     * Creates a new ObjectStringHashMap datatype.
-     *
-     * @param identifier
-     * @param size
-     * @throws IllegalArgumentException
-     */
-    public StringHashMap(String identifier, AbstractTagFrameBody frameBody, int size)
-    {
-        super(identifier, frameBody, size);
+	/**
+	 * Creates a new ObjectStringHashMap datatype.
+	 *
+	 * @param identifier
+	 * @param size
+	 * @throws IllegalArgumentException
+	 */
+	public StringHashMap(String identifier, AbstractTagFrameBody frameBody, int size) {
+		super(identifier, frameBody, size);
 
-        if (identifier.equals(DataTypes.OBJ_LANGUAGE))
-        {
-            valueToKey = Languages.getInstanceOf().getValueToIdMap();
-            keyToValue = Languages.getInstanceOf().getIdToValueMap();
-        }
-        else
-        {
-            throw new IllegalArgumentException("Hashmap identifier not defined in this class: " + identifier);
-        }
-    }
+		if (identifier.equals(DataTypes.OBJ_LANGUAGE)) {
+			valueToKey = Languages.getInstanceOf().getValueToIdMap();
+			keyToValue = Languages.getInstanceOf().getIdToValueMap();
+		} else {
+			throw new IllegalArgumentException("Hashmap identifier not defined in this class: " + identifier);
+		}
+	}
 
-    public StringHashMap(StringHashMap copyObject)
-    {
-        super(copyObject);
+	public StringHashMap(StringHashMap copyObject) {
+		super(copyObject);
 
-        this.hasEmptyValue = copyObject.hasEmptyValue;
-        this.keyToValue = copyObject.keyToValue;
-        this.valueToKey = copyObject.valueToKey;
-    }
+		this.hasEmptyValue = copyObject.hasEmptyValue;
+		this.keyToValue = copyObject.keyToValue;
+		this.valueToKey = copyObject.valueToKey;
+	}
 
-    /**
-     * 
-     *
-     * @return
-     */
-    public Map getKeyToValue()
-    {
-        return keyToValue;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public Map<?, String> getKeyToValue() {
+		return keyToValue;
+	}
 
-    /**
-     * 
-     *
-     * @return
-     */
-    public Map getValueToKey()
-    {
-        return valueToKey;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public Map<?, ?> getValueToKey() {
+		return valueToKey;
+	}
 
-    /**
-     * 
-     *
-     * @param value
-     */
-    public void setValue(Object value)
-    {
-        if (value instanceof String)
-        {
-            this.value = ((String) value).toLowerCase();
-        }
-        else
-        {
-            this.value = value;
-        }
-    }
+	/**
+	 * 
+	 *
+	 * @param value
+	 */
+	public void setValue(Object value) {
+		if (value instanceof String) {
+			this.value = ((String) value).toLowerCase();
+		} else {
+			this.value = value;
+		}
+	}
 
-    /**
-     * 
-     *
-     * @param obj
-     * @return
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof StringHashMap) == false)
-        {
-            return false;
-        }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof StringHashMap) == false) {
+			return false;
+		}
 
-        StringHashMap object = (StringHashMap) obj;
+		StringHashMap object = (StringHashMap) obj;
 
-        if (this.hasEmptyValue != object.hasEmptyValue)
-        {
-            return false;
-        }
+		if (this.hasEmptyValue != object.hasEmptyValue) {
+			return false;
+		}
 
-        if (this.keyToValue == null)
-        {
-            if (object.keyToValue != null)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if (this.keyToValue.equals(object.keyToValue) == false)
-            {
-                return false;
-            }
-        }
+		if (this.keyToValue == null) {
+			if (object.keyToValue != null) {
+				return false;
+			}
+		} else {
+			if (this.keyToValue.equals(object.keyToValue) == false) {
+				return false;
+			}
+		}
 
-        if (this.keyToValue == null)
-        {
-            if (object.keyToValue != null)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if (this.valueToKey.equals(object.valueToKey) == false)
-            {
-                return false;
-            }
-        }
+		if (this.keyToValue == null) {
+			if (object.keyToValue != null) {
+				return false;
+			}
+		} else {
+			if (this.valueToKey.equals(object.valueToKey) == false) {
+				return false;
+			}
+		}
 
-        return super.equals(obj);
-    }
+		return super.equals(obj);
+	}
 
-    /**
-     * 
-     *
-     * @return
-     */
-    public Iterator iterator()
-    {
-        if (keyToValue == null)
-        {
-            return null;
-        }
-        else
-        {
-            // put them in a treeset first to sort them
-            TreeSet treeSet = new TreeSet(keyToValue.values());
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public Iterator<String> iterator() {
+		if (keyToValue == null) {
+			return null;
+		} else {
+			// put them in a treeset first to sort them
+			TreeSet<String> treeSet = new TreeSet<String>(keyToValue.values());
 
-            if (hasEmptyValue)
-            {
-                treeSet.add("");
-            }
+			if (hasEmptyValue) {
+				treeSet.add("");
+			}
 
-            return treeSet.iterator();
-        }
-    }
+			return treeSet.iterator();
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return
-     */
-    public String toString()
-    {
-        if (value == null)
-        {
-            return "";
-        }
-        else if (keyToValue.get(value) == null)
-        {
-            return "";
-        }
-        else
-        {
-            return keyToValue.get(value).toString();
-        }
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String toString() {
+		if (value == null) {
+			return "";
+		} else if (keyToValue.get(value) == null) {
+			return "";
+		} else {
+			return keyToValue.get(value).toString();
+		}
+	}
 
-    /**
-     *
-     * @return the ISO_8859 encoding for Datatypes of this type
-     */
-     protected String  getTextEncodingCharSet()
-    {
-        return TextEncoding.CHARSET_ISO_8859_1;
-    }
+	/**
+	 *
+	 * @return the ISO_8859 encoding for Datatypes of this type
+	 */
+	protected String getTextEncodingCharSet() {
+		return TextEncoding.CHARSET_ISO_8859_1;
+	}
 }

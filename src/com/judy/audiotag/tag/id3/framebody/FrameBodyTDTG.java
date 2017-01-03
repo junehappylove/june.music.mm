@@ -28,53 +28,44 @@ import com.judy.audiotag.tag.id3.ID3v24Frames;
 
 import java.nio.ByteBuffer;
 
+public class FrameBodyTDTG extends AbstractFrameBodyTextInfo implements ID3v24FrameBody {
 
-public class FrameBodyTDTG extends AbstractFrameBodyTextInfo implements ID3v24FrameBody
-{
+	/**
+	 * Creates a new FrameBodyTDTG datatype.
+	 */
+	public FrameBodyTDTG() {
+	}
 
-    /**
-     * Creates a new FrameBodyTDTG datatype.
-     */
-    public FrameBodyTDTG()
-    {
-    }
+	public FrameBodyTDTG(FrameBodyTDTG body) {
+		super(body);
+	}
 
-    public FrameBodyTDTG(FrameBodyTDTG body)
-    {
-        super(body);
-    }
+	/**
+	 * Creates a new FrameBodyTDTG datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTDTG(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTDTG datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTDTG(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTDTG datatype.
+	 *
+	 * @throws java.io.IOException
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTDTG(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Creates a new FrameBodyTDTG datatype.
-     *
-     * @throws java.io.IOException 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTDTG(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
-
-    /**
-     *
-     * @return the frmae identifier
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_TAGGING_TIME;
-    }
-
+	/**
+	 *
+	 * @return the frmae identifier
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_TAGGING_TIME;
+	}
 
 }

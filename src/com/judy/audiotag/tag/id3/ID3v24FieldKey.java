@@ -1,8 +1,5 @@
 package com.judy.audiotag.tag.id3;
 
-import com.judy.audiotag.tag.id3.ID3v23Frames;
-import com.judy.audiotag.tag.id3.Id3FieldType;
-import com.judy.audiotag.tag.id3.ID3v24Frames;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyTXXX;
 import com.judy.audiotag.tag.id3.framebody.FrameBodyUFID;
 

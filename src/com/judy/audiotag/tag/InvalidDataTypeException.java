@@ -15,53 +15,52 @@ package com.judy.audiotag.tag;
 
 /**
  *
- * Indicates there was a problem parsing this datatype due to a problem with the data
- * such as the array being empty when trying to read from a file.
+ * Indicates there was a problem parsing this datatype due to a problem with the
+ * data such as the array being empty when trying to read from a file.
  *
  * @version $Revision: 1.5 $
  */
-public class InvalidDataTypeException  extends InvalidTagException
-{
-    /**
+public class InvalidDataTypeException extends InvalidTagException {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -6461589095652051364L;
 
 	/**
-     * Creates a new InvalidDataTypeException datatype.
-     */
-    public InvalidDataTypeException()
-    {
-    }
+	 * Creates a new InvalidDataTypeException datatype.
+	 */
+	public InvalidDataTypeException() {
+	}
 
-    /**
-     * Creates a new InvalidDataTypeException datatype.
-     *
-     * @param ex the cause.
-     */
-    public InvalidDataTypeException(Throwable ex)
-    {
-        super(ex);
-    }
+	/**
+	 * Creates a new InvalidDataTypeException datatype.
+	 *
+	 * @param ex
+	 *            the cause.
+	 */
+	public InvalidDataTypeException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
-     * Creates a new InvalidDataTypeException datatype.
-     *
-     * @param msg the detail message.
-     */
-    public InvalidDataTypeException(String msg)
-    {
-        super(msg);
-    }
+	/**
+	 * Creates a new InvalidDataTypeException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 */
+	public InvalidDataTypeException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Creates a new InvalidDataTypeException datatype.
-     *
-     * @param msg the detail message.
-     * @param ex the cause.
-     */
-    public InvalidDataTypeException(String msg, Throwable ex)
-    {
-        super(msg, ex);
-    }
+	/**
+	 * Creates a new InvalidDataTypeException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 * @param ex
+	 *            the cause.
+	 */
+	public InvalidDataTypeException(String msg, Throwable ex) {
+		super(msg, ex);
+	}
 }

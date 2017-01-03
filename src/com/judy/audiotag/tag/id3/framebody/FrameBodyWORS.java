@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Official internet radio station homepage URL link frames.
- * <p>The 'Official internet radio station homepage' contains a URL pointing at the homepage of the internet radio station.
+ * <p>
+ * The 'Official internet radio station homepage' contains a URL pointing at the
+ * homepage of the internet radio station.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,48 +36,41 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyWORS.java,v 1.11 2006/08/25 15:35:29 paultaylor Exp $
  */
-public class FrameBodyWORS extends AbstractFrameBodyUrlLink  implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyWORS datatype.
-     */
-    public FrameBodyWORS()
-    {
-    }
+public class FrameBodyWORS extends AbstractFrameBodyUrlLink implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyWORS datatype.
+	 */
+	public FrameBodyWORS() {
+	}
 
-    /**
-     * Creates a new FrameBodyWORS datatype.
-     *
-     * @param urlLink 
-     */
-    public FrameBodyWORS(String urlLink)
-    {
-        super(urlLink);
-    }
+	/**
+	 * Creates a new FrameBodyWORS datatype.
+	 *
+	 * @param urlLink
+	 */
+	public FrameBodyWORS(String urlLink) {
+		super(urlLink);
+	}
 
-    public FrameBodyWORS(FrameBodyWORS body)
-    {
-        super(body);
-    }
+	public FrameBodyWORS(FrameBodyWORS body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyWORS datatype.
-     *
-     * @throws InvalidTagException 
-     */
-    public FrameBodyWORS(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyWORS datatype.
+	 *
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyWORS(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_URL_OFFICIAL_RADIO;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_URL_OFFICIAL_RADIO;
+	}
 }

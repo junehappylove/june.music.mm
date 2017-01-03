@@ -26,99 +26,90 @@ package com.judy.audiotag.tag.datatype;
 import com.judy.audiotag.tag.id3.AbstractTagFrameBody;
 import com.judy.audiotag.tag.InvalidDataTypeException;
 
-/** Represents a stream of bytes, continuing until the end of the buffer. Usually used for binary data or where
- *  we havent yet mapped the data to a better fitting type.
+/**
+ * Represents a stream of bytes, continuing until the end of the buffer. Usually
+ * used for binary data or where we havent yet mapped the data to a better
+ * fitting type.
  */
-public class ByteArraySizeTerminated extends AbstractDataType
-{
-    public ByteArraySizeTerminated(String identifier, AbstractTagFrameBody frameBody)
-    {
-        super(identifier, frameBody);
-    }
+public class ByteArraySizeTerminated extends AbstractDataType {
+	public ByteArraySizeTerminated(String identifier, AbstractTagFrameBody frameBody) {
+		super(identifier, frameBody);
+	}
 
-    public ByteArraySizeTerminated(ByteArraySizeTerminated object)
-    {
-        super(object);
-    }
+	public ByteArraySizeTerminated(ByteArraySizeTerminated object) {
+		super(object);
+	}
 
-    /**
-     * Return the size in byte of this datatype
-     *
-     * @return the size in bytes
-     */
-    public int getSize()
-    {
-        int len = 0;
+	/**
+	 * Return the size in byte of this datatype
+	 *
+	 * @return the size in bytes
+	 */
+	public int getSize() {
+		int len = 0;
 
-        if (value != null)
-        {
-            len = ((byte[]) value).length;
-        }
+		if (value != null) {
+			len = ((byte[]) value).length;
+		}
 
-        return len;
-    }
+		return len;
+	}
 
-    public boolean equals(Object obj)
-    {
-        if (obj instanceof ByteArraySizeTerminated == false)
-        {
-            return false;
-        }
+	public boolean equals(Object obj) {
+		if (obj instanceof ByteArraySizeTerminated == false) {
+			return false;
+		}
 
-        return super.equals(obj);
-    }
+		return super.equals(obj);
+	}
 
-    /**
-     * 
-     *
-     * @param arr    
-     * @param offset 
-     * @throws NullPointerException      
-     * @throws IndexOutOfBoundsException 
-     */
-    public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException
-    {
-        if (arr == null)
-        {
-            throw new NullPointerException("Byte array is null");
-        }
+	/**
+	 * 
+	 *
+	 * @param arr
+	 * @param offset
+	 * @throws NullPointerException
+	 * @throws IndexOutOfBoundsException
+	 */
+	public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException {
+		if (arr == null) {
+			throw new NullPointerException("Byte array is null");
+		}
 
-        if (offset < 0)
-        {
-            throw new IndexOutOfBoundsException("Offset to byte array is out of bounds: offset = " + offset + ", array.length = " + arr.length);
-        }
+		if (offset < 0) {
+			throw new IndexOutOfBoundsException(
+					"Offset to byte array is out of bounds: offset = " + offset + ", array.length = " + arr.length);
+		}
 
-        //Empty Byte Array
-        if (offset >= arr.length)
-        {
-            value = null;
-            return;
-        }
+		// Empty Byte Array
+		if (offset >= arr.length) {
+			value = null;
+			return;
+		}
 
-        int len = arr.length - offset;
-        value = new byte[len];
-        System.arraycopy(arr, offset, value, 0, len);
-    }
+		int len = arr.length - offset;
+		value = new byte[len];
+		System.arraycopy(arr, offset, value, 0, len);
+	}
 
-    /**
-     * Because this is usually binary data and could be very long we just return
-     * the number of bytes held
-     *
-     * @return  the number of bytes
-     */
-    public String toString()
-    {
-        return getSize() + " bytes";
-    }
+	/**
+	 * Because this is usually binary data and could be very long we just return
+	 * the number of bytes held
+	 *
+	 * @return the number of bytes
+	 */
+	public String toString() {
+		return getSize() + " bytes";
+	}
 
-    /**
-     * Write contents to a byte array
-     *
-     * @return a byte array that that contians the data that should be perisisted to file
-     */
-    public byte[] writeByteArray()
-    {
-        logger.info("Writing byte array" + this.getIdentifier());
-        return (byte[]) value;
-    }
+	/**
+	 * Write contents to a byte array
+	 *
+	 * @return a byte array that that contians the data that should be
+	 *         perisisted to file
+	 */
+	public byte[] writeByteArray() {
+		logger.info("Writing byte array" + this.getIdentifier());
+		return (byte[]) value;
+	}
 }

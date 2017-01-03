@@ -30,73 +30,65 @@ import com.judy.audiotag.tag.datatype.StringSizeTerminated;
 import java.nio.ByteBuffer;
 
 /**
- *  Abstract superclass of all URL Frames
-*/
-public abstract class AbstractFrameBodyUrlLink extends AbstractID3v2FrameBody
-{
+ * Abstract superclass of all URL Frames
+ */
+public abstract class AbstractFrameBodyUrlLink extends AbstractID3v2FrameBody {
 
-    /**
-     * Creates a new FrameBodyUrlLink datatype.
-     */
-    protected AbstractFrameBodyUrlLink()
-    {
-        super();
-    }
+	/**
+	 * Creates a new FrameBodyUrlLink datatype.
+	 */
+	protected AbstractFrameBodyUrlLink() {
+		super();
+	}
 
-    /**
-     * Copy Constructor
-     */
-    protected AbstractFrameBodyUrlLink(AbstractFrameBodyUrlLink body)
-    {
-        super(body);
-    }
+	/**
+	 * Copy Constructor
+	 */
+	protected AbstractFrameBodyUrlLink(AbstractFrameBodyUrlLink body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyUrlLink datatype., set up with data.
-     *
-     * @param urlLink 
-     */
-    public AbstractFrameBodyUrlLink(String urlLink)
-    {
-        setObjectValue(DataTypes.OBJ_URLLINK, urlLink);
-    }
+	/**
+	 * Creates a new FrameBodyUrlLink datatype., set up with data.
+	 *
+	 * @param urlLink
+	 */
+	public AbstractFrameBodyUrlLink(String urlLink) {
+		setObjectValue(DataTypes.OBJ_URLLINK, urlLink);
+	}
 
-    /**
-     * Creates a new FrameBodyUrlLink datatype.
-     *
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    protected AbstractFrameBodyUrlLink(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyUrlLink datatype.
+	 *
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	protected AbstractFrameBodyUrlLink(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Set URL Link
-     *
-     * @param urlLink 
-     */
-    public void setUrlLink(String urlLink)
-    {
-        setObjectValue(DataTypes.OBJ_URLLINK, urlLink);
-    }
+	/**
+	 * Set URL Link
+	 *
+	 * @param urlLink
+	 */
+	public void setUrlLink(String urlLink) {
+		setObjectValue(DataTypes.OBJ_URLLINK, urlLink);
+	}
 
-    /**
-     * Get URL Link
-     *
-     * @return the urllink
-     */
-    public String getUrlLink()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_URLLINK);
-    }
+	/**
+	 * Get URL Link
+	 *
+	 * @return the urllink
+	 */
+	public String getUrlLink() {
+		return (String) getObjectValue(DataTypes.OBJ_URLLINK);
+	}
 
-    /**
-     * 
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new StringSizeTerminated(DataTypes.OBJ_URLLINK, this));
-    }
+	/**
+	 * 
+	 */
+	protected void setupObjectList() {
+		objectList.add(new StringSizeTerminated(DataTypes.OBJ_URLLINK, this));
+	}
 }

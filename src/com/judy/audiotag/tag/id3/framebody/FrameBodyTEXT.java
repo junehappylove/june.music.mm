@@ -22,9 +22,12 @@ import java.nio.ByteBuffer;
 
 /**
  * Lyricist/Text writer Text information frame.
- * <p>The 'Lyricist(s)/Text writer(s)' frame is intended for the writer(s) of the text or lyrics in the recording. They are seperated with the "/" character.
+ * <p>
+ * The 'Lyricist(s)/Text writer(s)' frame is intended for the writer(s) of the
+ * text or lyrics in the recording. They are seperated with the "/" character.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,51 +36,43 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTEXT.java,v 1.9 2006/08/25 15:35:24 paultaylor Exp $
  */
-public class FrameBodyTEXT extends AbstractFrameBodyTextInfo implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTEXT datatype.
-     */
-    public FrameBodyTEXT()
-    {
-    }
+public class FrameBodyTEXT extends AbstractFrameBodyTextInfo implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTEXT datatype.
+	 */
+	public FrameBodyTEXT() {
+	}
 
-    public FrameBodyTEXT(FrameBodyTEXT body)
-    {
-        super(body);
-    }
+	public FrameBodyTEXT(FrameBodyTEXT body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTEXT datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTEXT(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTEXT datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTEXT(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTEXT datatype.
-     *
-     * @throws java.io.IOException 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTEXT(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTEXT datatype.
+	 *
+	 * @throws java.io.IOException
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTEXT(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-
-    /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_LYRICIST;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_LYRICIST;
+	}
 }

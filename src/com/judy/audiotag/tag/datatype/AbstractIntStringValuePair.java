@@ -21,48 +21,43 @@
  */
 package com.judy.audiotag.tag.datatype;
 
+import java.io.Serializable;
 import java.util.Collections;
 
 /**
  * A two way mapping between an Integral Id and a String value
  */
-public class AbstractIntStringValuePair extends AbstractValuePair
-{
-    protected Integer key = null;
+public class AbstractIntStringValuePair<K extends Serializable> extends AbstractValuePair<K> {
+	protected Integer key = null;
 
-    /**
-     * Get Id for Value
-     */
-    public Integer getIdForValue(String value)
-    {
-        return (Integer) valueToId.get(value);
-    }
+	/**
+	 * Get Id for Value
+	 */
+	public Integer getIdForValue(String value) {
+		return (Integer) valueToId.get(value);
+	}
 
-    /**
-     * Get value for Id
-     */
-    public String getValueForId(int id)
-    {
-        return  (String) idToValue.get(new Integer(id));              
-    }
+	/**
+	 * Get value for Id
+	 */
+	public String getValueForId(int id) {
+		return (String) idToValue.get(new Integer(id));
+	}
 
-    protected void createMaps()
-    {
-        iterator = idToValue.keySet().iterator();
-        while (iterator.hasNext())
-        {
-            key = (Integer) iterator.next();
-            value = (String) idToValue.get(key);
-            valueToId.put(value, key);
-        }
+	protected void createMaps() {
+		iterator = idToValue.keySet().iterator();
+		while (iterator.hasNext()) {
+			key = (Integer) iterator.next();
+			value = (String) idToValue.get(key);
+			valueToId.put(value, key);
+		}
 
-        //Value List
-        iterator = idToValue.keySet().iterator();
-        while (iterator.hasNext())
-        {
-            valueList.add(idToValue.get((Integer) iterator.next()));
-        }
-        //Sort alphabetically
-        Collections.sort(valueList);
-    }
+		// Value List
+		iterator = idToValue.keySet().iterator();
+		while (iterator.hasNext()) {
+			valueList.add(idToValue.get((Integer) iterator.next()));
+		}
+		// Sort alphabetically
+		Collections.sort(valueList);
+	}
 }

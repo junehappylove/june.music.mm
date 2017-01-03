@@ -22,9 +22,13 @@ import java.nio.ByteBuffer;
 
 /**
  * Encoded by Text information frame.
- * <p>The 'Encoded by' frame contains the name of the person or organisation that encoded the audio file. This field may contain a copyright message, if the audio file also is copyrighted by the encoder.
+ * <p>
+ * The 'Encoded by' frame contains the name of the person or organisation that
+ * encoded the audio file. This field may contain a copyright message, if the
+ * audio file also is copyrighted by the encoder.
  * 
- * <p>For more details, please refer to the ID3 specifications:
+ * <p>
+ * For more details, please refer to the ID3 specifications:
  * <ul>
  * <li><a href="http://www.id3.org/id3v2.3.0.txt">ID3 v2.3.0 Spec</a>
  * </ul>
@@ -33,50 +37,43 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyTENC.java,v 1.9 2006/08/25 15:35:24 paultaylor Exp $
  */
-public class FrameBodyTENC extends AbstractFrameBodyTextInfo implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyTENC datatype.
-     */
-    public FrameBodyTENC()
-    {
-    }
+public class FrameBodyTENC extends AbstractFrameBodyTextInfo implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyTENC datatype.
+	 */
+	public FrameBodyTENC() {
+	}
 
-    public FrameBodyTENC(FrameBodyTENC body)
-    {
-        super(body);
-    }
+	public FrameBodyTENC(FrameBodyTENC body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTENC datatype.
-     *
-     * @param textEncoding 
-     * @param text         
-     */
-    public FrameBodyTENC(byte textEncoding, String text)
-    {
-        super(textEncoding, text);
-    }
+	/**
+	 * Creates a new FrameBodyTENC datatype.
+	 *
+	 * @param textEncoding
+	 * @param text
+	 */
+	public FrameBodyTENC(byte textEncoding, String text) {
+		super(textEncoding, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTENC datatype.
-     *
-     * @throws java.io.IOException 
-     * @throws InvalidTagException 
-     */
-    public FrameBodyTENC(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTENC datatype.
+	 *
+	 * @throws java.io.IOException
+	 * @throws InvalidTagException
+	 */
+	public FrameBodyTENC(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-   /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_ENCODEDBY;
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_ENCODEDBY;
+	}
 }

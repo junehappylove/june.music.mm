@@ -33,57 +33,49 @@ import java.util.*;
 /**
  * Create the raw packet data for a Vorbis Comment Tag
  */
-public class VorbisCommentCreator extends AbstractTagCreator
-{
-    /**
-     * Convert tagdata to rawdata ready for writing to file
-     *
-     * @param tag
-     * @param padding
-     * @return
-     * @throws UnsupportedEncodingException
-     */
-    //TODO padding parameter currently ignored
-    public ByteBuffer convert(Tag tag, int padding) throws UnsupportedEncodingException
-    {
-        try
-        {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+public class VorbisCommentCreator extends AbstractTagCreator {
+	/**
+	 * Convert tagdata to rawdata ready for writing to file
+	 *
+	 * @param tag
+	 * @param padding
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	// TODO padding parameter currently ignored
+	public ByteBuffer convert(Tag tag, int padding) throws UnsupportedEncodingException {
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-            //Vendor
-            String vendorString = ((VorbisCommentTag) tag).getVendor();
-            int vendorLength = Utils.getUTF8Bytes(vendorString).length;
-            baos.write(Utils.getSizeLittleEndian(vendorLength));
-            baos.write(Utils.getUTF8Bytes(vendorString));
+			// Vendor
+			String vendorString = ((VorbisCommentTag) tag).getVendor();
+			int vendorLength = Utils.getUTF8Bytes(vendorString).length;
+			baos.write(Utils.getSizeLittleEndian(vendorLength));
+			baos.write(Utils.getUTF8Bytes(vendorString));
 
-            //User Comment List
-            int listLength = tag.getFieldCount() - 1; //Remove Vendor from count         
-            baos.write(Utils.getSizeLittleEndian(listLength));
+			// User Comment List
+			int listLength = tag.getFieldCount() - 1; // Remove Vendor from
+														// count
+			baos.write(Utils.getSizeLittleEndian(listLength));
 
-            //Add metadata raw content
-            Iterator<?> it = tag.getFields();
-            while (it.hasNext())
-            {
-                TagField frame = (TagField) it.next();
-                if(frame.getId().equals(VorbisCommentFieldKey.VENDOR.name()))
-                {
-                    //this is always stored above so ignore                    
-                }
-                else
-                {
-                    baos.write(frame.getRawContent());
-                }
-            }
+			// Add metadata raw content
+			Iterator<?> it = tag.getFields();
+			while (it.hasNext()) {
+				TagField frame = (TagField) it.next();
+				if (frame.getId().equals(VorbisCommentFieldKey.VENDOR.name())) {
+					// this is always stored above so ignore
+				} else {
+					baos.write(frame.getRawContent());
+				}
+			}
 
-            //Put into ByteBuffer
-            ByteBuffer buf = ByteBuffer.wrap(baos.toByteArray());
-            buf.rewind();
-            return buf;
-        }
-        catch (IOException ioe)
-        {
-            //Should never happen as not writing to file at this point
-            throw new RuntimeException(ioe);
-        }
-    }
+			// Put into ByteBuffer
+			ByteBuffer buf = ByteBuffer.wrap(baos.toByteArray());
+			buf.rewind();
+			return buf;
+		} catch (IOException ioe) {
+			// Should never happen as not writing to file at this point
+			throw new RuntimeException(ioe);
+		}
+	}
 }

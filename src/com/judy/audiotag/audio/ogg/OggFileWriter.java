@@ -31,20 +31,19 @@ import java.util.logging.Logger;
  * 
  * Only works for Ogg files containing a vorbis stream
  */
-public class OggFileWriter extends AudioFileWriter
-{
-    // Logger Object
-    public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
+public class OggFileWriter extends AudioFileWriter {
+	// Logger Object
+	public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.audio.ogg");
 
-    private OggVorbisTagWriter vtw = new OggVorbisTagWriter();
+	private OggVorbisTagWriter vtw = new OggVorbisTagWriter();
 
-    protected void writeTag(Tag tag, RandomAccessFile raf, RandomAccessFile rafTemp) throws CannotReadException,CannotWriteException, IOException
-    {
-        vtw.write(tag, raf, rafTemp);
-    }
+	protected void writeTag(Tag tag, RandomAccessFile raf, RandomAccessFile rafTemp)
+			throws CannotReadException, CannotWriteException, IOException {
+		vtw.write(tag, raf, rafTemp);
+	}
 
-    protected void deleteTag(RandomAccessFile raf, RandomAccessFile tempRaf) throws CannotReadException,CannotWriteException, IOException
-    {
-        vtw.delete(raf, tempRaf);
-    }
+	protected void deleteTag(RandomAccessFile raf, RandomAccessFile tempRaf)
+			throws CannotReadException, CannotWriteException, IOException {
+		vtw.delete(raf, tempRaf);
+	}
 }

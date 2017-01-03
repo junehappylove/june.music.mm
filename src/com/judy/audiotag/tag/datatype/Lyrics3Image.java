@@ -23,271 +23,235 @@
  */
 package com.judy.audiotag.tag.datatype;
 
-import com.judy.audiotag.tag.id3.AbstractTagFrameBody;
-import com.judy.audiotag.tag.InvalidDataTypeException;
 import com.judy.audiotag.audio.generic.Utils;
+import com.judy.audiotag.tag.InvalidDataTypeException;
+import com.judy.audiotag.tag.id3.AbstractTagFrameBody;
 
-public class Lyrics3Image extends AbstractDataType
-{
-    /**
-     * 
-     */
-    private Lyrics3TimeStamp time = null;
+public class Lyrics3Image extends AbstractDataType {
+	/**
+	 * 
+	 */
+	private Lyrics3TimeStamp time = null;
 
-    /**
-     * 
-     */
-    private String description = "";
+	/**
+	 * 
+	 */
+	private String description = "";
 
-    /**
-     * 
-     */
-    private String filename = "";
+	/**
+	 * 
+	 */
+	private String filename = "";
 
-    /**
-     * Creates a new ObjectLyrics3Image datatype.
-     *
-     * @param identifier 
-     */
-    public Lyrics3Image(String identifier, AbstractTagFrameBody frameBody)
-    {
-        super(identifier, frameBody);
-    }
+	/**
+	 * Creates a new ObjectLyrics3Image datatype.
+	 *
+	 * @param identifier
+	 */
+	public Lyrics3Image(String identifier, AbstractTagFrameBody frameBody) {
+		super(identifier, frameBody);
+	}
 
-    public Lyrics3Image(Lyrics3Image copy)
-    {
-        super(copy);
-        this.time = new Lyrics3TimeStamp(copy.time);
-        this.description = new String(copy.description);
-        this.filename = new String(copy.filename);
-    }
+	public Lyrics3Image(Lyrics3Image copy) {
+		super(copy);
+		this.time = new Lyrics3TimeStamp(copy.time);
+		this.description = new String(copy.description);
+		this.filename = new String(copy.filename);
+	}
 
-    /**
-     * 
-     *
-     * @param description 
-     */
-    public void setDescription(String description)
-    {
-        this.description = description;
-    }
+	/**
+	 * 
+	 *
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getDescription()
-    {
-        return this.description;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getDescription() {
+		return this.description;
+	}
 
-    /**
-     * 
-     *
-     * @param filename 
-     */
-    public void setFilename(String filename)
-    {
-        this.filename = filename;
-    }
+	/**
+	 * 
+	 *
+	 * @param filename
+	 */
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String getFilename()
-    {
-        return this.filename;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String getFilename() {
+		return this.filename;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public int getSize()
-    {
-        int size;
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public int getSize() {
+		int size;
 
-        size = filename.length() + 2 + description.length() + 2;
+		size = filename.length() + 2 + description.length() + 2;
 
-        if (time != null)
-        {
-            size += time.getSize();
-        }
+		if (time != null) {
+			size += time.getSize();
+		}
 
-        return size;
-    }
+		return size;
+	}
 
-    /**
-     * 
-     *
-     * @param time 
-     */
-    public void setTimeStamp(Lyrics3TimeStamp time)
-    {
-        this.time = time;
-    }
+	/**
+	 * 
+	 *
+	 * @param time
+	 */
+	public void setTimeStamp(Lyrics3TimeStamp time) {
+		this.time = time;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public Lyrics3TimeStamp getTimeStamp()
-    {
-        return this.time;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public Lyrics3TimeStamp getTimeStamp() {
+		return this.time;
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     * @return 
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof Lyrics3Image) == false)
-        {
-            return false;
-        }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof Lyrics3Image) == false) {
+			return false;
+		}
 
-        Lyrics3Image object = (Lyrics3Image) obj;
+		Lyrics3Image object = (Lyrics3Image) obj;
 
-        if (this.description.equals(object.description) == false)
-        {
-            return false;
-        }
+		if (this.description.equals(object.description) == false) {
+			return false;
+		}
 
-        if (this.filename.equals(object.filename) == false)
-        {
-            return false;
-        }
+		if (this.filename.equals(object.filename) == false) {
+			return false;
+		}
 
-        if (this.time == null)
-        {
-            if (object.time != null)
-            {
-                return false;
-            }
-        }
-        else
-        {
-            if (this.time.equals(object.time) == false)
-            {
-                return false;
-            }
-        }
+		if (this.time == null) {
+			if (object.time != null) {
+				return false;
+			}
+		} else {
+			if (this.time.equals(object.time) == false) {
+				return false;
+			}
+		}
 
-        return super.equals(obj);
-    }
+		return super.equals(obj);
+	}
 
-    /**
-     * 
-     *
-     * @param imageString 
-     * @param offset      
-     * @throws NullPointerException      
-     * @throws IndexOutOfBoundsException 
-     */
-    public void readString(String imageString, int offset)
-    {
-        if (imageString == null)
-        {
-            throw new NullPointerException("Image string is null");
-        }
+	/**
+	 * 
+	 *
+	 * @param imageString
+	 * @param offset
+	 * @throws NullPointerException
+	 * @throws IndexOutOfBoundsException
+	 */
+	public void readString(String imageString, int offset) {
+		if (imageString == null) {
+			throw new NullPointerException("Image string is null");
+		}
 
-        if ((offset < 0) || (offset >= imageString.length()))
-        {
-            throw new IndexOutOfBoundsException("Offset to image string is out of bounds: offset = " + offset + ", string.length()" + imageString.length());
-        }
+		if ((offset < 0) || (offset >= imageString.length())) {
+			throw new IndexOutOfBoundsException("Offset to image string is out of bounds: offset = " + offset
+					+ ", string.length()" + imageString.length());
+		}
 
-        if (imageString != null)
-        {
-            String timestamp;
-            int delim;
+		if (imageString != null) {
+			String timestamp;
+			int delim;
 
-            delim = imageString.indexOf("||", offset);
-            filename = imageString.substring(offset, delim);
+			delim = imageString.indexOf("||", offset);
+			filename = imageString.substring(offset, delim);
 
-            offset = delim + 2;
-            delim = imageString.indexOf("||", offset);
-            description = imageString.substring(offset, delim);
+			offset = delim + 2;
+			delim = imageString.indexOf("||", offset);
+			description = imageString.substring(offset, delim);
 
-            offset = delim + 2;
-            timestamp = imageString.substring(offset);
+			offset = delim + 2;
+			timestamp = imageString.substring(offset);
 
-            if (timestamp.length() == 7)
-            {
-                time = new Lyrics3TimeStamp("Time Stamp");
-                time.readString(timestamp);
-            }
-        }
-    }
+			if (timestamp.length() == 7) {
+				time = new Lyrics3TimeStamp("Time Stamp");
+				time.readString(timestamp);
+			}
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String toString()
-    {
-        String str;
-        str = "filename = " + filename + ", description = " + description;
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String toString() {
+		String str;
+		str = "filename = " + filename + ", description = " + description;
 
-        if (time != null)
-        {
-            str += (", timestamp = " + time.toString());
-        }
+		if (time != null) {
+			str += (", timestamp = " + time.toString());
+		}
 
-        return str + "\n";
-    }
+		return str + "\n";
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String writeString()
-    {
-        String str = "";
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String writeString() {
+		String str = "";
 
-        if (filename == null)
-        {
-            str = "||";
-        }
-        else
-        {
-            str = filename + "||";
-        }
+		if (filename == null) {
+			str = "||";
+		} else {
+			str = filename + "||";
+		}
 
-        if (description == null)
-        {
-            str += "||";
-        }
-        else
-        {
-            str += (description + "||");
-        }
+		if (description == null) {
+			str += "||";
+		} else {
+			str += (description + "||");
+		}
 
-        if (time != null)
-        {
-            str += time.writeString();
-        }
+		if (time != null) {
+			str += time.writeString();
+		}
 
-        return str;
-    }
+		return str;
+	}
 
-    public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException
-    {
-        readString(arr.toString(), offset);
-    }
+	public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException {
+		readString(arr.toString(), offset);
+	}
 
-    public byte[] writeByteArray()
-    {
-        return Utils.getDefaultBytes(writeString(),"ISO-8859-1");
-    }
+	public byte[] writeByteArray() {
+		return Utils.getDefaultBytes(writeString(), "ISO-8859-1");
+	}
 
 }

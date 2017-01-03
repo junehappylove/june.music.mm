@@ -58,158 +58,140 @@ import java.nio.ByteBuffer;
  * @author : Eric Farng
  * @version $Id: FrameBodyCOMM.java,v 1.20 2007/11/13 14:24:33 paultaylor Exp $
  */
-public class FrameBodyCOMM  extends AbstractID3v2FrameBody  implements ID3v24FrameBody,ID3v23FrameBody
-{
-    /**
-     * Creates a new FrameBodyCOMM datatype.
-     */
-    public FrameBodyCOMM()
-    {
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
-        setObjectValue(DataTypes.OBJ_LANGUAGE, Languages.DEFAULT_ID);
-        setObjectValue(DataTypes.OBJ_DESCRIPTION, "");
-        setObjectValue(DataTypes.OBJ_TEXT, "");
-    }
+public class FrameBodyCOMM extends AbstractID3v2FrameBody implements ID3v24FrameBody, ID3v23FrameBody {
+	/**
+	 * Creates a new FrameBodyCOMM datatype.
+	 */
+	public FrameBodyCOMM() {
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
+		setObjectValue(DataTypes.OBJ_LANGUAGE, Languages.DEFAULT_ID);
+		setObjectValue(DataTypes.OBJ_DESCRIPTION, "");
+		setObjectValue(DataTypes.OBJ_TEXT, "");
+	}
 
-    public FrameBodyCOMM(FrameBodyCOMM body)
-    {
-        super(body);
-    }
+	public FrameBodyCOMM(FrameBodyCOMM body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyCOMM datatype.
-     *
-     * @param textEncoding 
-     * @param language     
-     * @param description  
-     * @param text         
-     */
-    public FrameBodyCOMM(byte textEncoding, String language, String description, String text)
-    {
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
-        setObjectValue(DataTypes.OBJ_LANGUAGE, language);
-        setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
-        setObjectValue(DataTypes.OBJ_TEXT, text);
-    }
+	/**
+	 * Creates a new FrameBodyCOMM datatype.
+	 *
+	 * @param textEncoding
+	 * @param language
+	 * @param description
+	 * @param text
+	 */
+	public FrameBodyCOMM(byte textEncoding, String language, String description, String text) {
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
+		setObjectValue(DataTypes.OBJ_LANGUAGE, language);
+		setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
+		setObjectValue(DataTypes.OBJ_TEXT, text);
+	}
 
-     /**
-     * Construct a Comment frame body from the buffer
-      *
-     * @param byteBuffer
-     * @param frameSize
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    public FrameBodyCOMM(ByteBuffer byteBuffer, int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Construct a Comment frame body from the buffer
+	 *
+	 * @param byteBuffer
+	 * @param frameSize
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	public FrameBodyCOMM(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
+	/**
+	 * Set the description field, which describes the type of comment
+	 *
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
+	}
 
+	/**
+	 * Get the description field, which describes the type of comment
+	 *
+	 * @return description field
+	 */
+	public String getDescription() {
+		return (String) getObjectValue(DataTypes.OBJ_DESCRIPTION);
+	}
 
-    /**
-     * Set the description field, which describes the type of comment
-     *
-     * @param description 
-     */
-    public void setDescription(String description)
-    {
-        setObjectValue(DataTypes.OBJ_DESCRIPTION, description);
-    }
+	/**
+	 * The ID3v2 frame identifier
+	 *
+	 * @return the ID3v2 frame identifier for this frame type
+	 */
+	public String getIdentifier() {
+		return ID3v24Frames.FRAME_ID_COMMENT;
+	}
 
-    /**
-     *  Get the description field, which describes the type of comment
-     *
-     * @return description field
-     */
-    public String getDescription()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_DESCRIPTION);
-    }
+	/**
+	 * Sets the language the comment is written in
+	 *
+	 * @param language
+	 */
+	public void setLanguage(String language) {
+		setObjectValue(DataTypes.OBJ_LANGUAGE, language);
+	}
 
-     /**
-      * The ID3v2 frame identifier
-      *
-      * @return the ID3v2 frame identifier  for this frame type
-     */
-    public String getIdentifier()
-    {
-        return ID3v24Frames.FRAME_ID_COMMENT;
-    }
+	/**
+	 * Get the language the comment is written in
+	 *
+	 * @return the language
+	 */
+	public String getLanguage() {
+		return (String) getObjectValue(DataTypes.OBJ_LANGUAGE);
+	}
 
-    /**
-     *  Sets the language the comment is written in
-     *
-     * @param language 
-     */
-    public void setLanguage(String language)
-    {
-        setObjectValue(DataTypes.OBJ_LANGUAGE, language);
-    }
+	/**
+	 * 
+	 *
+	 * @param text
+	 */
+	public void setText(String text) {
+		setObjectValue(DataTypes.OBJ_TEXT, text);
+	}
 
-    /**
-     * Get the language the comment is written in
-     *
-     * @return the language
-     */
-    public String getLanguage()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_LANGUAGE);
-    }
+	/**
+	 * Returns the the text field which holds the comment, adjusted to ensure
+	 * does not return trailing null which is due to a iTunes bug.
+	 *
+	 * @return the text field
+	 */
+	public String getText() {
+		TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT);
+		return text.getValueAtIndex(0);
+	}
 
-    /**
-     * 
-     *
-     * @param text 
-     */
-    public void setText(String text)
-    {
-        setObjectValue(DataTypes.OBJ_TEXT, text);
-    }
+	/**
+	 * 
+	 */
+	protected void setupObjectList() {
+		objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE));
+		objectList.add(new StringHashMap(DataTypes.OBJ_LANGUAGE, this, Languages.LANGUAGE_FIELD_SIZE));
+		objectList.add(new TextEncodedStringNullTerminated(DataTypes.OBJ_DESCRIPTION, this));
+		objectList.add(new TextEncodedStringSizeTerminated(DataTypes.OBJ_TEXT, this));
+	}
 
-    /**
-     * Returns the the text field which holds the comment, adjusted to ensure does not return trailing null
-     * which is due to a iTunes bug.
-     *
-     * @return the text field
-     */
-    public String getText()
-    {
-        TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated)getObject(DataTypes.OBJ_TEXT);
-        return text.getValueAtIndex(0);
-    }
+	/**
+	 * Because COMM have a text encoding we need to check the text String does
+	 * not contain characters that cannot be encoded in current encoding before
+	 * we write data. If there are we change the encoding.
+	 */
+	public void write(ByteArrayOutputStream tagBuffer) {
+		// Ensure valid for type
+		setTextEncoding(ID3TextEncodingConversion.getTextEncoding(getHeader(), getTextEncoding()));
 
-    /**
-     * 
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE));
-        objectList.add(new StringHashMap(DataTypes.OBJ_LANGUAGE, this, Languages.LANGUAGE_FIELD_SIZE));
-        objectList.add(new TextEncodedStringNullTerminated(DataTypes.OBJ_DESCRIPTION, this));
-        objectList.add(new TextEncodedStringSizeTerminated(DataTypes.OBJ_TEXT, this));
-    }
-
-    /**
-     * Because COMM have a text encoding we need to check the text String does
-     * not contain characters that cannot be encoded in current encoding before
-     * we write data. If there are we change the encoding.
-     */
-    public void write(ByteArrayOutputStream tagBuffer)       
-    {
-        //Ensure valid for type
-        setTextEncoding( ID3TextEncodingConversion.getTextEncoding(getHeader(),getTextEncoding()));
-
-        //Ensure valid for data
-        if (((AbstractString) getObject(DataTypes.OBJ_TEXT)).canBeEncoded() == false)
-        {
-           this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
-        }
-        if (((AbstractString) getObject(DataTypes.OBJ_DESCRIPTION)).canBeEncoded() == false)
-        {
-            this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
-        }
-        super.write(tagBuffer);
-    }
+		// Ensure valid for data
+		if (((AbstractString) getObject(DataTypes.OBJ_TEXT)).canBeEncoded() == false) {
+			this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
+		}
+		if (((AbstractString) getObject(DataTypes.OBJ_DESCRIPTION)).canBeEncoded() == false) {
+			this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
+		}
+		super.write(tagBuffer);
+	}
 
 }

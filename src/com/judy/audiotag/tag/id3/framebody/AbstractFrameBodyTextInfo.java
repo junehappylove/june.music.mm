@@ -32,175 +32,169 @@ import com.judy.audiotag.tag.datatype.TextEncodedStringSizeTerminated;
 import com.judy.audiotag.tag.id3.ID3TextEncodingConversion;
 import com.judy.audiotag.tag.id3.valuepair.TextEncoding;
 
-/** Abstract representation of a Text Frame
-*
-* The text information frames are often the most important frames, containing information like artist, album and
-* more. There may only be  one text information frame of its kind in an tag. In ID3v24 All text information frames
-* supports multiple strings, stored as a null separated list, where null is represented by the termination code
-* for the character encoding. All text frame identifiers begin with "T". Only text frame identifiers begin with "T",
-* with the exception of the "TXXX" frame. All the text information frames have the following  format:
-*  <Header for 'Text information frame', ID: "T000" - "TZZZ",
-*     excluding "TXXX" described in 4.2.6.>
-*     Text encoding                $xx
-*     Information                  <text string(s) according to encoding>
-*
-*  The list of valid text encodings increaded from two in ID3v23 to four in ID3v24
+/**
+ * Abstract representation of a Text Frame
  *
-*  iTunes incorrectly writes null terminators at the end of every String, even though it only writes one String.
-*
-*  You can retrieve the first value without the null terminator using {@link #getFirstTextValue}
-*/
-public abstract class AbstractFrameBodyTextInfo
-    extends AbstractID3v2FrameBody
-{
+ * The text information frames are often the most important frames, containing
+ * information like artist, album and more. There may only be one text
+ * information frame of its kind in an tag. In ID3v24 All text information
+ * frames supports multiple strings, stored as a null separated list, where null
+ * is represented by the termination code for the character encoding. All text
+ * frame identifiers begin with "T". Only text frame identifiers begin with "T",
+ * with the exception of the "TXXX" frame. All the text information frames have
+ * the following format: <Header for 'Text information frame', ID: "T000" -
+ * "TZZZ", excluding "TXXX" described in 4.2.6.> Text encoding $xx Information
+ * <text string(s) according to encoding>
+ *
+ * The list of valid text encodings increaded from two in ID3v23 to four in
+ * ID3v24
+ *
+ * iTunes incorrectly writes null terminators at the end of every String, even
+ * though it only writes one String.
+ *
+ * You can retrieve the first value without the null terminator using
+ * {@link #getFirstTextValue}
+ */
+public abstract class AbstractFrameBodyTextInfo extends AbstractID3v2FrameBody {
 
-    /**
-     * Creates a new FrameBodyTextInformation datatype. The super.super
-     * Constructor sets up the Object list for the frame.
-     */
-    protected AbstractFrameBodyTextInfo()
-    {
-        super();
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
-        setObjectValue(DataTypes.OBJ_TEXT, "");
-    }
+	/**
+	 * Creates a new FrameBodyTextInformation datatype. The super.super
+	 * Constructor sets up the Object list for the frame.
+	 */
+	protected AbstractFrameBodyTextInfo() {
+		super();
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, TextEncoding.ISO_8859_1);
+		setObjectValue(DataTypes.OBJ_TEXT, "");
+	}
 
-    /**
-     * Copy Constructor
-     *
-     * @param body AbstractFrameBodyTextInformation
-     */
-    protected AbstractFrameBodyTextInfo(AbstractFrameBodyTextInfo body)
-    {
-        super(body);
-    }
+	/**
+	 * Copy Constructor
+	 *
+	 * @param body
+	 *            AbstractFrameBodyTextInformation
+	 */
+	protected AbstractFrameBodyTextInfo(AbstractFrameBodyTextInfo body) {
+		super(body);
+	}
 
-    /**
-     * Creates a new FrameBodyTextInformation datatype. This is used when user
-     * wants to create a new frame based on data in a user interface.
-     *
-     * @param textEncoding Specifys what encoding should be used to write
-     *                     text to file.
-     * @param text         Specifies the text String.
-     */
-    protected AbstractFrameBodyTextInfo(byte textEncoding, String text)
-    {
-        super();
-        setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
-        setObjectValue(DataTypes.OBJ_TEXT, text);
-    }
+	/**
+	 * Creates a new FrameBodyTextInformation datatype. This is used when user
+	 * wants to create a new frame based on data in a user interface.
+	 *
+	 * @param textEncoding
+	 *            Specifys what encoding should be used to write text to file.
+	 * @param text
+	 *            Specifies the text String.
+	 */
+	protected AbstractFrameBodyTextInfo(byte textEncoding, String text) {
+		super();
+		setObjectValue(DataTypes.OBJ_TEXT_ENCODING, textEncoding);
+		setObjectValue(DataTypes.OBJ_TEXT, text);
+	}
 
-    /**
-     * Creates a new FrameBodyTextInformation datatype from file.
-     *
-     * <p>The super.super Constructor sets up the Object list for the frame.
-     *
-     * @throws InvalidTagException if unable to create framebody from buffer
-     */
-    protected AbstractFrameBodyTextInfo(ByteBuffer byteBuffer,
-                                        int frameSize)
-        throws InvalidTagException
-    {
-        super(byteBuffer, frameSize);
-    }
+	/**
+	 * Creates a new FrameBodyTextInformation datatype from file.
+	 *
+	 * <p>
+	 * The super.super Constructor sets up the Object list for the frame.
+	 *
+	 * @throws InvalidTagException
+	 *             if unable to create framebody from buffer
+	 */
+	protected AbstractFrameBodyTextInfo(ByteBuffer byteBuffer, int frameSize) throws InvalidTagException {
+		super(byteBuffer, frameSize);
+	}
 
-    /**
-     * Set the Full Text String.
-     *
-     * <p>If this String contains null terminator characters these are parsed as value
-     * seperators, allowing you to hold multiple strings within one text frame. This functionality is only
-     * officially support in ID3v24.
-     *
-     * @param text to set
-     */
-    public void setText(String text)
-    {
-        setObjectValue(DataTypes.OBJ_TEXT, text);
-    }
+	/**
+	 * Set the Full Text String.
+	 *
+	 * <p>
+	 * If this String contains null terminator characters these are parsed as
+	 * value seperators, allowing you to hold multiple strings within one text
+	 * frame. This functionality is only officially support in ID3v24.
+	 *
+	 * @param text
+	 *            to set
+	 */
+	public void setText(String text) {
+		setObjectValue(DataTypes.OBJ_TEXT, text);
+	}
 
+	/**
+	 * Retrieve the complete Text String.
+	 *
+	 * @return the text string
+	 */
+	public String getText() {
+		return (String) getObjectValue(DataTypes.OBJ_TEXT);
+	}
 
-    /**
-     * Retrieve the complete Text String.
-     *
-     * @return the text string
-     */
-    public String getText()
-    {
-        return (String) getObjectValue(DataTypes.OBJ_TEXT);
-    }
+	/**
+	 * Get first value
+	 *
+	 * @return value at index 0
+	 */
+	public String getFirstTextValue() {
+		TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT);
+		return text.getValueAtIndex(0);
+	}
 
-    /**
-     * Get first value
-     *
-     * @return value at index 0
-     */
-    public String getFirstTextValue()
-    {
-        TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated)getObject(DataTypes.OBJ_TEXT);
-        return text.getValueAtIndex(0);
-    }
+	/**
+	 * Get value at index
+	 *
+	 * @param index
+	 * @return value at index
+	 */
+	public String getValueAtIndex(int index) {
+		TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT);
+		return text.getValueAtIndex(index);
+	}
 
-    /**
-     * Get value at index
-     *
-     * @param index
-     * @return value at index
-     */
-     public String getValueAtIndex(int index)
-    {
-        TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated)getObject(DataTypes.OBJ_TEXT);
-        return text.getValueAtIndex(index);
-    }
+	/**
+	 * Add additional value to value
+	 *
+	 * @param value
+	 *            at index
+	 */
+	public void addTextValue(String value) {
+		TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT);
+		text.addValue(value);
+	}
 
-    /**
-     * Add additional value to value
-     *
-     * @param value at index
-     */
-    public void addTextValue(String value)
-    {
-        TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated)getObject(DataTypes.OBJ_TEXT);
-        text.addValue(value);
-    }
+	/**
+	 *
+	 * @return number of text values, usually one
+	 */
+	public int getNumberOfValues() {
+		TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT);
+		return text.getNumberOfValues();
+	}
 
-    /**
-     *
-     * @return number of text values, usually one
-     */
-    public int getNumberOfValues()
-    {
-        TextEncodedStringSizeTerminated text = (TextEncodedStringSizeTerminated)getObject(DataTypes.OBJ_TEXT);
-        return text.getNumberOfValues();
-    }
+	/**
+	 * Because Text frames have a text encoding we need to check the text String
+	 * does not contain characters that cannot be encoded in current encoding
+	 * before we write data. If there are change the text encoding.
+	 */
+	public void write(ByteArrayOutputStream tagBuffer) {
+		// Ensure valid for type
+		setTextEncoding(ID3TextEncodingConversion.getTextEncoding(getHeader(), getTextEncoding()));
 
-    /**
-     * Because Text frames have a text encoding we need to check the text
-     * String does not contain characters that cannot be encoded in
-     * current encoding before we write data. If there are change the text
-     * encoding.
-     */
-    public void write(ByteArrayOutputStream tagBuffer)
-    {
-        //Ensure valid for type
-        setTextEncoding( ID3TextEncodingConversion.getTextEncoding(getHeader(),getTextEncoding()));
+		// Ensure valid for data
+		if (((TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT)).canBeEncoded() == false) {
+			this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
+		}
+		super.write(tagBuffer);
+	}
 
-        //Ensure valid for data
-        if (((TextEncodedStringSizeTerminated) getObject(DataTypes.OBJ_TEXT)).canBeEncoded() == false)
-        {
-            this.setTextEncoding(ID3TextEncodingConversion.getUnicodeTextEncoding(getHeader()));
-        }
-        super.write(tagBuffer);
-    }
-
-    /**
-     * Setup the Object List. All text frames contain a text encoding
-     * and then a text string.
-     *
-     * TODO:would like to make final but cannnot because overriden by FrameBodyTXXX
-     */
-    protected void setupObjectList()
-    {
-        objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE ));
-        objectList.add(new TextEncodedStringSizeTerminated(DataTypes.OBJ_TEXT, this));
-    }
+	/**
+	 * Setup the Object List. All text frames contain a text encoding and then a
+	 * text string.
+	 *
+	 * TODO:would like to make final but cannnot because overriden by
+	 * FrameBodyTXXX
+	 */
+	protected void setupObjectList() {
+		objectList.add(new NumberHashMap(DataTypes.OBJ_TEXT_ENCODING, this, TextEncoding.TEXT_ENCODING_FIELD_SIZE));
+		objectList.add(new TextEncodedStringSizeTerminated(DataTypes.OBJ_TEXT, this));
+	}
 }

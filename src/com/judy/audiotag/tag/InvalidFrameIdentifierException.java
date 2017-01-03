@@ -27,49 +27,48 @@ package com.judy.audiotag.tag;
  * @author Eric Farng
  * @version $Revision: 1.1 $
  */
-public class InvalidFrameIdentifierException extends InvalidFrameException
-{
-    /**
+public class InvalidFrameIdentifierException extends InvalidFrameException {
+	/**
 	 * long serialVersionUID
 	 */
 	private static final long serialVersionUID = -3809822042277587766L;
 
 	/**
-     * Creates a new InvalidFrameIdentifierException datatype.
-     */
-    public InvalidFrameIdentifierException()
-    {
-    }
+	 * Creates a new InvalidFrameIdentifierException datatype.
+	 */
+	public InvalidFrameIdentifierException() {
+	}
 
-    /**
-     * Creates a new InvalidFrameIdentifierException datatype.
-     *
-     * @param ex the cause.
-     */
-    public InvalidFrameIdentifierException(Throwable ex)
-    {
-        super(ex);
-    }
+	/**
+	 * Creates a new InvalidFrameIdentifierException datatype.
+	 *
+	 * @param ex
+	 *            the cause.
+	 */
+	public InvalidFrameIdentifierException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
-     * Creates a new InvalidFrameIdentifierException datatype.
-     *
-     * @param msg the detail message.
-     */
-    public InvalidFrameIdentifierException(String msg)
-    {
-        super(msg);
-    }
+	/**
+	 * Creates a new InvalidFrameIdentifierException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 */
+	public InvalidFrameIdentifierException(String msg) {
+		super(msg);
+	}
 
-    /**
-     * Creates a new InvalidFrameIdentifierException datatype.
-     *
-     * @param msg the detail message.
-     * @param ex the cause.
-     */
-    public InvalidFrameIdentifierException(String msg, Throwable ex)
-    {
-        super(msg, ex);
-    }
-    
+	/**
+	 * Creates a new InvalidFrameIdentifierException datatype.
+	 *
+	 * @param msg
+	 *            the detail message.
+	 * @param ex
+	 *            the cause.
+	 */
+	public InvalidFrameIdentifierException(String msg, Throwable ex) {
+		super(msg, ex);
+	}
+
 }

@@ -30,216 +30,185 @@ import com.judy.audiotag.tag.id3.ID3Tags;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class GroupRepeated
-    extends AbstractDataType
-{
-    /**
-     * 
-     */
-    private ArrayList objectList;
+public class GroupRepeated extends AbstractDataType {
+	/**
+	 * 
+	 */
+	private ArrayList<AbstractDataType> objectList;
 
-    /**
-     * 
-     */
-    private ArrayList propertyList;
+	/**
+	 * 
+	 */
+	private ArrayList<AbstractDataType> propertyList;
 
-    /**
-     * Creates a new ObjectGroupRepeated datatype.
-     *
-     * @param identifier 
-     */
-    public GroupRepeated(String identifier, AbstractTagFrameBody frameBody)
-    {
-        super(identifier, frameBody);
-        this.propertyList = new ArrayList();
-        this.objectList = new ArrayList();
-    }
+	/**
+	 * Creates a new ObjectGroupRepeated datatype.
+	 *
+	 * @param identifier
+	 */
+	public GroupRepeated(String identifier, AbstractTagFrameBody frameBody) {
+		super(identifier, frameBody);
+		this.propertyList = new ArrayList<AbstractDataType>();
+		this.objectList = new ArrayList<AbstractDataType>();
+	}
 
-    public GroupRepeated(GroupRepeated copy)
-    {
-        super(copy);
-        AbstractDataType newObject;
-        for (int i = 0; i < copy.objectList.size(); i++)
-        {
-            newObject = (AbstractDataType) ID3Tags.copyObject(copy.objectList.get(i));
-            this.objectList.add(newObject);
-        }
-        for (int i = 0; i < copy.propertyList.size(); i++)
-        {
-            newObject = (AbstractDataType) ID3Tags.copyObject(copy.propertyList.get(i));
-            this.propertyList.add(newObject);
-        }
-    }
+	public GroupRepeated(GroupRepeated copy) {
+		super(copy);
+		AbstractDataType newObject;
+		for (int i = 0; i < copy.objectList.size(); i++) {
+			newObject = (AbstractDataType) ID3Tags.copyObject(copy.objectList.get(i));
+			this.objectList.add(newObject);
+		}
+		for (int i = 0; i < copy.propertyList.size(); i++) {
+			newObject = (AbstractDataType) ID3Tags.copyObject(copy.propertyList.get(i));
+			this.propertyList.add(newObject);
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public ArrayList getObjectList()
-    {
-        return this.objectList;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public ArrayList<AbstractDataType> getObjectList() {
+		return this.objectList;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public ArrayList getPropertyList()
-    {
-        return this.propertyList;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public ArrayList<AbstractDataType> getPropertyList() {
+		return this.propertyList;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public int getSize()
-    {
-        int size = 0;
-        AbstractDataType object;
-        Iterator iterator = objectList.listIterator();
-        while (iterator.hasNext())
-        {
-            object = (AbstractDataType) iterator.next();
-            size += object.getSize();
-        }
-        return size;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public int getSize() {
+		int size = 0;
+		AbstractDataType object;
+		Iterator<AbstractDataType> iterator = objectList.listIterator();
+		while (iterator.hasNext()) {
+			object = (AbstractDataType) iterator.next();
+			size += object.getSize();
+		}
+		return size;
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     */
-    public void addObject(AbstractDataType obj)
-    {
-        objectList.add(obj);
-    }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 */
+	public void addObject(AbstractDataType obj) {
+		objectList.add(obj);
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     */
-    public void addProperty(AbstractDataType obj)
-    {
-        propertyList.add(obj);
-    }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 */
+	public void addProperty(AbstractDataType obj) {
+		propertyList.add(obj);
+	}
 
-    /**
-     * 
-     *
-     * @param obj 
-     * @return 
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof GroupRepeated) == false)
-        {
-            return false;
-        }
-        GroupRepeated object = (GroupRepeated) obj;
-        if (this.objectList.equals(object.objectList) == false)
-        {
-            return false;
-        }
-        if (this.propertyList.equals(object.propertyList) == false)
-        {
-            return false;
-        }
-        return super.equals(obj);
-    }
+	/**
+	 * 
+	 *
+	 * @param obj
+	 * @return
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof GroupRepeated) == false) {
+			return false;
+		}
+		GroupRepeated object = (GroupRepeated) obj;
+		if (this.objectList.equals(object.objectList) == false) {
+			return false;
+		}
+		if (this.propertyList.equals(object.propertyList) == false) {
+			return false;
+		}
+		return super.equals(obj);
+	}
 
-    /**
-     * 
-     *
-     * @param arr    
-     * @param offset 
-     * @throws NullPointerException      
-     * @throws IndexOutOfBoundsException 
-     */
-    public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException
-    {
-        if (arr == null)
-        {
-            throw new NullPointerException("Byte array is null");
-        }
-        if ((offset < 0) || (offset >= arr.length))
-        {
-            throw new IndexOutOfBoundsException("Offset to byte array is out of bounds: offset = " + offset +
-                ", array.length = " + arr.length);
-        }
-        AbstractDataType object;
-        Class className;
-        Iterator iterator;
-        if (!propertyList.isEmpty())
-        {
-            while (offset < arr.length)
-            {
-                iterator = propertyList.listIterator();
-                while (iterator.hasNext())
-                {
-                    className = iterator.next().getClass();
-                    try
-                    {
-                        object = (AbstractDataType) className.newInstance();
-                        objectList.add(object);
-                        object.readByteArray(arr, offset);
-                        offset += object.getSize();
-                    }
-                    catch (IllegalAccessException ex)
-                    {
-                        logger.severe(ex.getMessage());
-                        // do nothing, just skip this one
-                    }
-                    catch (InstantiationException ex)
-                    {
-                        logger.severe(ex.getMessage());
-                        // do nothing, just skip this one
-                    }
-                }
-            }
-        }
-    }
+	/**
+	 * 
+	 *
+	 * @param arr
+	 * @param offset
+	 * @throws NullPointerException
+	 * @throws IndexOutOfBoundsException
+	 */
+	public void readByteArray(byte[] arr, int offset) throws InvalidDataTypeException {
+		if (arr == null) {
+			throw new NullPointerException("Byte array is null");
+		}
+		if ((offset < 0) || (offset >= arr.length)) {
+			throw new IndexOutOfBoundsException(
+					"Offset to byte array is out of bounds: offset = " + offset + ", array.length = " + arr.length);
+		}
+		AbstractDataType object;
+		Class<? extends Object> className;
+		Iterator<AbstractDataType> iterator;
+		if (!propertyList.isEmpty()) {
+			while (offset < arr.length) {
+				iterator = propertyList.listIterator();
+				while (iterator.hasNext()) {
+					className = iterator.next().getClass();
+					try {
+						object = (AbstractDataType) className.newInstance();
+						objectList.add(object);
+						object.readByteArray(arr, offset);
+						offset += object.getSize();
+					} catch (IllegalAccessException ex) {
+						logger.severe(ex.getMessage());
+						// do nothing, just skip this one
+					} catch (InstantiationException ex) {
+						logger.severe(ex.getMessage());
+						// do nothing, just skip this one
+					}
+				}
+			}
+		}
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public String toString()
-    {
-        String str = "";
-        AbstractDataType object;
-        Iterator iterator = objectList.listIterator();
-        while (iterator.hasNext())
-        {
-            object = (AbstractDataType) iterator.next();
-            str += (object.toString() + "\n");
-        }
-        return str;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public String toString() {
+		String str = "";
+		AbstractDataType object;
+		Iterator<AbstractDataType> iterator = objectList.listIterator();
+		while (iterator.hasNext()) {
+			object = (AbstractDataType) iterator.next();
+			str += (object.toString() + "\n");
+		}
+		return str;
+	}
 
-    /**
-     * 
-     *
-     * @return 
-     */
-    public byte[] writeByteArray()
-    {
-        AbstractDataType object;
-        byte[] totalArray = new byte[this.getSize()];
-        byte[] objectArray;
-        Iterator iterator = objectList.listIterator();
-        while (iterator.hasNext())
-        {
-            object = (AbstractDataType) iterator.next();
-            objectArray = object.writeByteArray();
-            System.arraycopy(objectArray, 0, totalArray, 0, totalArray.length);
-        }
-        return totalArray;
-    }
+	/**
+	 * 
+	 *
+	 * @return
+	 */
+	public byte[] writeByteArray() {
+		AbstractDataType object;
+		byte[] totalArray = new byte[this.getSize()];
+		byte[] objectArray;
+		Iterator<AbstractDataType> iterator = objectList.listIterator();
+		while (iterator.hasNext()) {
+			object = (AbstractDataType) iterator.next();
+			objectArray = object.writeByteArray();
+			System.arraycopy(objectArray, 0, totalArray, 0, totalArray.length);
+		}
+		return totalArray;
+	}
 }

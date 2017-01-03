@@ -23,33 +23,41 @@ import java.io.FileFilter;
 import java.io.File;
 
 /**
- *	<p>This is a simple FileFilter that will only allow the file supported by this library.</p>
- *	<p>It will also accept directories. An additionnal condition is that file must be readable (read permission) and are not hidden (dot files, or hidden files)</p>
+ * <p>
+ * This is a simple FileFilter that will only allow the file supported by this
+ * library.
+ * </p>
+ * <p>
+ * It will also accept directories. An additionnal condition is that file must
+ * be readable (read permission) and are not hidden (dot files, or hidden files)
+ * </p>
  *
- *@author	Raphael Slinckx
- *@version	$Id: AudioFileFilter.java,v 1.1 2007/08/07 16:05:45 paultaylor Exp $
- *@since	v0.01
+ * @author Raphael Slinckx
+ * @version $Id: AudioFileFilter.java,v 1.1 2007/08/07 16:05:45 paultaylor Exp $
+ * @since v0.01
  */
 public class AudioFileFilter implements FileFilter {
 	/**
-	 *	<p>Check whether the given file meet the required conditions (supported by the library OR directory).
-	 *	The File must also be readable and not hidden.</p>
+	 * <p>
+	 * Check whether the given file meet the required conditions (supported by
+	 * the library OR directory). The File must also be readable and not hidden.
+	 * </p>
 	 *
-	 *@param	f	The file to test
-	 *@return	a boolean indicating if the file is accepted or not
+	 * @param f
+	 *            The file to test
+	 * @return a boolean indicating if the file is accepted or not
 	 */
-	public boolean accept( File f ) {
-		if(f.isHidden() || !f.canRead())
+	public boolean accept(File f) {
+		if (f.isHidden() || !f.canRead())
 			return false;
-		
-		if(f.isDirectory())
+
+		if (f.isDirectory())
 			return true;
-		
+
 		String ext = Utils.getExtension(f);
-        if(SupportedFileFormat.valueOf(ext.toUpperCase())!=null)
-        {
+		if (SupportedFileFormat.valueOf(ext.toUpperCase()) != null) {
 			return true;
-        }
+		}
 		return false;
 	}
 }

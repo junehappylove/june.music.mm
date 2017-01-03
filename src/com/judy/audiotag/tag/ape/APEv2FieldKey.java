@@ -10,12 +10,6 @@ package com.judy.audiotag.tag.ape;
  */
 public enum APEv2FieldKey {
 
-    Artist,
-    Album,
-    Genre,
-    Title,
-    Year,
-    Track,
-    Comment
+	Artist, Album, Genre, Title, Year, Track, Comment
 
 }

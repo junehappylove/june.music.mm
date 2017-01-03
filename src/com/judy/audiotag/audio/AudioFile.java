@@ -28,197 +28,224 @@ import com.judy.audiotag.audio.exceptions.ReadOnlyFileException;
 import com.judy.audiotag.tag.Tag;
 
 /**
- * <p>This is the main object manipulated by the user representing an audiofile, its properties and its tag.</p>
- * <p>The prefered way to obtain an <code>AudioFile</code> is to use the <code>AudioFileIO.read(File)</code> method.</p>
- * <p>The <code>AudioFile</code> contains every properties associated with the file itself (no meta-data), like the bitrate, the sampling rate, the encoding audioHeaders, etc.</p>
- * <p>To get the meta-data contained in this file you have to get the <code>Tag</code> of this <code>AudioFile</code></p>
+ * <p>
+ * This is the main object manipulated by the user representing an audiofile,
+ * its properties and its tag.
+ * </p>
+ * <p>
+ * The prefered way to obtain an <code>AudioFile</code> is to use the
+ * <code>AudioFileIO.read(File)</code> method.
+ * </p>
+ * <p>
+ * The <code>AudioFile</code> contains every properties associated with the file
+ * itself (no meta-data), like the bitrate, the sampling rate, the encoding
+ * audioHeaders, etc.
+ * </p>
+ * <p>
+ * To get the meta-data contained in this file you have to get the
+ * <code>Tag</code> of this <code>AudioFile</code>
+ * </p>
  *
  * @author Raphael Slinckx
  * @version $Id: AudioFile.java,v 1.6 2007/11/26 17:22:19 paultaylor Exp $
  * @since v0.01
- * @see    AudioFileIO
- * @see    Tag
+ * @see AudioFileIO
+ * @see Tag
  */
-public class AudioFile
-{
-    //Logger
-    public static Logger log = Logger.getLogger("com.judy.jaudiotagger.audio");
+public class AudioFile {
+	// Logger
+	public static Logger log = Logger.getLogger("com.judy.jaudiotagger.audio");
 
-    /**
-     * The physical file that this instance represents.
-     */
-    protected File file;
+	/**
+	 * The physical file that this instance represents.
+	 */
+	protected File file;
 
-    /**
-     * The Audio header info
-     */
-    protected AudioHeader audioHeader;
+	/**
+	 * The Audio header info
+	 */
+	protected AudioHeader audioHeader;
 
-    /**
-     * The tag
-     */
-    protected Tag tag;
+	/**
+	 * The tag
+	 */
+	protected Tag tag;
 
-    public AudioFile()
-    {
+	public AudioFile() {
 
-    }
+	}
 
-    /**
-     * <p>These constructors are used by the different readers, users should not use them, but use the <code>AudioFileIO.read(File)</code> method instead !.</p>
-     * <p>Create the AudioFile representing file f, the encodingaudioHeaders and containing the tag</p>
-     *
-     * @param    f    The file of the audiofile
-     * @param    audioHeader    the encoding audioHeaders over this file
-     * @param    tag    the tag contained in this file or null if no tag exists
-     */
-    public AudioFile(File f, AudioHeader audioHeader, Tag tag)
-    {
-        this.file=f;
-        this.audioHeader = audioHeader;
-        this.tag = tag;
-    }
+	/**
+	 * <p>
+	 * These constructors are used by the different readers, users should not
+	 * use them, but use the <code>AudioFileIO.read(File)</code> method instead
+	 * !.
+	 * </p>
+	 * <p>
+	 * Create the AudioFile representing file f, the encodingaudioHeaders and
+	 * containing the tag
+	 * </p>
+	 *
+	 * @param f
+	 *            The file of the audiofile
+	 * @param audioHeader
+	 *            the encoding audioHeaders over this file
+	 * @param tag
+	 *            the tag contained in this file or null if no tag exists
+	 */
+	public AudioFile(File f, AudioHeader audioHeader, Tag tag) {
+		this.file = f;
+		this.audioHeader = audioHeader;
+		this.tag = tag;
+	}
 
+	/**
+	 * <p>
+	 * These constructors are used by the different readers, users should not
+	 * use them, but use the <code>AudioFileIO.read(File)</code> method instead
+	 * !.
+	 * </p>
+	 * <p>
+	 * Create the AudioFile representing file denoted by pathname s, the
+	 * encodingaudioHeaders and containing the tag
+	 * </p>
+	 *
+	 * @param s
+	 *            The pathname of the audiofile
+	 * @param audioHeader
+	 *            the encoding audioHeaders over this file
+	 * @param tag
+	 *            the tag contained in this file
+	 */
+	public AudioFile(String s, AudioHeader audioHeader, Tag tag) {
+		this.file = new File(s);
+		this.audioHeader = audioHeader;
+		this.tag = tag;
+	}
 
-    /**
-     * <p>These constructors are used by the different readers, users should not use them, but use the <code>AudioFileIO.read(File)</code> method instead !.</p>
-     * <p>Create the AudioFile representing file denoted by pathname s, the encodingaudioHeaders and containing the tag</p>
-     *
-     * @param    s    The pathname of the audiofile
-     * @param    audioHeader    the encoding audioHeaders over this file
-     * @param    tag    the tag contained in this file
-     */
-    public AudioFile(String s, AudioHeader audioHeader, Tag tag)
-    {
-        this.file=new File(s);
-        this.audioHeader = audioHeader;
-        this.tag = tag;
-    }
+	/**
+	 * <p>
+	 * Write the tag contained in this AudioFile in the actual file on the disk,
+	 * this is the same as calling the <code>AudioFileIO.write(this)</code>
+	 * method.
+	 * </p>
+	 *
+	 * @throws CannotWriteException
+	 *             If the file could not be written/accessed, the extension
+	 *             wasn't recognized, or other IO error occured.
+	 * @see AudioFileIO
+	 */
+	public void commit() throws CannotWriteException {
+		AudioFileIO.write(this);
+	}
 
-    /**
-     * <p>Write the tag contained in this AudioFile in the actual file on the disk, this is the same as calling the <code>AudioFileIO.write(this)</code> method.</p>
-     *
-     * @throws CannotWriteException If the file could not be written/accessed, the extension wasn't recognized, or other IO error occured.
-     * @see AudioFileIO
-     */
-    public void commit() throws CannotWriteException
-    {
-        AudioFileIO.write(this);
-    }
+	/**
+	 * Set the file to store the info in
+	 *
+	 * @param file
+	 */
+	public void setFile(File file) {
+		this.file = file;
+	}
 
-    /**
-     * Set the file to store the info in
-     *
-     * @param file
-     */
-    public void setFile(File file)
-    {
-        this.file = file;
-    }
+	/**
+	 * Retrieve the physical file
+	 *
+	 * @return
+	 */
+	public File getFile() {
+		return file;
+	}
 
-    /**
-     * Retrieve the physical file
-     *
-     * @return
-     */
-    public File getFile()
-    {
-        return file;
-    }
+	public void setTag(Tag tag) {
+		this.tag = tag;
+	}
 
-    public void setTag(Tag tag)
-    {
-        this.tag = tag;
-    }
+	/**
+	 * Return audio header
+	 */
+	public AudioHeader getAudioHeader() {
+		return audioHeader;
+	}
 
-    /**
-     * Return audio header
-     */
-    public AudioHeader getAudioHeader()
-    {
-        return audioHeader;
-    }
+	/**
+	 * <p>
+	 * Returns the tag contained in this AudioFile, the <code>Tag</code>
+	 * contains any useful meta-data, like artist, album, title, etc. If the
+	 * file does not contain any tag the null is returned. Some audio formats do
+	 * not allow there to be no tag so in this case the reader would return an
+	 * empty tag whereas for others such as mp3 it is purely optional.
+	 *
+	 * @return Returns the tag contained in this AudioFile, or null if no tag
+	 *         exists.
+	 */
+	public Tag getTag() {
+		return tag;
+	}
 
-    /**
-     * <p>Returns the tag contained in this AudioFile, the <code>Tag</code> contains any useful meta-data, like
-     * artist, album, title, etc. If the file does not contain any tag the null is returned. Some audio formats do
-     * not allow there to be no tag so in this case the reader would return an empty tag whereas for others such
-     * as mp3 it is purely optional. 
-     *
-     * @return Returns the tag contained in this AudioFile, or null if no tag exists.
-     */
-    public Tag getTag()
-    {
-        return tag;
-    }
+	/**
+	 * <p>
+	 * Returns a multi-line string with the file path, the encoding
+	 * audioHeaderrmations, and the tag contents.
+	 * </p>
+	 *
+	 * @return A multi-line string with the file path, the encoding
+	 *         audioHeaderrmations, and the tag contents. TODO Maybe this can be
+	 *         changed ?
+	 */
+	public String toString() {
+		return "AudioFile " + getFile().getAbsolutePath() + "  --------\n" + audioHeader.toString() + "\n"
+				+ ((tag == null) ? "" : tag.toString()) + "\n-------------------";
+	}
 
-    /**
-     * <p>Returns a multi-line string with the file path, the encoding audioHeaderrmations, and the tag contents.</p>
-     *
-     * @return A multi-line string with the file path, the encoding audioHeaderrmations, and the tag contents.
-     * TODO Maybe this can be changed ?
-     */
-    public String toString()
-    {
-        return "AudioFile " + getFile().getAbsolutePath()
-            + "  --------\n" + audioHeader.toString() + "\n" + ((tag == null) ? "" : tag.toString()) + "\n-------------------";
-    }
+	/**
+	 * Checks the file is accessible with the correct permissions, otherwise
+	 * exception occurs
+	 *
+	 * @param file
+	 * @param readOnly
+	 * @throws ReadOnlyFileException
+	 * @throws FileNotFoundException
+	 */
+	protected RandomAccessFile checkFilePermissions(File file, boolean readOnly)
+			throws ReadOnlyFileException, FileNotFoundException {
+		RandomAccessFile newFile;
 
-    /**
-     * Checks the file is accessible with the correct permissions, otherwise exception occurs
-     *
-     * @param file
-     * @param readOnly
-     * @throws ReadOnlyFileException
-     * @throws FileNotFoundException
-     */
-    protected RandomAccessFile checkFilePermissions(File file, boolean readOnly) throws ReadOnlyFileException, FileNotFoundException
-    {
-        RandomAccessFile newFile;
+		log.info("Reading file:" + "path" + file.getPath() + ":abs:" + file.getAbsolutePath());
+		if (file.exists() == false) {
+			log.severe("Unable to find:" + file.getPath());
+			throw new FileNotFoundException("Unable to find:" + file.getPath());
+		}
 
-        log.info("Reading file:" + "path" + file.getPath() + ":abs:" + file.getAbsolutePath());
-        if (file.exists() == false)
-        {
-            log.severe("Unable to find:" + file.getPath());
-            throw new FileNotFoundException("Unable to find:" + file.getPath());
-        }
+		// Unless opened as readonly the file must be writable
+		if (readOnly) {
+			newFile = new RandomAccessFile(file, "r");
+		} else {
+			if (file.canWrite() == false) {
+				log.severe("Unable to write:" + file.getPath());
+				throw new ReadOnlyFileException("Unable to write to:" + file.getPath());
+			}
+			newFile = new RandomAccessFile(file, "rw");
+		}
+		return newFile;
+	}
 
-        // Unless opened as readonly the file must be writable
-        if (readOnly)
-        {
-            newFile = new RandomAccessFile(file, "r");
-        }
-        else
-        {
-            if (file.canWrite() == false)
-            {
-                log.severe("Unable to write:" + file.getPath());
-                throw new ReadOnlyFileException("Unable to write to:" + file.getPath());
-            }
-            newFile = new RandomAccessFile(file, "rw");
-        }
-        return newFile;
-    }
+	/**
+	 * Optional debugging method
+	 *
+	 * @return
+	 */
+	public String displayStructureAsXML() {
+		return "";
+	}
 
-   /**
-    * Optional debugging method
-    *
-    * @return
-    */
-    public  String displayStructureAsXML()
-    {
-        return "";
-    }
-
-   /**
-    * Optional debugging method
-    *
-    * @return
-    */
-    public  String displayStructureAsPlainText()
-   {
-       return "";
-   }
-
+	/**
+	 * Optional debugging method
+	 *
+	 * @return
+	 */
+	public String displayStructureAsPlainText() {
+		return "";
+	}
 
 }

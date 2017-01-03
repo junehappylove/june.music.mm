@@ -29,113 +29,103 @@ package com.judy.audiotag.tag.id3;
 import com.judy.audiotag.tag.id3.ID3Tags;
 
 /**
- * A frame contains meta-information of a particular type. A frame contains a header and a body
-*/
-public abstract class AbstractTagFrame extends AbstractTagItem
-{
+ * A frame contains meta-information of a particular type. A frame contains a
+ * header and a body
+ */
+public abstract class AbstractTagFrame extends AbstractTagItem {
 
-    /**
-     * Actual data this fragment holds
-     */
-    protected AbstractTagFrameBody frameBody;
+	/**
+	 * Actual data this fragment holds
+	 */
+	protected AbstractTagFrameBody frameBody;
 
-    public AbstractTagFrame()
-    {
-    }
+	public AbstractTagFrame() {
+	}
 
-    /**
-     * This constructs the bodies copy constructor this in turn invokes
-     * * bodies objectlist.
-     */
-    public AbstractTagFrame(AbstractTagFrame copyObject)
-    {
-        this.frameBody = (AbstractTagFrameBody) ID3Tags.copyObject(copyObject.frameBody);
-        this.frameBody.setHeader(this);
-    }
+	/**
+	 * This constructs the bodies copy constructor this in turn invokes * bodies
+	 * objectlist.
+	 */
+	public AbstractTagFrame(AbstractTagFrame copyObject) {
+		this.frameBody = (AbstractTagFrameBody) ID3Tags.copyObject(copyObject.frameBody);
+		this.frameBody.setHeader(this);
+	}
 
-    /**
-     * Sets the body datatype for this fragment. The body datatype contains the
-     * actual information for the fragment.
-     *
-     * @param frameBody the body datatype
-     */
-    public void setBody(AbstractTagFrameBody frameBody)
-    {
-        this.frameBody = frameBody;
-        this.frameBody.setHeader(this);
-    }
+	/**
+	 * Sets the body datatype for this fragment. The body datatype contains the
+	 * actual information for the fragment.
+	 *
+	 * @param frameBody
+	 *            the body datatype
+	 */
+	public void setBody(AbstractTagFrameBody frameBody) {
+		this.frameBody = frameBody;
+		this.frameBody.setHeader(this);
+	}
 
-    /**
-     * Returns the body datatype for this fragment. The body datatype contains the
-     * actual information for the fragment.
-     *
-     * @return the body datatype
-     */
-    public AbstractTagFrameBody getBody()
-    {
-        return this.frameBody;
-    }
+	/**
+	 * Returns the body datatype for this fragment. The body datatype contains
+	 * the actual information for the fragment.
+	 *
+	 * @return the body datatype
+	 */
+	public AbstractTagFrameBody getBody() {
+		return this.frameBody;
+	}
 
-    /**
-     * Returns true if this datatype and it's body is a subset of the argument.
-     * This datatype is a subset if the argument is the same class.
-     *
-     * @param obj datatype to determine if subset of
-     * @return true if this datatype and it's body is a subset of the argument.
-     */
-    public boolean isSubsetOf(Object obj)
-    {
-        if ((obj instanceof AbstractTagFrame) == false)
-        {
-            return false;
-        }
+	/**
+	 * Returns true if this datatype and it's body is a subset of the argument.
+	 * This datatype is a subset if the argument is the same class.
+	 *
+	 * @param obj
+	 *            datatype to determine if subset of
+	 * @return true if this datatype and it's body is a subset of the argument.
+	 */
+	public boolean isSubsetOf(Object obj) {
+		if ((obj instanceof AbstractTagFrame) == false) {
+			return false;
+		}
 
-        if ((frameBody == null) && (((AbstractTagFrame) obj).frameBody == null))
-        {
-            return true;
-        }
+		if ((frameBody == null) && (((AbstractTagFrame) obj).frameBody == null)) {
+			return true;
+		}
 
-        if ((frameBody == null) || (((AbstractTagFrame) obj).frameBody == null))
-        {
-            return false;
-        }
+		if ((frameBody == null) || (((AbstractTagFrame) obj).frameBody == null)) {
+			return false;
+		}
 
-        if (frameBody.isSubsetOf(((AbstractTagFrame) obj).frameBody) == false)
-        {
-            return false;
-        }
+		if (frameBody.isSubsetOf(((AbstractTagFrame) obj).frameBody) == false) {
+			return false;
+		}
 
-        return super.isSubsetOf(obj);
-    }
+		return super.isSubsetOf(obj);
+	}
 
-    /**
-     * Returns true if this datatype and its body equals the argument and its
-     * body. this datatype is equal if and only if they are the same class and
-     * have the same <code>getSubId</code> id string.
-     *
-     * @param obj datatype to determine equality of
-     * @return true if this datatype and its body equals the argument and its
-     *         body.
-     */
-    public boolean equals(Object obj)
-    {
-        if ((obj instanceof AbstractTagFrame) == false)
-        {
-            return false;
-        }
+	/**
+	 * Returns true if this datatype and its body equals the argument and its
+	 * body. this datatype is equal if and only if they are the same class and
+	 * have the same <code>getSubId</code> id string.
+	 *
+	 * @param obj
+	 *            datatype to determine equality of
+	 * @return true if this datatype and its body equals the argument and its
+	 *         body.
+	 */
+	public boolean equals(Object obj) {
+		if ((obj instanceof AbstractTagFrame) == false) {
+			return false;
+		}
 
-        AbstractTagFrame object = (AbstractTagFrame) obj;
+		AbstractTagFrame object = (AbstractTagFrame) obj;
 
-        if (this.getIdentifier().equals(object.getIdentifier()) == false)
-        {
-            return false;
-        }
+		if (this.getIdentifier().equals(object.getIdentifier()) == false) {
+			return false;
+		}
 
-        if (this.frameBody.equals(object.frameBody) == false)
-        {
-            return false;
-        }
+		if (this.frameBody.equals(object.frameBody) == false) {
+			return false;
+		}
 
-        return super.equals(obj);
-    }
+		return super.equals(obj);
+	}
 }

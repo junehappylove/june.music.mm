@@ -29,33 +29,33 @@ import com.judy.audiotag.tag.TagField;
  */
 public interface TagTextField extends TagField {
 
-    /**
-     * Returns the content of the field.
-     *
-     * @return Content
-     */
-    public String getContent();
+	/**
+	 * Returns the content of the field.
+	 *
+	 * @return Content
+	 */
+	public String getContent();
 
-    /**
-     * Returns the current used charset encoding.
-     *
-     * @return Charset encoding.
-     */
-    public String getEncoding();
+	/**
+	 * Returns the current used charset encoding.
+	 *
+	 * @return Charset encoding.
+	 */
+	public String getEncoding();
 
-    /**
-     * Sets the content of the field.
-     *
-     * @param content
-     *            fields content.
-     */
-    public void setContent(String content);
+	/**
+	 * Sets the content of the field.
+	 *
+	 * @param content
+	 *            fields content.
+	 */
+	public void setContent(String content);
 
-    /**
-     * Sets the charset encoding used by the field.
-     *
-     * @param encoding
-     *            charset.
-     */
-    public void setEncoding(String encoding);
+	/**
+	 * Sets the charset encoding used by the field.
+	 *
+	 * @param encoding
+	 *            charset.
+	 */
+	public void setEncoding(String encoding);
 }

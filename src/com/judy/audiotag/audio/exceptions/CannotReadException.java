@@ -38,12 +38,11 @@ public class CannotReadException extends Exception {
 		super();
 	}
 
-    public CannotReadException(Throwable ex)
-    {
-        super(ex);
-    }
+	public CannotReadException(Throwable ex) {
+		super(ex);
+	}
 
-    /**
+	/**
 	 * Creates an instance.
 	 * 
 	 * @param message

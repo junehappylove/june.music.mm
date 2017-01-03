@@ -19,9 +19,9 @@ package com.judy.audiotag.tag.id3.framebody;
  * Indicates that this is a frame used in ID3v2 Chapter Tags.
  *
  * @author Marc Gimpel, Horizon Wimba S.A.
- * @version $Id: ID3v2ChapterFrameBody.java,v 1.1 2006/08/21 10:37:27 mgimpel Exp $
+ * @version $Id: ID3v2ChapterFrameBody.java,v 1.1 2006/08/21 10:37:27 mgimpel
+ *          Exp $
  */
-public interface ID3v2ChapterFrameBody
-{
+public interface ID3v2ChapterFrameBody {
 
 }
