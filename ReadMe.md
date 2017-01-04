@@ -1,13 +1,13 @@
 # MoMoPlayer--沫沫音乐播放器
-
 ![MoMoPlayer音乐播放器][image1]
 ========
-
-## 2.0 [2017-01-03] 升级版本至2.0，修改版本升级方法
+## 2.0 [2017-01-03] 升级版本至2.0
+>1.修改版本升级方法;
+>2.修改用户留言地址。
 
 ## 1.3.1 对包com.judy.audiotag.*包重构[2017-01-03]
 >1. 修改了代码大量的错误和警告;
-2. 完善程序更新代码.
+>2. 完善程序更新代码.
 
 ## 1.3最新的修改代码[2016-10-22]
 >1. 最新的歌词搜索，原版中使用千千静听，和百度音乐搜索都不好使了，最新采用[歌词迷](http://doc.gecimi.com/en/latest/#)的歌词搜索；
@@ -64,17 +64,16 @@ github上主页的地址是：https://github.com/junehappylove/MoMoPlayer
  最后,谢谢我的媳妇 沫沫 这段时间以来以我的关心和鼓励.
  
 # 关于程序中乱码问题
-    1. 在ubuntu8.04下面整个界面都是乱码.   
+1. 在ubuntu8.04下面整个界面都是乱码.   
     这不是程序的问题,而是由于在ubuntu 8.04里uming.ttf变成了uming.ttc,   
     而ubuntu里java默认的中文字体就是uming.ttf,   
     所以只要获得它就可以了，可以运行如下命令:
     
-    ```shell
-        sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \ /usr/share/fonts/truetype/arphic/uming.ttf
-    ```
-    
-    运行成功以后,就可以正常显示JAVA的字体了.   
-    2. 歌词乱码或者歌曲信息乱码问题.   
+```shell
+	sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \ /usr/share/fonts/truetype/arphic/uming.ttf
+```
+   运行成功以后,就可以正常显示JAVA的字体了.   
+ 2. 歌词乱码或者歌曲信息乱码问题.   
 	目前歌词全部是从baidu上面搜索的,统一使用了GBK的编码方式.   
 	歌曲信息是用ID3v1,ID3V2,APEv2的格式来读取的,可以设置这三种标签的读取顺序.   
 	并且可以设置ID3v1的编码,默认我用的是GBK,在linux下面,可能要改成UTF-8.   
@@ -84,10 +83,6 @@ github上主页的地址是：https://github.com/junehappylove/MoMoPlayer
 ### QQ:*980154978*
 ### 邮件:*980154978@qq.com*
 ### BLOG:[http://blog.csdn.net/junehappylove](http://blog.csdn.net/junehappylove,'CSDN博客:junehappylove')
-
-
-
-
 
 
 [image1]:https://github.com/junehappylove/img_lib/blob/master/momoplayer/MoMoPlayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg "程序界面图片"

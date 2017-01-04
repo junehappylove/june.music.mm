@@ -76,7 +76,7 @@ public class AboutPanel extends javax.swing.JPanel {
         		+ "    支持同步歌词滚动显示和拖动定位播放，并且支持在线歌词搜索功能。\n"
         		+ "    支持多播放列表，支持多种视觉效果.\n"
         		+ "    真正永久免费并且开放源代码，也不存在任何功能或时间限制。在使用过程中,有任何问题,欢迎到\n"
-        		+ "    http://t.qq.com/junehappylove?preview上留言.");
+        		+ "    http://blog.csdn.net/junehappylove/article/details/52850828上留言.");
         jScrollPane1.setViewportView(jTextArea1);
 
         author.setForeground(new java.awt.Color(0, 0, 255));
@@ -157,17 +157,18 @@ public class AboutPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_authorMouseExited
 
-    private void authorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorMouseClicked
-        // 
-        click = true;
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop.getDesktop().browse(new URI("http://t.qq.com/junehappylove?preview"));
-            } catch (URISyntaxException ex) {
-            } catch (IOException ex) {
-            }
-        }
-    }//GEN-LAST:event_authorMouseClicked
+	private void authorMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_authorMouseClicked
+		//
+		click = true;
+		if (Desktop.isDesktopSupported()) {
+			try {//http://blog.csdn.net/junehappylove/article/details/52850828
+				// http://t.qq.com/junehappylove?preview
+				Desktop.getDesktop().browse(new URI("http://blog.csdn.net/junehappylove/article/details/52850828"));
+			} catch (URISyntaxException ex) {
+			} catch (IOException ex) {
+			}
+		}
+	}// GEN-LAST:event_authorMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel author;
