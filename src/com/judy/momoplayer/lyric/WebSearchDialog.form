@@ -93,7 +93,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.artist" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.artist" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -105,7 +105,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.title" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.title" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -117,7 +117,7 @@
     <Component class="javax.swing.JButton" name="search">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.search" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.search" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -127,7 +127,7 @@
     <Component class="javax.swing.JLabel" name="info">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.selectLyricToDownload" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.selectLyricToDownload" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -154,7 +154,7 @@
     <Component class="javax.swing.JButton" name="save">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.downLoad" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.downLoad" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -165,7 +165,7 @@
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.close" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.close" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -175,7 +175,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.saveAs" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.saveAs" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -185,7 +185,7 @@
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="WebSearchDialog.relativeWithFile" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="WebSearchDialog.relativeWithFile" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>

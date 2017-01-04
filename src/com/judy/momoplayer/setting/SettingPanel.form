@@ -111,14 +111,14 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.audioDevice" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.audioDevice" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.lyricEncoding" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.lyricEncoding" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
@@ -138,7 +138,7 @@
     <Component class="javax.swing.JCheckBox" name="autoMini">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.autoMinimize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.autoMinimize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -148,21 +148,21 @@
     <Component class="javax.swing.JCheckBox" name="showTrayIcon">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.showTrayIcon" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.showTrayIcon" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="showPlayTip">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.showPlayTip" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.showPlayTip" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="showTitle">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.showSongTitleOnTaskBar" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.showSongTitleOnTaskBar" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -172,7 +172,7 @@
     <Component class="javax.swing.JCheckBox" name="autoShutDown">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.autoShutDownPC" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.autoShutDownPC" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -191,7 +191,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="&#x8f6f;&#x4ef6;&#x66f4;&#x65b0;">
-              <ResourceString PropertyName="titleX" bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.update" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString PropertyName="titleX" bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.update" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -227,7 +227,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.autoCheckUpdate" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.autoCheckUpdate" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -246,7 +246,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.checkNow" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.checkNow" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -262,7 +262,7 @@
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="save" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -272,7 +272,7 @@
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="reset" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
           <Events>
@@ -282,7 +282,7 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-              <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="resetAll" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+              <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="resetAll" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
             </Property>
           </Properties>
         </Component>
@@ -291,14 +291,14 @@
     <Component class="javax.swing.JCheckBox" name="autoClose">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.closeWhenPressSave" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.closeWhenPressSave" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="miniHide">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="com/judy/yoyoplayer/util/UIInfo.properties" key="SettingPanel.hideWhenMinimize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
+          <ResourceString bundle="com/judy/momoplayer/util/UIInfo.properties" key="SettingPanel.hideWhenMinimize" replaceFormat="Config.getResource(&quot;{key}&quot;)"/>
         </Property>
       </Properties>
     </Component>
