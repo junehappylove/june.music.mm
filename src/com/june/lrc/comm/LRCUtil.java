@@ -249,7 +249,14 @@ public class LRCUtil {
      * @return
      */
     public static Lyrics getGCMLyrics(String title, String artist) {
-        String url = LRCConstants.GCM_URL + title + (("".equalsIgnoreCase(artist) || null == artist) ? "" : "/" + artist);
+        String url = null;
+		try {
+			artist = ("".equalsIgnoreCase(artist) || null == artist) ? "" : "/" + $(format(artist));
+			url = LRCConstants.GCM_URL + $(format(title)) + artist;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return null;
+		}
         //log.log(Level.INFO, "call url:{0}", url);
         String content = getContentFormWeb(url);
         //log.log(Level.INFO, "return jsons :{0}", content);
@@ -262,6 +269,23 @@ public class LRCUtil {
             lys.setArtist(artist == null ? "" : artist);
         }
         return lys;
+    }
+    
+    /**
+     * 整理搜索内容
+     * @param name
+     * @return
+     * @date 2017年1月4日 下午9:55:46
+     * @writer junehappylove
+     */
+    private static String format(String name){
+    	if(name.contains("http")){
+    		String[] array = name.split("/");
+    		name = array[array.length-1];
+    	}
+    	String[] array2 = name.split("\\.");
+    	name = array2[0];
+		return name;
     }
 
     /**
@@ -340,26 +364,28 @@ public class LRCUtil {
         return list;
     }
 
-    /**
-     * 根据下载地址获取到下载的内容
-     *
-     * @see #getContentFormWeb(java.lang.String)
-     * @param url
-     * @return
-     */
-    public static String getContentFormWeb(String url) {
-        return getContentFormWeb(url, "GBK");
-    }
+	/**
+	 * 根据下载地址获取到下载的内容
+	 *
+	 * @see #getContentFormWeb(java.lang.String)
+	 * @param url
+	 *            url中如果包含中文等必须是警告编码后的地址
+	 * @return
+	 */
+	public static String getContentFormWeb(String url) {
+		return getContentFormWeb(url, "GBK");
+	}
 
-    /**
-     * 根据歌词地址获取歌词内容
-     *
-     * @param url
-     * @param code 指定歌词内容编码，如果不指定默认为UTF-8
-     * @see #getContentFormWeb(java.lang.String)
-     * @return
-     */
-    @SuppressWarnings("deprecation")
+	/**
+	 * 根据歌词地址获取歌词内容
+	 *
+	 * @param url
+	 *            url中如果包含中文等必须是警告编码后的地址
+	 * @param code
+	 *            指定歌词内容编码，如果不指定默认为UTF-8
+	 * @see #getContentFormWeb(java.lang.String)
+	 * @return
+	 */
 	public static String getContentFormWeb(String url, String code) {
         HttpURLConnection conn = null;
         BufferedReader br = null;
@@ -367,7 +393,8 @@ public class LRCUtil {
         try {
             if (url != null) {
                 //将url加码
-                url = URLEncoder.encode(url);
+                log.log(Level.INFO, url);
+                //url = $(url);//URLEncoder.encode(url,LRCConstants.UTF8);
                 conn = (HttpURLConnection) new URL(url).openConnection();
                 conn.setConnectTimeout(10000);//10s无返回则链接失败
                 br = new BufferedReader(new InputStreamReader(conn.getInputStream(), code == null ? LRCConstants.UTF8 : code));//UTF-8
@@ -375,15 +402,13 @@ public class LRCUtil {
                 while ((temp = br.readLine()) != null) {
                     sb.append(temp).append("\n");
                 }
-                //br.close();
-                //return sb.toString();
             } else {
-                //return null;
                 sb = null;
             }
+            return sb.toString();
         } catch (IOException exe) {
             exe.printStackTrace();
-            //return null;
+            return null;
         } finally {
             try {
                 if (br != null) {
@@ -393,7 +418,6 @@ public class LRCUtil {
                 Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        return sb.toString();
     }
 
     /**
@@ -404,6 +428,8 @@ public class LRCUtil {
      * @throws UnsupportedEncodingException
      */
     public static String $(String s) throws UnsupportedEncodingException {
-        return URLEncoder.encode(s, LRCConstants.UTF8);
+    	String url = URLEncoder.encode(s, "UTF-8");
+    	url = url.replaceAll("\\+", "%20");	//url中将空格转换成%20
+        return url;
     }
 }

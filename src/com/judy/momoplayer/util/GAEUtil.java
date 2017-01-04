@@ -4,10 +4,10 @@
  */
 package com.judy.momoplayer.util;
 
-import com.judy.momoplayer.lyric.SearchResult;
-import com.judy.momoplayer.lyric.SearchResult.Task;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,6 +19,9 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.judy.momoplayer.lyric.SearchResult;
+import com.judy.momoplayer.lyric.SearchResult.Task;
+
 /**
  * 此类是专门用来和Google app engine上面的应用来交互的
  * @author binfeng.li
@@ -29,19 +32,45 @@ public final class GAEUtil {
     private static final String getLyricContentURL = "http://yoyolrc.appspot.com/YOYO?cmd=getLyricContent&id={0}&lrcId={1}&lrcCode={2}&artist={3}&title={4}";
     private static final String getResultListURL = "http://yoyolrc.appspot.com/YOYO?cmd=getResultList&artist={0}&title={1}";
     private static final String voteURL = "http://yoyolrc.appspot.com/YOYO?cmd={0}&yoyoVersion={1}";
-    private static final String versionURL = "https://code.csdn.net/junehappylove/noname/tree/master/version.txt";
+    private static final String versionURL = "http://blog.csdn.net/junehappylove/article/details/52850828";//id='article_content'
     private static final Logger log = Logger.getLogger(GAEUtil.class.getName());
 
-    public static Version getRemoteVersion() throws IOException {
-        HttpURLConnection conn = (HttpURLConnection) new URL(versionURL).openConnection();
-        Properties pro = new Properties();
-        pro.load(conn.getInputStream());
-        String version = pro.getProperty("Version");
-        String url = pro.getProperty("URL");
-        String des = pro.getProperty("Description");
-        log.log(Level.INFO, "RemoteVersion={0}", version);
-        return new Version(version, url, des);
-    }
+    /**
+     * 获取远程版本
+     * @return
+     * @throws IOException
+     * @date 2017年1月4日 下午8:06:13
+     * @writer junehappylove
+     */
+	public static Version getRemoteVersion() throws IOException {
+		HttpURLConnection conn = null;
+		Version ver = null;
+		InputStream is = null;
+		try {
+			conn = (HttpURLConnection) Util.urlConnection(versionURL);
+			is = conn.getInputStream();
+			String text = Util.htmlContent(Util.Stream2String(is), "article_content");
+			Properties pro = new Properties();
+			pro.load(new StringReader(text));
+			String version = pro.getProperty("Version");
+			String url = pro.getProperty("URL");
+			String des = pro.getProperty("Description");
+			log.log(Level.INFO, "RemoteVersion={0}", version);
+			ver = new Version(version, url, des);
+		} catch (IOException e) {
+			e.printStackTrace();
+			log.log(Level.SEVERE, "Get the remote version faild!");
+			ver = null;
+		}finally{
+			if(is!=null){
+				is.close();
+			}
+			if(conn!=null){
+				conn.disconnect();
+			}
+		}
+		return ver;
+	}
 
     /**
      * 投票
@@ -126,6 +155,8 @@ public final class GAEUtil {
     }
 
     private static String $(String s) throws UnsupportedEncodingException {
-        return URLEncoder.encode(s, "UTF-8");
+    	String url = URLEncoder.encode(s, "UTF-8");
+    	url = url.replaceAll("\\+", "%20");	//url中将空格转换成%20
+        return url;
     }
 }

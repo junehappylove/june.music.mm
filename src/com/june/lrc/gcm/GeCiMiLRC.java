@@ -44,9 +44,7 @@ public class GeCiMiLRC implements ILrcDownload {
     }
 
     public Lyrics getLyrics(String title, String artist) {
-        Lyrics lyrics = null;
-        lyrics = LRCUtil.getGCMLyrics(title, artist);
-        return lyrics;
+        return LRCUtil.getGCMLyrics(title, artist);
     }
 
 }

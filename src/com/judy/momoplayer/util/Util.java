@@ -17,6 +17,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,9 +25,11 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLConnection;
 //import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,6 +56,10 @@ import org.apache.commons.httpclient.URI;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import com.judy.momoplayer.lyric.LRCUtil;
 import com.judy.momoplayer.lyric.Lyric;
@@ -73,7 +80,7 @@ import com.sun.jna.examples.WindowUtils;
  */
 public final class Util {
 
-    public static String VERSION = "1.2";//版本号,用于对比更新
+    public static String VERSION = "2.0";//版本号,用于对比更新
     private static final Logger log = Logger.getLogger(Util.class.getName());
     private static final JPanel panel = new JPanel();
     private static final JFileChooser jfc = new JFileChooser();
@@ -154,7 +161,7 @@ public final class Util {
     }
 
     /**
-     * 一个简便的生成一系列渐变颜色的方法,一般是生成128 个颜个,供可视化窗口用
+     * 一个简便的生成一系列渐变颜色的方法,一般是生成128 个颜色,供可视化窗口用
      *
      * @param c1 第一种颜色
      * @param c2 第二种颜色
@@ -177,7 +184,7 @@ public final class Util {
         int b = c1.getBlue();
         for (int i = 0; i < half; i++) {
             cs[i] = new Color((int) (r + i * addR), (int) (g + i * addG), (int) (b + i * addB));
-            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
+            //log.log(Level.INFO, "cs["+i+"]="+cs[i]);
         }
         addR = (c3.getRed() - c2.getRed()) * 1.0f / half;
         addG = (c3.getGreen() - c2.getGreen()) * 1.0f / half;
@@ -187,7 +194,7 @@ public final class Util {
         b = c2.getBlue();
         for (int i = half; i < count; i++) {
             cs[i] = new Color((int) (r + (i - half) * addR), (int) (g + (i - half) * addG), (int) (b + (i - half) * addB));
-            log.log(Level.INFO, "cs["+i+"]="+cs[i]);
+            //log.log(Level.INFO, "cs["+i+"]="+cs[i]);
         }
         return cs;
     }
@@ -1146,7 +1153,7 @@ public final class Util {
         ILrcDownload lrc = null;// new BaiDuLRC();
         lrc = new GeCiMiLRC();
         String conts = lrc.getLrcContent(key, artist);
-        System.out.println("content:"+conts);
+        //System.out.println("content:"+conts);
         return conts;
         //*
 //        HttpClient http = new HttpClient();
@@ -1189,6 +1196,70 @@ public final class Util {
 //        }
 //        return htmlTrim2(content);//*/
     }
+    
+    /**
+     * 获取一个URL链接，为解决访问某些网址请求返回403拒绝问题
+     * @param url
+     * @return
+     * @throws IOException
+     * @date 2017年1月4日 下午7:01:37
+     * @writer junehappylove
+     */
+	public static URLConnection urlConnection(String url) throws IOException {
+		URL myurl = new URL(url);
+		URLConnection conn = myurl.openConnection();
+		conn.setRequestProperty("User-agent", "Mozilla/4.0");
+		return conn;
+	}
+	
+	/**
+	 * 将InputStream转换成String输出
+	 * @param is
+	 * @return
+	 * @throws IOException
+	 * @date 2017年1月4日 下午7:40:55
+	 * @writer junehappylove
+	 */
+	public static String Stream2String(InputStream is) throws IOException{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		StringBuilder sb = new StringBuilder();
+		String line = null;
+		try {
+			while ((line=reader.readLine())!=null) {
+				sb.append(line+"\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			if(is!=null){
+				is.close();
+			}
+		}
+		return sb.toString();
+	}
+	
+	/**
+	 * 取html网页内容的特定标签内的文字内容
+	 * 采用jsoup取获取
+	 * @param originhtml
+	 * @param divid
+	 * @return
+	 * @date 2017年1月4日 下午7:08:25
+	 * @writer junehappylove
+	 */
+	public static String htmlContent(String originhtml, String divid) {
+		Document doc = Jsoup.parse(originhtml);
+		Element content = doc.getElementById(divid);
+		divid = content.html();
+		Elements es = content.children();
+		Iterator<Element> it = es.iterator();
+		divid = "";
+		while (it.hasNext()) {
+			content = it.next();
+			divid += content.text() + "\n";
+		}
+		return divid;
+	}
 
     /**
      * 去除HTML标记

@@ -78,7 +78,8 @@ public class TagHead {
 			checkItemCount();
 			checkFlag();
 			valid = true;
-		} catch (Exception exe) {
+		} catch (Exception e) {
+			e.printStackTrace();
 			log.log(Level.SEVERE, "分析标签异常!");
 			valid = false;
 		}

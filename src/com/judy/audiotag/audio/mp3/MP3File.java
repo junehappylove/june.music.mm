@@ -202,12 +202,6 @@ public class MP3File extends AudioFile {
 				} catch (TagNotFoundException ex) {
 					log.info("No id3v24 tag found");
 					System.out.println("*************************************");
-					System.out.println("*************************************");
-					System.out.println("*************************************");
-					System.out.println("*************************************");
-					System.out.println("*************************************");
-					System.out.println("*************************************");
-					System.out.println("*************************************");
 				}
 
 				try {

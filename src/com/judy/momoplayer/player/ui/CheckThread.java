@@ -40,7 +40,7 @@ class CheckThread extends Thread {
 				// 如果年月日都相等,则不要比较了,今天已经比过了
 				;
 			} else {
-				Version ver = Util.getRemoteVersion();// 获取远程版本信息，这里已经不维护了
+				Version ver = Util.getRemoteVersion();// 获取远程版本信息
 				log.log(Level.INFO, "每天检查版本信息");
 				if (ver != null) {
 					Config.getConfig().setLastCheckUpdate(new Date());
@@ -51,7 +51,7 @@ class CheckThread extends Thread {
 			Calendar now = Calendar.getInstance();
 			now.add(Calendar.MONTH, 1);
 			if (now.before(last)) {
-				Version ver = Util.getRemoteVersion();// 获取远程版本信息，这里已经不维护了
+				Version ver = Util.getRemoteVersion();// 获取远程版本信息
 				log.log(Level.INFO, "每月检查版本信息");
 				if (ver != null) {
 					Config.getConfig().setLastCheckUpdate(new Date());

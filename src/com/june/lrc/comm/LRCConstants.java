@@ -50,7 +50,7 @@ public class LRCConstants {
     public static final String GCM_GET_ARTIST_ = "http://geci.me/api/artist/{0}";
 
     /**
-     * 根据专辑编号获取专辑封面URL¶
+     * 根据专辑编号获取专辑封面URL
      *
      * 请求地址
      *
