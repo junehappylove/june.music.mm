@@ -282,17 +282,14 @@ public class WebSearchDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        // TODO add your handling code here:
         doSearch();
 }//GEN-LAST:event_searchActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-        // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             doSave();
         }
@@ -300,12 +297,10 @@ public class WebSearchDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_tableMouseClicked
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        // TODO add your handling code here:
         doSave();
     }//GEN-LAST:event_saveActionPerformed
 
     private void tableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseReleased
-        // TODO add your handling code here:
         int index = table.getSelectedRow();
         if (index != -1) {
             index = sorter.convertRowIndexToModel(index);
@@ -315,12 +310,10 @@ public class WebSearchDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_tableMouseReleased
 
     private void titleJTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleJTActionPerformed
-        // TODO add your handling code here:
         doSearch();
     }//GEN-LAST:event_titleJTActionPerformed
 
     private void artistJTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artistJTActionPerformed
-        // TODO add your handling code here:
         doSearch();
     }//GEN-LAST:event_artistJTActionPerformed
 

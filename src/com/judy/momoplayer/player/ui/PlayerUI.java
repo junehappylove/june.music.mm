@@ -62,14 +62,19 @@ import com.judy.momoplayer.util.AudioChart;
 import com.judy.momoplayer.util.Config;
 import com.judy.momoplayer.util.FileNameFilter;
 import com.judy.momoplayer.util.Loader;
-import com.judy.momoplayer.util.MOMOSlider;
+import com.judy.momoplayer.util.MoMoSlider;
 import com.judy.momoplayer.util.Playerable;
 import com.judy.momoplayer.util.SongInfo;
 import com.judy.momoplayer.util.Util;
 
 /**
- *
- * @author judy
+ * 
+ * PlayerUI <br>
+ * 
+ * @author 王俊伟 wjw.happy.love@163.com
+ * @blog https://www.github.com/junehappylove
+ * @date 2017年1月12日 下午8:00:05
+ * @version 1.0.0
  */
 public class PlayerUI extends JPanel implements Playerable, ActionListener, ChangeListener, BasicPlayerListener {
 
@@ -86,7 +91,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
     private JLabel about;//关于信息的一个标签，添加了鼠标事件
     private JLabel state, channel;//表示标题和信息的一个标签
     protected JToggleButton pl, lrc, eq, speaker;//三个状态按钮,和一个音量按钮
-    private MOMOSlider pos, pan, volume;//三个进度条
+    private MoMoSlider pos, pan, volume;//三个进度条
     private AudioChart audioChart;//示波器
     private Lyric lyric;//一个歌词对象
     private BasicController player;//基本的播放器对象
@@ -599,7 +604,6 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
     }
 
     private void changeSpeakerState() {
-
         if (config.isMute()) {
             speaker.setActionCommand(Config.VOL_ON);
             speaker.setSelected(true);
@@ -1882,9 +1886,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
                     player.setGain(value);
                 }
             } catch (BasicPlayerException ex) {
-                //System.out.println("====================");
                 ex.printStackTrace();
-                //System.out.println("====================");
             }
         } // Balance
         else if (src == pan) {
@@ -1986,6 +1988,15 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         this.player = controller;
     }
 
+    /**
+     * 
+     * MouseVolumeListener <br>
+     * 
+     * @author 王俊伟 wjw.happy.love@163.com
+     * @blog https://www.github.com/junehappylove
+     * @date 2017年1月12日 下午7:56:47
+     * @version 1.0.0
+     */
     private class MouseVolumeListener implements MouseWheelListener {
 
         public void mouseWheelMoved(MouseWheelEvent e) {

@@ -22,6 +22,7 @@
  */
 package com.judy.audiotag.tag.lyrics3;
 
+import com.judy.audiotag.tag.TagNotFoundException;
 import com.judy.audiotag.tag.id3.AbstractTag;
 import com.judy.audiotag.tag.id3.ID3v1Tag;
 
@@ -29,6 +30,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 public abstract class AbstractLyrics3 extends AbstractTag {
+	
 	public AbstractLyrics3() {
 	}
 
@@ -37,15 +39,18 @@ public abstract class AbstractLyrics3 extends AbstractTag {
 	}
 
 	/**
-	 * 
-	 *
+	 * TODO ???? what to do 
 	 * @param file
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unused")
 	public void delete(RandomAccessFile file) throws IOException {
-		long filePointer;
-		ID3v1Tag id3v1tag = new ID3v1Tag();
-
+		//long filePointer = file.getFilePointer();
+		ID3v1Tag id3v1tag;
+		try {
+			id3v1tag = new ID3v1Tag(file,"");
+			id3v1tag.delete(file);
+		} catch (TagNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

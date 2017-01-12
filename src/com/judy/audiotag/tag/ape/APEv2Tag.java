@@ -29,9 +29,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class APEv2Tag implements Tag {
 
-	/**
-	 * long serialVersionUID
-	 */
 	private static final long serialVersionUID = 8816269667826600599L;
 	private static Logger log = Logger.getLogger(APEv2Tag.class.getName());
 	private File input;
@@ -58,6 +55,13 @@ public class APEv2Tag implements Tag {
 		map = new HashMap<String, String>();
 	}
 
+	/**
+	 * load
+	 * @throws IOException
+	 * @throws UnsupportedAudioFileException
+	 * @date 2017年1月12日 下午9:25:21
+	 * @writer junehappylove
+	 */
 	protected void load() throws IOException, UnsupportedAudioFileException {
 		RandomAccessFile raf = new RandomAccessFile(input, "r");
 		// 先查看最后32个字节

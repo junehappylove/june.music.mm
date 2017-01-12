@@ -1565,8 +1565,7 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 		sb.append(Config.getResource("songinfo.album")).append(" ").append(item.getAlbum()).append("<br>");
 		sb.append(Config.getResource("songinfo.format")).append(" ").append(item.getFormat()).append("<br>");
 		sb.append(Config.getResource("songinfo.length")).append(" ").append(item.getFormattedLength()).append("<br>");
-		sb.append(Config.getResource("songinfo.location")).append(" ").append(item.getLocation())
-				.append("<br>&nbsp<p>");
+		sb.append(Config.getResource("songinfo.location")).append(" ").append(item.getLocation()).append("<br>&nbsp;<p>");
 		sb.append("</html>");
 		rightList.setToolTipText(sb.toString());
 	}

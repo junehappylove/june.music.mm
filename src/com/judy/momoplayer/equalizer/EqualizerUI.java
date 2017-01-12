@@ -8,7 +8,7 @@ import com.judy.momoplayer.player.ui.ImageBorder;
 import com.judy.momoplayer.player.ui.PlayerUI;
 import com.judy.momoplayer.util.Config;
 import com.judy.momoplayer.util.Util;
-import com.judy.momoplayer.util.MOMOSlider;
+import com.judy.momoplayer.util.MoMoSlider;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -59,7 +59,7 @@ public class EqualizerUI extends JPanel implements ActionListener, ChangeListene
     private int eqdist = OVERDIST;
     private JToggleButton onoff, auto;
     private JButton preset;
-    private final MOMOSlider[] sliders;
+    private final MoMoSlider[] sliders;
 
     private boolean initDone;//是否初始化完成了
     public static String[] presets = {"Normal", "Classical", "Club", "Dance", 
@@ -72,16 +72,14 @@ public class EqualizerUI extends JPanel implements ActionListener, ChangeListene
         this.setPreferredSize(new Dimension(285, 155));
         config = Config.getInstance();
         eqgains = new int[10];
-        sliders = new MOMOSlider[11];
+        sliders = new MoMoSlider[11];
         int[] vals = config.getLastEqualizer();
         if (vals != null) {
             log.log(Level.INFO, "均衡器不为NULL");
-
 //            for (int h = 0; h < vals.length; h++) {
 //                gainValue[h] = vals[h];
 //            }
             System.arraycopy(vals, 0, gainValue, 0, vals.length);
-
         } else {
             log.log(Level.INFO, "均衡器是空的！！");
         }

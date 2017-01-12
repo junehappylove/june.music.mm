@@ -103,7 +103,6 @@ public class Main extends JFrame implements Loader {
 			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		// TODO 单独启动一个线程去检查软件更新情况
-		// 不需要检测了
 		CheckThread th = new CheckThread();// 检查软件更新类
 		th.setDaemon(true);
 		th.start();
@@ -239,7 +238,6 @@ public class Main extends JFrame implements Loader {
 	}
 
 	private void addMouseMoveListener() {
-
 		DragMoveAdapter dm1 = new DragMoveAdapter(eqWin, config);
 		mp.getEqualizerUI().addMouseListener(dm1);
 		mp.getEqualizerUI().addMouseMotionListener(dm1);
@@ -348,7 +346,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action pauseAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 2L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -358,7 +356,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action playAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 3L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -368,7 +366,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action stopAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 4L;
 
 			public void actionPerformed(ActionEvent e) {
 				if (mp != null) {
@@ -378,7 +376,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action lrcAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 5L;
 
 			// 歌词
 			public void actionPerformed(ActionEvent ae) {
@@ -389,7 +387,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action eqAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 6L;
 
 			// 均衡器
 			public void actionPerformed(ActionEvent ae) {
@@ -400,7 +398,7 @@ public class Main extends JFrame implements Loader {
 		};
 		Action plAction = new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 7L;
 
 			// 播放列表
 			public void actionPerformed(ActionEvent ae) {

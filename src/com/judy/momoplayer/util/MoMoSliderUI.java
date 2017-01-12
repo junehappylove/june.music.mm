@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicSliderUI;
  *
  * @author judy
  */
-public class MOMOSliderUI extends BasicSliderUI {
+public class MoMoSliderUI extends BasicSliderUI {
 
     private Image thumbImage = null;//普通按的图片
     @SuppressWarnings("unused")
@@ -29,7 +29,7 @@ public class MOMOSliderUI extends BasicSliderUI {
     private int thumbYOffset = 0;
     private boolean hideThumb = false;
 
-    public MOMOSliderUI(JSlider slider) {
+    public MoMoSliderUI(JSlider slider) {
         super(slider);
         parentSlider = slider;
     }

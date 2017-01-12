@@ -38,9 +38,7 @@ import com.judy.audiotag.tag.id3.AbstractTag;
 import com.judy.audiotag.tag.id3.ID3v24Tag;
 
 public class Lyrics3v2 extends AbstractLyrics3 {
-	/**
-	 * 
-	 */
+
 	private HashMap<String, Lyrics3v2Field> fieldMap = new HashMap<String, Lyrics3v2Field>();
 
 	/**
@@ -225,8 +223,7 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 	}
 
 	public void read(ByteBuffer byteBuffer) throws TagException {
-		@SuppressWarnings("unused")
-		long filePointer;
+		long filePointer=0L;// 文件指针
 		int lyricSize;
 
 		if (seek(byteBuffer)) {
@@ -371,8 +368,8 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 		String str;
 		Lyrics3v2Field field;
 		Iterator<Lyrics3v2Field> iterator;
-//		ID3v1Tag id3v1tag = new ID3v1Tag();
-//		id3v1tag = null;
+		// ID3v1Tag id3v1tag = new ID3v1Tag();
+		// id3v1tag = null;
 
 		delete(file);
 		file.seek(file.length());
@@ -437,9 +434,9 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 
 		file.write(buffer, 0, offset);
 
-//		if (id3v1tag != null) {
-//			id3v1tag.write(file);
-//		}
+		// if (id3v1tag != null) {
+		// id3v1tag.write(file);
+		// }
 	}
 
 	/**
@@ -447,28 +444,33 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 	 *
 	 */
 	private int seekSize(ByteBuffer byteBuffer) {
-		/*
-		 * byte[] buffer = new byte[11]; String lyricEnd = ""; long filePointer
-		 * = 0;
-		 * 
-		 * // check right before the ID3 1.0 tag for the lyrics tag
-		 * file.seek(file.length() - 128 - 9); file.read(buffer, 0, 9); lyricEnd
-		 * = new String(buffer, 0, 9);
-		 * 
-		 * if (lyricEnd.equals("LYRICS200")) { filePointer =
-		 * file.getFilePointer(); } else { // check the end of the file for a
-		 * lyrics tag incase an ID3 // tag wasn't placed after it.
-		 * file.seek(file.length() - 9); file.read(buffer, 0, 9); lyricEnd = new
-		 * String(buffer, 0, 9);
-		 * 
-		 * if (lyricEnd.equals("LYRICS200")) { filePointer =
-		 * file.getFilePointer(); } else { return -1; } }
-		 * 
-		 * // read the 6 bytes for the length of the tag filePointer -= (9 + 6);
-		 * file.seek(filePointer); file.read(buffer, 0, 6);
-		 * 
-		 * return Integer.parseInt(new String(buffer, 0, 6));
-		 */
+		
+//		byte[] buffer = new byte[11]; 
+//		String lyricEnd = ""; 
+//		long filePointer = 0;
+//		
+//		// check right before the ID3 1.0 tag for the lyrics tag
+//		file.seek(file.length() - 128 - 9); 
+//		file.read(buffer, 0, 9); 
+//		lyricEnd = new String(buffer, 0, 9);
+//		
+//		if (lyricEnd.equals("LYRICS200")) { 
+//			filePointer = file.getFilePointer(); 
+//		} else { // check the end of the file for a lyrics tag incase an ID3 // tag wasn't placed after it.
+//			file.seek(file.length() - 9); 
+//			file.read(buffer, 0, 9); 
+//			lyricEnd = new String(buffer, 0, 9);
+//			
+//			if (lyricEnd.equals("LYRICS200")) { 
+//				filePointer = file.getFilePointer(); 
+//			} else { return -1; } 
+//		}
+//		
+//		// read the 6 bytes for the length of the tag filePointer -= (9 + 6);
+//		file.seek(filePointer); 
+//		file.read(buffer, 0, 6);
+//		
+//		return Integer.parseInt(new String(buffer, 0, 6));
 		return -1;
 	}
 }

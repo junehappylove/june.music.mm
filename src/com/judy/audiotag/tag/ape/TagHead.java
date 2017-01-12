@@ -79,7 +79,7 @@ public class TagHead {
 			checkFlag();
 			valid = true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			log.log(Level.SEVERE, "分析标签异常!");
 			valid = false;
 		}

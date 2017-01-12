@@ -228,7 +228,7 @@ public class MpegInfo implements TagInfo {
             this.title = tag.getFirstTitle();
             this.year = tag.getFirstYear();
         } else {
-            System.out.println("tag=" + tag.getClass());
+            //System.out.println("tag=" + tag.getClass());
             this.album= getChineseString(tag.getFirstAlbum());
             this.artist = getChineseString(tag.getFirstArtist());
             this.genre = getChineseString(tag.getFirstGenre());
@@ -283,7 +283,7 @@ public class MpegInfo implements TagInfo {
      */
     protected void loadInfo(AudioFileFormat aff) throws UnsupportedAudioFileException {
         String tp = aff.getType().toString();
-        System.out.println("format:" + aff.getType().getExtension());
+        //System.out.println("format:" + aff.getType().getExtension());
         if (!tp.equalsIgnoreCase("mp3")) {
             throw new UnsupportedAudioFileException("Not MP3 audio format");
         }
@@ -350,7 +350,6 @@ public class MpegInfo implements TagInfo {
             }
             if (props.containsKey("date")) {
                 year = (String) props.get("date");
-
             }
             if (props.containsKey("duration")) {
                 total = (long) Math.round((((Long) props.get("duration")).longValue()) / 1000000);

@@ -35,7 +35,7 @@ import com.judy.audiotag.tag.TagTextField;
  * {@link com.judy.jaudiotagger.tag.Tag} and introduces some more useful
  * functionality to be implemented.<br>
  *
- * @author Rapha�l Slinckx
+ * @author Raphal Slinckx
  */
 public abstract class AbstractTag implements Tag {
 	/**

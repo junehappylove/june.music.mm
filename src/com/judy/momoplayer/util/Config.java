@@ -44,21 +44,19 @@ import javax.swing.JFrame;
  */
 public class Config implements Serializable {
 
-    private static final long serialVersionUID = 20071127L;
+    private static final long serialVersionUID = 20170112L;
     private static final Logger log = Logger.getLogger(Config.class.getName());
     public int voteOpenCount, voteOneHourCount;
     //////////////////////////////////////////////////////////
-    /*
-     * ***********常量定义区********************************************
-     */
+    // ***********常量定义区***********************************
     //////////////////////////////////////////////////////////
     public static final String NAME = "MOMOPlayer";//MOMOPlayer
     public static final String EXTS = "snd,aifc,aif,wav,au,mp1,mp2,mp3,ogg,spx,flac,ape,mac";
-    public static final File HOME = new File(System.getProperty("user.home") + File.separator + ".MOMOPlayer");//MOMOPlayer的目录文件
+    public static final File HOME = new File(System.getProperty("user.home") + File.separator + ".MoMoPlayer");//MOMOPlayer的目录文件
     public static final int POSBARMAX = 1000;//位置滚动条最大的数
     public static final int VOLUMEMAX = 100;//音量最大
     public static final int BALANCEMAX = 5;//左右平衡最大的值
-    /**
+    /*
      * *******************ActionCommand定义区*************************
      */
     public static final String PLAY = "play";//播放
@@ -83,39 +81,38 @@ public class Config implements Serializable {
     public static final String EQ_AUTO_ENABLE = "eq_auto_enable";
     public static final String EQ_AUTO_DISABLE = "eq_auto_disable";
     public static final String EQ_PRESET = "eq_preset";
-    /**
+    /*
      * *****************检查更新策略常量定义区***********************
      */
     public static final String CHECK_DAY = "check.day";//每天检查
     public static final String CHECK_WEEK = "check.week";//每周检查
     public static final String CHECK_MONTH = "check.month";//每月检查
     public static final String CHECK_NONE = "check.none";//不检查
-    /**
+    /*
      * *****************读取文件标签策略常量定义区*******************
      */
     public static final String READ_WHEN_ADD = "read.when.add";//当添加时读取标签
     public static final String READ_WHEN_DISPLAY = "read.when.display";//当显示时读取标签
     public static final String READ_WHEN_PLAY = "read.when.play";//当播放时读取标签
-    /**
+    /*
      * *****************歌词对齐常量定义区**************************
      */
     public static final int LYRIC_LEFT_ALIGN = 1;//歌词左对齐
     public static final int LYRIC_RIGHT_ALIGN = 2;//歌词右对齐
     public static final int LYRIC_CENTER_ALIGN = 3;//歌词中间对齐
-    /**
+    /*
      * *****************可视化区示波的消逝速度常量定义区*************
      */
     public static final int DISAPPEAR_QUICK = 1;//消逝的速度快
     public static final int DISAPPEAR_NORMAL = 2;//消逝的速度普通
     public static final int DISAPPEAR_SLOW = 3;//消逝的速度慢
-    /**
+    /*
      * *****************普通常量定义区******************************
      */
     public static final int REPEAT_ONE = 100;//单曲重复
     public static final int REPEAT_ALL = 101;//整体重复
-    public static final String TITLETEXT = "MOMOPlayer";//MOMOPlayer
-    public static final String[] protocols = {"http:", "file:", "ftp:", 
-        "https:", "ftps:", "jar:"};//协议
+    public static final String TITLETEXT = "MoMoPlayer";//MOMOPlayer
+    public static final String[] protocols = {"http:", "file:", "ftp:", "https:", "ftps:", "jar:"};//协议
     public static final int ORDER_PLAY = 1;//表示顺序播放
     public static final int RANDOM_PLAY = 0;//表示随机播放
 	public static final String TAGINFO_POLICY_FILE = "file";
@@ -144,15 +141,7 @@ public class Config implements Serializable {
     public static final int RIGHT_BOTTOM = 9;
     public static final int SHOWTIME_POSITIVE = 1;//以正数显示
     public static final int SHOWTIME_NEGATIVE = -1;//以负数显示.
-    /**
-     * ****************************************************************
-     */
-    /**
-     * ***********普通变量定义区****************************************
-     */
-    /**
-     * ****************************************************************
-     */
+  
     /**
      * 载入资源配置文件
      */
@@ -168,11 +157,11 @@ public class Config implements Serializable {
     private boolean isLinux;//是否是LINUX，它很多东西不支持
     private boolean useProxy;//是否使用代理服务器搜索歌词
     private boolean mute;//是否静音
+    //TODO audioDevice 混音器设备的名字
     private String audioDevice;//混音器设备的名字
     private String playListFileName;//播放列表的文件名,放在程序同目录下
     private String currentFileOrUrl;//最后也就是当前正在播放的文件或者URL
     private String lastDir;//最后所使用的目录
-	@SuppressWarnings("unused")
 	private String tagInfoPolicy = TAGINFO_POLICY_ALL;//标签的读取策略，是只读文件还是都读。
     private String encoding = "UTF-8";//读取和写入标签的编码 update by june private String encoding = "GBK"
     private String proxyHost, proxyPort;//代理服务器的主机和端口号
@@ -190,26 +179,20 @@ public class Config implements Serializable {
     private int[] lastEqualizer;//最后调音器的配置,以便下次导入
     private Point eqLocation, lrcLocation, plLocation;//三个窗口的位置
     private Point disLrc, disEq, disPl;//三个面板和主面板的距离
-	@SuppressWarnings("unused")
 	private File lyricDir = new File(System.getProperty("user.home"));//歌词的搜索目录,并不是写入的目录,写入还是固定在user.home里面
     private Dimension lrcSize, plSize;//歌词秀和播放列表的大小
     private final Vector<PlayList> playlists;//所有的播放列表
     private final Map<String, Set<String>> componentMap;//一个窗口关系的变量
     private Date lastCheckUpdate = new Date();//最后一次检查更新的时候
-    /**
-     * ****************************************************************
-     */
-    /**
+  
+    /*
      * ***************不参与序列化的变量声明区***************************
      */
-    /**
+    /*
      * ***************这些变量在使用前必须检查是否为空*******************
      */
-    /**
+    /*
      * ***************或者在初始化程序的时候,必须赋值给它****************
-     */
-    /**
-     * ****************************************************************
      */
     private transient JFrame topParent;//顶级窗口类是谁
     private transient JDialog lrcWindow;//歌词电灯显示窗口
@@ -218,14 +201,8 @@ public class Config implements Serializable {
     private transient List<String> mixers;//里面存的是所有的混音器,不用序列化
     private transient OptionDialog optionDialog;//选项对话框
     private transient PlayerUI player;//一个不序列化的播放器对象
-    /**
-     * ****************************************************************
-     */
-    /**
+    /*
      * ***************常规设置要用到的变量*******************************
-     */
-    /**
-     * ****************************************************************
      */
     private boolean startAutoMinimize;//是否自动在启动的时候最小化
     private boolean showTrayIcon = true;//是否显示系统栏图标
@@ -236,14 +213,9 @@ public class Config implements Serializable {
     private String checkUpdateStrategy = CHECK_DAY;//检查更新频率的策略,默认每天
     private boolean autoCloseDialogWhenSave;//在点击保存设置的时候,是否自动关闭对话框
     private boolean miniHide;//最小化的时候是否隐藏主界面
-    /**
-     * ****************************************************************
-     */
-    /**
+    
+    /*
      * ****************歌词搜索面板要用到的变量**************************
-     */
-    /**
-     * ****************************************************************
      */
     private Vector<File> searchLyricDirs = new Vector<File>();//搜索歌词的目录
     private boolean autoSearchLyricOnline = true;//播放音频文件时自动在线搜索歌词
@@ -253,28 +225,18 @@ public class Config implements Serializable {
     private boolean autoOverWriteExistFile;//自动覆盖已存在的歌词文件
     private boolean saveTheSameNameAsMediaFile;//保存与音频文件相同文件名的歌词
     private File saveLyricDir = new File(HOME, "Lyrics");//保存歌词文件的目录，歌词存放的目是 /Lyrics
-    /**
-     * ****************************************************************
-     */
-    /**
+    
+    /*
      * ****************播放设置面板要用到的变量**************************
-     */
-    /**
-     * ****************************************************************
      */
     private boolean autoPlayWhenStart;//是否在程序启动的时候自动播放
     private boolean maintainLastPlay;//是否继续最后一次的播放进度
     private double lastRate;//最后一次的播放进度
     private int sequencePlayInterval;//连续播放的时间间隔(单位:秒)
     private boolean stopWhenError;//当出现错误的时候,是否停止播放
-    /**
-     * ****************************************************************
-     */
-    /**
+    
+    /*
      * ****************播放列表设置面板要用到的变量**********************
-     */
-    /**
-     * ****************************************************************
      */
     private boolean canDnD = true;//能否拖放
     private boolean disableDelete;//是否禁用文件删除功能
@@ -291,14 +253,9 @@ public class Config implements Serializable {
     private Color playlistBackground1 = new Color(32, 32, 32);//背景1的颜色
     private Color playlistBackground2 = new Color(0, 0, 0);//背景2的颜色
     private Font playlistFont = new Font("Dialog", Font.PLAIN, 12);//播放列表的字体
-    /**
-     * ****************************************************************
-     */
-    /**
+    
+    /*
      * ****************歌词秀设置面板要用到的变量************************
-     */
-    /**
-     * ****************************************************************
      */
     private int lpState = LyricPanel.V;//表示歌词显示面板的状态,是横向还是纵向
     private int lyricAlignMode = LYRIC_CENTER_ALIGN;//歌词对齐模式,是左对齐还是右对齐,还是中间对齐
@@ -322,14 +279,9 @@ public class Config implements Serializable {
     private boolean antiAliasing;//是否抗据齿显示字体 
     private boolean mouseScrollAjustTime = true;//是否可以用鼠标滚动来调整歌词的整体时间
     private int refreshInterval = 80;//表示线程休息的时间间隔(单位:毫秒)
-    /**
-     * ****************************************************************
-     */
-    /**
+    
+    /*
      * ****************可视化效果设置面板要用到的变量********************
-     */
-    /**
-     * ****************************************************************
      */
     private int audioChartDisplayMode = AudioChart.DISPLAY_MODE_SPECTRUM_ANALYSER;//显示模式,或者是否显示
     private int audioChartfps = 25;//视觉效果的FPS
@@ -1447,13 +1399,13 @@ public class Config implements Serializable {
         return lastEqualizer;
     }
 
-//    public String getTagInfoPolicy() {
-//        return tagInfoPolicy;
-//    }
-//
-//    public void setTagInfoPolicy(String tag) {
-//        this.tagInfoPolicy = tag;
-//    }
+    public String getTagInfoPolicy() {
+        return tagInfoPolicy;
+    }
+
+    public void setTagInfoPolicy(String tag) {
+        this.tagInfoPolicy = tag;
+    }
     public int getXLocation() {
         return xLocation;
     }
@@ -1676,6 +1628,10 @@ public class Config implements Serializable {
 
     public String getLastDir() {
         return lastDir;
+    }
+    
+    public File getLyricDir(){
+    	return lyricDir;
     }
 
 }

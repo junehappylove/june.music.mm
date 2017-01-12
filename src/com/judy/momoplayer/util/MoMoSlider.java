@@ -1,5 +1,5 @@
 /*
- * MOMOSlider.
+ * MoMoSlider.
  *
  * JavaZOOM : jlgui@javazoom.net
  *            http://www.javazoom.net
@@ -24,11 +24,11 @@ package com.judy.momoplayer.util;
 
 import javax.swing.JSlider;
 
-public class MOMOSlider extends JSlider {
+public class MoMoSlider extends JSlider {
 
     private static final long serialVersionUID = 20071214L;
 
-    public MOMOSlider() {
+    public MoMoSlider() {
         super();
         setDoubleBuffered(true);
     }
@@ -41,6 +41,6 @@ public class MOMOSlider extends JSlider {
     }
 
     public void setHideThumb(boolean hide) {
-        ((MOMOSliderUI) getUI()).setHideThumb(hide);
+        ((MoMoSliderUI) getUI()).setHideThumb(hide);
     }
 }

@@ -42,7 +42,7 @@ import java.util.logging.Logger;
 public abstract class AbstractTagItem {
 
 	// Logger
-	public static Logger logger = Logger.getLogger("com.judy.jaudiotagger.tag.id3");
+	public static Logger logger = Logger.getLogger("com.judy.audio.tagger.tag.id3");
 
 	public AbstractTagItem() {
 	}

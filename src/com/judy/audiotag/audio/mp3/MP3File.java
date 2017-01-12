@@ -21,10 +21,22 @@
  */
 package com.judy.audiotag.audio.mp3;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.logging.Level;
+
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import com.judy.audiotag.audio.AudioFile;
+import com.judy.audiotag.audio.exceptions.CannotWriteException;
 import com.judy.audiotag.audio.exceptions.InvalidAudioFrameException;
 import com.judy.audiotag.audio.exceptions.ReadOnlyFileException;
-import com.judy.audiotag.audio.exceptions.CannotWriteException;
-import com.judy.audiotag.audio.AudioFile;
 import com.judy.audiotag.logging.AbstractTagDisplayFormatter;
 import com.judy.audiotag.logging.PlainTextTagDisplayFormatter;
 import com.judy.audiotag.logging.XMLTagDisplayFormatter;
@@ -41,17 +53,9 @@ import com.judy.audiotag.tag.id3.ID3v22Tag;
 import com.judy.audiotag.tag.id3.ID3v23Tag;
 import com.judy.audiotag.tag.id3.ID3v24Tag;
 import com.judy.audiotag.tag.lyrics3.AbstractLyrics3;
+import com.judy.audiotag.tag.lyrics3.Lyrics3v1;
+import com.judy.audiotag.tag.lyrics3.Lyrics3v2;
 import com.judy.momoplayer.util.Util;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.util.logging.Level;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  * This class represents a physical MP3 File
@@ -141,14 +145,14 @@ public class MP3File extends AudioFile {
 		if ((loadOptions & LOAD_IDV1TAG) != 0) {
 			log.finer("Attempting to read id3v1tags");
 			try {
-				id3v1tag = new ID3v11Tag(newFile, file.getName());
+				id3v1tag = new ID3v11Tag(newFile,file.getName());
 			} catch (TagNotFoundException ex) {
 				log.info("No ids3v11 tag found");
 			}
 
 			try {
 				if (id3v1tag == null) {
-					id3v1tag = new ID3v1Tag(newFile, file.getName());
+					id3v1tag = new ID3v1Tag(newFile,file.getName());
 				}
 			} catch (TagNotFoundException ex) {
 				log.info("No id3v1 tag found");
@@ -183,25 +187,24 @@ public class MP3File extends AudioFile {
 				// Read into Byte Buffer
 				bb = ByteBuffer.allocate(startByte);
 				fc.read(bb);
+			}catch(FileNotFoundException e){
+				
 			} finally {
 				if (fc != null) {
 					fc.close();
 				}
-
 				if (fis != null) {
 					fis.close();
 				}
 			}
-
+			//
 			bb.rewind();
-
 			if ((loadOptions & LOAD_IDV2TAG) != 0) {
 				log.info("Attempting to read id3v2tags");
 				try {
 					this.setID3v2Tag(new ID3v24Tag(bb, file.getName()));
 				} catch (TagNotFoundException ex) {
 					log.info("No id3v24 tag found");
-					System.out.println("*************************************");
 				}
 
 				try {
@@ -235,14 +238,25 @@ public class MP3File extends AudioFile {
 	 * @param loadOptions
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unused")
 	private void readLyrics3Tag(File file, RandomAccessFile newFile, int loadOptions) throws IOException {
-		/*
-		 * if ((loadOptions & LOAD_LYRICS3) != 0) { try { lyrics3tag = new
-		 * Lyrics3v2(newFile); } catch (TagNotFoundException ex) { } try { if
-		 * (lyrics3tag == null) { lyrics3tag = new Lyrics3v1(newFile); } } catch
-		 * (TagNotFoundException ex) { } }
-		 */
+		FileChannel fc;
+		ByteBuffer byteBuffer = ByteBuffer.allocate(128);//TODO ???? 128 ? that is what
+		if ((loadOptions & LOAD_LYRICS3) != 0) {
+			try {
+				fc = newFile.getChannel();
+				fc.position(file.length() - 128);
+				byteBuffer = ByteBuffer.allocate(128);
+				fc.read(byteBuffer);
+				byteBuffer.flip();
+				lyrics3tag = new Lyrics3v2(byteBuffer);
+				if (lyrics3tag == null) {
+					lyrics3tag = new Lyrics3v1(byteBuffer);
+				}
+			} catch (TagNotFoundException ex) {
+				
+			}
+		}
+		 
 	}
 
 	/**
@@ -337,8 +351,7 @@ public class MP3File extends AudioFile {
 			}
 
 			// Read Lyrics 3
-			// readLyrics3Tag(File file,RandomAccessFile newFile,int
-			// loadOptions)
+			readLyrics3Tag(file, newFile, loadOptions);
 		} finally {
 			if (newFile != null) {
 				newFile.close();

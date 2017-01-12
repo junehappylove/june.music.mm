@@ -28,7 +28,7 @@ import kj.dsp.KJFFT;
  */
 public class AudioChart extends JPanel implements KJDigitalSignalProcessor {
 
-    private static final long serialVersionUID = 20071214L;
+    private static final long serialVersionUID = 20170214L;
     private static final Logger log = Logger.getLogger(AudioChart.class.getName());
     public static final int DISPLAY_MODE_SPECTRUM_ANALYSER = 0;//示波器类型1主图
     public static final int DISPLAY_MODE_SCOPE = 1;//示波器类型2波线

@@ -772,11 +772,11 @@ public final class Util {
      * @param orientation 方向
      * @return 滚动条
      */
-    public static MOMOSlider createSlider(int min, int max, int value,
+    public static MoMoSlider createSlider(int min, int max, int value,
             Image ball1, Image ball2, Image ball3, Image bg1,
             Image bg2, ChangeListener listener, int orientation) {
-        MOMOSlider momo = new MOMOSlider();
-        MOMOSliderUI ui = new MOMOSliderUI(momo);
+        MoMoSlider momo = new MoMoSlider();
+        MoMoSliderUI ui = new MoMoSliderUI(momo);
         momo.setOpaque(false);
         momo.setMaximum(max);
         momo.setMinimum(min);

@@ -13,8 +13,13 @@ import java.util.Vector;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
- *
- * @author Admin
+ * 标签信息
+ * TagInfo <br>
+ * 
+ * @author 王俊伟 wjw.happy.love@163.com
+ * @blog https://www.github.com/junehappylove
+ * @date 2017年1月12日 下午9:13:58
+ * @version 1.0.0
  */
 public interface TagInfo extends Serializable {
 
