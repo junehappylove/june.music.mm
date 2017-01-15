@@ -53,8 +53,6 @@ import com.judy.audiotag.tag.id3.ID3v22Tag;
 import com.judy.audiotag.tag.id3.ID3v23Tag;
 import com.judy.audiotag.tag.id3.ID3v24Tag;
 import com.judy.audiotag.tag.lyrics3.AbstractLyrics3;
-import com.judy.audiotag.tag.lyrics3.Lyrics3v1;
-import com.judy.audiotag.tag.lyrics3.Lyrics3v2;
 import com.judy.momoplayer.util.Util;
 
 /**
@@ -239,23 +237,23 @@ public class MP3File extends AudioFile {
 	 * @throws IOException
 	 */
 	private void readLyrics3Tag(File file, RandomAccessFile newFile, int loadOptions) throws IOException {
-		FileChannel fc;
-		ByteBuffer byteBuffer = ByteBuffer.allocate(128);//TODO ???? 128 ? that is what
-		if ((loadOptions & LOAD_LYRICS3) != 0) {
-			try {
-				fc = newFile.getChannel();
-				fc.position(file.length() - 128);
-				byteBuffer = ByteBuffer.allocate(128);
-				fc.read(byteBuffer);
-				byteBuffer.flip();
-				lyrics3tag = new Lyrics3v2(byteBuffer);
-				if (lyrics3tag == null) {
-					lyrics3tag = new Lyrics3v1(byteBuffer);
-				}
-			} catch (TagNotFoundException ex) {
-				
-			}
-		}
+//		FileChannel fc;
+//		ByteBuffer byteBuffer = ByteBuffer.allocate(128);//TODO ???? 128 ? that is what
+//		if ((loadOptions & LOAD_LYRICS3) != 0) {
+//			try {
+//				fc = newFile.getChannel();
+//				fc.position(file.length() - 128);
+//				byteBuffer = ByteBuffer.allocate(128);
+//				fc.read(byteBuffer);
+//				byteBuffer.flip();
+//				lyrics3tag = new Lyrics3v2(byteBuffer);
+//				if (lyrics3tag == null) {
+//					lyrics3tag = new Lyrics3v1(byteBuffer);
+//				}
+//			} catch (TagNotFoundException ex) {
+//				
+//			}
+//		}
 		 
 	}
 
@@ -350,7 +348,7 @@ public class MP3File extends AudioFile {
 				tag = id3v1tag;
 			}
 
-			// Read Lyrics 3
+			// Read Lyrics 3 TODO have not complete!
 			readLyrics3Tag(file, newFile, loadOptions);
 		} finally {
 			if (newFile != null) {
