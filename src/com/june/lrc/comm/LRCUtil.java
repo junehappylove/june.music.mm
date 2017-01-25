@@ -301,7 +301,6 @@ public class LRCUtil {
         JSONObject jobj = JSONObject.fromString(content);
         JSONArray jarray = jobj.getJSONArray("result");
         list = new ArrayList<Lyric>();
-        //lyric = new Lyric();
         for (int i = 0; i < jarray.length(); i++) {
             JSONObject obj = jarray.getJSONObject(i);
             lyric = (Lyric) JSONObject.toBean(obj, Lyric.class);
@@ -314,24 +313,7 @@ public class LRCUtil {
         lyrics.setCode(jobj.getString("code"));
         lyrics.setCount(jobj.getString("count"));
         lyrics.setResult(list);
-        //lyrics = (Lyrics)JSONObject.toBean(jobj,Lyrics.class);
         return lyrics;
-    }
-
-    public static void main(String[] args) {
-        String con = "";
-        try {
-            //con = LRCUtil.getXMLContent("大约在冬季", "齐秦"); //大约在冬季$$齐秦$$$$
-            //LRCUtil.getLrcsFromXML(con);
-            //con = LRCUtil.getLRCContent("大约在冬季", "齐秦");
-            Lyrics lyrics = LRCUtil.getGCMLyrics("海阔天空", "Beyond");
-            //Lyrics lyrics = LRCUtil.getGCMLyrics("大约在冬季", "齐秦");
-            //Lyrics lyrics = LRCUtil.getGCMLyrics("aaabbbccc", "dddeeefff");
-            System.out.println("count：" + lyrics.getCount());
-        } catch (Exception ex) {
-            Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(con);
     }
 
     /**
@@ -369,7 +351,7 @@ public class LRCUtil {
 	 *
 	 * @see #getContentFormWeb(java.lang.String)
 	 * @param url
-	 *            url中如果包含中文等必须是警告编码后的地址
+	 *            url中如果包含中文等必须是经过编码后的地址
 	 * @return
 	 */
 	public static String getContentFormWeb(String url) {
@@ -380,7 +362,7 @@ public class LRCUtil {
 	 * 根据歌词地址获取歌词内容
 	 *
 	 * @param url
-	 *            url中如果包含中文等必须是警告编码后的地址
+	 *            url中如果包含中文等必须是经过编码后的地址
 	 * @param code
 	 *            指定歌词内容编码，如果不指定默认为UTF-8
 	 * @see #getContentFormWeb(java.lang.String)
@@ -431,5 +413,21 @@ public class LRCUtil {
     	String url = URLEncoder.encode(s, "UTF-8");
     	url = url.replaceAll("\\+", "%20");	//url中将空格转换成%20
         return url;
+    }
+
+    public static void main(String[] args) {
+        String con = "";
+        try {
+            //con = LRCUtil.getXMLContent("大约在冬季", "齐秦"); //大约在冬季$$齐秦$$$$
+            //LRCUtil.getLrcsFromXML(con);
+            //con = LRCUtil.getLRCContent("大约在冬季", "齐秦");
+            Lyrics lyrics = LRCUtil.getGCMLyrics("海阔天空", "Beyond");
+            //Lyrics lyrics = LRCUtil.getGCMLyrics("大约在冬季", "齐秦");
+            //Lyrics lyrics = LRCUtil.getGCMLyrics("aaabbbccc", "dddeeefff");
+            System.out.println("count：" + lyrics.getCount());
+        } catch (Exception ex) {
+            Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(con);
     }
 }
