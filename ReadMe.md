@@ -1,6 +1,12 @@
-# MoMoPlayer--沫沫音乐播放器
-[TOC]
-![MoMoPlayer音乐播放器][image1]
+# june.music.mm--沫沫音乐播放器(MoMoPlayer)
+
+![MoMoPlayer音乐播放器](https://github.com/junehappylove/img_lib/blob/master/momoplayer/MoMoPlayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg "程序界面图片")
+
+# 开发日志
+
+## 2017.03.26 MoMoPlayer项目更名为 *june.music.mm*
+
+# 版本
 
 ## 2.0.1 [2017-01-12] 
 >1. 精简源码，去掉com.ctreber.aclib.*包,这个包是处理ico文件的一个库，重新引入这个jar包[`aclibico-2.1.jar`](https://sourceforge.net/projects/aclibico/files/aclibico/2.1/)
