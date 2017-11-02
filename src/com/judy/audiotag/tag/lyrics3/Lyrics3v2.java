@@ -223,6 +223,7 @@ public class Lyrics3v2 extends AbstractLyrics3 {
 	}
 
 	public void read(ByteBuffer byteBuffer) throws TagException {
+		@SuppressWarnings("unused")
 		long filePointer=0L;// 文件指针
 		int lyricSize;
 
