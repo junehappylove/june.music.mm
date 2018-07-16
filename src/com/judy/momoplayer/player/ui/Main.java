@@ -502,9 +502,11 @@ public class Main extends JFrame implements Loader {
 
 	}
 
+	@Override
 	public void loaded() {
 	}
 
+	@Override
 	public void close() {
 		config.setLocation(getLocation().x, getLocation().y);
 		config.setLrcLocation(lrcWin.getLocation());
@@ -517,6 +519,7 @@ public class Main extends JFrame implements Loader {
 		System.exit(0);
 	}
 
+	@Override
 	public void minimize() {
 		if (config.isMiniHide()) {
 			setVisible(false);
@@ -532,6 +535,7 @@ public class Main extends JFrame implements Loader {
 		}
 	}
 
+	@Override
 	public void togglePlaylist(boolean enabled) {
 		config.setShowPlayList(enabled);
 		if (plWin != null) {
@@ -539,6 +543,7 @@ public class Main extends JFrame implements Loader {
 		}
 	}
 
+	@Override
 	public void toggleEqualizer(boolean enabled) {
 		config.setShowEq(enabled);
 		if (eqWin != null) {
@@ -546,6 +551,7 @@ public class Main extends JFrame implements Loader {
 		}
 	}
 
+	@Override
 	public void toggleLyricWindow(boolean enabled) {
 		config.setShowLrc(enabled);
 		if (lrcWin != null) {
@@ -635,6 +641,7 @@ public class Main extends JFrame implements Loader {
 		}
 	}
 
+	@Override
 	public void reRange() {
 		this.setLocation(300, 100);
 		eqWin.setSize(285, 155);
@@ -646,6 +653,7 @@ public class Main extends JFrame implements Loader {
 		config.updateDistance();
 	}
 
+	@Override
 	public JDialog changeLrcDialog() {
 		Point p = lrcWin.getLocation();
 		Dimension size = lrcWin.getSize();

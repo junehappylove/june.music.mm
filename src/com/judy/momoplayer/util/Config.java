@@ -157,7 +157,6 @@ public class Config implements Serializable {
     private boolean isLinux;//是否是LINUX，它很多东西不支持
     private boolean useProxy;//是否使用代理服务器搜索歌词
     private boolean mute;//是否静音
-    //TODO audioDevice 混音器设备的名字
     private String audioDevice;//混音器设备的名字
     private String playListFileName;//播放列表的文件名,放在程序同目录下
     private String currentFileOrUrl;//最后也就是当前正在播放的文件或者URL

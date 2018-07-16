@@ -1322,8 +1322,8 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         processPrevious(0);
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-
         final ActionEvent evt = e;
         if (e.getActionCommand().equals(Config.PAUSE)) {
             processActionEvent(e);
@@ -1474,9 +1474,7 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
         // Start playing if needed.
         if ((playerStateMem == PLAY) || (playerStateMem == PAUSE)) {
             processPlay(MouseEvent.BUTTON1_MASK);
-
         }
-
     }
 
     /**

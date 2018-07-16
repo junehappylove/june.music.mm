@@ -1250,6 +1250,9 @@ public final class Util {
 	public static String htmlContent(String originhtml, String divid) {
 		Document doc = Jsoup.parse(originhtml);
 		Element content = doc.getElementById(divid);
+		if(content == null){
+			return "";
+		}
 		divid = content.html();
 		Elements es = content.children();
 		Iterator<Element> it = es.iterator();
