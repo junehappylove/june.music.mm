@@ -101,7 +101,8 @@ public class Main extends JFrame implements Loader {
 	public static void main(String[] args) {
 		try {
 			LogManager lm = LogManager.getLogManager();
-			lm.readConfiguration(Main.class.getResourceAsStream("/com/judy/momoplayer/util/Log.properties"));
+			//lm.readConfiguration(Main.class.getResourceAsStream("/com/judy/momoplayer/util/Log.properties"));
+			lm.readConfiguration(Main.class.getResourceAsStream("/Log.properties"));
 		} catch (IOException ex) {
 			Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (SecurityException ex) {
@@ -179,7 +180,8 @@ public class Main extends JFrame implements Loader {
 		config.setTopParent(this);
 		setTitle(Config.TITLETEXT);
 		ClassLoader cl = this.getClass().getClassLoader();
-		URL iconURL = cl.getResource("com/judy/momoplayer/pic/player/icon.png");
+		//URL iconURL = cl.getResource("com/judy/momoplayer/pic/player/icon.png");
+		URL iconURL = cl.getResource("pic/player/icon.png");
 		if (iconURL != null) {
 			ImageIcon jlguiIcon = new ImageIcon(iconURL);
 			setIconImage(jlguiIcon.getImage());

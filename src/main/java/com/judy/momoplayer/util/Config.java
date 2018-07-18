@@ -145,7 +145,8 @@ public class Config implements Serializable {
     /**
      * 载入资源配置文件
      */
-    private static final ResourceBundle rb = ResourceBundle.getBundle("com/judy/momoplayer/util/UIInfo");
+    //private static final ResourceBundle rb = ResourceBundle.getBundle("com/judy/momoplayer/util/UIInfo");
+    private static final ResourceBundle rb = ResourceBundle.getBundle("UIInfo");
     private boolean showLrc = true;//是否显示歌词秀窗口
     private boolean showPlayList = true;//是否显示播放列表
     private boolean showEq = true;//是否显示调音台
