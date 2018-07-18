@@ -92,7 +92,7 @@ github上主页的地址是：https://github.com/junehappylove/MoMoPlayer
 所以只要获得它就可以了，可以运行如下命令:
 
 ```shell
-	sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \ /usr/share/fonts/truetype/arphic/uming.ttf
+sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \ /usr/share/fonts/truetype/arphic/uming.ttf
 ```
 
 运行成功以后,就可以正常显示JAVA的字体了.
