@@ -5,7 +5,7 @@
 
 # 开发日志
 
-- 2018.07.18 关于项目打包说明，参考wiki
+- 2018.07.18 关于项目打包说明，参考wiki:[关于如何使用maven打包可执行的jar项目](https://github.com/junehappylove/june.music.mm/wiki/About-how-to-use-Maven-to-package-executable-jar-projects)
 - 2018.07.18 目前仅剩下examples、jspeex、kj_dsp这三个jar在maven仓库中找不到了
 - 2018.07.18 项目修改为maven项目，去掉无用的jar包
 - 2018.07.18 修复PlayList的分隔栏颜色，同PlayList的整体背景色
