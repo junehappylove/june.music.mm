@@ -134,7 +134,6 @@ public class APEInfo implements TagInfo {
      *
      * @param aff
      */
-    @SuppressWarnings("unchecked")
 	protected void loadInfo(AudioFileFormat aff) throws UnsupportedAudioFileException {
         String ty = aff.getType().toString();
         if (!ty.equalsIgnoreCase("Monkey's Audio (ape)") && !ty.equalsIgnoreCase("Monkey's Audio (mac)")) {

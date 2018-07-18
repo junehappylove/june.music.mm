@@ -1,6 +1,7 @@
 # june.music.mm--沫沫音乐播放器(MoMoPlayer)
 
-![MoMoPlayer音乐播放器](https://github.com/junehappylove/img_lib/blob/master/momoplayer/MoMoPlayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg "程序界面图片")
+![MoMoPlayer音乐播放器](https://github.com/junehappylove/img_lib/blob/master/momoplayer/image2.png "新版程序界面图片")
+![MoMoPlayer音乐播放器选项](https://github.com/junehappylove/img_lib/blob/master/momoplayer/image3.png "新版程序选项界面")
 
 # 开发日志
 
@@ -12,20 +13,24 @@
 # 版本
 
 ## 2.0.1 [2017-01-12] 
+
 >1. 精简源码，去掉com.ctreber.aclib.*包,这个包是处理ico文件的一个库，重新引入这个jar包[`aclibico-2.1.jar`](https://sourceforge.net/projects/aclibico/files/aclibico/2.1/)
 >2. 修改歌曲文件读入标签的一些错误处理。
 
 ## 2.0 [2017-01-03] 升级版本至2.0
+
 >1. 修改版本升级方法;
 >2. 修改用户留言地址。
 
 ## 1.3.1 对包com.judy.audiotag.*包重构[2017-01-03]
+
 >1. 修改了代码大量的错误和警告;
 >2. 完善程序更新代码.
 
 ## 1.3最新的修改代码[2016-10-22]
+
 >1. 最新的歌词搜索，原版中使用千千静听，和百度音乐搜索都不好使了，最新采用[`歌词迷`](http://doc.gecimi.com/en/latest/#)的歌词搜索；
->2. 屏蔽掉联网更新功能，因为国内访问google不了，同时原项目也不在维护了（沫沫player修改来自`千里冰封`的悠悠player）
+>2. 屏蔽掉联网更新功能，因为国内访问google不了，同时原项目也不在维护了（momoplayer修改来自`千里冰封`的yoyoplayer）
  
 ## 1.2更新[2009-08-02]
 
@@ -71,32 +76,38 @@
 
 ### 在首选项里在的还有很多功能没有实现...
 
- MOMOPlayer现在项目已经移至github，以前的sourceforge和java.net上面的项目不再维护了。因为速度很慢。
-github上主页的地址是：https://github.com/junehappylove/MoMoPlayer
- 在程序的使用过程中有任何意见和BUG反应，请到 https://github.com/junehappylove/MoMoPlayer/issues/list 上新建issue。
- 在使用的过程中,有任何问题,可以加本人的*QQ:980154978*.希望和大家一起探讨JAVA问题,让JAVA的浓香飘的更远.
- 最后,谢谢我的媳妇 沫沫 这段时间以来以我的关心和鼓励.
+MOMOPlayer现在项目已经移至github，以前的sourceforge和java.net上面的项目不再维护了(国内的速度很慢)。    
+github上主页的地址是：https://github.com/junehappylove/MoMoPlayer    
+在程序的使用过程中有任何意见和BUG反应，请到 https://github.com/junehappylove/MoMoPlayer/issues/list 上新建issue。    
+在使用的过程中,有任何问题,可以加本人的*QQ:980154978*.希望和大家一起探讨JAVA问题,让JAVA的浓香飘的更远.    
+最后,谢谢我自己，不知道是什么动力让我取维护这个项目，哈哈。
  
 # 关于程序中乱码问题
-1. 在ubuntu8.04下面整个界面都是乱码.   
-    这不是程序的问题,而是由于在ubuntu 8.04里uming.ttf变成了uming.ttc,   
-    而ubuntu里java默认的中文字体就是uming.ttf,   
-    所以只要获得它就可以了，可以运行如下命令:
-    
+
+1. 在ubuntu8.04下面整个界面都是乱码.  
+ 
+这不是程序的问题,而是由于在ubuntu 8.04里uming.ttf变成了uming.ttc,   
+而ubuntu里java默认的中文字体就是uming.ttf,   
+所以只要获得它就可以了，可以运行如下命令:
+
 ```shell
 	sudo ln -s /usr/share/fonts/truetype/arphic/uming.ttc \ /usr/share/fonts/truetype/arphic/uming.ttf
 ```
-   运行成功以后,就可以正常显示JAVA的字体了.   
- 2. 歌词乱码或者歌曲信息乱码问题.   
-	目前歌词全部是从baidu上面搜索的,统一使用了GBK的编码方式.   
-	歌曲信息是用ID3v1,ID3V2,APEv2的格式来读取的,可以设置这三种标签的读取顺序.   
-	并且可以设置ID3v1的编码,默认我用的是GBK,在linux下面,可能要改成UTF-8.   
-	标准的APEv2都是UTF-8编码来存储歌曲信息的,所以不会出现乱码问题,推荐使用APEv2标签来保存歌曲信息.
+
+运行成功以后,就可以正常显示JAVA的字体了.
+   
+2. 歌词乱码或者歌曲信息乱码问题.
+ 
+目前歌词全部是从baidu上面搜索的,统一使用了GBK的编码方式.   
+歌曲信息是用ID3v1,ID3V2,APEv2的格式来读取的,可以设置这三种标签的读取顺序.   
+并且可以设置ID3v1的编码,默认我用的是GBK,在linux下面,可能要改成UTF-8.   
+标准的APEv2都是UTF-8编码来存储歌曲信息的,所以不会出现乱码问题,推荐使用APEv2标签来保存歌曲信息.
 
 ## 有任何其它的问题,欢迎联系作者: 
 ### QQ:*980154978*
 ### 邮件:*980154978@qq.com*
 ### BLOG:[http://blog.csdn.net/junehappylove](http://blog.csdn.net/junehappylove,'CSDN博客:junehappylove')
 
-
-[image1]:https://github.com/junehappylove/img_lib/blob/master/momoplayer/MoMoPlayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg "程序界面图片"
+[image3]:https://github.com/junehappylove/img_lib/blob/master/momoplayer/image3.png "新版程序界面图片"
+[image2]:https://github.com/junehappylove/img_lib/blob/master/momoplayer/image2.png "新版程序界面图片"
+[image1]:https://github.com/junehappylove/img_lib/blob/master/momoplayer/MoMoPlayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.jpg "老版程序界面图片"

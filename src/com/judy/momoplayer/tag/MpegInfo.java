@@ -35,7 +35,6 @@ import com.judy.momoplayer.util.Util;
  * Mpeg格式的音频文件的信息读取类
  * @author judy
  */
-@SuppressWarnings("unchecked")
 public class MpegInfo implements TagInfo {
 
     private static final long serialVersionUID = 20071213L;
