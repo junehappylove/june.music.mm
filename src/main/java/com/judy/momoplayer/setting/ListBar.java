@@ -135,8 +135,8 @@ public class ListBar extends javax.swing.JPanel implements MouseListener, MouseM
 
         public MOMOListUI() {
             try {
-                line = ImageIO.read(this.getClass().getResource("line.png"));
-                select = ImageIO.read(this.getClass().getResource("select.png"));
+                line = ImageIO.read(this.getClass().getClassLoader().getResource("pic/setting/line.png"));
+                select = ImageIO.read(this.getClass().getClassLoader().getResource("pic/setting/select.png"));
             } catch (IOException ex) {
                 Logger.getLogger(ListBar.class.getName()).log(Level.SEVERE, null, ex);
             }

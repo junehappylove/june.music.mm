@@ -51,9 +51,9 @@ public class AboutPanel extends javax.swing.JPanel {
         author = new javax.swing.JLabel();
 
         //jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/judy/momoplayer/pic/logo.png"))); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("pic/logo.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("pic/logo.png")));
         //jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/judy/momoplayer/pic/name.png"))); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("pic/name.png")));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getClassLoader().getResource("pic/name.png")));
         jLabel3.setText(Config.getResource("AboutPanel.author")); // NOI18N
 
         jLabel4.setText(Config.getResource("AboutPanel.copyRight")); // NOI18N
