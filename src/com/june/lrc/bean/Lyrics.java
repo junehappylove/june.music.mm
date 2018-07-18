@@ -29,72 +29,42 @@ public class Lyrics {
         this.result = result;
     }
 
-    /**
-     * @return the count
-     */
     public String getCount() {
         return count;
     }
 
-    /**
-     * @param count the count to set
-     */
     public void setCount(String count) {
         this.count = count;
     }
 
-    /**
-     * @return the code
-     */
     public String getCode() {
         return code;
     }
 
-    /**
-     * @param code the code to set
-     */
     public void setCode(String code) {
         this.code = code;
     }
 
-    /**
-     * @return the result
-     */
     public List<Lyric> getResult() {
         return result;
     }
 
-    /**
-     * @param result the result to set
-     */
     public void setResult(List<Lyric> result) {
         this.result = result;
     }
 
-    /**
-     * @return the artist
-     */
     public String getArtist() {
         return artist;
     }
 
-    /**
-     * @param artist the artist to set
-     */
     public void setArtist(String artist) {
         this.artist = artist;
     }
 
-    /**
-     * @return the title
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * @param title the title to set
-     */
     public void setTitle(String title) {
         this.title = title;
     }

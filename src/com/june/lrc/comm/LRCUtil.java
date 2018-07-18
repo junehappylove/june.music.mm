@@ -51,10 +51,10 @@ public class LRCUtil {
      * @param name
      * @param author
      * @return String
+     * @throws IOException 
      */
-    public static String getLRCContent(String name, String author) {
-        String url = null;
-        url = LRCUtil.getDownloadPath(name, author);
+    public static String getLRCContent(String name, String author) throws IOException {
+        String url = LRCUtil.getDownloadPath(name, author);
         return LRCUtil.getContentFormWeb(url, "GBK");
     }
 
@@ -247,8 +247,9 @@ public class LRCUtil {
      * @param title
      * @param artist
      * @return
+     * @throws IOException 
      */
-    public static Lyrics getGCMLyrics(String title, String artist) {
+    public static Lyrics getGCMLyrics(String title, String artist) throws IOException {
         String url = null;
 		try {
 			artist = ("".equalsIgnoreCase(artist) || null == artist) ? "" : "/" + $(format(artist));
@@ -298,10 +299,10 @@ public class LRCUtil {
         //use a json package jar
         List<Lyric> list = null;
         Lyric lyric = null;
-        JSONObject jobj = JSONObject.fromString(content);
+        JSONObject jobj = JSONObject.fromObject(content);
         JSONArray jarray = jobj.getJSONArray("result");
         list = new ArrayList<Lyric>();
-        for (int i = 0; i < jarray.length(); i++) {
+        for (int i = 0; i < jarray.size(); i++) {
             JSONObject obj = jarray.getJSONObject(i);
             lyric = (Lyric) JSONObject.toBean(obj, Lyric.class);
             if (lyric != null) {
@@ -336,7 +337,7 @@ public class LRCUtil {
             id = lrc.getAid();
             title = lrc.getSong();
             SearchResult.Task task = new SearchResult.Task() {
-                public String getLyricContent() {
+                public String getLyricContent() throws IOException {
                     //return getContentFormWeb(downUrl);//千里冰封写的有问题
                     return getContentFormWeb(downUrl, null);
                 }
@@ -347,14 +348,15 @@ public class LRCUtil {
     }
 
 	/**
-	 * 根据下载地址获取到下载的内容
+	 * 根据下载地址获取到下载的内容，默认编码gbk
 	 *
 	 * @see #getContentFormWeb(java.lang.String)
 	 * @param url
 	 *            url中如果包含中文等必须是经过编码后的地址
-	 * @return
+	 * @return 歌词内容
+	 * @throws IOException 异常
 	 */
-	public static String getContentFormWeb(String url) {
+	public static String getContentFormWeb(String url) throws IOException {
 		return getContentFormWeb(url, "GBK");
 	}
 
@@ -366,40 +368,36 @@ public class LRCUtil {
 	 * @param code
 	 *            指定歌词内容编码，如果不指定默认为UTF-8
 	 * @see #getContentFormWeb(java.lang.String)
-	 * @return
+	 * @return 歌词内容
+	 * @throws IOException 异常
 	 */
-	public static String getContentFormWeb(String url, String code) {
+	public static String getContentFormWeb(String url, String code) throws IOException {
+		if(url == null){
+			return null;
+		}
         HttpURLConnection conn = null;
         BufferedReader br = null;
         StringBuilder sb = new StringBuilder();
         try {
-            if (url != null) {
-                //将url加码
-                log.log(Level.INFO, url);
-                //url = $(url);//URLEncoder.encode(url,LRCConstants.UTF8);
-                conn = (HttpURLConnection) new URL(url).openConnection();
-                conn.setConnectTimeout(10000);//10s无返回则链接失败
-                br = new BufferedReader(new InputStreamReader(conn.getInputStream(), code == null ? LRCConstants.UTF8 : code));//UTF-8
-                String temp = null;
-                while ((temp = br.readLine()) != null) {
-                    sb.append(temp).append("\n");
-                }
-            } else {
-                sb = null;
+            //将url加码
+            log.log(Level.INFO, url);
+            //url = $(url);//URLEncoder.encode(url,LRCConstants.UTF8);
+            conn = (HttpURLConnection) new URL(url).openConnection();
+            conn.setConnectTimeout(10000);//10s无返回则链接失败
+            br = new BufferedReader(new InputStreamReader(conn.getInputStream(), code == null ? LRCConstants.UTF8 : code));//UTF-8
+            String temp = null;
+            while ((temp = br.readLine()) != null) {
+                sb.append(temp).append("\n");
             }
-            return sb.toString();
         } catch (IOException exe) {
             exe.printStackTrace();
-            return null;
+            Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, exe);
         } finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        	 if (br != null) {
+                 br.close();
+             }
         }
+        return sb.toString();
     }
 
     /**

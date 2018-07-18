@@ -8,7 +8,6 @@ import com.judy.momoplayer.util.Config;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /**
@@ -25,9 +24,8 @@ public class SearchResult {
     private Task task;//下载歌词的任务
     private String content;
 
-    public static interface Task {
-
-        public String getLyricContent();
+    public static interface Task{
+        String getLyricContent() throws Exception;
     }
 
     public SearchResult(String id, String lrcId, String lrcCode, String artist, String title, Task task) {
@@ -59,15 +57,14 @@ public class SearchResult {
         return lrcId;
     }
 
-    public String getContent() {
+    public String getContent() throws Exception {
         if (content == null) {
             content = task.getLyricContent();
         }
         return content;
     }
 
-    public void save(String name) throws IOException {
-        //System.out.println("Lrc:"+this.getContent());
+    public void save(String name) throws Exception {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(Config.HOME, "Lyrics/" + name))));
         bw.write(String.valueOf(getContent()));
         bw.close();

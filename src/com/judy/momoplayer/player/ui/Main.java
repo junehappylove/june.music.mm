@@ -5,6 +5,7 @@
 package com.judy.momoplayer.player.ui;
 
 import java.awt.AWTException;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.MenuItem;
@@ -38,8 +39,10 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
+import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.ColorUIResource;
 
 import com.judy.momoplayer.player.BasicPlayer;
 import com.judy.momoplayer.setting.AboutPanel;
@@ -59,6 +62,8 @@ public class Main extends JFrame implements Loader {
 	static {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIDefaults uidefs = UIManager.getLookAndFeelDefaults();
+			uidefs.put("SplitPane.background", new ColorUIResource(Color.BLACK));
 		} catch (ClassNotFoundException exe) {
 			exe.printStackTrace();
 		} catch (IllegalAccessException exe) {
@@ -79,7 +84,7 @@ public class Main extends JFrame implements Loader {
 	private static final Config config = Config.getConfig();// 配置信息
 	@SuppressWarnings("unused")
 	private RoundRectangle2D.Float rectPl, rectLrc;
-	private int system = 0;// 操作系统类型【0:windows 9:其他】
+	private int system = 0;// 操作系统类型[0:windows 9:其他]
 	private Properties prop = System.getProperties();
 	private String os = prop.getProperty("os.name");
 
@@ -89,7 +94,7 @@ public class Main extends JFrame implements Loader {
 
 		Logger main = Logger.getLogger("com");
 		main.setLevel(Level.INFO);
-		
+
 		system = os.toLowerCase().contains("win") ? 0 : 9;
 	}
 

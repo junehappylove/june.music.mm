@@ -4,7 +4,10 @@
 
 # 开发日志
 
-## 2017.03.26 MoMoPlayer项目更名为 *june.music.mm*
+- 2018.07.18 目前仅剩下examples、jspeex、kj_dsp这三个jar在maven仓库中找不到了
+- 2018.07.18 项目修改为maven项目，去掉无用的jar包
+- 2018.07.18 修复PlayList的分隔栏颜色，同PlayList的整体背景色
+- 2017.03.26 MoMoPlayer项目更名为 *june.music.mm*
 
 # 版本
 

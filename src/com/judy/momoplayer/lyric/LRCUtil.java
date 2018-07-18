@@ -27,7 +27,7 @@ public class LRCUtil {
         if (!item.isInited()) {
             item.reRead();
         }
-        List<SearchResult> list = new ArrayList<SearchResult>();
+        List<SearchResult> list = new ArrayList<>();
         try {
             //先把歌手名和歌名一起附上
             List<SearchResult> temp = search(item.getArtist(), item.getTitle());
@@ -41,7 +41,6 @@ public class LRCUtil {
         } catch (Exception ex) {
             Logger.getLogger(LRCUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return list;
     }
 

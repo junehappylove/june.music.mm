@@ -17,16 +17,14 @@ import com.june.lrc.bean.Lyrics;
 public class BaiDuLRC implements ILrcDownload {
 
     public boolean download(String name, String author) {
-        //boolean success = false;
-        //LRCUtil.getLRCFile(name, author);
         return LRCUtil.getLRCFile(name, author) != null;
     }
 
-    public String getLrcContent(String name, String author) {
+    public String getLrcContent(String name, String author) throws Exception{
         return LRCUtil.getLRCContent(name, author);
     }
 
-    public Lyrics getLyrics(String title, String artist) {
+    public Lyrics getLyrics(String title, String artist) throws Exception{
         throw new UnsupportedOperationException("Not supported yet."); 
     }
 

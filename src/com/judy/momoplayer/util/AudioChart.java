@@ -535,7 +535,6 @@ public class AudioChart extends JPanel implements KJDigitalSignalProcessor {
                 break;
         }
         // -- Show FPS if necessary.
-
         if (showFPS) {
             // -- Calculate FPS.
             if (System.currentTimeMillis() >= lfu + 1000) {

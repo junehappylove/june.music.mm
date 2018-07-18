@@ -28,16 +28,17 @@ import com.judy.momoplayer.lyric.SearchResult.Task;
  */
 public final class GAEUtil {
 
-    private static final String getSingleResultURL = "http://yoyolrc.appspot.com/YOYO?cmd=getSingleResult&artist={0}&title={1}";
-    private static final String getLyricContentURL = "http://yoyolrc.appspot.com/YOYO?cmd=getLyricContent&id={0}&lrcId={1}&lrcCode={2}&artist={3}&title={4}";
-    private static final String getResultListURL = "http://yoyolrc.appspot.com/YOYO?cmd=getResultList&artist={0}&title={1}";
-    private static final String voteURL = "http://yoyolrc.appspot.com/YOYO?cmd={0}&yoyoVersion={1}";
-    private static final String versionURL = "http://blog.csdn.net/junehappylove/article/details/52850828";//id='article_content'
+    private static final String SINGLE_RESULT_URL = "http://127.0.0.1/MOMO?cmd=getSingleResult&artist={0}&title={1}";//歌词服务器webservice地址
+    private static final String LYRIC_CONTENT_URL = "http://127.0.0.1/MOMO?cmd=getLyricContent&id={0}&lrcId={1}&lrcCode={2}&artist={3}&title={4}";
+    private static final String LIST_RESULT_URL = "http://127.0.0.1/MOMO?cmd=getResultList&artist={0}&title={1}";//歌词服务器webservice地址
+    private static final String VOTE_URL = "http://127.0.0.1/MOMO?cmd={0}&momoVersion={1}";//投票服务器webservice地址
+    private static final String VERSION_URL = "http://blog.csdn.net/junehappylove/article/details/52850828";//id='article_content'
+    private static final String MATCHED_ID = "article_content";
     private static final Logger log = Logger.getLogger(GAEUtil.class.getName());
 
     /**
      * 获取远程版本
-     * @return
+     * @return 版本
      * @throws IOException
      * @date 2017年1月4日 下午8:06:13
      * @writer junehappylove
@@ -47,9 +48,9 @@ public final class GAEUtil {
 		Version ver = null;
 		InputStream is = null;
 		try {
-			conn = (HttpURLConnection) Util.urlConnection(versionURL);
+			conn = (HttpURLConnection) Util.urlConnection(VERSION_URL);
 			is = conn.getInputStream();
-			String text = Util.htmlContent(Util.Stream2String(is), "article_content");
+			String text = Util.htmlContent(Util.stream2String(is), MATCHED_ID);
 			Properties pro = new Properties();
 			pro.load(new StringReader(text));
 			String version = pro.getProperty("Version");
@@ -75,11 +76,11 @@ public final class GAEUtil {
     /**
      * 投票
      * @param vote
-     * @return 
+     * @return 是否投票成功
      */
     public static boolean vote(String vote) {
         try {
-            String urlContent = MessageFormat.format(voteURL, $(vote), $(Util.VERSION));
+            String urlContent = MessageFormat.format(VOTE_URL, $(vote), $(Util.VERSION));
             ObjectInputStream ois = getObjectInputStream(urlContent);
             int back = ois.readInt();
             return back == 1;
@@ -90,10 +91,10 @@ public final class GAEUtil {
     }
 
     public static List<SearchResult> getSearchResult(String artistParam, String titleParam) throws Exception {
-        String urlContent = MessageFormat.format(getResultListURL, $(artistParam), $(titleParam));
+        String urlContent = MessageFormat.format(LIST_RESULT_URL, $(artistParam), $(titleParam));
         ObjectInputStream ois = getObjectInputStream(urlContent);
         int back = ois.readInt();
-        List<SearchResult> list = new ArrayList<SearchResult>();
+        List<SearchResult> list = new ArrayList<>();
         if (back == 1) {
             int size = ois.readInt();
             for (int i = 0; i < size; i++) {
@@ -115,7 +116,7 @@ public final class GAEUtil {
     }
 
     static String getSingleResult(String artistParam, String titleParam) throws Exception {
-        String urlContent = MessageFormat.format(getSingleResultURL, $(artistParam), $(titleParam));
+        String urlContent = MessageFormat.format(SINGLE_RESULT_URL, $(artistParam), $(titleParam));
         ObjectInputStream ois = getObjectInputStream(urlContent);
         int back = ois.readInt();
         if (back == 1) {
@@ -127,7 +128,7 @@ public final class GAEUtil {
 
     private static String getLyricContent_S(String id, String lrcId, String lrcCode, String artist, String title) {
         try {
-            String urlContent = MessageFormat.format(getLyricContentURL, $(id), $(lrcId), $(lrcCode), $(artist), $(title));
+            String urlContent = MessageFormat.format(LYRIC_CONTENT_URL, $(id), $(lrcId), $(lrcCode), $(artist), $(title));
             ObjectInputStream ois = getObjectInputStream(urlContent);
             int back = ois.readInt();
             if (back == 1) {

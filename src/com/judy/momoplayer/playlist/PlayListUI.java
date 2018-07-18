@@ -54,7 +54,6 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListCellRenderer;
-import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
@@ -74,12 +73,12 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 
 	private static final long serialVersionUID = 20071214L;
 	private static Logger log = Logger.getLogger(PlayListUI.class.getName());
-	@SuppressWarnings("unused")
-	private PlayListItem currentItem;// 当前的列表项
+	//@SuppressWarnings("unused")
+	private PlayListItem currentItem = null;// 当前的列表项
 	private PlayList currentPlayList;// 当前所使用的播放列表
 	private PlayerUI player;// 播放器的主UI界面兼播放器
 	private JList<Object> leftList, rightList;// 左边和右边的列表
-	private JSplitPane split;// 一个分隔栏
+	private JSplitPane split;// 一个分隔栏，左右列表的中间的分割栏
 	private Config config;// 全局配置对象
 	private final DataFlavor flavor = new DataFlavor(MyData.class, "内部数据");
 	private Vector<PlayList> playlists;// 所有的播放列表
@@ -98,7 +97,6 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 		this.setMinimumSize(new Dimension(285, 100));
 		this.setPreferredSize(new Dimension(285, 155));
 		this.setBackground(Config.getConfig().getPlaylistBackground1());
-		// this.setBackground(Color.RED);
 	}
 
 	public void setPlayerUI(PlayerUI player) {
@@ -106,14 +104,22 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 	}
 
 	/**
-	 * 设置当前正在播放的项,
+	 * 设置当前正在播放的项
 	 * 
-	 * @param item
+	 * @param item PlayListItem对象
 	 */
 	public void setCurrentItem(PlayListItem item) {
 		this.currentItem = item;
 		rightList.setSelectedValue(item, true);
 		rightList.clearSelection();
+	}
+
+	/**
+	 * 获取当前正在播放的项
+	 * @return PlayListItem对象
+	 */
+	public PlayListItem getCurrentItem(){
+		return currentItem;
 	}
 
 	public void loadUI(Component parent, Config config) {
@@ -159,8 +165,8 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 	}
 
 	private void initUI() {
-		leftList = new JList<Object>();
-		rightList = new JList<Object>();
+		leftList = new JList<Object>();//左侧分类列表
+		rightList = new JList<Object>();//右侧歌曲列表
 		leftList.setBackground(BG);
 		rightList.setBackground(BG);
 		leftList.setListData(playlists);
@@ -172,14 +178,15 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 		rightList.addMouseMotionListener(this);
 		JScrollPane jsp1 = new JScrollPane(leftList);
 		JScrollPane jsp2 = new JScrollPane(rightList);
-		// jsp1.setBorder(new EmptyBorder(0, 0, 0, 0));
-		// jsp2.setBorder(new EmptyBorder(0, 0, 0, 0));
+		//无边框设置
+		//jsp1.setBorder(new EmptyBorder(0, 0, 0, 0));
+		//jsp2.setBorder(new EmptyBorder(0, 0, 0, 0));
 		BasicScrollBarUI momo1 = new MOMOScrollBarUI();
 		BasicScrollBarUI momo2 = new MOMOScrollBarUI();
 		jsp1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		jsp2.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		jsp2.getVerticalScrollBar().setUI(momo1);
-		jsp1.getVerticalScrollBar().setUI(momo2);
+		jsp1.getVerticalScrollBar().setUI(momo1);
+		jsp2.getVerticalScrollBar().setUI(momo2);
 		jsp2.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
 
 			public void adjustmentValueChanged(AdjustmentEvent e) {
@@ -200,7 +207,9 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 				}
 			}
 		});
-		split = new JSplitPane(SwingConstants.VERTICAL, true, jsp1, jsp2);
+		split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, jsp1, jsp2);
+		//split.setOneTouchExpandable(true);//设置是否可以折叠
+		//split.setDividerSize(5);
 		split.setBorder(new EmptyBorder(0, 0, 0, 0));
 		this.add(split);
 		initDragList();
@@ -232,13 +241,9 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 	private void initDragList() {
 
 		DragSource ds = DragSource.getDefaultDragSource();
-		ds.createDefaultDragGestureRecognizer(rightList, DnDConstants.ACTION_COPY_OR_MOVE, new
+		ds.createDefaultDragGestureRecognizer(rightList, DnDConstants.ACTION_COPY_OR_MOVE, new DragGestureListener() {
 
-		DragGestureListener() {
-
-			public
-
-			void dragGestureRecognized(DragGestureEvent dge) {
+			public void dragGestureRecognized(DragGestureEvent dge) {
 				dge.startDrag(DragSource.DefaultCopyDrop, new Transferable() {
 
 					public DataFlavor[] getTransferDataFlavors() {
@@ -264,9 +269,7 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 				});
 			}
 		});
-		rightList.setTransferHandler(new
-
-		TransferHandler() {
+		rightList.setTransferHandler(new TransferHandler() {
 
 			private static final long serialVersionUID = 20071214L;
 
@@ -333,7 +336,6 @@ public class PlayListUI extends JPanel implements ActionListener, MouseListener,
 								toSelect = addFiles(f, ff, index);
 							}
 						}
-
 					} else if (trans.isDataFlavorSupported(DataFlavor.stringFlavor)
 							&& System.getProperty("os.name").startsWith("Linux")) {
 						obj = trans.getTransferData(DataFlavor.stringFlavor);

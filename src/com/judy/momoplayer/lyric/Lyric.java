@@ -129,7 +129,7 @@ public class Lyric implements Serializable {
                 } else {//如果网络也没有找到,就要加回去了
                     list.add(temp);
                 }
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(Lyric.class.getName()).log(Level.SEVERE, null, ex);
                 //如果抛了任何异常,也要加回去了
                 list.add(temp);

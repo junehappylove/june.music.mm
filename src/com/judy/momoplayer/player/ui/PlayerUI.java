@@ -131,7 +131,6 @@ public class PlayerUI extends JPanel implements Playerable, ActionListener, Chan
     public PlayerUI() {
         super(null);
         setPreferredSize(new Dimension(285, 155));
-
     }
 
     /**

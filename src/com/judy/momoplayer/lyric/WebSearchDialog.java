@@ -6,7 +6,6 @@
 package com.judy.momoplayer.lyric;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
@@ -360,7 +359,7 @@ public class WebSearchDialog extends javax.swing.JDialog {
                 } else {
                     item.setLyricFile(temp);
                 }
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 info.setText(Config.getResource("WebSearchDialog.saveLyricFailure") + path);
                 save.setEnabled(true);
                 table.setEnabled(true);
@@ -400,18 +399,23 @@ public class WebSearchDialog extends javax.swing.JDialog {
         //list.addAll(Util.getSearchResults(artist, title));
         //现在采用新方法
         ILrcDownload result = new GeCiMiLRC();
-        Lyrics lyrics = result.getLyrics(title, artist);
-        list.addAll(com.june.lrc.comm.LRCUtil.getSearchResults(lyrics));
-        table.revalidate();
-        sorter.allRowsChanged();
-        if (list.size() > 0) {
-            table.setEnabled(true);
-            save.setEnabled(true);
-        }
-        search.setEnabled(true);
-        artistJT.setEnabled(true);
-        titleJT.setEnabled(true);
-        info.setText(Config.getResource("WebSearchDialog.selectLyricToDownload"));
+        Lyrics lyrics = null;
+		try {
+			lyrics = result.getLyrics(title, artist);
+	        list.addAll(com.june.lrc.comm.LRCUtil.getSearchResults(lyrics));
+	        table.revalidate();
+	        sorter.allRowsChanged();
+	        if (list.size() > 0) {
+	            table.setEnabled(true);
+	            save.setEnabled(true);
+	        }
+	        search.setEnabled(true);
+	        artistJT.setEnabled(true);
+	        titleJT.setEnabled(true);
+	        info.setText(Config.getResource("WebSearchDialog.selectLyricToDownload"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
 
     /**

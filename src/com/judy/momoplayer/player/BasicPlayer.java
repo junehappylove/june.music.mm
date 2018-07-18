@@ -231,7 +231,6 @@ public class BasicPlayer implements BasicController, Runnable {
      * Inits AudioInputStream and AudioFileFormat from the data source.
      * @throws BasicPlayerException
      */
-    @SuppressWarnings("unchecked")
 	protected void initAudioInputStream() throws BasicPlayerException {
         try {
             reset();
@@ -245,14 +244,14 @@ public class BasicPlayer implements BasicController, Runnable {
             }
             createLine();
             // Notify listeners with AudioFileFormat properties.
-            Map<Object, Object> properties = null;
+            Map<String, Object> properties = null;
             if (m_audioFileFormat instanceof TAudioFileFormat) {
                 // Tritonus SPI compliant audio file format.
                 properties = ((TAudioFileFormat) m_audioFileFormat).properties();
                 // Clone the Map because it is not mutable.
                 properties = deepCopy(properties);
             } else {
-                properties = new HashMap<Object, Object>();
+                properties = new HashMap<String, Object>();
             }
             // Add JavaSound properties.
             if (m_audioFileFormat.getByteLength() > 0) {
@@ -283,7 +282,7 @@ public class BasicPlayer implements BasicController, Runnable {
             }
             if (audioFormat instanceof TAudioFormat) {
                 // Tritonus SPI compliant audio format.
-                Map<?, ?> addproperties = ((TAudioFormat) audioFormat).properties();
+                Map<String, Object> addproperties = ((TAudioFormat) audioFormat).properties();
                 properties.putAll(addproperties);
             }
             // Add SourceDataLine
@@ -841,12 +840,12 @@ public class BasicPlayer implements BasicController, Runnable {
      * @param src
      * @return
      */
-    protected Map<Object, Object> deepCopy(Map<Object, Object> src) {
-        HashMap<Object, Object> map = new HashMap<Object, Object>();
+    protected Map<String, Object> deepCopy(Map<String, Object> src) {
+        Map<String, Object> map = new HashMap<String, Object>();
         if (src != null) {
-            Iterator<Object> it = src.keySet().iterator();
+            Iterator<String> it = src.keySet().iterator();
             while (it.hasNext()) {
-                Object key = it.next();
+            	String key = it.next();
                 Object value = src.get(key);
                 map.put(key, value);
             }

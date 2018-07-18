@@ -5,6 +5,7 @@
  */
 package com.june.lrc.gcm;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,11 +27,10 @@ public class GeCiMiLRC implements ILrcDownload {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getLrcContent(String title, String artist) {
-        //去第一条数据
+    public String getLrcContent(String title, String artist) throws IOException {
+        //取第一条数据
         String url = null;
         try {
-            //url = MessageFormat.format(LRCConstants.GCM_URL_, LRCUtil.$(title), LRCUtil.$(artist));
             log.log(Level.INFO, "title:{0},artist:{1}", new String[]{title,artist});
             Lyrics lyrics = getLyrics(title, artist);
             if (!"0".equals(lyrics.getCount())) {
@@ -43,7 +43,7 @@ public class GeCiMiLRC implements ILrcDownload {
         return LRCUtil.getContentFormWeb(url);
     }
 
-    public Lyrics getLyrics(String title, String artist) {
+    public Lyrics getLyrics(String title, String artist) throws Exception {
         return LRCUtil.getGCMLyrics(title, artist);
     }
 

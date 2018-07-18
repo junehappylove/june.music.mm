@@ -170,7 +170,6 @@ public class PlayListItem implements Serializable {
 					bitRate = String.valueOf(bit) + "kbps";
 				}
 			}
-
 		}
 		return bitRate;
 	}
@@ -379,11 +378,11 @@ public class PlayListItem implements Serializable {
 	/**
 	 * Reads (or not) file comments/tags.
 	 *
-	 * @param l
+	 * @param location
 	 *            input location
 	 * @param readInfo
 	 */
-	private void setLocation(final String l, final boolean readInfo) {
+	private void setLocation(final String location, final boolean readInfo) {
 		if (isRead) {
 			return;
 		}
@@ -392,7 +391,7 @@ public class PlayListItem implements Serializable {
 			es.execute(new Runnable() {
 
 				public void run() {
-					setLocation0(l, readInfo);
+					setLocation0(location, readInfo);
 				}
 			});
 		} else {// 如果不是文件,则起个线程异步读出来
@@ -400,24 +399,24 @@ public class PlayListItem implements Serializable {
 
 				@Override
 				public void run() {
-					setLocation0(l, readInfo);
+					setLocation0(location, readInfo);
 				}
 			}.start();
 		}
 
 	}
 
-	private void setLocation0(String l, boolean readInfo) {
+	private void setLocation0(String location_, boolean readInfo) {
 		if (isRead) {
 			return;
 		}
 		isRead = readInfo;
-		location = l;
+		location = location_;
 		if (readInfo == true) {
 			// Read Audio Format and read tags/comments.
 			if ((location != null) && (!location.equals(""))) {
 				TagInfoFactory factory = TagInfoFactory.getInstance();
-				taginfo = factory.getTagInfo(l);
+				taginfo = factory.getTagInfo(location_);
 				log.log(Level.INFO, "taginfo={0}", taginfo);
 			}
 		}

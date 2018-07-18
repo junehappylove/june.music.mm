@@ -29,7 +29,7 @@ public interface ILrcDownload {
      * @param artist 歌手名
      * @return 歌曲内容
      */
-    String getLrcContent(String title, String artist);
+    String getLrcContent(String title, String artist) throws Exception;
 
     /**
      * 根据歌曲名和歌手名获取歌词对象列表
@@ -38,5 +38,5 @@ public interface ILrcDownload {
      * @param artist
      * @return 歌词对象集
      */
-    Lyrics getLyrics(String title, String artist);
+    Lyrics getLyrics(String title, String artist) throws Exception;
 }
