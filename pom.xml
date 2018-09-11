@@ -166,17 +166,17 @@
 	<build>
 		<finalName>${project.name}</finalName>
 		<resources>  
-        <resource> 
-            <directory>src/main/resources</directory>
-            <!-- 要排除掉resources目录下的jar文件 -->  
-            <includes>  
-                <include>**/*.properties</include>  
-                <include>**/*.xml</include>  
-                <include>**/*.tld</include>  
-                <include>**/*.png</include>  
-            </includes>  
-            <filtering>false</filtering>  
-        </resource>  
+	        <resource> 
+	            <directory>src/main/resources</directory>
+	            <!-- 要排除掉resources目录下的jar文件 -->  
+	            <includes>  
+	                <include>**/*.properties</include>  
+	                <include>**/*.xml</include>  
+	                <include>**/*.tld</include>  
+	                <include>**/*.png</include>  
+	            </includes>  
+	            <filtering>false</filtering>  
+	        </resource>  
         </resources>
 		<plugins>
 			<plugin>
@@ -194,6 +194,7 @@
 			        <source>1.8</source>
 			        <target>1.8</target>
 			        <archive>
+			        	<!-- 这里必须指定MANIFEST.MF文件，因为项目中有用到本地文件夹下的jar包 -->
 			        	<manifestFile>src/main/java/META-INF/MANIFEST.MF</manifestFile>
 			            <manifest>
 			                <addClasspath>true</addClasspath>
